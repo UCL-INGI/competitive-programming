@@ -13,7 +13,7 @@ network_grading: false
 problems:
     dp-intro-1:
         language: java
-        header: ''
+        header: Create a DP algorithm to compute the maximum sum subarray.
         name: Maximum sum subarray
         type: code
 stored_submissions: 0
