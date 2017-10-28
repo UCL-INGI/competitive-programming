@@ -2,6 +2,7 @@ name: Competitive Programming
 accessible: false
 admins:
 - faubry
+- fraubry
 tutors: []
 groups_student_choice: false
 use_classrooms: true
