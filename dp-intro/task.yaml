@@ -5,17 +5,18 @@ environment: python3
 evaluate: best
 groups: false
 limits:
-    memory: '100'
     output: '2'
+    memory: '100'
     time: '30'
 name: Dynamic Programming - Introduction
 network_grading: false
 problems:
-    dp-intro-1:
-        language: java
-        header: Create a DP algorithm to compute the maximum sum subarray.
-        name: Maximum sum subarray
-        type: code
+    dp-maxsubarraysum:
+        header: Create an algorithm that computes the maximum sum of a subarray.
+        type: code-file
+        name: Maximum subarray sum
+        allowed_exts:
+        - .java
 stored_submissions: 0
 submission_limit:
     amount: -1
