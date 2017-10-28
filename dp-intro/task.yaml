@@ -1,0 +1,23 @@
+accessible: true
+author: Aubry François
+context: In this task you will learn the basics of Dynamic Programming (DP for short).
+environment: python3
+evaluate: best
+groups: false
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: Dynamic Programming - Introduction
+network_grading: false
+problems:
+    dp-intro-1:
+        language: java
+        header: ''
+        name: Maximum sum subarray
+        type: code
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0
