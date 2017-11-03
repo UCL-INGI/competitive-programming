@@ -1,6 +1,9 @@
 accessible: true
 author: Aubry François
-context: In this task you will learn the basics of Dynamic Programming (DP for short).
+context: |-
+    In this task you will learn the basics of Dynamic Programming (DP for short).
+
+    \[ a \]
 environment: python3
 evaluate: best
 groups: false
@@ -12,7 +15,13 @@ name: Dynamic Programming - Introduction
 network_grading: false
 problems:
     dp-maxsubarraysum:
-        header: Create an algorithm that computes the maximum sum of a subarray.
+        header: |+
+            \[
+            Create an algorithm that computes the maximum sum of a subarray.
+
+            Let $a$ be an array of integers.
+            \]
+
         type: code-file
         name: Maximum subarray sum
         allowed_exts:
