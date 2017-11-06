@@ -3,7 +3,7 @@ author: Aubry François
 context: |-
     In this task you will learn the basics of Dynamic Programming (DP for short).
 
-    The *maximum sum subarray problem* is the following:
+    The **maximum sum subarray problem** is the following:
 
     Given an array :math:`a` with :math:`n` integers, we want to find a subarray of :math:`a` such that the sum of its elements is as large as possible.
 
