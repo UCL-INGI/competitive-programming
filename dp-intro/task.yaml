@@ -26,7 +26,8 @@ problems:
     dp1-maxarraysum-1:
         allowed_exts:
         - .java
-        header: ''
+        header: In this first subproblem we solve a slightly modified version of the
+            problem.
         name: Maximum sum subarray sum ending at
         type: code-file
 stored_submissions: 0
