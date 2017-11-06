@@ -9,7 +9,7 @@ context: |-
 
     Example:
 
-    .. image:: images-figure0.pdf
+    .. image:: public/images-figure0.pdf
 
     If :math:`a = [4, -2, -3, 4, -1, -2, 1, 5, -1]` then the maximum subarray of :math:`a` is :math:`[4, -1, -2, 1, 5]` with sum
     :math:`4 - 1 - 2 + 1 + 5 = 7`.
