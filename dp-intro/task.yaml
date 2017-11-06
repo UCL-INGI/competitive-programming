@@ -1,9 +1,10 @@
 accessible: true
 author: Aubry François
-context: |-
+context: |
     In this task you will learn the basics of Dynamic Programming (DP for short).
 
-    \[ a \]
+    math::
+    sum_{i = 1}^10 a_i
 environment: python3
 evaluate: best
 groups: false
