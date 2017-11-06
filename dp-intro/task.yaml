@@ -11,18 +11,10 @@ limits:
 name: Dynamic Programming - Introduction
 network_grading: false
 problems:
-    dp-maxsubarraysum:
-        header: |+
-            \[
-            Create an algorithm that computes the maximum sum of a subarray.
-
-            Let $a$ be an array of integers.
-            \]
-
+    dp1-maxarraysum-1:
+        header: ''
+        name: Maximum subarray sum ending at
         type: code-file
-        name: Maximum subarray sum
-        allowed_exts:
-        - .java
 stored_submissions: 0
 submission_limit:
     amount: -1
