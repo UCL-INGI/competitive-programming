@@ -1,21 +1,18 @@
 accessible: true
 author: Aubry François
-context: |
+context: |-
     In this task you will learn the basics of Dynamic Programming (DP for short).
 
     The *maximum sum subarray problem* is the following:
 
-    Given an array :math:`a` of integers we want to find a subarray of :math:`a` such that the sum of its elements is as large as possible.
+    Given an array :math:`a` with :math:`n` integers, we want to find a subarray of :math:`a` such that the sum of its elements is as large as possible.
 
-    For example:
+    Example:
 
-    .. math::
+    If :math:`a = [4, -2, -3, 4, -1, -2, 1, 5, -1]` then the maximum subarray of :math:`a` is :math:`[4, -1, -2, 1, 5]` with sum
+    :math:`4 - 1 - 2 + 1 + 5 = 7`.
 
-      \begin{tabular}{| c | c | c | c | c | c | c | c |}
-      \hline
-      -2 & -3 & 4 & 1 & -2 & 1 & 5 & -3
-      \hline
-      \end{tabular}
+    In this first example we will develop an :math:`O(n)` algorithm for this problem.
 environment: python3
 evaluate: best
 groups: false
