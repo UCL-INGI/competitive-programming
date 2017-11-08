@@ -35,7 +35,10 @@ problems:
         -   valid: true
             text: :math:`dp[i] = \max(dp[i - 1], dp[i - 1] + a[i], a[i])`
         type: multiple-choice
-        header: What is the relation between :math:`dp[i]` and :math:`dp[i - 1]`?
+        header: |-
+            What is the relation between :math:`dp[i]` and :math:`dp[i - 1]`?
+
+            **Hint:** Think about it in terms of choices, we either take element :math:`a[i]` or we don't.
         name: Subproblem relationship
         limit: 0
     dp1-maxarraysum-1:
