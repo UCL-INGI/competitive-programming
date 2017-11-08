@@ -1,6 +1,6 @@
 accessible: true
 author: Aubry François
-context: |-
+context: |+
     The **maximum sum subarray problem** is the following:
 
     Given an array :math:`a` with :math:`n` integers, we want to find a subarray of :math:`a` such that the sum of its elements is as large as possible.
@@ -9,10 +9,10 @@ context: |-
 
     Example:
 
-    .. image:: dp-intro/file.png
+    .. image:: dp-intro/example_maxsubarray.png
 
+    The goal of this task is to develop an :math:`O(n)` algorithm for this problem.
 
-    In this first example we will develop an :math:`O(n)` algorithm for this problem.
 environment: python3
 evaluate: best
 groups: false
