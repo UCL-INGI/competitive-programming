@@ -1,6 +1,6 @@
 accessible: true
 author: Aubry François
-context: |+
+context: |
     The **maximum sum subarray problem** is the following:
 
     Given an array :math:`a` with :math:`n` integers, we want to find a subarray of :math:`a` such that the sum of its elements is as large as possible.
@@ -13,6 +13,11 @@ context: |+
 
     The goal of this task is to develop an :math:`O(n)` algorithm for this problem.
 
+    Let :math:`dp[i]` denote the maximum sum we can make with the subarray formet by the first :math:`i` elements of :math:`a`,  :math:`a[0], a[1], \ldots, a[i]`.
+
+    The answer to our problem is :math:`dp[n - 1]` since this state consider the whole array :math:`a`.
+
+    In DP we need to relate the answer to one problem with the answer to smaller subproblems. How can we relate :math:`dp[i]` with :math:`dp[i - 1]`?
 environment: python3
 evaluate: best
 groups: false
