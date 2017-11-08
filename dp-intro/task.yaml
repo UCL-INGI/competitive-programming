@@ -5,12 +5,12 @@ context: |-
 
     Given an array :math:`a` with :math:`n` integers, we want to find a subarray of :math:`a` such that the sum of its elements is as large as possible.
 
+    Recall that subarray is a continuous range, you cannot skip some elements. Otherwise the problem would be trivial as one could just pick all positive elements.
+
     Example:
 
     .. image:: dp-intro/file.png
 
-    If :math:`a = [4, -2, -3, 4, -1, -2, 1, 5, -1]` then the maximum subarray of :math:`a` is :math:`[4, -1, -2, 1, 5]` with sum
-    :math:`4 - 1 - 2 + 1 + 5 = 7`.
 
     In this first example we will develop an :math:`O(n)` algorithm for this problem.
 environment: python3
