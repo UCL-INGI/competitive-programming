@@ -1,6 +1,9 @@
 accessible: true
 author: ''
-context: ''
+context: |-
+    Dynamic Programming (DP for short) in a fundamental technique in the development of efficient algorithms.
+
+    Mastering this technique will allow you to solve a lot of problem that seem intractable at first.
 environment: python3
 evaluate: best
 groups: false
@@ -8,14 +11,16 @@ limits:
     memory: '100'
     time: '30'
     output: '2'
-name: Dynamic Programmin - Theroy 1
+name: DP - Theroy 1
 network_grading: false
+order: 0
 problems:
     read:
         choices:
         -   valid: true
             text: 'Yes'
         type: multiple-choice
+        limit: 0
         name: Mark this section as read?
         header: ''
 stored_submissions: 0
