@@ -23,12 +23,21 @@ evaluate: best
 groups: false
 limits:
     output: '2'
-    memory: '100'
     time: '30'
+    memory: '100'
 name: DP - Maximum sum subarray
 network_grading: false
 order: 1
 problems:
+    dp-maxarraysum-relation:
+        choices:
+        -   text: :math:`dp[i] = \max(dp[i - 1], dp[i - 1] + a[i])`
+        -   valid: true
+            text: :math:`dp[i] = \max(dp[i - 1], dp[i - 1] + a[i], a[i])`
+        type: multiple-choice
+        header: What is the relation between :math:`dp[i]` and :math:`dp[i - 1]`?
+        name: Subproblem relationship
+        limit: 0
     dp1-maxarraysum-1:
         allowed_exts:
         - .java
