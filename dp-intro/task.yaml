@@ -24,12 +24,12 @@ context: |
     The answer to our problem is :math:`dp[n - 1]` since this state consider the whole array :math:`a`.
 
     In DP we need to relate the answer to one problem with the answer to smaller subproblems. How can we relate :math:`dp[i]` with :math:`dp[i - 1]`?
-environment: python3
+environment: java8scala
 evaluate: best
 groups: false
 limits:
     output: '2'
-    time: '30'
+    time: '1'
     memory: '100'
 name: DP - Maximum sum subarray
 network_grading: false
