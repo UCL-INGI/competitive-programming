@@ -3,20 +3,20 @@ from inginious import feedback
 import checker
 import time
 
-taksname = 'dp1-maxarraysum-1'
+taskname = 'dp1-maxarraysum-1'
 time_limit = 2
 
 def is_empty_file(fn):
   return os.path.getsize(fn) == 0
 
 
-system('getinput {0} > Main.java'.format(taskname))
+os.system('getinput {0} > Main.java'.format(taskname))
 
 classname = 'Main'
 os.system('javac {0}.java 2> err'.format(classname))
 
-if not is_empty_file(fn):
-  system('feedback --result failed --feedback {0}'.format('compilation error'))
+if not is_empty_file('err'):
+  os.system('feedback --result failed --feedback {0}'.format('compilation error'))
   exit(0)
 
 WA = 0
@@ -36,6 +36,6 @@ for fn in os.listdir('./tests/'):
         WA += 1
 
 if all_ok:
-  system('feedback --result success --feedback "{0}"'.format('correct'))
+  os.system('feedback --result success --feedback "{0}"'.format('correct'))
 else:
-  system('feedback --result failed --feedback "time limit exceed in {0} cases. wrong answer in {1} cases."'.format())
+  os.system('feedback --result failed --feedback "time limit exceed in {0} cases. wrong answer in {1} cases."'.format())
