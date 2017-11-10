@@ -29,7 +29,7 @@ evaluate: best
 groups: false
 limits:
     output: '2'
-    time: '1'
+    time: '30'
     memory: '100'
 name: DP - Maximum sum subarray
 network_grading: false
