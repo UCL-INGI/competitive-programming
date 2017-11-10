@@ -5,7 +5,7 @@ import time
 import math
 
 taskname = 'dp1-maxarraysum-1'
-time_limit = 2
+time_limit = 4
 
 def is_empty_file(fn):
   return os.path.getsize(fn) == 0
@@ -41,6 +41,6 @@ for fn in os.listdir('./tests/'):
         WA += 1
 
 if WA + TLE == 0:
-  os.system('feedback --result success --feedback "{0}"'.format('correct'))
+  os.system('feedback --result success --feedback "correct. max runtime is {0}"'.format(max_time))
 else:
-  os.system('feedback --result failed --feedback "wrong answer in {0} cases. time limit exceed in {1} cases. max runtime is {2}."'.format(WA, TLE, math.ceil(max_time)))
+  os.system('feedback --result failed --feedback "wrong answer in {0} cases. time limit exceed in {1} cases. max runtime is {2}."'.format(WA, TLE, max_time))
