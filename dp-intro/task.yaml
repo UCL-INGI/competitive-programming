@@ -1,6 +1,6 @@
 accessible: true
 author: Aubry François
-context: |-
+context: |+
     The **maximum sum subarray problem** is the following:
 
     Given an array :math:`a` with :math:`n` integers, we want to find a subarray of :math:`a` such that the sum of its elements is as large as possible.
@@ -22,11 +22,16 @@ context: |-
     1. The maximum sum subarray will end at some element :math:`a[i]`
     2. The reamining subarray is either empty, or it is a maximum sum subarray ending at element :math:`a[i - 1]`
 
-    The next figure illustrates this.
+    The next figure illustrates this the second part of 2.
 
     .. image:: dp-intro/maxsubarray3.png
 
-    Make sure you are convinced of this before you continue to read.
+    So, the only thing that is unknown is the index :math:`i` where the maximum sum subarray ends.
+
+    You should stop for a while and think about how to overcome this.
+
+    A very simple and common way to overcome it is to just try all possibilities and take the maximum one. That it, we can just compute the maximum sum subarray ending at each index :math:`i \in \{0, 1, \ldots, n - 1\}`. Then the maximum sum subarray of :math:`a` is simply the maximum of these.
+
 environment: java8scala
 evaluate: best
 groups: false
