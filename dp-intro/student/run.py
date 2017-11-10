@@ -4,7 +4,7 @@ import checker
 import time
 
 taskname = 'dp1-maxarraysum-1'
-time_limit = 2
+time_limit = 4
 
 def is_empty_file(fn):
   return os.path.getsize(fn) == 0
@@ -22,6 +22,8 @@ if not is_empty_file('err'):
 WA = 0
 TLE = 0
 
+max_time = 0
+
 for fn in os.listdir('./tests/'):
   if fn.endswith('.in'):
     print('running: {0}'.format(fn))
@@ -29,6 +31,7 @@ for fn in os.listdir('./tests/'):
     start_time = time.time()
     os.system('run_student --time {0} cat ./tests/{1} | java {2} > output'.format(time_limit, fn, classname))
     run_time = time.time() - start_time
+    max_time = max(max_time, run_time)
     if run_time > time_limit:
       TLE += 1
     else:
@@ -39,4 +42,4 @@ for fn in os.listdir('./tests/'):
 if WA + TLE == 0:
   os.system('feedback --result success --feedback "{0}"'.format('correct'))
 else:
-  os.system('feedback --result failed --feedback "time limit exceed in {0} cases. wrong answer in {1} cases."'.format(TLE, WA))
+  os.system('feedback --result failed --feedback "wrong answer in {0} cases. time limit exceed in {1} cases. max runtime is {2}."'.format(WA, TLE, max_time))
