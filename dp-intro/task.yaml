@@ -37,6 +37,16 @@ context: |-
     .. math::
 
       \textrm{maximum sum subarray of $a$} = \max_{i = 0}^{i - 1} maxEndingAt[i]
+
+    It only remains to find an efficient way to compute :math:`maxEndingAt[i]` for each :math:`i`.
+
+    Property 2. above gives us the answer. :math:`maxEndingAt[i]` will either be just the element :math:`a[i]` or it will be the maximum sum subarray ending at :math:`i - 1` plus :math:`a[i]`. That is:
+
+    .. math::
+
+      maxEndingAt[i] = \max(a[i], a[i] + maxEndingAt[i - 1])
+
+    This can easily be computed in :math:`O(n)`.
 environment: java8scala
 evaluate: best
 groups: false
