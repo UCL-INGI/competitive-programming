@@ -1,6 +1,6 @@
 import os
 from inginious import feedback
-from checker
+import checker
 import time
 
 taksname = 'dp1-maxarraysum-1'
