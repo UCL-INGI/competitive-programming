@@ -36,7 +36,7 @@ for fn in os.listdir('./tests/'):
       if not ok:
         WA += 1
 
-if all_ok:
+if WA + TLE == 0:
   os.system('feedback --result success --feedback "{0}"'.format('correct'))
 else:
   os.system('feedback --result failed --feedback "time limit exceed in {0} cases. wrong answer in {1} cases."'.format())
