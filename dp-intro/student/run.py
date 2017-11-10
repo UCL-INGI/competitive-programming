@@ -2,9 +2,10 @@ import os
 from inginious import feedback
 import checker
 import time
+import math
 
 taskname = 'dp1-maxarraysum-1'
-time_limit = 4
+time_limit = 2
 
 def is_empty_file(fn):
   return os.path.getsize(fn) == 0
@@ -42,4 +43,4 @@ for fn in os.listdir('./tests/'):
 if WA + TLE == 0:
   os.system('feedback --result success --feedback "{0}"'.format('correct'))
 else:
-  os.system('feedback --result failed --feedback "wrong answer in {0} cases. time limit exceed in {1} cases. max runtime is {2}."'.format(WA, TLE, max_time))
+  os.system('feedback --result failed --feedback "wrong answer in {0} cases. time limit exceed in {1} cases. max runtime is {2}."'.format(WA, TLE, math.ceil(max_time)))
