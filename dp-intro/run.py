@@ -9,8 +9,11 @@ time_limit = 2
 def is_empty_file(fn):
   return os.path.getsize(fn) == 0
 
-classname = input.get_input(taskname)
-os.system('javac {0} 2> err'.format(classname))
+
+system('getinput {0} > Main.java'.format(taskname))
+
+classname = 'Main'
+os.system('javac {0}.java 2> err'.format(classname))
 
 if not is_empty_file(fn):
   system('feedback --result failed --feedback {0}'.format('compilation error'))
