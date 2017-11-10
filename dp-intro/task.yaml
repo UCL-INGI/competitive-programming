@@ -24,7 +24,7 @@ context: |-
 
     The next figure illustrates this.
 
-    .. image:: dp-intro/maxsubarray2.png
+    .. image:: dp-intro/maxsubarray3.png
 
     Make sure you are convinced of this before you continue to read.
 environment: java8scala
