@@ -10,7 +10,6 @@ time_limit = 5
 def is_empty_file(fn):
   return os.path.getsize(fn) == 0
 
-
 os.system('getinput {0} > Main.java'.format(taskname))
 
 classname = 'Main'
