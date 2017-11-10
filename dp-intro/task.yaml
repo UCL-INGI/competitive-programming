@@ -1,6 +1,6 @@
 accessible: true
 author: Aubry François
-context: |+
+context: |-
     The **maximum sum subarray problem** is the following:
 
     Given an array :math:`a` with :math:`n` integers, we want to find a subarray of :math:`a` such that the sum of its elements is as large as possible.
@@ -32,6 +32,11 @@ context: |+
 
     A very simple and common way to overcome it is to just try all possibilities and take the maximum one. That it, we can just compute the maximum sum subarray ending at each index :math:`i \in \{0, 1, \ldots, n - 1\}`. Then the maximum sum subarray of :math:`a` is simply the maximum of these.
 
+    Define an array :math:`maxEndingAt` such that :math:`maxEndingAt[i]` is the maximum sum subarray of :math:`a` that ends at index :math:`i`. What we said above is that:
+
+    .. math::
+
+      \textrm{maximum sum subarray of $a$} = \max_{i = 0}^{i - 1} maxEndingAt[i]
 environment: java8scala
 evaluate: best
 groups: false
