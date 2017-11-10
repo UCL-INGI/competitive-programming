@@ -1,0 +1,22 @@
+accessible: true
+author: ''
+context: ''
+environment: python3
+evaluate: best
+groups: false
+limits:
+    output: '2'
+    memory: '100'
+    time: '30'
+name: Knapsack
+network_grading: false
+problems:
+    dp-knapsack-1:
+        header: ''
+        name: Knapsack
+        type: code-file
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0
