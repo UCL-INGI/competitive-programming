@@ -17,7 +17,7 @@ context: |-
     In order to do so, we will reason about the structure of the solution. All of these observation are quite obvious but they allow
     slightly modify the problem in order to make it easier to solve.
 
-    Observations:
+    **Observations:**
 
     1. The maximum sum subarray will end at some element :math:`a[i]`
     2. The reamining subarray is either empty, or it is a maximum sum subarray ending at element :math:`a[i - 1]`

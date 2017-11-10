@@ -5,7 +5,7 @@ import time
 import math
 
 taskname = 'dp1-maxarraysum-1'
-time_limit = 4
+time_limit = 5
 
 def is_empty_file(fn):
   return os.path.getsize(fn) == 0
