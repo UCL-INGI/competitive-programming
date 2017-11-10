@@ -61,9 +61,20 @@ problems:
     dp1-maxarraysum-1:
         allowed_exts:
         - .java
-        header: In this first subproblem we solve a slightly modified version of the
-            problem.
-        name: Maximum sum subarray sum ending at
+        header: |-
+            Write an :math:`O(n)` algorithm to compute the maximum sum subarray.
+
+            **Input**
+
+            The input consist of two lines.
+
+            1. The first line contains a single integer :math:`n` giving the size of :math:`a`.
+            2. The second line contains :math:`n` integers separated by single spaces giving the elements of :math:`a`.
+
+            **Output**
+
+            The output consists of a single line with an integer: the value of the maximum sum subarray.
+        name: Maximum sum subarray
         type: code-file
 stored_submissions: 0
 submission_limit:
