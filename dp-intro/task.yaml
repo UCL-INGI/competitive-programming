@@ -33,7 +33,7 @@ groups: false
 limits:
     output: '40'
     memory: '1000'
-    time: '30'
+    time: '50'
 name: DP - Maximum sum subarray
 network_grading: false
 order: 1
