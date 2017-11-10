@@ -24,6 +24,7 @@ TLE = 0
 
 for fn in os.listdir('./tests/'):
   if fn.endswith('.in'):
+    print('running: {0}'.format(fn))
     name = fn.split('.')[0]
     start_time = time.time()
     os.system('run_student --time {0} cat ./tests/{1} | java {2} > output'.format(time_limit, fn, classname))
