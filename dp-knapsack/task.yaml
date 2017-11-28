@@ -9,7 +9,13 @@ context: |-
 
     .. figure:: dp-knapsack/knapsack.png
 
-       Image source: wikipedia
+       *Image source: wikipedia*
+
+    The optimal solution is to take all items except the green one. The total weight is :math:`1 + 4 + 1 + 2 = 8 \leq 15` and the total value is :math:`2 + 10 + 1 + 2 = 15`.
+
+    In order to solve this problem with dynamic programming we first need to think about it as a sequence of choices. What are the choices we are making here?
+
+    For each item we have two options: either we take it or we don't.
 environment: python3
 evaluate: best
 groups: false
