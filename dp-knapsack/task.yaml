@@ -1,6 +1,8 @@
 accessible: true
 author: ''
-context: ''
+context: |+
+    In the Knapsack problem, you are given :math:`n` objects each one with a given integer weight :math:`w_i` and value :math:`v_i`. You can take a subset of these objects such that the sum of their weights is at most a given capacity value :math:`C`. The goal is to maximize the total value of the selected items.
+
 environment: python3
 evaluate: best
 groups: false
@@ -13,8 +15,8 @@ network_grading: false
 problems:
     dp-knapsack-1:
         header: ''
-        name: Knapsack
         type: code-file
+        name: Knapsack
 stored_submissions: 0
 submission_limit:
     amount: -1
