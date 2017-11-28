@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |+
+context: |-
     In the Knapsack problem, you are given :math:`n` objects each one with a given integer weight :math:`w_i` and value :math:`v_i`. You can take a subset of these objects such that the sum of their weights is at most a given capacity value :math:`C`. The goal is to maximize the total value of the selected objects.
 
       **Example**
@@ -52,6 +52,11 @@ context: |+
         v_i + dp(i + 1, c - w_i) & \quad \text{take item $i$}
       \end{cases}
 
+    There are a couple of observations that we need to make about this recurrence.
+
+    1. At some point the index of the current item will reach the value :math:`n`. The subproblems of the form :math:`dp(n, c)` mean: what is the maximum value we can obtain from selecting a subset of objects from an *empty* set of object on a knapsack of capacity :math:`c`. Clearly the answer in this case is 0 as there are not items to choose from.
+
+    2. At some point the knapsack capacity may become negative as the second option, taking item :math:`i`is only possible if :math:`c - w_i \geq 0`. An easy way to overcome this is to define the value of  a subproblem with negative capacity to be :math:`-\infty`.
 environment: python3
 evaluate: best
 groups: false
