@@ -48,15 +48,29 @@ context: |-
 
       dp(i, c) = \max
       \begin{cases}
-        dp(i + 1, c)      & \quad \text{do not take item $i$} \\
+        dp(i + 1, c)      & \quad {\color{gray} \text{do not take item $i$}} \\
         v_i + dp(i + 1, c - w_i) & \quad \text{take item $i$}
       \end{cases}
 
     There are a couple of observations that we need to make about this recurrence.
 
-    1. At some point the index of the current item will reach the value :math:`n`. The subproblems of the form :math:`dp(n, c)` mean: what is the maximum value we can obtain from selecting a subset of objects from an *empty* set of object on a knapsack of capacity :math:`c`. Clearly the answer in this case is 0 as there are not items to choose from.
+    1. At some point the index of the current item will reach the value :math:`n`. The subproblems of the form :math:`dp(n, c)` mean: what is the maximum value we can obtain from selecting a subset of objects from an *empty* set of objects on a knapsack of capacity :math:`c`. Clearly the answer in this case is 0 as there are no objects to choose from.
 
-    2. At some point the knapsack capacity may become negative as the second option, taking item :math:`i`is only possible if :math:`c - w_i \geq 0`. An easy way to overcome this is to define the value of  a subproblem with negative capacity to be :math:`-\infty`.
+    2. At some point the knapsack capacity may become negative as the second option, taking object :math:`i` is only possible if :math:`c - w_i \geq 0`. An easy way to overcome this is to define the value of a subproblem with negative capacity to be :math:`-\infty`.
+
+    With this observations we can complete our recurrence relation:
+
+
+    .. math::
+
+      dp(n, c) = 0
+      dp(i, c) = -\infty
+
+      dp(i, c) = \max
+      \begin{cases}
+        dp(i + 1, c)      & \quad \text{do not take item $i$} \\
+        v_i + dp(i + 1, c - w_i) & \quad \text{take item $i$}
+      \end{cases}
 environment: python3
 evaluate: best
 groups: false
