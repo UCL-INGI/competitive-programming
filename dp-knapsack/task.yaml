@@ -5,7 +5,7 @@ context: |-
 
     **Example**
 
-    Consider a knapsack with capacity 15 and 5 items with weights 12, 1, 4, 1, 2 and values 4, 2, 10, 1, 2 as show in the figure:
+    Consider the knapsack with capacity 15 and the items shown in the following figure.
 
     .. figure:: dp-knapsack/knapsack.png
 
