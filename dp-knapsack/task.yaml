@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |
+context: |-
     In the Knapsack problem, you are given :math:`n` objects each one with a given integer weight :math:`w_i` and value :math:`v_i`. You can take a subset of these objects such that the sum of their weights is at most a given capacity value :math:`C`. The goal is to maximize the total value of the selected items.
 
     **Example**
@@ -8,8 +8,8 @@ context: |
     Consider a knapsack with capacity 15 and 5 items with weights 12, 1, 4, 1, 2 and values 4, 2, 10, 1, 2 as show in the figure:
 
     .. figure:: dp-knapsack/knapsack.png
-       :scale: 50 %
-       :alt: map to buried treasure
+
+       Image source: wikipedia
 environment: python3
 evaluate: best
 groups: false
