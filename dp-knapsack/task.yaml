@@ -29,25 +29,19 @@ context: |+
     1. The index of the current item :math:`i`
     2. The remaining capacity :math:`c`
 
-    We call such a pair :math:`(i, c)` a *subproblem*. The meaning of the sub-problem :math:`(i, c)` is:
+    We call such a pair :math:`(i, c)` a *subproblem*. The meaning of the subproblem :math:`(i, c)` is:
 
-      :math:`(i, c) =` what is the maximum value we can obtain by
-      selecting a subset of the items :math:`i, i + 1, \ldots, n - 1`
-      from a knapsack of capacity :math:`c`?
+      what is the maximum value we can obtain by selecting a subset of
+      the items :math:`i, i + 1, \ldots, n - 1` from a knapsack of
+      capacity :math:`c`?
 
-    The original problem is described by the state :math:`(0, C)` since it represents that the current decision is about whether or not to put item 0 on a knapsack of capacity :math:`C`.
+    The original problem is described by the subproblem :math:`(0, C)` since it represents the maximum value we can obtain by selecting a subsets of all items on a knapsack of capacity :math:`C`.
 
-    The next step is to think how the states relate to each other. For that we need to look at the *choices* that we have at each state.
+    The next step is to think how the subproblems relate to each other. For that we need to look at the *choices* that we have at each state.
 
     - *If we do not take item 0* then we go to state :math:`(1, C)`. This is because the next step is to make the decision of item 1 and the capacity of the knapsack remains unchanged since we did not put any item in it.
     - *If we take item 0* then go to state :math:`(1, C - w_0)` because we now have to make a decision for item :math:`1` but on a knapsack with capacity :math:`C - w_0` since item 0 is inside the knapsack.
 
-    Before we continue with the solution, let's see another way to think about this.
-
-    Another way to think about the state is to think the pairs :math:`(i, c)` as sub-problems. The pair :math:`(i, c)` represents the sub-problem of putting items :math:`i, i + 1, \ldots, n - 1` in a knapsack of capacity :math:`c`. Now notice that after making a decision we are left with a new instance of the knapsack problem to solve:
-
-    - If we do not put item 0 in the knapsack we have a new problem to solve which is what is the best value we can get from putting items :math:`1, 2, \ldots, n - 1` in a knapsack of capacity :math:`C`?
-    - If we put item 0 in the knapsack we have a new problem to solve which is what is the best value we can get from putting items :math:`1, 2, \ldots, n - 1` in a knapsack of capacity :math:`C - w_0`?
 
 environment: python3
 evaluate: best
