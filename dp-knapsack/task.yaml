@@ -3,15 +3,17 @@ author: ''
 context: |
     In the Knapsack problem, you are given :math:`n` objects each one with a given integer weight :math:`w_i` and value :math:`v_i`. You can take a subset of these objects such that the sum of their weights is at most a given capacity value :math:`C`. The goal is to maximize the total value of the selected items.
 
-    **Example**
+    * **Example**
 
-    Consider the knapsack with capacity 15 and the items shown in the following figure.
+      Consider the knapsack with capacity 15 and the items shown in the
+      following figure.
 
-    .. figure:: dp-knapsack/knapsack.png
+      .. image:: dp-knapsack/knapsack.png
+      *Image source: wikipedia*
 
-       *Image source: wikipedia*
-
-    The optimal solution is to take all items except the green one. The total weight is :math:`1 + 4 + 1 + 2 = 8 \leq 15` and the total value is :math:`2 + 10 + 1 + 2 = 15`.
+      The optimal solution is to take all items except the green one.
+      The total weight is :math:`1 + 4 + 1 + 2 = 8 \leq 15` and the
+      total value is :math:`2 + 10 + 1 + 2 = 15`.
 
     In order to solve this problem with dynamic programming we first need to think about it as a sequence of choices. What are the choices we are making here?
 
