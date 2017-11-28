@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |+
+context: |
     In the Knapsack problem, you are given :math:`n` objects each one with a given integer weight :math:`w_i` and value :math:`v_i`. You can take a subset of these objects such that the sum of their weights is at most a given capacity value :math:`C`. The goal is to maximize the total value of the selected items.
 
     **Example**
@@ -17,8 +17,14 @@ context: |+
 
     For each item we have two options: either we take it or we don't. So far so good. The next step is to think about what information to we need to keep track of in order to decide whether a choice is possible? Do we need to know what items were taken so far?
 
-    No. The exact set of items taken so far is too much information, all we need to know is the remaining capacity in the knapsack. If the remaining capacity is larger than the object we are deciding on then we can take it. Otherwise we are forced to not take it.
+    No. The exact set of items taken so far is too much information, all we need to know is the remaining capacity in the knapsack. If the remaining capacity is larger than or equal to the weight of the object we are deciding on, then we can take either take it or not take it. Otherwise we are forced to not take it.
 
+    Also, observe that the order in which the decisions are made does not matter. If a set of objects fits into the knapsack, it does not matter in which order you decided to put them, only the total weight matters.
+
+    This suggests that we go through the objects one by one, in the order in which they are given and for each of them make a decision. Given what we said above this means that we need to keep track of two pieces of information:
+
+    1. The index of the current item :math:`i`
+    2. The remaining capacity :math:`c`
 environment: python3
 evaluate: best
 groups: false
