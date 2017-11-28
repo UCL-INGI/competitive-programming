@@ -29,7 +29,13 @@ context: |+
     1. The index of the current item :math:`i`
     2. The remaining capacity :math:`c`
 
-    We call such a pair :math:`(i, c)` a *state* of the problem. The original problem is described by the state :math:`(0, C)` since it represents that the current decision is about whether or not to put item 0 on a knapsack of capacity :math:`C`.
+    We call such a pair :math:`(i, c)` a *subproblem*. The meaning of the sub-problem :math:`(i, c)` is:
+
+      :math:`(i, c) =` what is the maximum value we can obtain by
+      selecting a subset of the items :math:`i, i + 1, \ldots, n - 1`
+      from a knapsack of capacity :math:`c`?
+
+    The original problem is described by the state :math:`(0, C)` since it represents that the current decision is about whether or not to put item 0 on a knapsack of capacity :math:`C`.
 
     The next step is to think how the states relate to each other. For that we need to look at the *choices* that we have at each state.
 
