@@ -46,7 +46,11 @@ context: |+
 
     .. math::
 
-      dp(i, c) = \max \{ dp(i + 1, c), v_i + dp(i + 1, c - w_i) \}
+      dp(i, c) = \max
+      \begin{cases}
+        dp(i + 1, c)      & \quad \text{do not take item $i$} \\
+        v_i + dp(i + 1, c - w_i) & \quad \text{take item $i$}
+      \end{cases}
 
 environment: python3
 evaluate: best
