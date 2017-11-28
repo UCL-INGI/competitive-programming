@@ -7,7 +7,7 @@ context: |
 
     Consider a knapsack with capacity 15 and 5 items with weights 12, 1, 4, 1, 2 and values 4, 2, 10, 1, 2 as show in the figure:
 
-    .. image:: dp-intro/knapsack.png
+    .. image:: dp-knapsack/knapsack.png
 environment: python3
 evaluate: best
 groups: false
