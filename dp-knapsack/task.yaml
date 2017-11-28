@@ -35,14 +35,18 @@ context: |+
       selecting a subset of the objects :math:`i, i + 1, \ldots, n - 1`
       from a knapsack of capacity :math:`c`.
 
-    The original problem is described by the subproblem :math:`(0, C)` since it represents the maximum value we can obtain by selecting a subsets of all objects on a knapsack of capacity :math:`C`.
+    The original problem is described by the *state* :math:`(0, C)` since :math:`dp(0, C)` represents the maximum value we can obtain by selecting a subsets of *all* objects on a knapsack of capacity :math:`C`.
 
     The next step is to think how the subproblems relate to each other. For that we need to look at the *choices* that we have at each state.
 
-    - *If we do not take object 0* then we need to solve the subproblem :math:`(1, C)`: what is the maximum value we can get by putting a subset of the objects :math:`1, 2, \ldots, n - 1` into a knapsack of capacity :math:`C`? This is because we already made a decision for object 0 and since we did not put it into the knapsack, we have the full capacity remaining for the other objects.
-    - *If we take object 0* then we need to solve the subproblem :math:`(1, C - w_0)`: what is the maximum value that we can get by putting a subset of the objects :math:`1, 2, \ldots, n - 1` into a knapsack of capacity :math:`C - w_0`? This is because we put object 0 so we the knapsack capacity to put the remaining objects is recuced by the weight of object 0, :math:`w_0`.
+    - *If we do not take object 0* then we need to solve the subproblem :math:`dp(1, C)`: what is the maximum value we can get by putting a subset of the objects :math:`1, 2, \ldots, n - 1` into a knapsack of capacity :math:`C`? This is because we already made a decision for object 0 and since we did not put it into the knapsack, we have the full capacity remaining for the other objects.
+    - *If we take object 0* then we need to solve the subproblem :math:`dp(1, C - w_0)`: what is the maximum value that we can get by putting a subset of the objects :math:`1, 2, \ldots, n - 1` into a knapsack of capacity :math:`C - w_0`? This is because we put object 0 so we the knapsack capacity to put the remaining objects is recuced by the weight of object 0, :math:`w_0`.
 
-    We can then write a recurrence relation:
+    We can then write a recurrence relation between subproblems:
+
+    .. math::
+
+      dp(i, c) = \max \{ dp(i + 1, c), v_i + dp(i + 1, c - w_i) \}
 
 environment: python3
 evaluate: best
