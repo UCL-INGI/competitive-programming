@@ -129,7 +129,7 @@ problems:
     dp-knapsack-1:
         allowed_exts:
         - .java
-        header: |+
+        header: |
             Put all the pieces that we discussed above together and write a solution for the Knapsack problem.
 
             **Input**
@@ -150,7 +150,7 @@ problems:
 
             **Sample Input 1**
 
-
+            .. _input: dp-knapsack/sample1.in
         type: code-file
         name: Knapsack
 stored_submissions: 0
