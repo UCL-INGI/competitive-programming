@@ -127,7 +127,22 @@ name: DP - Knapsack
 network_grading: false
 problems:
     dp-knapsack-1:
-        header: ''
+        allowed_exts:
+        - .java
+        header: |
+            Put all the pieces that we discussed above together and write a solution for the Knapsack problem.
+
+            The input is given in stdin and consists of:
+
+            - One line with two integers :math:`n` and :math:`C` giving the number of objects and knapsack capacity respectively.
+
+            - :math:`n` lines each with two integers :math:`v` and :math:`w` giving the values and  weights of the items.
+
+            Constraints:
+
+            * :math:`1 \leq n \leq 1000`
+            * :math:`1 \leq C \leq 1000`
+            * :math:`1 \leq v, w \leq 100`
         type: code-file
         name: Knapsack
 stored_submissions: 0
