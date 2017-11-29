@@ -110,6 +110,12 @@ context: |-
         memo[i][c] = Math.max(notTake, take);
         return memo[i][c];
       }
+
+    The matrix has size :math:`n \times (C + 1)` since :math:`i` can range between 0 and :math:`n - 1` and :math:`c` can range between 0 and :math:`C`. It should this be initialized before calling *dp* as follows:
+
+    .. code:: java
+
+      memo = new Double[n][C + 1];
 environment: python3
 evaluate: best
 groups: false
