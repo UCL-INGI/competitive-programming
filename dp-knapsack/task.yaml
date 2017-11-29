@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |+
+context: |-
     In the Knapsack problem, you are given :math:`n` objects each one with a given integer weight :math:`w_i` and value :math:`v_i`. You can take a subset of these objects such that the sum of their weights is at most a given capacity value :math:`C`. The goal is to maximize the total value of the selected objects.
 
       **Example**
@@ -93,6 +93,23 @@ context: |+
 
     This is easy to overcome. Look at the recursive call parameters. It is a state :math:`(i, c)`. How many *different* such states exist? The answer to this is simply the number of possible values for :math:`i` times the number of possible values for :math:`c`, that is, :math:`O(n \cdot C)`. Since there are :math:`O(2^n)` recursive calls and each of them corresponds to a state, if :math:`2^n > n \cdot C`it must be the case that we have repeated recurive calls. We can avoid this repetition by storing the result of each recursive call in a table. Then, we can simply check whether the current state has already been computed and return the value that was stored previously if that is the case.
 
+    .. code:: java
+
+      static int n, C;
+      static int[] v, w;
+      static Double[][] memo;
+
+      static double dp(int i, int c) {
+        if(i == n) return 0;
+        if(c < 0) return Double.NEGATIVE_INFINITY;
+        if(memo[i][c] != null) return memo[i][c];
+        // do not take item i
+        double notTake = dp(i + 1, c);
+        // take item i
+        double take = v[i] + dp(i + 1, c - w[i]);
+        memo[i][c] = Math.max(notTake, take);
+        return memo[i][c];
+      }
 environment: python3
 evaluate: best
 groups: false
