@@ -150,10 +150,7 @@ problems:
 
             **Sample Input 1**
 
-            Python_ is `my favourite
-            programming language`.
-
-            .. _Python: http://www.python.org/
+            .. _`Sample input 1`: http://www.python.org/
 
         type: code-file
         name: Knapsack
