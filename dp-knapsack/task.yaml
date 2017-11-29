@@ -85,6 +85,8 @@ context: |-
       }
 
     The reason for using doubles here is simply because it provides a negative infinity that behaves as :math:`-\infty + x = -\infty`.
+
+    Now just like this, the code still runs very slowly since for each state it will make two recursive calls. Thus the total number of recursive calls is :math:`O(2^n)`.
 environment: python3
 evaluate: best
 groups: false
