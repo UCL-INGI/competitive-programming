@@ -150,15 +150,16 @@ problems:
             * :math:`1 \leq C \leq 1000`
             * :math:`1 \leq v, w \leq 100`
 
-            **Sample Input**
+            **Sample Test Cases**
 
             `Sample input 1 <dp-knapsack/1.in>`_
-            `Sample input 1 <dp-knapsack/2.in>`_
-
-            **Sample Output**
 
             `Sample output 1 <dp-knapsack/1.ans>`_
-            `Sample output 1 <dp-knapsack/2.ans>`_
+
+
+            `Sample input 2 <dp-knapsack/2.in>`_
+
+            `Sample output 2 <dp-knapsack/2.ans>`_
         type: code-file
         name: Knapsack
 stored_submissions: 0
