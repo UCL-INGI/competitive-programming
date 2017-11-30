@@ -31,7 +31,7 @@ context: |+
 
     .. math::
 
-       dp(v) = \min_{u \textrm{in-neighbor of } v} dp(u) + w(u, v)
+       dp(v) = \min_{u \ \textrm{in-neighbor of} \ v} dp(u) + w(u, v)
 
 environment: scapy
 evaluate: best
