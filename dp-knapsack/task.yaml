@@ -102,11 +102,13 @@ context: |-
       static double dp(int i, int c) {
         if(i == n) return 0;
         if(c < 0) return Double.NEGATIVE_INFINITY;
+        // check if the value for state (i, c) has already been computed
         if(memo[i][c] != null) return memo[i][c];
         // do not take item i
         double notTake = dp(i + 1, c);
         // take item i
         double take = v[i] + dp(i + 1, c - w[i]);
+        // memorize the value of state (i, c)
         memo[i][c] = Math.max(notTake, take);
         return memo[i][c];
       }
