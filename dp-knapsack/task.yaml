@@ -129,7 +129,7 @@ problems:
     dp-knapsack-1:
         allowed_exts:
         - .java
-        header: |
+        header: |-
             Put all the pieces that we discussed above together and write a solution for the Knapsack problem.
 
             **Input**
@@ -148,13 +148,13 @@ problems:
             * :math:`1 \leq C \leq 1000`
             * :math:`1 \leq v, w \leq 100`
 
-            **Sample Input 1**
+            **Sample Input**
 
-            .. download:: dp-knapsack/sample1.in
+            Sample input 1 `mon fichier <dp-knapsack/sample1.in>`_.
 
-            raw:: html
+            **Sample Output**
 
-              <a href="lien_vers_mon_fichier" target="_blank">Introduction to Programming Using Java (JavaNotes)</a>
+            Sample output 1 `mon fichier <dp-knapsack/sample1.in>`_.
         type: code-file
         name: Knapsack
 stored_submissions: 0
