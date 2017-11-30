@@ -3,7 +3,7 @@ author: ''
 context: |-
     In this section we will discuss some theoretical aspects of DP a bit further.
 
-    Underlying a DP problem there is a state graph. The nodes of this graph are the DP states defined for the problem. There is an edge between two states if the two states depend directly on each other in the recurrence relation.
+    Underlying a DP problem there is a state graph. The nodes of this graph are the states defined for the problem. There is an edge between two states if the two states depend directly on each other in the recurrence relation.
 
     To illustrate this, let's go back to the Knapsack example. The states are pairs :math:`(i, c)`. They are related to each other by two actions: taking or skipping object :math:`i` as shown in the following picture.
 
@@ -13,7 +13,9 @@ context: |-
 
     The reason why this graph is acyclic is that the first coordinate of each node, the object index, is strictly increasing in any path of the graph.
 
-    This is a crutial property that our DP formulation must satisfy. If we happend to have cycles in the DP state graph then the order of the subproblems is not well defined and the algorithm will loop forever.
+    This is a **crutial** property that our DP formulation must satisfy. If we happend to have cycles in the DP state graph then the order of the subproblems is not well defined and the algorithm will loop forever because the answer to some subproblems will depend on itself.
+
+    To better illustrate this consider the shortest path problem. Given a weighted graph and a node :math:`s` we want to compute the shortest path length from :math:`s` to each other node.
 environment: scapy
 evaluate: best
 groups: false
