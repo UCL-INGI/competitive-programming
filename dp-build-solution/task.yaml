@@ -1,24 +1,23 @@
 accessible: true
 author: ''
-context: |
-    dp(i, v) = minimum weight to achieve value v with the first i items
+context: ''
 environment: scapy
 evaluate: best
 groups: false
 limits:
-    memory: '100'
     output: '2'
+    memory: '100'
     time: '30'
-name: DP - Knapsack 2
+name: DP - Knapsack, build the solution
 network_grading: false
 problems:
-    dp-knapsack-value:
+    dp-build-solution:
         header: ''
-        name: ''
         type: code-file
+        name: ''
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
 weight: 1.0
-order: 5
+order: 4

@@ -8,20 +8,20 @@ environment: python3
 evaluate: best
 groups: false
 limits:
+    output: '2'
     memory: '100'
     time: '30'
-    output: '2'
-name: DP - Theroy 1
+name: DP - Introduction
 network_grading: false
 order: 0
 problems:
     read:
+        name: Mark this section as read?
+        type: multiple-choice
         choices:
         -   valid: true
             text: 'Yes'
-        type: multiple-choice
         limit: 0
-        name: Mark this section as read?
         header: ''
 stored_submissions: 0
 submission_limit:
