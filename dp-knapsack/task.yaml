@@ -129,7 +129,7 @@ problems:
     dp-knapsack-1:
         allowed_exts:
         - .java
-        header: |-
+        header: |
             Put all the pieces that we discussed above together and write a solution for the Knapsack problem.
 
             **Input**
@@ -140,7 +140,9 @@ problems:
 
             **Output**
 
-            A single line with the maximum value that can be achieve by taking a subset of the items with total weight at most :math:`C`.
+            A single line with an integer giving the maximum value that can be achieve by taking a subset of the items with total weight at most :math:`C`.
+
+            Do not forget to print the answer as an int and not a double.
 
             **Constraints**
 
@@ -150,11 +152,13 @@ problems:
 
             **Sample Input**
 
-            `Sample input 1 <dp-knapsack/sample1.in>`_
+            `Sample input 1 <dp-knapsack/1.in>`_
+            `Sample input 1 <dp-knapsack/2.in>`_
 
             **Sample Output**
 
-            `Sample output 1 <dp-knapsack/sample1.in>`_
+            `Sample output 1 <dp-knapsack/1.ans>`_
+            `Sample output 1 <dp-knapsack/2.ans>`_
         type: code-file
         name: Knapsack
 stored_submissions: 0
