@@ -150,11 +150,11 @@ problems:
 
             **Sample Input**
 
-            Sample input 1 `mon fichier <dp-knapsack/sample1.in>`_.
+            `Sample input 1 <dp-knapsack/sample1.in>`_
 
             **Sample Output**
 
-            Sample output 1 `mon fichier <dp-knapsack/sample1.in>`_.
+            `Sample output 1 <dp-knapsack/sample1.in>`_
         type: code-file
         name: Knapsack
 stored_submissions: 0
