@@ -7,7 +7,7 @@ context: |+
 
     To illustrate this, let's go back to the Knapsack example. The states are pairs :math:`(i, c)`. They are related to each other by two actions: taking or skipping object :math:`i` as shown in the following picture.
 
-      .. image:: dp-stategraph/knapsack-states.png
+    .. image:: dp-stategraph/knapsack-states.png
 
     We claim that this graph does not contain cycles. We encourage you to think about why this is true before reading further.
 
