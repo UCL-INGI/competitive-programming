@@ -1,14 +1,17 @@
 accessible: true
 author: ''
-context: |+
+context: |-
     In this section we will discuss some theoretical aspects of DP a bit further.
 
     Underlying a DP problem there is a state graph. The nodes of this graph are the DP states defined for the problem. There is an edge between two states if the two states depend directly on each other in the recurrence relation.
 
-    To illustrate this, let's go back to the Knapsack example. The states are pairs :math:`(i, c)`. The states are related to each other by two actions: taking or skipping item :math:`i` as shown in the following picture.
+    To illustrate this, let's go back to the Knapsack example. The states are pairs :math:`(i, c)`. They are related to each other by two actions: taking or skipping object :math:`i` as shown in the following picture.
 
+      .. image:: dp-stategraph/knapsack-states.png
 
+    We claim that this graph does not contain cycles. We encourage you to think about why this is true before reading further.
 
+    The reason why this graph is acyclic is that the first coordinate of each node, the object index, is strictly increasing in any path of the graph.
 environment: scapy
 evaluate: best
 groups: false
