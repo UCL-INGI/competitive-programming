@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |-
+context: |+
     In this section we will discuss some theoretical aspects of DP a bit further.
 
     Underlying a DP problem there is a state graph. The nodes of this graph are the states defined for the problem. There is an edge between two states if the two states depend directly on each other in the recurrence relation.
@@ -15,11 +15,24 @@ context: |-
 
     This is a **crutial** property that our DP formulation must satisfy. If we happend to have cycles in the DP state graph then the order of the subproblems is not well defined and the algorithm will loop forever because the answer to some subproblems will depend on itself.
 
-    To better illustrate this consider the shortest path problem. Given a weighted graph and a node :math:`s` we want to compute the shortest path length from :math:`s` to each other node. Let's have a state for each node :math:`v` of the input graph and define DP subproblems as follows:
+    To better illustrate this consider the shortest path problem. Given a graph with positive edge weights and a node :math:`s` we want to compute the shortest path length from :math:`s` to each other node. Let's have a state for each node :math:`v` of the input graph and define DP subproblems as follows:
 
     .. math::
 
        dp(v) = \textrm{length of the shortest path from $s$ to $v$}
+
+    Clearly :math:`dp(s) = 0` since the shortest path from :math:`s` to itself is the empty path (we just stay where we are). Otherwise, to reach :math:`v`, we will have to go from :math:`s` to some node :math:`u` that is connected to :math:`v` and then traverse edge :math:`(u, v)`. But since we want a shortest path to reach :math:`v`, of course we will use a shortest path to reach :math:`u` as the following figure illustrates.
+
+    .. image:: dp-stategraph/shortestpath.png
+
+    This means that we reduced the problem :math:`dp(v)` of computing the shortest path to :math:`v`, to the problem of computing the shortest path to each in-neighbor :math:`u` of :math:`v`.
+
+    We the write the following recurrence relation:
+
+    .. math::
+
+       dp(v) = \min_{u \textrm{in-neighbor of } v} dp(u) + w(u, v)
+
 environment: scapy
 evaluate: best
 groups: false
