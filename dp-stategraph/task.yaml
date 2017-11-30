@@ -26,7 +26,7 @@ problems:
         choices:
         -   valid: true
             text: 'Yes'
-        name: Did you read this section?
+        name: Mark this sections as read?
         header: ''
         type: multiple-choice
         limit: 0
