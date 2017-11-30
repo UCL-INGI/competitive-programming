@@ -151,6 +151,10 @@ problems:
             **Sample Input 1**
 
             .. download:: dp-knapsack/sample1.in
+
+            raw:: html
+
+              <a href="lien_vers_mon_fichier" target="_blank">Introduction to Programming Using Java (JavaNotes)</a>
         type: code-file
         name: Knapsack
 stored_submissions: 0
