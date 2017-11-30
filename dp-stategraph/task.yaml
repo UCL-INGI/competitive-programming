@@ -12,6 +12,8 @@ context: |-
     We claim that this graph does not contain cycles. We encourage you to think about why this is true before reading further.
 
     The reason why this graph is acyclic is that the first coordinate of each node, the object index, is strictly increasing in any path of the graph.
+
+    This is a crutial property that our DP formulation must satisfy. If we happend to have cycles in the DP state graph then the order of the subproblems is not well defined and the algorithm will loop forever.
 environment: scapy
 evaluate: best
 groups: false
