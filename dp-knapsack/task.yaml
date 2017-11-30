@@ -166,6 +166,15 @@ problems:
             `Sample output 2 <dp-knapsack/2.ans>`_
         type: code-file
         name: Knapsack
+    dp-knapsack-read:
+        choices:
+        -   valid: true
+            feedback: Good luck for the code!
+            text: I read the text.
+        limit: 0
+        type: multiple-choice
+        name: Mark text as read.
+        header: ''
 stored_submissions: 0
 submission_limit:
     amount: -1
