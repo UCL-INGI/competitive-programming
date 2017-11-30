@@ -15,7 +15,11 @@ context: |-
 
     This is a **crutial** property that our DP formulation must satisfy. If we happend to have cycles in the DP state graph then the order of the subproblems is not well defined and the algorithm will loop forever because the answer to some subproblems will depend on itself.
 
-    To better illustrate this consider the shortest path problem. Given a weighted graph and a node :math:`s` we want to compute the shortest path length from :math:`s` to each other node.
+    To better illustrate this consider the shortest path problem. Given a weighted graph and a node :math:`s` we want to compute the shortest path length from :math:`s` to each other node. Let's have a state for each node :math:`v` of the input graph and define DP subproblems as follows:
+
+    .. math::
+
+       dp(v) = \textrm{length of the shortest path from $s$ to $v$}
 environment: scapy
 evaluate: best
 groups: false
