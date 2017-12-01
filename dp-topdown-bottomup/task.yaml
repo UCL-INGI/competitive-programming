@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |+
+context: |-
     The solution that we developed for the Knpasack problem where we solve our problem with a recursive function and memoize the results is called **top-down** dynamic programmig.
 
     There is another way to implement a DP algorithm which is called **bottom-up**. In most cases the choice of which one you use should be based on the one you are more comfortable writting. Personally I feel that top-down DP is more intuitive but this varies from one person to another.
@@ -33,6 +33,7 @@ context: |+
        0 & \quad \text{otherwise}
       \end{cases}
 
+    Now we need to express the solution of :math:`dp(i, c)` with the values of smaller subproblems. In this case, subproblems :math:`(i',  c')` where :math:`i' \leq i` and :math:`c' \leq c`.
 environment: scapy
 evaluate: best
 groups: false
