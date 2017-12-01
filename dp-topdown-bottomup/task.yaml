@@ -11,15 +11,27 @@ context: |+
 
     In our previous solution we defined the DP subproblems
 
-    In the top-down DP solution we defined the states and subproblems starting from the problem that we want to solve. That is, having all items available and a knapsack of capacity :math:`C`.
+    In the top-down DP solution we defined the states and subproblems starting from the problem that we want to solve. That is, having all objects available and a knapsack of capacity :math:`C`.
 
-    In bottom-up DP we will write an iterative solution to compute the value of *every* state. We will start from the smallest subproblems and iterativelly increase the size and compute the new solutions from the ones we already know. This means that we will have to redefine the subproblems. Then we will need to find how the solution of the problem changes when a new item becomes available.
+    In bottom-up DP we will write an iterative solution to compute the value of *every* state. We will start from the smallest subproblems and iterativelly increase the size and compute the new solutions from the ones we already know. This means that we will have to redefine the subproblems. Then we will need to find how the solution of the problem changes when a new object becomes available.
 
     We define the subproblems as follows:
 
       :math:`dp(i, c)` is the maximum value we can obtain by
       selecting a subset of the objects :math:`0, 1 \ldots, i`
       from a knapsack of capacity :math:`c`.
+
+    Notice that now when we increase :math:`i` we are considering more objects whereas in the previous definitions it would consider less objects.
+
+    The easy suproblems correspond to states where :math:`i = 0`,, that is, we only have one object. In this case we either get value :math:`v_0` if object fits the knapsack or 0 otherwise.
+
+    .. math::
+
+       dp(0, c) =
+       \begin{cases}
+       v_0       & \quad \text{if $v_0 \leq c$}\\
+       0 & \quad \text{otherwise}
+      \end{cases}
 
 environment: scapy
 evaluate: best
