@@ -34,6 +34,19 @@ context: |-
       \end{cases}
 
     Now we need to express the solution of :math:`dp(i, c)` with the values of smaller subproblems. In this case, subproblems :math:`(i',  c')` where :math:`i' \leq i` and :math:`c' \leq c`.
+
+    The recurrence relation will naturally be very similar to the previous one. Again, we have two choices: either we take object :math:`i` or we skip it.
+
+    - *If we take it* then we will take the remaining items :math:`0, 1, \ldots, i - 1` in the best way possible but in a knapsack of capacity :math:`c - w_i`.
+    - *If we don't take it* then we will take the remaining items in the best way possible in a knapsack of capacity :math:`c`.
+
+    .. math::
+
+       dp(i, c) = \max
+       \begin{cases}
+       dp(i - 1, c - w_i)     \\
+       dp(i - 1, c)
+      \end{cases}
 environment: scapy
 evaluate: best
 groups: false
