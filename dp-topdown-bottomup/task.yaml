@@ -11,7 +11,9 @@ context: |-
 
     In our previous solution we defined the DP subproblems
 
-    In bottom-up DP, we will start by solving the smaller subproblems. Then
+    In bottom-up DP we will write an iterative solution to compute the value of *every* state. We will start from the smallest subproblems and iterativelly increase the size and compute the new solutions from the ones we already know. The smallest (or easiest) subproblems correspond to the case where we only have one item.
+
+    that computes :math:`dp(i, c)` for all :math:`i` and :math:`c`.
 environment: scapy
 evaluate: best
 groups: false
