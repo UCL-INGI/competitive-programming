@@ -54,21 +54,21 @@ context: |-
 
     .. code:: java
 
-       static int knapsack(int n, int C, int[] v, int [] w) {
-            int[][] dp = new int[n][C + 1];
-            // initialize the base cases
-            for(int c = 0; c < C; c++) {
-                dp[0][c] = c - w[0] >= 0 ? v[0] : 0;
-            }
-            // loop and apply recurrence
-            for(int i = 1; i < n; i++) {
-                for(int c = 0; c < C; c++) {
-                    int take = c - w[i] >= 0 ? v[i] + dp[i - 1][c - w[i]] : Integer.MIN_VALUE;
-                    int skip = dp[i - 1][c];
-                    dp[i][c] = Math.max(take, skip);
-                }
-            }
-            return dp[n - 1][C];
+      static int knapsack(int n, int C, int[] v, int [] w) {
+        int[][] dp = new int[n][C + 1];
+        // initialize the base cases
+        for(int c = 0; c < C; c++) {
+          dp[0][c] = c - w[0] >= 0 ? v[0] : 0;
+        }
+        // loop and apply recurrence
+        for(int i = 1; i < n; i++) {
+          for(int c = 0; c < C; c++) {
+            int take = c - w[i] >= 0 ? v[i] + dp[i - 1][c - w[i]] : Integer.MIN_VALUE;
+            int skip = dp[i - 1][c];
+            dp[i][c] = Math.max(take, skip);
+          }
+        }
+        return dp[n - 1][C];
       }
 environment: scapy
 evaluate: best
