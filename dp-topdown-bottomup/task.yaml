@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |+
+context: |-
     The solution that we developed for the Knpasack problem where we solve our problem with a recursive function and memoize the results is called **top-down** dynamic programmig.
 
     There is another way to implement a DP algorithm which is called **bottom-up**. In most cases the choice of which one you use should be based on the one you are more comfortable writting. Personally I feel that top-down DP is more intuitive but this varies from one person to another.
@@ -29,7 +29,7 @@ context: |+
 
        dp(0, c) =
        \begin{cases}
-       v_0       & \quad \text{if $v_0 \leq c$}\\
+       v_0       & \quad \text{if $w_0 \leq c$}\\
        0 & \quad \text{otherwise}
       \end{cases}
 
@@ -50,8 +50,26 @@ context: |+
 
     We need to be careful with the fact that we can only take item :math:`i` if it fits the knapsack. Otherwise :math:`c - w_i < 0` and :math:`dp(i - 1, c - w_i)` is undefined. We can treat these cases to have value :math:`-\infty` so they are ignored in the maximization.
 
-    In bottom-up DP we usually compute the values by creating a matrix that with one entry per subproblem and then iterate over the states in order and apply use the recurrence relation to compute the values.
+    In bottom-up DP we usually compute the values by creating a matrix that with one entry per subproblem and then iterate over the states in order and apply use the recurrence relation to compute the values. The following code gives a possible implementation.
 
+    .. code:: java
+
+       static int knapsack(int n, int C, int[] v, int [] w) {
+            int[][] dp = new int[n][C + 1];
+            // initialize the base cases
+            for(int c = 0; c < C; c++) {
+                dp[0][c] = c - w[0] >= 0 ? v[0] : 0;
+            }
+            // loop and apply recurrence
+            for(int i = 1; i < n; i++) {
+                for(int c = 0; c < C; c++) {
+                    int take = c - w[i] >= 0 ? v[i] + dp[i - 1][c - w[i]] : Integer.MIN_VALUE;
+                    int skip = dp[i - 1][c];
+                    dp[i][c] = Math.max(take, skip);
+                }
+            }
+            return dp[n - 1][C];
+      }
 environment: scapy
 evaluate: best
 groups: false
