@@ -1,27 +1,34 @@
 accessible: true
 author: ''
-context: ''
+context: |-
+    The solution that we developed for the Knpasack problem where we solve our problem with a recursive function and memoize the results is called **top-down** dynamic programmig.
+
+    There is another way to implement a DP algorithm which is called **bottom-up**. In most cases the choice of which one you use should be based on the one you are more comfortable writting. Personally I feel that top-down DP is more intuitive but this varies from one person to another.
+
+    You should most both ways and be able to switch between them easily as in some cases one is more efficient than the other. We will see examples of this in more advanced DP problems.
+
+    For now let's explain what bottom-up DP consists of and write such a solution for the Knapsack problem.
 environment: scapy
 evaluate: best
 groups: false
 limits:
+    time: '30'
     output: '2'
     memory: '100'
-    time: '30'
 name: DP - Top down VS Bottom up
 network_grading: false
+order: 2
 problems:
     dp-topdown-bottomup:
-        type: multiple-choice
-        limit: 0
-        choices:
-        -   text: Yes.
-            valid: true
         header: ''
         name: Mark this section as read?
+        limit: 0
+        choices:
+        -   valid: true
+            text: Yes.
+        type: multiple-choice
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
 weight: 1.0
-order: 2
