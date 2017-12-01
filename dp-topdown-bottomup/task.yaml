@@ -8,6 +8,10 @@ context: |-
     You should most both ways and be able to switch between them easily as in some cases one is more efficient than the other. We will see examples of this in more advanced DP problems.
 
     For now let's explain what bottom-up DP consists of and write such a solution for the Knapsack problem.
+
+    In our previous solution we defined the DP subproblems
+
+    In bottom-up DP, we will start by solving the smaller subproblems. Then
 environment: scapy
 evaluate: best
 groups: false
