@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |-
+context: |+
     The solution that we developed for the Knpasack problem where we solve our problem with a recursive function and memoize the results is called **top-down** dynamic programmig.
 
     There is another way to implement a DP algorithm which is called **bottom-up**. In most cases the choice of which one you use should be based on the one you are more comfortable writting. Personally I feel that top-down DP is more intuitive but this varies from one person to another.
@@ -44,9 +44,14 @@ context: |-
 
        dp(i, c) = \max
        \begin{cases}
-       dp(i - 1, c - w_i)     \\
-       dp(i - 1, c)
+       dp(i - 1, c - w_i)       & \quad \text{take item $i$}\\
+       dp(i - 1, c) & \quad \text{skip item $i$}
       \end{cases}
+
+    We need to be careful with the fact that we can only take item :math:`i` if it fits the knapsack. Otherwise :math:`c - w_i < 0` and :math:`dp(i - 1, c - w_i)` is undefined. We can treat these cases to have value :math:`-\infty` so they are ignored in the maximization.
+
+    In bottom-up DP we usually compute the values by creating a matrix that with one entry per subproblem and then iterate over the states in order and apply use the recurrence relation to compute the values.
+
 environment: scapy
 evaluate: best
 groups: false
