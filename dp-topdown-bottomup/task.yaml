@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |-
+context: |+
     The solution that we developed for the Knpasack problem where we solve our problem with a recursive function and memoize the results is called **top-down** dynamic programmig.
 
     There is another way to implement a DP algorithm which is called **bottom-up**. In most cases the choice of which one you use should be based on the one you are more comfortable writting. Personally I feel that top-down DP is more intuitive but this varies from one person to another.
@@ -11,9 +11,16 @@ context: |-
 
     In our previous solution we defined the DP subproblems
 
-    In bottom-up DP we will write an iterative solution to compute the value of *every* state. We will start from the smallest subproblems and iterativelly increase the size and compute the new solutions from the ones we already know. The smallest (or easiest) subproblems correspond to the case where we only have one item.
+    In the top-down DP solution we defined the states and subproblems starting from the problem that we want to solve. That is, having all items available and a knapsack of capacity :math:`C`.
 
-    that computes :math:`dp(i, c)` for all :math:`i` and :math:`c`.
+    In bottom-up DP we will write an iterative solution to compute the value of *every* state. We will start from the smallest subproblems and iterativelly increase the size and compute the new solutions from the ones we already know. This means that we will have to redefine the subproblems. Then we will need to find how the solution of the problem changes when a new item becomes available.
+
+    We define the subproblems as follows:
+
+      :math:`dp(i, c)` is the maximum value we can obtain by
+      selecting a subset of the objects :math:`0, 1 \ldots, i`
+      from a knapsack of capacity :math:`c`.
+
 environment: scapy
 evaluate: best
 groups: false
