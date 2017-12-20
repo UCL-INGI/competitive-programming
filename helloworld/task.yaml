@@ -1,6 +1,7 @@
 accessible: true
 author: ''
-context: ''
+context: In this task you will be given some very simple taks to make sure that you
+    know how to read and write from the starndard output.
 environment: java7
 evaluate: best
 groups: false
@@ -22,11 +23,17 @@ problems:
 
             **Input**
 
-            A single line with a string having caracters from 'a' to 'z'.
+            A single line with a string *s* having caracters from 'a' to 'z'.
 
             **Output**
 
             A single line with the input string.
+
+            **Constraints**
+
+            .. math::
+
+              1 \leq |b| \leq 1000
 stored_submissions: 0
 submission_limit:
     amount: -1
