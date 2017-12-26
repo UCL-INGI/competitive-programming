@@ -1,23 +1,29 @@
 accessible: true
 author: ''
-context: ''
+context: |+
+    We now solved the Knapsack problem in two different ways: using top-down and bottom-up dp. However, both those solutions only give the *value* of the solution.
+
+    Here we will see how we can actually recontruct the set of items that are taken. We will do this for both the top-down and the bottom-up solution.
+
+
+
 environment: scapy
 evaluate: best
 groups: false
 limits:
-    output: '2'
     memory: '100'
+    output: '2'
     time: '30'
 name: DP - Knapsack, build the solution
 network_grading: false
+order: 4
 problems:
     dp-build-solution:
+        name: ''
         header: ''
         type: code-file
-        name: ''
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
 weight: 1.0
-order: 4
