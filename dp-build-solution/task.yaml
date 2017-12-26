@@ -13,7 +13,7 @@ context: |+
 
       static int TAKE = 0, SKIP = 1;
 
-    Our previous code ended with
+    Our previous code ended with:
 
     .. code:: java
 
@@ -23,7 +23,7 @@ context: |+
         return memo[i][c]
       }
 
-
+    This is where we know what is the best action. It corresponds to the ma
 
 
     .. code:: java
