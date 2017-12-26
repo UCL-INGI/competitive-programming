@@ -76,8 +76,38 @@ network_grading: false
 order: 4
 problems:
     dp-build-solution:
-        name: ''
-        header: ''
+        name: Knapsack with solution
+        header: |-
+            Put all the pieces that we discussed above together and write a solution for the Knapsack problem.
+
+            **Input**
+
+            - One line with two integers :math:`n` and :math:`C` giving the number of objects and knapsack capacity respectively.
+
+            - :math:`n` lines each with two integers :math:`v` and :math:`w` giving the values and  weights of the items.
+
+            **Output**
+
+            A single line with an integer giving the maximum value that can be achieve by taking a subset of the items with total weight at most :math:`C`.
+
+            Do not forget to print the answer as an int and not a double.
+
+            **Constraints**
+
+            * :math:`1 \leq n \leq 1000`
+            * :math:`1 \leq C \leq 1000`
+            * :math:`1 \leq v, w \leq 100`
+
+            **Sample Test Cases**
+
+            `Sample input 1 <dp-knapsack/1.in>`_
+
+            `Sample output 1 <dp-knapsack/1.ans>`_
+
+
+            `Sample input 2 <dp-knapsack/2.in>`_
+
+            `Sample output 2 <dp-knapsack/2.ans>`_
         type: code-file
 stored_submissions: 0
 submission_limit:
