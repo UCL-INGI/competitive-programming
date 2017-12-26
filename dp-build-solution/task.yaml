@@ -7,11 +7,14 @@ context: |+
 
     Let's start with the top-down solution. In order to be able to build the solution, we will remember for each state what was the *action* that lead us to the optimal value. Then we will trace back those actions from the initial state :math:`(0, C)`.
 
-    In this problem there are two actions: skip an item and take an item. To make the code more readable, we will define those as two integers with the names SKIP and TAKE.
+    In this problem there are two actions: skip an item and take an item. To make the code more readable but not require to create a lot of objects in memory, we will simply define those as two integers with the names SKIP and TAKE.
+
+    Also, we will need to keep track of which action lead to each of the states. We an do this with a matrix :math:`action` of size :math:`n` by :math:`C + 1`.
 
     .. code:: java
 
       static int SKIP = 0, TAKE = 1;
+      static Integer[][] action;
 
     Our previous code ended with:
 
@@ -19,31 +22,24 @@ context: |+
 
         ...
         // memorize the value of state (i, c)
-        memo[i][c] = Math.max(notTake, take);
+        memo[i][c] = Math.max(skip, take);
         return memo[i][c]
       }
 
-    This is where we know what is the best action. It corresponds to the maximum between *notTake* and *take*.
-
+    This is where we know what is the best action. It corresponds to the maximum between :math:`skip` and :math:`take`. So if :math:`skip \geq take` then we know that the action to do is SKIP and otherwise it is TAKE. We can easily change it to set the best action as follows:
 
     .. code:: java
 
-      static int n, C;
-      static int[] v, w;
-      static Double[][] memo;
-
-      static double dp(int i, int c) {
-        if(i == n) return 0;
-        if(c < 0) return Double.NEGATIVE_INFINITY;
-        // check if the value for state (i, c) has already been computed
-        if(memo[i][c] != null) return memo[i][c];
-        // do not take item i
-        double notTake = dp(i + 1, c);
-        // take item i
-        double take = v[i] + dp(i + 1, c - w[i]);
-        // memorize the value of state (i, c)
-        memo[i][c] = Math.max(notTake, take);
-        return memo[i][c];
+        ...
+        // memorize the value of state (i, c) and set action
+        if(skip >= take) {
+          memo[i][c] = skip;
+          action[i][c] = SKIP;
+        } else {
+          memo[i][c] = take;
+          action[i][c] = TAKE;
+        }
+        return memo[i][c]
       }
 
 environment: scapy
