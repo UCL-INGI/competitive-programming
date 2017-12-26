@@ -3,9 +3,9 @@ author: ''
 context: |-
     We now solved the Knapsack problem in two different ways: using top-down and bottom-up dp. However, both those solutions only give the *value* of the solution.
 
-    Here we will see how we can actually recontruct the set of items that are taken. We will do this for both the top-down and the bottom-up solution.
+    Here we will see how we can actually recontruct the set of items that are taken for the top-down solution.
 
-    Let's start with the top-down solution. In order to be able to build the solution, we will remember for each state what was the *action* that lead us to the optimal value. Then we will trace back those actions from the initial state :math:`(0, C)`.
+    In order to be able to build the solution, we will remember for each state what was the *action* that lead us to the optimal value. Then we will trace back those actions from the initial state :math:`(0, C)`.
 
     In this problem there are two actions: skip an item and take an item. To make the code more readable but not require to create a lot of objects in memory, we will simply define those as two integers with the names SKIP and TAKE.
 
@@ -64,6 +64,42 @@ context: |-
           }
           return taken;
         }
+
+    For the bottom-up solution the idea is the same.
+
+    .. code:: java
+
+      static int SKIP = 0, TAKE = 1;
+
+      static int knapsack(int n, int C, int[] v, int [] w) {
+        int[][] dp = new int[n][C + 1];
+        Integer[][] action = new Integer[n][C + 1];
+        // initialize the base cases
+        for(int c = 0; c < C; c++) {
+          if(c - w[0] >= 0) {
+            dp[0][c] = v[0];
+            action[0][c] = TAKE;
+          } else {
+            dp[0][c] = 0;
+            action[0][c] = SKIP;
+          }
+        }
+        // loop and apply recurrence
+        for(int i = 1; i < n; i++) {
+          for(int c = 0; c < C; c++) {
+            int take = c - w[i] >= 0 ? v[i] + dp[i - 1][c - w[i]] : Integer.MIN_VALUE;
+            int skip = dp[i - 1][c];
+            if(skip >= take) {
+              dp[i][c] = skip;
+              action[i][c] = SKIP;
+            } else {
+              dp[i][c] = take;
+              action[i][c] = TAKE;
+            }
+          }
+        }
+        return buildSolution();
+      }
 environment: scapy
 evaluate: best
 groups: false
