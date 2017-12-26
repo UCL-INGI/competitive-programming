@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |+
+context: |-
     We now solved the Knapsack problem in two different ways: using top-down and bottom-up dp. However, both those solutions only give the *value* of the solution.
 
     Here we will see how we can actually recontruct the set of items that are taken. We will do this for both the top-down and the bottom-up solution.
@@ -42,6 +42,7 @@ context: |+
         return memo[i][c]
       }
 
+    To build the set of items we start from state :math:`(0, C)` and check what is the value of :math:`action[0][C]`.
 environment: scapy
 evaluate: best
 groups: false
