@@ -5,7 +5,27 @@ context: |+
 
     Here we will see how we can actually recontruct the set of items that are taken. We will do this for both the top-down and the bottom-up solution.
 
+    Let's start with the top-down solution. In order to be able to build the solution, we will remember for each state what was the *action* that lead us to the optimal value. Then we will trace back those actions from the initial state :math:`(0, C)`.
 
+    .. code:: java
+
+      static int n, C;
+      static int[] v, w;
+      static Double[][] memo;
+
+      static double dp(int i, int c) {
+        if(i == n) return 0;
+        if(c < 0) return Double.NEGATIVE_INFINITY;
+        // check if the value for state (i, c) has already been computed
+        if(memo[i][c] != null) return memo[i][c];
+        // do not take item i
+        double notTake = dp(i + 1, c);
+        // take item i
+        double take = v[i] + dp(i + 1, c - w[i]);
+        // memorize the value of state (i, c)
+        memo[i][c] = Math.max(notTake, take);
+        return memo[i][c];
+      }
 
 environment: scapy
 evaluate: best
