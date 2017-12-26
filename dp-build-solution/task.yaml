@@ -7,11 +7,11 @@ context: |+
 
     Let's start with the top-down solution. In order to be able to build the solution, we will remember for each state what was the *action* that lead us to the optimal value. Then we will trace back those actions from the initial state :math:`(0, C)`.
 
-    In this problem there are two actions: take an item and skip an item. To make the code more readable, we will define those as two integers with the names TAKE and SKIP.
+    In this problem there are two actions: skip an item and take an item. To make the code more readable, we will define those as two integers with the names SKIP and TAKE.
 
     .. code:: java
 
-      static int TAKE = 0, SKIP = 1;
+      static int SKIP = 0, TAKE = 1;
 
     Our previous code ended with:
 
@@ -23,7 +23,7 @@ context: |+
         return memo[i][c]
       }
 
-    This is where we know what is the best action. It corresponds to the ma
+    This is where we know what is the best action. It corresponds to the maximum between *notTake* and *take*.
 
 
     .. code:: java

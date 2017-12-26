@@ -81,10 +81,10 @@ context: |-
         if(i == n) return 0;
         if(c < 0) return Double.NEGATIVE_INFINITY;
         // do not take item i
-        double notTake = dp(i + 1, c);
+        double skip = dp(i + 1, c);
         // take item i
         double take = v[i] + dp(i + 1, c - w[i]);
-        return Math.max(notTake, take);
+        return Math.max(skip, take);
       }
 
     The reason for using doubles here is simply because it provides a negative infinity that behaves as :math:`-\infty + x = -\infty`.
@@ -109,7 +109,7 @@ context: |-
         // check if the value for state (i, c) has already been computed
         if(memo[i][c] != null) return memo[i][c];
         // do not take item i
-        double notTake = dp(i + 1, c);
+        double skip = dp(i + 1, c);
         // take item i
         double take = v[i] + dp(i + 1, c - w[i]);
         // memorize the value of state (i, c)
