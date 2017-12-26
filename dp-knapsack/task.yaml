@@ -117,7 +117,7 @@ context: |-
         return memo[i][c];
       }
 
-    In this case, since each call takes constant time, the total runtime of the algorithm will be :math:`O(n \cdot C)`.
+    In this case, since each call takes constant time and each state is computed only once, the total runtime of the algorithm will be :math:`O(n \cdot C)`.
 
     The matrix has size :math:`n \times (C + 1)` since :math:`i` can range between 0 and :math:`n - 1` and :math:`c` can range between 0 and :math:`C`. It should this be initialized before calling *dp* as follows:
 
