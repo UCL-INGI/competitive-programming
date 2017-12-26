@@ -43,6 +43,24 @@ context: |-
       }
 
     To build the set of items we start from state :math:`(0, C)` and check what is the value of :math:`action[0][C]`. If it is SKIP then we know that item :math:`0` is not in the optimal solution. Thus we ignore it and go to state :math:`(1, C)`. Otherwise, if it is TAKE, then we know item :math:`0` is in the optimal solution. We add it to the list of items in the solution and go to state :math:`(1, C - w_0)`.
+
+    We repeat this process until we either run out of items or out of space in the knapsack.
+
+    .. code:: java
+
+        static LinkedList<Integer> buildSolution() {
+          int i = 0;
+          int c = C;
+          LinkedList<Integer> taken = new LinkedList<>();
+          while(i < n && c >= 0) {
+            if(action[i][c] == TAKE) {
+              taken.add(i);
+              c -= w[i];
+            }
+            i += 1;
+          }
+          return taken;
+        }
 environment: scapy
 evaluate: best
 groups: false
