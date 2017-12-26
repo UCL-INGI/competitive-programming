@@ -91,7 +91,11 @@ context: |-
 
     Now, just like this, the code still runs very slowly since for each state it will make two recursive calls. Thus the total number of recursive calls is :math:`O(2^n)`.
 
-    This is easy to overcome. Look at the recursive call parameters. It is a state :math:`(i, c)`. How many *different* such states exist? The answer to this is simply the number of possible values for :math:`i` times the number of possible values for :math:`c`, that is, :math:`O(n \cdot C)`. Since there are :math:`O(2^n)` recursive calls and each of them corresponds to a state, if :math:`2^n > n \cdot C` it must be the case that we have repeated recurive calls. We can avoid this repetition by storing the result of each recursive call in a table. Then, we can simply check whether the current state has already been computed and return the value that was stored previously if that is the case.
+    This is easy to overcome. Look at the recursive call parameters. It is a state :math:`(i, c)`. How many *different* such states exist?
+
+    The answer to this is simply the number of possible values for :math:`i` times the number of possible values for :math:`c`, that is, :math:`O(n \cdot C)`. Since there are :math:`O(2^n)` recursive calls and each of them corresponds to a state, if :math:`2^n > n \cdot C` it must be the case that we have *repeated* recurive calls. In other words, some states are uselessly computed several times.
+
+    We can avoid this repetition by storing the result of each recursive call in a table. Then, we can simply check whether the current state has already been computed and return the value that was stored previously if that is the case.
 
     .. code:: java
 
@@ -124,15 +128,18 @@ environment: python3
 evaluate: best
 groups: false
 limits:
-    output: '2'
     memory: '100'
+    output: '2'
     time: '30'
 name: DP - Knapsack
 network_grading: false
+order: 1
 problems:
     dp-knapsack-1:
+        name: Knapsack
         allowed_exts:
         - .java
+        type: code-file
         header: |
             Put all the pieces that we discussed above together and write a solution for the Knapsack problem.
 
@@ -164,20 +171,17 @@ problems:
             `Sample input 2 <dp-knapsack/2.in>`_
 
             `Sample output 2 <dp-knapsack/2.ans>`_
-        type: code-file
-        name: Knapsack
     dp-knapsack-read:
+        type: multiple-choice
+        header: ''
         choices:
-        -   valid: true
-            feedback: Good luck for the code!
+        -   feedback: Good luck for the code!
+            valid: true
             text: I read the text.
         limit: 0
-        type: multiple-choice
         name: Mark text as read.
-        header: ''
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
 weight: 1.0
-order: 1
