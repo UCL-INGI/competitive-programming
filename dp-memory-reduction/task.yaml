@@ -1,9 +1,19 @@
 accessible: true
 author: ''
-context: |-
-    In this task we will show how we can reduce the memory of the bottom-up DP solution we developed for the Knapsack.
+context: |
+    We will now show how we can reduce the memory of the bottom-up DP solution we developed for the Knapsack.
 
-    This technique is not usually necessary in programming contests   but it is nice to know it anyway. It also illustrates one advantage of bottom-up DP compared to top-down DP
+    This technique is not usually necessary in programming contests   but it is nice to know it anyway. It also illustrates one advantage of bottom-up DP compared to top-down DP.
+
+    If you look at the recurrence
+
+    .. math::
+
+      dp(i, c) = \max
+       \begin{cases}
+       dp(i - 1, c - w_i)       & \quad \text{take item $i$}\\
+       dp(i - 1, c) & \quad \text{skip item $i$}
+      \end{cases}
 environment: java7
 evaluate: best
 groups: false
