@@ -1,0 +1,26 @@
+accessible: true
+author: ''
+context: |-
+    In this task we will show how we can reduce the memory of the bottom-up DP solution we developed for the Knapsack.
+
+    This technique is not usually necessary in programming contests   but it is nice to know it anyway. It also illustrates one advantage of bottom-up DP compared to top-down DP
+environment: java7
+evaluate: best
+groups: false
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: DP - Memory reduction
+network_grading: false
+problems:
+    code:
+        language: ''
+        type: code
+        header: ''
+        name: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0
