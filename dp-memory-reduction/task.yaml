@@ -79,7 +79,12 @@ context: |
 
     **WARNING**
 
-      ezezrzr
+      Condensed code is nice because it take less time to type and
+      takes less space in your cheatsheets. However, it is harder to
+      read and make it more likely that you will forget how it works
+      because it requires you to remember some cleaver observations.
+      Also, is it less customizable. For example, with the above code
+      you cannot reconstruct the solution.
 environment: java7
 evaluate: best
 groups: false
