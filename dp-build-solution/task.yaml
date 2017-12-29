@@ -75,7 +75,7 @@ limits:
     time: '30'
 name: DP - Knapsack, build the solution
 network_grading: false
-order: 4
+order: 5
 problems:
     dp-build-solution:
         allowed_exts:

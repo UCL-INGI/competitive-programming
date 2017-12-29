@@ -79,7 +79,7 @@ limits:
     memory: '100'
 name: DP - Top down VS Bottom up
 network_grading: false
-order: 2
+order: 3
 problems:
     dp-topdown-bottomup:
         header: ''

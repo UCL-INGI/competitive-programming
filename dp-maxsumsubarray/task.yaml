@@ -56,7 +56,7 @@ limits:
     time: '50'
 name: DP - Maximum sum subarray
 network_grading: false
-order: 6
+order: 8
 problems:
     dp1-maxarraysum-1:
         allowed_exts:

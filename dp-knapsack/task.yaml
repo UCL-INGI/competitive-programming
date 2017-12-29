@@ -133,7 +133,7 @@ limits:
     time: '30'
 name: DP - Knapsack
 network_grading: false
-order: 1
+order: 2
 problems:
     dp-knapsack-1:
         name: Knapsack

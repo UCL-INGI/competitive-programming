@@ -32,7 +32,7 @@ context: |
         int[] tmp = new int[C + 1];
         for(int i = 1; i < n; i++) {
           for(int c = 0; c < C; c++) {
-            int take = c - w[i] >= 0 ? v[i] + dp[c - w[i]] : 0;
+            int take = c - w[i] >= 0 ? v[i] + dp[c - w[i]] : Integer.MIN_VALUE;
             int skip = dp[c];
             tmp[c] = Math.max(take, skip);
           }
@@ -54,15 +54,13 @@ context: |
         int[] dp = new int[C + 1];
         for(int i = 0; i < n; i++) {
           for(int c = C; c >= 0; c--) { // loop in decreasing order
-            int take = c - w[i] >= 0 ? v[i] + dp[c - w[i]] : 0;
+            int take = c - w[i] >= 0 ? v[i] + dp[c - w[i]] : Integer.MIN_VALUE;
             int skip = dp[c];
             dp[c] = Math.max(take, skip);
           }
         }
         return dp[C];
       }
-
-    Notice that we do not need the base cases anymore because :math:`dp` has initialy :math:`0` everywhere so the *take* option will be evaluated to :math:`v[i]` or :math:`0` as before for :math:`i = 0`.
 
     We can reduce the code further by putting the *take* conditions directly into the for loop for :math:`c`.
 
@@ -96,6 +94,7 @@ limits:
     time: '30'
 name: DP - Memory reduction
 network_grading: false
+order: 6
 problems:
     code:
         language: ''
