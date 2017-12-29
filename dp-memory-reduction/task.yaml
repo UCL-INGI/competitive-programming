@@ -34,14 +34,18 @@ context: |-
           for(int c = 0; c < C; c++) {
             int take = c - w[i] >= 0 ? v[i] + dp[c - w[i]] : Integer.MIN_VALUE;
             int skip = dp[c];
-            dp[c] = Math.max(take, skip);
+            tmp[c] = Math.max(take, skip);
           }
           dp = Arrays.copyOfRange(tmp, tmp.length);
         }
         return dp[C];
       }
 
-    However we can actually work directly on a single array :math:`dp` if we do it in a clever way. The advantage is mostly that we get a very compact code. Notice that :math:`dp(i, c)` only depends on :math:`dp(i - 1, c')` for :math:`c' \leq c`.
+    However we can actually work directly on a single array :math:`dp` if we do it in a clever way. The advantage is mostly that we get a very compact code.
+
+    The problem of :code:`tmp[c] = Math.max(take, skip);`
+
+    Notice that :math:`dp(i, c)` only depends on :math:`dp(i - 1, c')` for :math:`c' \leq c`.
 environment: java7
 evaluate: best
 groups: false
