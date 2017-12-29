@@ -62,6 +62,8 @@ context: |
         return dp[C];
       }
 
+    Notice that we do not need the base cases anymore because :math:`dp` has initialy :math:`0` everywhere.
+
     We can reduce the code further by putting the *take* conditions directly into the for loop for :math:`c`.
 
     .. code:: java
@@ -81,7 +83,7 @@ context: |
 
       Condensed code is nice because it take less time to type and
       takes less space in your cheatsheets. However, it is harder to
-      read and make it more likely that you will forget how it works
+      read and makes it more likely that you will forget how it works
       because it requires you to remember some cleaver observations.
       Also, is it less customizable. For example, with the above code
       you cannot reconstruct the solution.
