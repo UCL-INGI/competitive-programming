@@ -39,7 +39,7 @@ context: |-
           }
           dp = tmp;
         }
-        return dp[n - 1][C];
+        return dp[C];
       }
 environment: java7
 evaluate: best
