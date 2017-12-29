@@ -1,11 +1,11 @@
 accessible: true
 author: ''
-context: |
-    We will now show how we can reduce the memory of the bottom-up DP solution we developed for the Knapsack.
+context: |+
+    We will now show how we can reduce the memory from :math:`O(n \cdot C)` to :math:`O(C)` of the bottom-up DP solution we developed for the Knapsack.
 
     This technique is not usually necessary in programming contests   but it is nice to know it anyway. It also illustrates one advantage of bottom-up DP compared to top-down DP.
 
-    If you look at the recurrence
+    If we look at the recurrence:
 
     .. math::
 
@@ -14,6 +14,10 @@ context: |
        dp(i - 1, c - w_i)       & \quad \text{take item $i$}\\
        dp(i - 1, c) & \quad \text{skip item $i$}
       \end{cases}
+
+    We can observe that the values of states for a given :math:`i` only depend on the values for :math:`i - 1`. Thus, we don't need to keep
+    the full matrix in memory, we only need to keep the last line.
+
 environment: java7
 evaluate: best
 groups: false
