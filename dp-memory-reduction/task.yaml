@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |-
+context: |+
     We will now show how we can reduce the memory from :math:`O(n \cdot C)` to :math:`O(C)` of the bottom-up DP solution we developed for the Knapsack.
 
     This technique is not usually necessary in programming contests   but it is nice to know it anyway. It also illustrates one advantage of bottom-up DP compared to top-down DP.
@@ -43,9 +43,25 @@ context: |-
 
     However we can actually work directly on a single array :math:`dp` if we do it in a clever way. The advantage is mostly that we get a very compact code.
 
-    The problem of :code:`tmp[c] = Math.max(take, skip);`
+    The problem of doing straight :code:`dp[c] = Math.max(take, skip);`
+    is that it will overwrite the value of the state :math:`(i - 1, c)` with the value of state :math:`(i, c)` and it could be the case that a later state :math:`(i, c')` with :math:`c' > c` also depends on :math:`(i - 1, c)`.
 
-    Notice that :math:`dp(i, c)` only depends on :math:`dp(i - 1, c')` for :math:`c' \leq c`.
+    We can overcome this problem by noticing that that :math:`dp(i, c)` only depends on :math:`dp(i - 1, c')` for :math:`c' \leq c`. Therefore if we compute the states in decreasing order of :math:`c` instead of increasing, we will avoid this problem. We can thus write the following very compact code for the Knapsack problem:
+
+    .. code:: java
+
+      static int knapsack(int n, int C, int[] v, int [] w) {
+        int[] dp = new int[C + 1];
+        for(int i = 0; i < n; i++) {
+          for(int c = C; c >= 0; c--) { // loop in decreasing order
+            int take = c - w[i] >= 0 ? v[i] + dp[c - w[i]] : Integer.MIN_VALUE;
+            int skip = dp[c];
+            dp[c] = Math.max(take, skip);
+          }
+        }
+        return dp[C];
+      }
+
 environment: java7
 evaluate: best
 groups: false
