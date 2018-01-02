@@ -9,15 +9,10 @@ CONFIG
 """
 verbose = True
 classname = 'Main'
+taskname = 'file'
 """
 END OF CONFIG
 """
-
-def get_taskname():
-  path = os.getcwd()
-  path = path.split('competitive-programming')[1]
-  path = path.split('/')
-  return path[1]
 
 def is_empty_file(fn):
   return os.path.getsize(fn) == 0
@@ -26,8 +21,6 @@ def readfile(filename):
   f = open(filename, 'r')
   lines = [line.strip() for line in f.readlines()]
   return '\n'.join(lines)
-
-
 
 def compile_java(classname):
   os.system('javac {0}.java 2> err'.format(classname))
@@ -111,9 +104,6 @@ def output_feedback(student_times, my_times, verdict, feedback):
   else:
     os.system('feedback --result failed --feedback "{0}"'.format(s))
   
-
-taskname = get_taskname()
-
 os.system('getinput {0} > Main.java'.format(taskname))
 os.system('javac {0}.java 2> err'.format(classname))
 
