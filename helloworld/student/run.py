@@ -71,6 +71,11 @@ def run_tests_java():
         student_output_feedback.append(message)
   return student_times, my_times, student_output_verdict, student_output_feedback
 
+def tle_check(student_time, my_time):
+  if student_time < 1:
+    return False
+  return student_time < 10 * my_time
+
 def output_feedback(student_times, my_times, verdict, output_feedback):
   s = ''
   WA_CNT = 0
@@ -81,7 +86,7 @@ def output_feedback(student_times, my_times, verdict, output_feedback):
     s += '---test {0}---\n\n'.format(i)
     s += 'your runtime in seconds: {0}\n\n'.format(student_times[i])
     s += 'my runtime in seconds: {0}\n\n'.format(my_times[i])
-    if 10 * student_times[i] > my_times[i]:
+    if tle_check(student_times[i], my_times[i]):
       s += 'your code is more than 10 times slower on this test.\n\n'.format(i)
       TLE = True
     if not verdict[i]:
