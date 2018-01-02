@@ -80,7 +80,8 @@ def output_feedback(student_times, my_times, verdict, output_feedback):
   s = ''
   WA_CNT = 0
   TLE_CNT = 0
-  for i in range(len(student_times)):
+  n = len(student_times)
+  for i in range(n):
     TLE = False
     WA = False
     s += 'test {0}: runtime={1:.2f} '.format(i, student_times[i])
@@ -106,9 +107,12 @@ def output_feedback(student_times, my_times, verdict, output_feedback):
     s += 'verdict: [WA: {0}] [TLE: {1}]'.format(WA_CNT, TLE_CNT)
   if verbose: print(s)
   if WA_CNT + TLE_CNT == 0:
+    feedback.set_grade(100)
     feedback.set_global_result("success")
     feedback.set_global_feedback(s)
   else:
+    percentage = 100 * (n - WA_CNT - TLE_CNT) / n
+    feedback.set_grade()
     feedback.set_global_result("failure")
     feedback.set_global_feedback(s)
   
