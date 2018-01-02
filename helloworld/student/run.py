@@ -44,15 +44,19 @@ def run_tests_java():
       # get the cpu start time for the student solution
       start_time = time.clock()
       # run student java solution
+      if verbose: print('running student solution')
       os.system('cat ./tests/{0} | java {1} > output'.format(fn, classname))
       # cumpute the runtime
       student_cpu_time = time.clock() - start_time
+      if verbose: print('student solution finished in: {0}s'.format(student_cpu_time))
       student_times.append(student_cpu_time)
       # get the cpu start time for the my solution
       start_time = time.clock()
       # run my java solution
+      if verbose: print('running my solution')
       os.system('cat ./tests/{0} | java {1}'.format(fn, solname))
       my_cpu_time = time.clock() - start_time
+      if verbose: print('my solution finished in: {0}s'.format(my_cpu_time))
       my_times.append(my_cpu_time)
       # update the maxtime
       ok, message = checker.diff_check('./tests/{0}.ans'.format(name), 'output')
@@ -110,8 +114,8 @@ os.system('javac {0}.java 2> err'.format(classname))
 
 if not is_empty_file('err'):
   message = readfile('err')
-  if(verbose) print('compilation error:')
-  if(verbose) print(message)
+  if(verbose): print('compilation error:')
+  if(verbose): print(message)
   os.system('feedback --result failed --feedback "{0}\n{1}"'.format('compilation error', message))
   exit(0)
 
