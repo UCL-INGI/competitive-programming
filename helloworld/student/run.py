@@ -44,14 +44,14 @@ def run_tests_java():
       # get the cpu start time for the student solution
       start_time = time.clock()
       # run student java solution
-      os.system('java ./tests/{0} | java {1} > output'.format(fn, classname))
+      os.system('cat ./tests/{0} | java {1} > output'.format(fn, classname))
       # cumpute the runtime
       student_cpu_time = time.clock() - start_time
       student_times.append(student_cpu_time)
       # get the cpu start time for the my solution
       start_time = time.clock()
       # run my java solution
-      os.system('java ./tests/{0} | java {1}'.format(fn, solname))
+      os.system('cat ./tests/{0} | java {1}'.format(fn, solname))
       my_cpu_time = time.clock() - start_time
       my_times.append(my_cpu_time)
       # update the maxtime
@@ -110,8 +110,8 @@ os.system('javac {0}.java 2> err'.format(classname))
 
 if not is_empty_file('err'):
   message = readfile('err')
-  print('compilation error:')
-  print(message)
+  if(verbose) print('compilation error:')
+  if(verbose) print(message)
   os.system('feedback --result failed --feedback "{0}\n{1}"'.format('compilation error', message))
   exit(0)
 
