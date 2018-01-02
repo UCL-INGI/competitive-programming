@@ -78,34 +78,35 @@ def output_feedback(student_times, my_times, verdict, output_feedback):
   for i in range(len(student_times)):
     TLE = False
     WA = False
-    s += '---test {0}---\n'.format(i)
-    s += 'your runtime in seconds: {0}\n'.format(student_times[i])
-    s += 'my runtime in seconds: {0}\n'.format(my_times[i])
+    s += '---test {0}---\n\n'.format(i)
+    s += 'your runtime in seconds: {0}\n\n'.format(student_times[i])
+    s += 'my runtime in seconds: {0}\n\n'.format(my_times[i])
     if 10 * student_times[i] > my_times[i]:
-      s += 'your code is more than 10 times slower on this test.\n'.format(i)
+      s += 'your code is more than 10 times slower on this test.\n\n'.format(i)
       TLE = True
     if not verdict[i]:
-      s += 'you code procudes a wrong answer for this test.\n'
-      s += verdict[i] + '\n'
+      s += 'you code procudes a wrong answer for this test.\n\n'
+      s += verdict[i] + '\n\n'
       WA = True
     s += 'verdict: '
     if WA and TLE:
       WA_CNT += 1
       TLE_CNT += 1
-      s += '[WA] [TLE]\n'
+      s += '[WA] [TLE]\n\n'
     elif WA:
         WA_CNT += 1
-        s += '[WA]\n'
+        s += '[WA]\n\n'
     elif TLE:
         TLE_CNT += 1
-        s += '[TLE]\n'
+        s += '[TLE]\n\n'
     else:
-        s += '[OK]\n'
-    s += '------\n'
+        s += '[OK]\n\n'
+    s += '------\n\n'
   if WA_CNT + TLE_CNT == 0:
     s += 'verdict: [ACCEPTED]'
   else:
     s += 'verdict: [WA: {0}] [TLE: {1}]'.format(WA_CNT, TLE_CNT)
+  if verbose: print(s)
   if WA_CNT + TLE_CNT == 0:
     feedback.set_global_result("success")
     feedback.set_global_feedback(s)
