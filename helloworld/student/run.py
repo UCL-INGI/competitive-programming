@@ -10,6 +10,7 @@ CONFIG
 verbose = True
 classname = 'Main'
 taskname = 'file'
+solname = 'yunoacsol'
 """
 END OF CONFIG
 """
@@ -50,7 +51,7 @@ def run_tests_java():
       # get the cpu start time for the my solution
       start_time = time.clock()
       # run my java solution
-      os.system('java ./tests/{0} | java Sol'.format(fn, classname))
+      os.system('java ./tests/{0} | java {1}'.format(fn, solname))
       my_cpu_time = time.clock() - start_time
       my_times.append(my_cpu_time)
       # update the maxtime
