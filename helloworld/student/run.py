@@ -69,13 +69,13 @@ def run_tests_java():
       else:
         student_output_verdict.append(False)
         student_output_feedback.append(message)
-  return student_times, my_times, student_output_verdict, student_feedback
+  return student_times, my_times, student_output_verdict, student_output_feedback
 
 def output_feedback(student_times, my_times, verdict, feedback):
   s = ''
   WA_CNT = 0
   TLE_CNT = 0
-  for i in range(student_times):
+  for i in range(len(student_times)):
     TLE = False
     WA = False
     s += '---test {0}---\n'.format(i)
