@@ -112,6 +112,7 @@ def output_feedback(student_times, my_times, verdict, output_feedback):
     feedback.set_global_feedback(s)
   else:
     percentage = 100 * (n - WA_CNT - TLE_CNT) / n
+    if verbose: print(percentage)
     feedback.set_grade(percentage)
     feedback.set_global_result("failure")
     feedback.set_global_feedback(s)
