@@ -24,10 +24,12 @@ def readfile(filename):
   return '\n'.join(lines)
 
 def compile_java(classname):
+  os.system('> err')
   os.system('javac {0}.java 2> err'.format(classname))
   if not is_empty_file('err'):
     return False, readfile(err)
-  return True
+  return True, ''
+
 
 def run_tests_java():
   student_times = [ ]
@@ -109,14 +111,23 @@ def output_feedback(student_times, my_times, verdict, feedback):
   else:
     os.system('feedback --result failed --feedback "{0}"'.format(s))
   
-os.system('getinput {0} > Main.java'.format(taskname))
-os.system('javac {0}.java 2> err'.format(classname))
+if verbose: print('compiling my solution')
 
-if not is_empty_file('err'):
-  message = readfile('err')
+ok, msg = compile_java(solname)
+if not ok:
+  if(verbose): print('compilation error on my solution:')
+  if(verbose): print(msg)
+  os.system('feedback --result failed --feedback "{0}\n{1}"'.format('ups, it seems there is a problem. contact administrator.', message))  
+  exit(0)
+
+os.system('getinput {0} > Main.java'.format(taskname))
+
+ok, msg = compile_java('Main')
+
+if not ok:
   if(verbose): print('compilation error:')
-  if(verbose): print(message)
-  os.system('feedback --result failed --feedback "{0}\n{1}"'.format('compilation error', message))
+  if(verbose): print(msg)
+  os.system('feedback --result failed --feedback "{0}\n{1}"'.format('compilation error', msg))
   exit(0)
 
 student_times, my_times, verdict, feedback = run_tests_java()
