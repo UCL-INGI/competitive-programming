@@ -107,9 +107,11 @@ def output_feedback(student_times, my_times, verdict, feedback):
   else:
     s += 'verdict: [WA: {0}] [TLE: {1}]'.format(WA_CNT, TLE_CNT)
   if WA_CNT + TLE_CNT == 0:
-    os.system('feedback --result success --feedback "{0}"'.format(s))
+    feedback.set_global_result("success")
+    feedback.set_global_feedback(s)
   else:
-    os.system('feedback --result failed --feedback "{0}"'.format(s))
+    feedback.set_global_result("failure")
+    feedback.set_global_feedback(s)
   
 if verbose: print('compiling my solution')
 
