@@ -83,7 +83,7 @@ def output_feedback(student_times, my_times, verdict, output_feedback):
   for i in range(len(student_times)):
     TLE = False
     WA = False
-    s += 'test {0}: runtime={1}:.2f '.format(i, student_times[i])
+    s += 'test {0}: runtime={1:.2f} '.format(i, student_times[i])
     if tle_check(student_times[i], my_times[i]):
       TLE = True
     if not verdict[i]:
