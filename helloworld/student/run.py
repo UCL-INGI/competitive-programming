@@ -71,7 +71,7 @@ def run_tests_java():
         student_output_feedback.append(message)
   return student_times, my_times, student_output_verdict, student_output_feedback
 
-def output_feedback(student_times, my_times, verdict, feedback):
+def output_feedback(student_times, my_times, verdict, output_feedback):
   s = ''
   WA_CNT = 0
   TLE_CNT = 0
@@ -132,5 +132,5 @@ if not ok:
   os.system('feedback --result failed --feedback "{0}\n{1}"'.format('compilation error', msg))
   exit(0)
 
-student_times, my_times, verdict, feedback = run_tests_java()
-output_feedback(student_times, my_times, verdict, feedback)
+student_times, my_times, verdict, student_feedback = run_tests_java()
+output_feedback(student_times, my_times, verdict, student_feedback)
