@@ -107,13 +107,9 @@ def output_feedback(student_times, my_times, verdict, feedback):
   else:
     s += 'verdict: [WA: {0}] [TLE: {1}]'.format(WA_CNT, TLE_CNT)
   if WA_CNT + TLE_CNT == 0:
-    feedback.set_global_result("success")
-    feedback.set_global_feedback(s)
-    #os.system('feedback --result success --feedback "{0}"'.format(s))
+    os.system('feedback --result success --feedback "{0}"'.format(s))
   else:
-    feedback.set_global_result("failed")
-    feedback.set_global_feedback(s)
-    #os.system('feedback --result failed --feedback "{0}"'.format(s))
+    os.system('feedback --result failed --feedback "{0}"'.format(s))
   
 if verbose: print('compiling my solution')
 
@@ -121,9 +117,7 @@ ok, msg = compile_java(solname)
 if not ok:
   if(verbose): print('compilation error on my solution:')
   if(verbose): print(msg)
-  feedback.set_global_result("failed")
-  feedback.set_global_feedback("{0}\n\n{1}".format('ups, it seems there is a problem. contact administrator.', message))
-  #os.system('feedback --result failed --feedback "{0}\n\n{1}"'.format('ups, it seems there is a problem. contact administrator.', message))  
+  os.system('feedback --result failed --feedback "{0}\n{1}"'.format('ups, it seems there is a problem. contact administrator.', message))  
   exit(0)
 
 os.system('getinput {0} > Main.java'.format(taskname))
@@ -133,9 +127,7 @@ ok, msg = compile_java('Main')
 if not ok:
   if(verbose): print('compilation error:')
   if(verbose): print(msg)
-  feedback.set_global_result("failed")
-  feedback.set_global_feedback("{0}\n\n{1}".format('compilation error', msg))  
-  #os.system('feedback --result failed --feedback "{0}\n\n{1}"'.format('compilation error', msg))
+  os.system('feedback --result failed --feedback "{0}\n{1}"'.format('compilation error', msg))
   exit(0)
 
 student_times, my_times, verdict, feedback = run_tests_java()

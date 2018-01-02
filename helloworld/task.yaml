@@ -6,14 +6,18 @@ environment: java7
 evaluate: best
 groups: false
 limits:
-    memory: '100'
-    output: '2'
     time: '30'
+    output: '2'
+    memory: '100'
 name: Hello World
 network_grading: false
 order: 0
 problems:
     file:
+        allowed_exts:
+        - .java
+        - ' .cpp'
+        - ' .py'
         header: |+
             In this simple problem you simply have to read a string from the standard input and output that same string into the standard output.
 
@@ -29,12 +33,8 @@ problems:
 
             * :math:`1 \leq |s| \leq 1000` where :math:`|s|` denots the number of characters of the string :math:`s`.
 
-        allowed_exts:
-        - .java
-        - ' .cpp'
-        - ' .py'
-        type: code-file
         name: Read and print
+        type: code-file
 stored_submissions: 0
 submission_limit:
     amount: -1
