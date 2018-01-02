@@ -30,7 +30,9 @@ problems:
             * :math:`1 \leq |s| \leq 1000` where :math:`|s|` denots the number of characters of the string :math:`s`.
 
         allowed_exts:
-        - .java .cpp .py
+        - .java
+        - ' .cpp'
+        - ' .py'
         type: code-file
         name: Read and print
 stored_submissions: 0

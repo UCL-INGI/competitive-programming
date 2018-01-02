@@ -43,14 +43,14 @@ def run_tests_java():
       # get the cpu start time for the student solution
       start_time = time.clock()
       # run student java solution
-      os.system('java ./tests/{1} | java {2} > output'.format(time_limit, fn, classname))
+      os.system('java ./tests/{1} | java {2} > output'.format(fn, classname))
       # cumpute the runtime
       student_cpu_time = time.clock() - start_time
       student_times.append(student_cpu_time)
       # get the cpu start time for the my solution
       start_time = time.clock()
       # run my java solution
-      os.system('java ./tests/{1} | java Sol'.format(time_limit, fn, classname))
+      os.system('java ./tests/{1} | java Sol'.format(fn, classname))
       my_cpu_time = time.clock() - start_time
       my_times.append(my_cpu_time)
       # update the maxtime
