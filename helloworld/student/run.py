@@ -109,7 +109,7 @@ os.system('getinput {0} > Main.java'.format(taskname))
 os.system('javac {0}.java 2> err'.format(classname))
 
 if not is_empty_file('err'):
-  message = readfile(err)
+  message = readfile('err')
   print('compilation error:')
   print(message)
   os.system('feedback --result failed --feedback "{0}\n{1}"'.format('compilation error', message))
