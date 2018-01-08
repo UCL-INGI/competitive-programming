@@ -3,11 +3,17 @@ author: ''
 context: |-
     In this task we will see that the same problem can have several DP formulations that can be more suited for some situations.
 
-    Recall that we defined previously the DP states as:
+    Recall that we defined previously the DP subproblems as:
 
       :math:`dp(i, c)` is the maximum value we can obtain by
       selecting a subset of the objects :math:`i, i + 1, \ldots, n - 1`
       from a knapsack of capacity :math:`c`.
+
+    But this is not the only way to do it. Another way to do it is to define the states to be pairs :math:`(i, v)` and the the subproblems as:
+
+      :math:`dp(i, v)` is the minimum capacity a knapsack must have in
+            order to obtain value :math:`v` by selecting a subset of
+            the objects :math:`i, i + 1, \ldots, n - 1`.
 environment: java7
 evaluate: best
 groups: false
