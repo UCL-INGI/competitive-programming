@@ -12,8 +12,10 @@ context: |-
     But this is not the only way to do it. Another way to do it is to define the states to be pairs :math:`(i, v)` and the the subproblems as:
 
       :math:`dp(i, v)` is the minimum capacity a knapsack must have in
-            order to obtain value :math:`v` by selecting a subset of
-            the objects :math:`i, i + 1, \ldots, n - 1`.
+      order to obtain value :math:`v` by selecting a subset of
+      the objects :math:`i, i + 1, \ldots, n - 1`.
+
+    To relate the subproblems and define the recurrence relation we need to think about what happens depending on whether we decide to skip or take the :math:`i`-th item.
 environment: java7
 evaluate: best
 groups: false
