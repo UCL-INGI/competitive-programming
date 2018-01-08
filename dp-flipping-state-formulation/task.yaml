@@ -1,21 +1,28 @@
 accessible: true
 author: ''
-context: ''
+context: |-
+    In this task we will see that the same problem can have several DP formulations that can be more suited for some situations.
+
+    Recall that we defined the DP states as:
+
+     :math:`dp(i, c)` is the maximum value we can obtain by
+      selecting a subset of the objects :math:`i, i + 1, \ldots, n - 1`
+      from a knapsack of capacity :math:`c`.
 environment: java7
 evaluate: best
 groups: false
 limits:
     memory: '100'
-    output: '2'
     time: '30'
+    output: '2'
 name: DP - Knapsack flipping state formulation
 network_grading: false
 problems:
     code:
+        name: ''
         language: ''
         type: code
         header: ''
-        name: ''
 stored_submissions: 0
 submission_limit:
     amount: -1
