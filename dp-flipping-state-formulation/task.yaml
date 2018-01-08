@@ -6,14 +6,10 @@ context: |-
     Recall that we defined previously the DP subproblems as:
 
       :math:`dp(i, c)` is the maximum value we can obtain by
-      selecting a subset of the objects :math:`i, i + 1, \ldots, n - 1`
+      selecting a subset of the objects :math:`0, 1 \ldots, i`
       from a knapsack of capacity :math:`c`.
 
-    But this is not the only way to do it. Another way to do it is to define the states to be pairs :math:`(i, v)` and the the subproblems as:
-
-      :math:`dp(i, v)` is the minimum capacity a knapsack must have in
-      order to obtain value :math:`v` by selecting a subset of
-      the objects :math:`i, i + 1, \ldots, n - 1`.
+    Note that we are basing ourselves on the bottom-up formulation.
 
     To relate the subproblems and define the recurrence relation we need to think about what happens depending on whether we decide to skip or take the :math:`i`-th item.
 environment: java7
