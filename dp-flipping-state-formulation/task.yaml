@@ -11,6 +11,12 @@ context: |-
 
     Note that we are basing ourselves on the bottom-up formulation.
 
+    But this is not the only way the DP subproblems can be formulation. An alternative is to have the states depend on the value instead of the capacity. We define the states as pairs :math:`(i, v)` and the subproblems as:
+
+      :math:`dp(i, v)` is the minimum Knapsack capacity needed in order
+      to achieve value :math:`v` from selecting a subset of the objects
+      :math:`0, 1 \ldots, i`.
+
     To relate the subproblems and define the recurrence relation we need to think about what happens depending on whether we decide to skip or take the :math:`i`-th item.
 environment: java7
 evaluate: best
