@@ -153,8 +153,8 @@ class Judging:
         status += '[TLE]'
       if test_index in self.runtime_error:
         status += '[RE]'
-      s += 'Test #{0}: runtime={1}, status={2}\n\n'.format(test_index, self.run_time[test_index], status)
-    overall_status = ''
+      s += 'Test #{0}: runtime={1}, status={2}\n\n'.format(test_index + 1, self.run_time[test_index], status)
+    overall_status = 'verdict: '
     if self.is_accepted():
       overall_status = '[ACCEPTED]'
     if self.is_wrong_answer():
@@ -163,4 +163,5 @@ class Judging:
       overall_status += '[TIME LIMIT EXCEEDED]'
     if self.is_runtime_error():
       overall_status += '[RUNTIME ERROR]'
+    s += overall_status
     return s
