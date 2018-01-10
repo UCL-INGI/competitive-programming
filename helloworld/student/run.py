@@ -18,7 +18,7 @@ END OF CONFIG
 """
 
 os.system('getinput {0} > Main.java'.format(taskname))
-judging = judge_java('Main', './tests', checker, timelimit):
+judging = judge_java('Main', './tests', checker, timelimit);
 if judging.is_accepted():
  feedback.set_global_result("success")
 else:
