@@ -153,7 +153,7 @@ class Judging:
         status += '[TLE]'
       if test_index in self.runtime_error:
         status += '[RE]'
-      s += 'Test #{0}: runtime={1}, status={2}\n\n'.format(test_index + 1, self.run_time[test_index], status)
+      s += 'Test #{0}: runtime={1:.3f}, status={2}\n\n'.format(test_index + 1, self.run_time[test_index], status)
     overall_status = 'verdict: '
     if self.is_accepted():
       overall_status = '[ACCEPTED]'
