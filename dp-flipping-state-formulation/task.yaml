@@ -23,17 +23,17 @@ environment: java7
 evaluate: best
 groups: false
 limits:
-    memory: '100'
     time: '30'
+    memory: '100'
     output: '2'
 name: DP - Knapsack flipping state formulation
 network_grading: false
 problems:
     code:
         name: ''
+        header: ''
         language: ''
         type: code
-        header: ''
 stored_submissions: 0
 submission_limit:
     amount: -1
