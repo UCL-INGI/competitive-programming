@@ -50,39 +50,50 @@ def run_java(mainclass = 'Main', inputfile = 'input', outputfile = 'output'):
   run_time = end_time - start_time
   return is_empty_file('err'), run_time
 
-def judge_java(mainclass = 'Main', testdir = './tests', checker = checkers.diff_check, timelimit = 1):
+def judge_java(mainclass = 'Main', testdir = './tests', checker = checkers.diff_check, timelimit = 1, verbose = True):
   judging = Judging()
   # compile the student solution
+  if(verbose): print('compiling java')
   compile_ok, err = compile_java(mainclass)
   if not compile_ok:
+    if(verbose): print('compilation error')
     # compile error
     judging.set_compile_error()
     return judging
+  if(verbose): print('compilation successful')
   # no compile error, so we run
   test_index = -1
   for fn in os.listdir(testdir):
     if fn.endswith('.in'):
+      if(verbose): print('running test {0}'.format(fn))
       test_index += 1
       # get the name of the test case
-      name = fn.split('.')[-1]
+      name = fn.split('.')[0]
       run_ok, time = run_java(mainclass, testdir + '/' + fn)
+      if(verbose): print('run finished: {0}s'.format(time))
       # set the runtime
       judging.add_time(test_index, time)
       if time > timelimit:
+        if(verbose): print('time limit exceeded')
         # time limit exceeded
         judging.add_time_limit_exceeded(test_index)
       if not run_ok:
+        if(verbose): print('runtime error')
         # runtime error
         judging.add_runtime_error(test_index)
       else:
+        if(verbose): print('chicking the answer')
         # check whether the answer is correct
         answer_ok = checker(testdir + '/' + fn, testdir + '/' + name + '.ans', 'output')
         if not answer_ok:
+          if(verbose): print('wrong answer')
           # wrong_answer
           judging.add_wrong_anser(test_index)
         else:
+          if(verbose): print('correct')
           # correct
           judging.add_correct(test_index)
+  if(verbose): print('finished judging')
   return judging
 
 class Judging:
@@ -99,16 +110,16 @@ class Judging:
     self.compile_error = compile_error
   
   def add_wrong_anser(self, test_index):
-    self.wrong_answer.append(test_index)
+    self.wrong_answer.add(test_index)
   
   def add_time_limit_exceeded(self, test_index):
-    self.time_limit_exceeded.append(test_index)
+    self.time_limit_exceeded.add(test_index)
 
   def add_runtime_error(self, test_index):
-    self.runtime_error.append(test_index)
+    self.runtime_error.add(test_index)
 
   def add_correct(self, test_index):
-    self.correct.append(test_index)
+    self.correct.add(test_index)
 
   def add_time(self, test_index, run_time):
     self.run_time[test_index] = run_time
