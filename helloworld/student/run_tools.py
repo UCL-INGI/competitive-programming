@@ -139,6 +139,9 @@ class Judging:
   def is_compile_error(self):
     return self.compile_error
 
+  def get_max_runtime(self):
+    return max(self.run_time)
+
   def produce_feedback_message(self):
     if self.is_compile_error():
       return 'Compile error\n\n'.format()

@@ -17,8 +17,13 @@ checker = checkers.diff_check
 END OF CONFIG
 """
 
+judging  = judge_java('yunoacsol', './tests', checker, 10000)
+max_time = judging.get_max_runtime()
+TL = max(timelimit, 3 * max_time)
+print(TL)
+
 os.system('getinput {0} > Main.java'.format(taskname))
-judging = judge_java('Main', './tests', checker, timelimit);
+judging = judge_java('Main', './tests', checker, TL)
 if judging.is_accepted():
  feedback.set_global_result("success")
 else:
