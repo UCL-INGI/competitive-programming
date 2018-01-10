@@ -140,7 +140,10 @@ class Judging:
     return self.compile_error
 
   def get_max_runtime(self):
-    return max(self.run_time)
+    m = -1
+    for test_index in self.run_time:
+      m = max(m, self.run_time[test_index])
+    return m
 
   def produce_feedback_message(self):
     if self.is_compile_error():

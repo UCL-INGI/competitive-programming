@@ -17,8 +17,9 @@ checker = checkers.diff_check
 END OF CONFIG
 """
 
-judging  = judge_java('yunoacsol', './tests', checker, 10000)
+judging  = judge_java('yunoacsol', './tests', checker, 10000, False)
 max_time = judging.get_max_runtime()
+print(max_time)
 TL = max(timelimit, 3 * max_time)
 print(TL)
 
