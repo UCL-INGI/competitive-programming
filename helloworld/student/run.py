@@ -23,6 +23,10 @@ print(max_time)
 TL = max(timelimit, 3 * max_time)
 print(TL)
 
+os.system('getinput {0}:filename > tmp'.format(taskname))
+f = open('tmp', 'r')
+print(f.readlines())
+
 os.system('getinput {0} > Main.java'.format(taskname))
 judging = judge_java('Main', './tests', checker, TL)
 if judging.is_accepted():
