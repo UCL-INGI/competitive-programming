@@ -22,7 +22,7 @@ all those strings separated by newlines for INGInious
 presentation.
 """
 def format_for_output(lines):
-  '\n\n'.join(lines)
+  return '\n\n'.join(lines)
 
 """
 Compiles a java code and returns two values:
@@ -56,7 +56,10 @@ def judge_java(mainclass = 'Main', testdir = './tests', checker = checkers.diff_
   if(verbose): print('compiling java')
   compile_ok, err = compile_java(mainclass)
   if not compile_ok:
-    if(verbose): print('compilation error')
+    if(verbose): 
+        print('compilation error')
+        print(err)
+        print(format_for_output(err))
     # compile error
     judging.set_compile_error(True, format_for_output(err))
     return judging
@@ -149,7 +152,7 @@ class Judging:
 
   def produce_feedback_message(self):
     if self.is_compile_error():
-      return 'Compile error\n\n'.format()
+      return 'Compile error\n\n' + self.compile_message
     s = ''
     for test_index in self.run_time:
       status = ''
