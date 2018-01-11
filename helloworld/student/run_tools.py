@@ -48,7 +48,7 @@ def run_java(mainclass = 'Main', inputfile = 'input', outputfile = 'output'):
   os.system('cat {0} | java {1} > {2} 2> err'.format(inputfile, mainclass, outputfile))
   end_time = time.clock()
   run_time = end_time - start_time
-  return is_empty_file('err'), run_time
+  return is_empty_file('err'), run_time, readlines('err')
 
 def judge_java(mainclass = 'Main', testdir = './tests', checker = checkers.diff_check, timelimit = 1, verbose = True):
   judging = Judging()
@@ -56,10 +56,7 @@ def judge_java(mainclass = 'Main', testdir = './tests', checker = checkers.diff_
   if(verbose): print('compiling java')
   compile_ok, err = compile_java(mainclass)
   if not compile_ok:
-    if(verbose): 
-        print('compilation error')
-        print(err)
-        print(format_for_output(err))
+    if(verbose): print('compilation error')
     # compile error
     judging.set_compile_error(True, format_for_output(err))
     return judging
@@ -72,7 +69,7 @@ def judge_java(mainclass = 'Main', testdir = './tests', checker = checkers.diff_
       test_index += 1
       # get the name of the test case
       name = fn.split('.')[0]
-      run_ok, time = run_java(mainclass, testdir + '/' + fn)
+      run_ok, time, err = run_java(mainclass, testdir + '/' + fn)
       if(verbose): print('run finished: {0}s'.format(time))
       # set the runtime
       judging.add_time(test_index, time)
@@ -83,7 +80,7 @@ def judge_java(mainclass = 'Main', testdir = './tests', checker = checkers.diff_
       if not run_ok:
         if(verbose): print('runtime error')
         # runtime error
-        judging.add_runtime_error(test_index)
+        judging.add_runtime_error(test_index, format_for_output(err))
       else:
         if(verbose): print('chicking the answer')
         # check whether the answer is correct
@@ -106,7 +103,7 @@ class Judging:
     self.compile_message = None
     self.wrong_answer = set()
     self.time_limit_exceeded = set()
-    self.runtime_error = set()
+    self.runtime_error = { }
     self.correct = set()
     self.run_time = { }
   
@@ -120,8 +117,8 @@ class Judging:
   def add_time_limit_exceeded(self, test_index):
     self.time_limit_exceeded.add(test_index)
 
-  def add_runtime_error(self, test_index):
-    self.runtime_error.add(test_index)
+  def add_runtime_error(self, test_index, message):
+    self.runtime_error[test_index] = message
 
   def add_correct(self, test_index):
     self.correct.add(test_index)
@@ -165,6 +162,8 @@ class Judging:
       if test_index in self.runtime_error:
         status += '[RE]'
       s += 'Test #{0}: runtime={1:.3f}, status={2}\n\n'.format(test_index + 1, self.run_time[test_index], status)
+      if test_index in self.runtime_error:
+        s += self.runtime_error[test_index] + '\n\n'
     overall_status = 'verdict: '
     if self.is_accepted():
       overall_status = '[ACCEPTED]'
