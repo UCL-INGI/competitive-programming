@@ -27,16 +27,16 @@ os.system('getinput {0}:filename > tmp'.format(taskname))
 f = open('tmp', 'r')
 filename = f.readlines()[0].strip()
 ext = filename.split('.')[1]
-if(ext == 'java') {
+if(ext == 'java'):
     print('received java solution')
     classname = filename.split('.')[0]
     os.system('getinput {0} > {1}.java'.format(taskname, classname))
     judging = judge_java(classname, './tests', checker, TL)
-} else if(ext == 'cpp') {
+elif(ext == 'cpp'):
     print('received cpp solution')
     os.system('getinput {0} > code.cpp'.format(taskname, classname))
     judging = judge_cpp('code.cpp', './tests', checker, TL)
-}
+
 
 if judging.is_accepted():
  feedback.set_global_result("success")
