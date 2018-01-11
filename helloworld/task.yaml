@@ -32,7 +32,7 @@ problems:
         name: Read and print
         type: code-file
         allowed_exts:
-        - .java
+        - .java .cpp
     feedback:
         header: ''
         choices:
