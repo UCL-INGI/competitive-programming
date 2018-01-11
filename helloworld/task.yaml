@@ -7,8 +7,8 @@ evaluate: best
 groups: false
 limits:
     output: '2'
-    memory: '100'
     time: '30'
+    memory: '100'
 name: Hello World
 network_grading: false
 order: 0
@@ -29,10 +29,22 @@ problems:
 
             * :math:`1 \leq |s| \leq 1000` where :math:`|s|` denots the number of characters of the string :math:`s`.
 
-        allowed_exts:
-        - .java .cpp
-        type: code-file
         name: Read and print
+        type: code-file
+        allowed_exts:
+        - .java
+    feedback:
+        header: ''
+        choices:
+        -   valid: true
+            text: Contest level
+        -   valid: true
+            text: Test cases
+        -   text: Test cases + error messages
+            valid: true
+        type: multiple-choice
+        limit: 0
+        name: Feedback level
 stored_submissions: 0
 submission_limit:
     amount: -1
