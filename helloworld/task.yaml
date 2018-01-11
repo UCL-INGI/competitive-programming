@@ -6,15 +6,14 @@ environment: java7
 evaluate: best
 groups: false
 limits:
-    time: '30'
-    memory: '100'
     output: '2'
+    memory: '100'
+    time: '30'
 name: Hello World
 network_grading: false
 order: 0
 problems:
     file:
-        name: Read and print
         header: |+
             In this simple problem you simply have to read a string from the standard input and output that same string into the standard output.
 
@@ -35,6 +34,7 @@ problems:
         - ' .cpp'
         - ' .py'
         type: code-file
+        name: Read and print
 stored_submissions: 0
 submission_limit:
     amount: -1

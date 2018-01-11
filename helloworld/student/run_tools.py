@@ -58,7 +58,7 @@ def judge_java(mainclass = 'Main', testdir = './tests', checker = checkers.diff_
   if not compile_ok:
     if(verbose): print('compilation error')
     # compile error
-    judging.set_compile_error()
+    judging.set_compile_error(True, format_for_output(err))
     return judging
   if(verbose): print('compilation successful')
   # no compile error, so we run
@@ -100,14 +100,16 @@ class Judging:
 
   def __init__(self):
     self.compile_error = False
+    self.compile_message = None
     self.wrong_answer = set()
     self.time_limit_exceeded = set()
     self.runtime_error = set()
     self.correct = set()
     self.run_time = { }
   
-  def set_compile_error(self, compile_error = True):
+  def set_compile_error(self, compile_error, compile_message):
     self.compile_error = compile_error
+    self.compile_message = compile_message
   
   def add_wrong_anser(self, test_index):
     self.wrong_answer.add(test_index)
