@@ -30,6 +30,7 @@ problems:
             * :math:`1 \leq |s| \leq 1000` where :math:`|s|` denots the number of characters of the string :math:`s`.
 
         name: Read and print
+        max_size: 10000000
         type: code-file
         allowed_exts:
         - .cpp
