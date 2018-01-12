@@ -2,7 +2,7 @@ accessible: true
 author: ''
 context: In this task you will be given some very simple taks to make sure that you
     know how to read and write from the starndard output.
-environment: java7
+environment: java8scala
 evaluate: best
 groups: false
 limits:
