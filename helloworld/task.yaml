@@ -32,7 +32,8 @@ problems:
         name: Read and print
         type: code-file
         allowed_exts:
-        - .cpp .pdf
+        - .cpp
+        - .pdf
     feedback:
         header: ''
         choices:
