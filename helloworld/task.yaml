@@ -33,6 +33,7 @@ problems:
         type: code-file
         allowed_exts:
         - .cpp
+        - .pdf
     feedback:
         header: ''
         choices:
