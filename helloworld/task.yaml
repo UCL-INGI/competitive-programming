@@ -33,8 +33,8 @@ problems:
         max_size: 10000000
         type: code-file
         allowed_exts:
+        - .java
         - .cpp
-        - .pdf
     feedback:
         header: ''
         choices:
