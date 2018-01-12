@@ -40,6 +40,8 @@ elif(ext == 'cpp'):
     print('received cpp solution')
     os.system('getinput {0} > code.cpp'.format(taskname, classname))
     os.system('g++ -O2 -std=c++11 code.cpp')
+    os.system('gcc -O2 -std=c++11 code.cpp')
+    
     #judging = judge_cpp('code.cpp', './tests', checker, TL)
 
 
