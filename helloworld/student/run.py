@@ -30,15 +30,17 @@ print(f.readlines())
 os.system('getinput {0}:filename > tmp'.format(taskname))
 f = open('tmp', 'r')
 filename = f.readlines()[0].strip()
+name = filename.split('.')[0]
 ext = filename.split('.')[1]
 if(ext == 'java'):
     print('received java solution')
-    os.system('getinput {0} > {1}.java'.format(taskname, filename))
+    print(filename)
+    os.system('getinput {0} > {1}.java'.format(taskname, name))
     judging = judge_java(filename, './tests', checker, TL)
     print('finished judging java')
 elif(ext == 'cpp'):
     print('received cpp solution')
-    os.system('getinput {0} > {1}.cpp'.format(taskname, filename))
+    os.system('getinput {0} > {1}.cpp'.format(taskname, name))
     judging = judge_cpp(filename, './tests', checker, TL)
     print('finished judging cpp')
 
