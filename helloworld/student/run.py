@@ -33,17 +33,14 @@ filename = f.readlines()[0].strip()
 ext = filename.split('.')[1]
 if(ext == 'java'):
     print('received java solution')
-    classname = filename.split('.')[0]
-    os.system('getinput {0} > {1}.java'.format(taskname, classname))
-    judging = judge_java(classname, './tests', checker, TL)
+    os.system('getinput {0} > {1}.java'.format(taskname, filename))
+    judging = judge_java(filename, './tests', checker, TL)
+    print('finished judging java')
 elif(ext == 'cpp'):
     print('received cpp solution')
-    os.system('getinput {0} > code.cpp'.format(taskname, classname))
-    os.system('g++ -O2 -std=c++11 code.cpp')
-    os.system('gcc -O2 -std=c++11 code.cpp')
-    
-    #judging = judge_cpp('code.cpp', './tests', checker, TL)
-
+    os.system('getinput {0} > {1}.cpp'.format(taskname, filename))
+    judging = judge_cpp(filename, './tests', checker, TL)
+    print('finished judging cpp')
 
 if judging.is_accepted():
  feedback.set_global_result("success")

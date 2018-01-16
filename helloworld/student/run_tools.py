@@ -25,16 +25,31 @@ def format_for_output(lines):
   return '\n\n'.join(lines)
 
 """
-Compiles a java code and returns two values:
-
-- A flag that is true iff the compilation was successful
-- A list will the lines from the compilation error message.
-  The list is empty iff the compilation was sucessful.
+Compiles a java code.
 """
 def compile_java(mainclass):
   os.system('> err')
   os.system('javac {0}.java 2> err'.format(mainclass))
   return is_empty_file('err'), readlines('err')
+
+"""
+Compiles a cpp code.
+"""
+def compile_cpp(filename):
+  os.system('> err')
+  os.system('g++ -w -O2 -std=c++11 -o {0} {1}.cpp 2> err'.format(filename, filename))
+  return is_empty_file('err'), readlines('err')
+
+"""
+Run a cpp code.
+"""
+def run_cpp(filename, inputfile = 'input', outputfile = 'output'):
+  os.system('> err')
+  start_time = time.clock()
+  os.system('cat {0} | ./{1} > {2} 2> err'.format(inputfile, filename, outputfile))
+  end_time = time.clock()
+  run_time = end_time - start_time
+  return is_empty_file('err'), run_time, readlines('err')
 
 """
 Runs a java code on a given input and writes the output in the given
@@ -50,6 +65,58 @@ def run_java(mainclass = 'Main', inputfile = 'input', outputfile = 'output'):
   run_time = end_time - start_time
   return is_empty_file('err'), run_time, readlines('err')
 
+"""
+Judge a cpp solution.
+"""
+def judge_cpp(filename, testdir = './tests', checker = checkers.diff_check, timelimit = 1, verbose = True):
+  judging = Judging()
+  # compile the student solution
+  if(verbose): print('compiling cpp')
+  compile_ok, err = compile_cpp(filename)
+  if not compile_ok:
+    if(verbose): print('compilation error')
+    # compile error
+    judging.set_compile_error(True, format_for_output(err))
+    return judging
+  if(verbose): print('compilation successful')
+  # no compile error, so we run
+  test_index = -1
+  for fn in os.listdir(testdir):
+    if fn.endswith('.in'):
+      if(verbose): print('running test {0}'.format(fn))
+      test_index += 1
+      # get the name of the test case
+      name = fn.split('.')[0]
+      run_ok, time, err = run_cpp(filename, testdir + '/' + fn)
+      if(verbose): print('run finished: {0}s'.format(time))
+      # set the runtime
+      judging.add_time(test_index, time)
+      if time > timelimit:
+        if(verbose): print('time limit exceeded')
+        # time limit exceeded
+        judging.add_time_limit_exceeded(test_index)
+      if not run_ok:
+        if(verbose): print('runtime error')
+        # runtime error
+        judging.add_runtime_error(test_index, format_for_output(err))
+      else:
+        if(verbose): print('chicking the answer')
+        # check whether the answer is correct
+        answer_ok = checker(testdir + '/' + fn, testdir + '/' + name + '.ans', 'output')
+        if not answer_ok:
+          if(verbose): print('wrong answer')
+          # wrong_answer
+          judging.add_wrong_anser(test_index)
+        else:
+          if(verbose): print('correct')
+          # correct
+          judging.add_correct(test_index)
+  if(verbose): print('finished judging')
+  return judging
+
+"""
+Judge a java solution.
+"""
 def judge_java(mainclass = 'Main', testdir = './tests', checker = checkers.diff_check, timelimit = 1, verbose = True):
   judging = Judging()
   # compile the student solution
