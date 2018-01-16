@@ -34,14 +34,14 @@ name = filename.split('.')[0]
 ext = filename.split('.')[1]
 if(ext == 'java'):
     print('received java solution')
-    print(filename)
+    print(name)
     os.system('getinput {0} > {1}.java'.format(taskname, name))
-    judging = judge_java(filename, './tests', checker, TL)
+    judging = judge_java(name, './tests', checker, TL)
     print('finished judging java')
 elif(ext == 'cpp'):
     print('received cpp solution')
     os.system('getinput {0} > {1}.cpp'.format(taskname, name))
-    judging = judge_cpp(filename, './tests', checker, TL)
+    judging = judge_cpp(name, './tests', checker, TL)
     print('finished judging cpp')
 
 if judging.is_accepted():
