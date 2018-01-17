@@ -35,6 +35,7 @@ problems:
         allowed_exts:
         - .java
         - .cpp
+        - .py
     feedback:
         choices:
         -   text: Contest level
