@@ -52,6 +52,17 @@ def run_cpp(filename, inputfile = 'input', outputfile = 'output'):
   return is_empty_file('err'), run_time, readlines('err')
 
 """
+Run a python3 code.
+"""
+def run_python(filename, inputfile = 'input', outputfile = 'output'):
+  os.system('> err')
+  start_time = time.clock()
+  os.system('cat {0} | python3 {1}.py > {2} 2> err'.format(inputfile, filename, outputfile))
+  end_time = time.clock()
+  run_time = end_time - start_time
+  return is_empty_file('err'), run_time, readlines('err')
+
+"""
 Runs a java code on a given input and writes the output in the given
 output file.
 
@@ -64,6 +75,56 @@ def run_java(mainclass = 'Main', inputfile = 'input', outputfile = 'output'):
   end_time = time.clock()
   run_time = end_time - start_time
   return is_empty_file('err'), run_time, readlines('err')
+
+"""
+Judge a python solution.
+"""
+def judge_cpp(filename, testdir = './tests', checker = checkers.diff_check, timelimit = 1, verbose = True):
+  judging = Judging()
+  # compile the student solution
+  if(verbose): print('compiling cpp')
+  compile_ok, err = compile_cpp(filename)
+  if not compile_ok:
+    if(verbose): print('compilation error')
+    # compile error
+    judging.set_compile_error(True, format_for_output(err))
+    return judging
+  if(verbose): print('compilation successful')
+  # no compile error, so we run
+  test_index = -1
+  for fn in os.listdir(testdir):
+    if fn.endswith('.in'):
+      if(verbose): print('running test {0}'.format(fn))
+      test_index += 1
+      # get the name of the test case
+      name = fn.split('.')[0]
+      run_ok, time, err = run_py(filename, testdir + '/' + fn)
+      if(verbose): print('run finished: {0}s'.format(time))
+      # set the runtime
+      judging.add_time(test_index, time)
+      if time > timelimit:
+        if(verbose): print('time limit exceeded')
+        # time limit exceeded
+        judging.add_time_limit_exceeded(test_index)
+      if not run_ok:
+        if(verbose): print('runtime error')
+        # runtime error
+        judging.add_runtime_error(test_index, format_for_output(err))
+      else:
+        if(verbose): print('chicking the answer')
+        # check whether the answer is correct
+        answer_ok = checker(testdir + '/' + fn, testdir + '/' + name + '.ans', 'output')
+        if not answer_ok:
+          if(verbose): print('wrong answer')
+          # wrong_answer
+          judging.add_wrong_anser(test_index)
+        else:
+          if(verbose): print('correct')
+          # correct
+          judging.add_correct(test_index)
+  if(verbose): print('finished judging')
+  return judging
+
 
 """
 Judge a cpp solution.
