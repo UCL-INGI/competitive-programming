@@ -8,7 +8,6 @@ from run_tools import *
 """
 CONFIG
 """
-classname = 'Main'
 taskname = 'file'
 solname = 'yunoacsol'
 timelimit = 2
@@ -33,16 +32,21 @@ filename = f.readlines()[0].strip()
 name = filename.split('.')[0]
 ext = filename.split('.')[1]
 if(ext == 'java'):
-    print('received java solution')
-    print(name)
-    os.system('getinput {0} > {1}.java'.format(taskname, name))
-    judging = judge_java(name, './tests', checker, TL)
-    print('finished judging java')
+  print('received java solution')
+  os.system('getinput {0} > {1}.java'.format(taskname, name))
+  judging = judge_java(name, './tests', checker, TL)
+  print('finished judging java')
 elif(ext == 'cpp'):
-    print('received cpp solution')
-    os.system('getinput {0} > {1}.cpp'.format(taskname, name))
-    judging = judge_cpp(name, './tests', checker, TL)
-    print('finished judging cpp')
+  print('received cpp solution')
+  os.system('getinput {0} > {1}.cpp'.format(taskname, name))
+  judging = judge_cpp(name, './tests', checker, TL)
+  print('finished judging cpp')
+elif(ext == 'py'):
+  print('received python solution')
+  os.system('getinput {0} > {1}.py'.format(taskname, name))
+  judging = judge_py(name, './tests', checker, TL)
+  print('finished judging java')
+    
 
 if judging.is_accepted():
  feedback.set_global_result("success")
