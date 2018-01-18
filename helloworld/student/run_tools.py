@@ -94,7 +94,7 @@ def judge_cpp(filename, checker, timelimit, reference_time, testdir = './tests',
 """
 Judge a java solution.
 """
-def judge_cpp(filename, checker, timelimit, reference_time, testdir = './tests',  verbose = True):
+def judge_java(filename, checker, timelimit, reference_time, testdir = './tests',  verbose = True):
   return judge(filename, run_java, compile_java, checker, timelimit, reference_time, testdir, verbose)
 
 
