@@ -50,11 +50,14 @@ def compile_cpp(filename, verbose = True):
 """
 Run a cpp code.
 """
-def run_cpp(filename, inputfile = 'input', outputfile = 'output', verbose = True):
+def run_cpp(filename, timelimit, inputfile = 'input', outputfile = 'output', verbose = True):
   if(verbose): print('running cpp')
   os.system('> err')
   start_time = time.clock()
-  os.system('cat {0} | ./{1} > {2} 2> err'.format(inputfile, filename, outputfile))
+  try:
+    subprocess.run('cat {0} | ./{1} > {2} 2> err'.format(inputfile, filename, outputfile), shell = True, timeout = timelimit)
+  except TimeoutExpired:
+    return False, is_empty_file('err'), (timelimit + 0.000001), readlines('err')
   end_time = time.clock()
   run_time = end_time - start_time
   return is_empty_file('err'), run_time, readlines('err')
@@ -69,7 +72,7 @@ def run_py(filename, timelimit, inputfile = 'input', outputfile = 'output', verb
   try:
     subprocess.run('cat {0} | python3 {1}.py > {2} 2> err'.format(inputfile, filename, outputfile), shell = True, timeout = timelimit)
   except TimeoutExpired:
-    return False, is_empty_file('err'), (timelimit + 0.001), readlines('err')
+    return False, is_empty_file('err'), (timelimit + 0.000001), readlines('err')
   end_time = time.clock()
   run_time = end_time - start_time
   return True, is_empty_file('err'), run_time, readlines('err')
@@ -83,7 +86,10 @@ Returns the cpu run-time of that code.
 def run_java(mainclass, timelimit, inputfile, outputfile):
   os.system('> err')
   start_time = time.clock()
-  os.system('cat {0} | java {1} > {2} 2> err'.format(inputfile, mainclass, outputfile))
+  try:
+    subprocess.run('cat {0} | java {1} > {2} 2> err'.format(inputfile, mainclass, outputfile), shell = True, timeout = timelimit)
+  except TimeoutExpired:
+    return False, is_empty_file('err'), (timelimit + 0.000001), readlines('err')
   end_time = time.clock()
   run_time = end_time - start_time
   return True, is_empty_file('err'), run_time, readlines('err')
