@@ -69,6 +69,8 @@ def run_py(filename, timelimit, inputfile = 'input', outputfile = 'output', verb
   if(verbose): print('running py with timelimit={0}'.format(timelimit))
   os.system('> err')
   start_time = time.clock()
+  # move the test case so that the student has access
+  os.system('mv ./tests/{0} ./student/{0}'.format(filename))
   os.system('run_student --time {0} cat {1} | python3 {2}.py > {3} 2> err'.format(timelimit, inputfile, filename, outputfile))
   """
   try:
@@ -78,7 +80,7 @@ def run_py(filename, timelimit, inputfile = 'input', outputfile = 'output', verb
   """
   end_time = time.clock()
   run_time = end_time - start_time
-  return True, is_empty_file('err'), run_time, readlines('err')
+  return True, is_empty_file('./student/err'), run_time, readlines('./student/err')
 
 """
 Runs a java code on a given input and writes the output in the given
@@ -153,7 +155,7 @@ def judge(filename, compile, run, checker, timelimit, testdir = './tests', verbo
       if run_ok and time_ok:
         if(verbose): print('chicking the answer')
         # check whether the answer is correct
-        answer_ok = checker(testdir + '/' + fn, testdir + '/' + name + '.ans', 'output.tmp')
+        answer_ok = checker(testdir + '/' + fn, testdir + '/' + name + '.ans', './student/output.tmp')
         if not answer_ok:
           if(verbose): print('wrong answer')
           # wrong_answer

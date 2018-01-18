@@ -33,17 +33,17 @@ name = filename.split('.')[0]
 ext = filename.split('.')[1]
 if(ext == 'java'):
   print('received java solution')
-  os.system('getinput {0} > {1}.java'.format(taskname, name))
+  os.system('getinput {0} > ./student/{1}.java'.format(taskname, name))
   judging = judge_java(name, checker, timelimit)
   print('finished judging java')
 elif(ext == 'cpp'):
   print('received cpp solution')
-  os.system('getinput {0} > {1}.cpp'.format(taskname, name))
+  os.system('getinput {0} > ./student/{1}.cpp'.format(taskname, name))
   judging = judge_cpp(name, checker, timelimit)
   print('finished judging cpp')
 elif(ext == 'py'):
   print('received python solution')
-  os.system('getinput {0} > {1}.py'.format(taskname, name))
+  os.system('getinput {0} > ./student/{1}.py'.format(taskname, name))
   judging = judge_py(name, checker, timelimit)
   print('finished judging python')
     
