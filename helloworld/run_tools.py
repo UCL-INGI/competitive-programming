@@ -63,11 +63,11 @@ def run_cpp(filename, inputfile = 'input', outputfile = 'output', verbose = True
 Run a python3 code.
 """
 def run_py(filename, timelimit, inputfile = 'input', outputfile = 'output', verbose = True):
-  if(verbose): print('running py')
+  if(verbose): print('running py with timelimit={0}'.format(timelimit))
   os.system('> err')
   start_time = time.clock()
   try:
-    subprocess.run('cat {0} | python3 {1}.py > {2} 2> err'.format(inputfile, filename, outputfile), shell = True, timeout = int(timelimit))
+    subprocess.run('cat {0} | python3 {1}.py > {2} 2> err'.format(inputfile, filename, outputfile), shell = True, timeout = timelimit)
   except TimeoutExpired:
     end_time = time.clock()
     run_time = end_time - start_time
@@ -82,7 +82,7 @@ output file.
 
 Returns the cpu run-time of that code.
 """
-def run_java(mainclass = 'Main', inputfile = 'input', outputfile = 'output'):
+def run_java(mainclass = 'Main', timelimit, inputfile = 'input', outputfile = 'output'):
   os.system('> err')
   start_time = time.clock()
   os.system('cat {0} | java {1} > {2} 2> err'.format(inputfile, mainclass, outputfile))
@@ -129,7 +129,7 @@ def judge(filename, compile, run, checker, timelimit, testdir = './tests', verbo
       test_index += 1
       # get the name of the test case
       name = fn.split('.')[0]
-      time_ok, run_ok, time, err = run(filename, testdir + '/' + fn)
+      time_ok, run_ok, time, err = run(filename, timelimit, testdir + '/' + fn)
       if(verbose): print('run finished: {0}s'.format(time))
       # set the runtime
       judging.add_time(test_index, time)
