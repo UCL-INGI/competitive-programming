@@ -52,4 +52,4 @@ if judging.is_accepted():
  feedback.set_global_result("success")
 else:
   feedback.set_global_result("failure")
-feedback.set_global_feedback(judging.produce_feedback_message())
+feedback.set_global_feedback(judging.produce_contest_feedback_message())

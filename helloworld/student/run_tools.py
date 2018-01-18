@@ -265,6 +265,19 @@ class Judging:
       m = max(m, self.run_time[test_index])
     return m
 
+  def produce_contest_feedback_message(self):
+    if self.is_compile_error():
+      return 'Compile error\n\n'
+    if len(self.wrong_answer) > 0:
+      retrun 'Wrong answer\n\n'
+    if len(self.runtime_error) > 0:
+      return 'Runtime error\n\n'
+    if len(self.time_limit_exceeded) > 0:
+      return 'Time limit exceeded\n\n'
+    assert self.is_accepted()
+    return 'Accepted'
+        
+
   def produce_feedback_message(self):
     if self.is_compile_error():
       return 'Compile error\n\n' + self.compile_message
