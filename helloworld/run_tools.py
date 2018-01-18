@@ -68,11 +68,11 @@ Run a python3 code.
 def run_py(filename, timelimit, inputfile = 'input', outputfile = 'output', verbose = True):
   if(verbose): print('running py with timelimit={0}'.format(timelimit))
   os.system('> err')
+  os.system('> ./student/input')
   start_time = time.clock()
   # move the test case so that the student has access
-  os.system('mv ./tests/{0} ./student/{0}'.format(inputfile))
-  assert os.path.exists('./student/{0}'.format(inputfile))
-  os.system('run_student --time {0} cat {1} | python3 {2}.py > {3} 2> err'.format(timelimit, inputfile, filename, outputfile))
+  os.system('mv {0} ./student/input'.format(inputfile))
+  os.system('run_student --time {0} cat input | python3 {1}.py > {2} 2> err'.format(timelimit, inputfile, filename, outputfile))
   os.system('mv ./student/{0} ./{0}'.format(outputfile))
 
   """
