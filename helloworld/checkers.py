@@ -9,8 +9,9 @@ def diff_check(input, output, given):
   print('expected:')
   for i in range(len(lines1)):
     print(lines1[i])
-  print('-----')
   print('given:')
   for i in range(len(lines2)):
     print(lines2[i])
+  print(filecmp.cmp(output, given))
+  print('----------')
   return filecmp.cmp(output, given)
