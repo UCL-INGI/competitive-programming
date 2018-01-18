@@ -32,6 +32,9 @@ def compile_java(mainclass):
   os.system('javac {0}.java 2> err'.format(mainclass))
   return is_empty_file('err'), readlines('err')
 
+def compile_py(filename):
+    return True, ''
+
 """
 Compiles a cpp code.
 """
@@ -79,51 +82,27 @@ def run_java(mainclass = 'Main', inputfile = 'input', outputfile = 'output'):
 """
 Judge a python solution.
 """
-def judge_py(filename, testdir = './tests', checker = checkers.diff_check, timelimit = 1, verbose = True):
-  judging = Judging()
-  test_index = -1
-  for fn in os.listdir(testdir):
-    if fn.endswith('.in'):
-      if(verbose): print('running test {0}'.format(fn))
-      test_index += 1
-      # get the name of the test case
-      name = fn.split('.')[0]
-      run_ok, time, err = run_py(filename, testdir + '/' + fn)
-      if(verbose): print('run finished: {0}s'.format(time))
-      # set the runtime
-      judging.add_time(test_index, time)
-      if time > timelimit:
-        if(verbose): print('time limit exceeded')
-        # time limit exceeded
-        judging.add_time_limit_exceeded(test_index)
-      if not run_ok:
-        if(verbose): print('runtime error')
-        # runtime error
-        judging.add_runtime_error(test_index, format_for_output(err))
-      else:
-        if(verbose): print('chicking the answer')
-        # check whether the answer is correct
-        answer_ok = checker(testdir + '/' + fn, testdir + '/' + name + '.ans', 'output')
-        if not answer_ok:
-          if(verbose): print('wrong answer')
-          # wrong_answer
-          judging.add_wrong_anser(test_index)
-        else:
-          if(verbose): print('correct')
-          # correct
-          judging.add_correct(test_index)
-  if(verbose): print('finished judging')
-  return judging
-
+def judge_py(filename, checker, timelimit, reference_time, testdir = './tests',  verbose = True):
+  return judge(filename, run_py, compile_py, checker, timelimit, reference_time, testdir, verbose)
 
 """
 Judge a cpp solution.
 """
-def judge_cpp(filename, testdir = './tests', checker = checkers.diff_check, timelimit = 1, verbose = True):
+def judge_cpp(filename, checker, timelimit, reference_time, testdir = './tests',  verbose = True):
+  return judge(filename, run_cpp, compile_cpp, checker, timelimit, reference_time, testdir, verbose)
+
+"""
+Judge a java solution.
+"""
+def judge_cpp(filename, checker, timelimit, reference_time, testdir = './tests',  verbose = True):
+  return judge(filename, run_java, compile_java, checker, timelimit, reference_time, testdir, verbose)
+
+
+def judge(filename, compile, run, checker, timelimit, reference_time, testdir = './tests', verbose = True):
   judging = Judging()
   # compile the student solution
   if(verbose): print('compiling cpp')
-  compile_ok, err = compile_cpp(filename)
+  compile_ok, err = compile(filename)
   if not compile_ok:
     if(verbose): print('compilation error')
     # compile error
@@ -138,11 +117,14 @@ def judge_cpp(filename, testdir = './tests', checker = checkers.diff_check, time
       test_index += 1
       # get the name of the test case
       name = fn.split('.')[0]
-      run_ok, time, err = run_cpp(filename, testdir + '/' + fn)
+      run_ok, time, err = run(filename, testdir + '/' + fn)
       if(verbose): print('run finished: {0}s'.format(time))
       # set the runtime
       judging.add_time(test_index, time)
-      if time > timelimit:
+      TL = timelimit
+      if reference_time > timelimit:
+        TL += reference_time - timelimit
+      if time > TL:
         if(verbose): print('time limit exceeded')
         # time limit exceeded
         judging.add_time_limit_exceeded(test_index)
@@ -165,54 +147,6 @@ def judge_cpp(filename, testdir = './tests', checker = checkers.diff_check, time
   if(verbose): print('finished judging')
   return judging
 
-"""
-Judge a java solution.
-"""
-def judge_java(mainclass = 'Main', testdir = './tests', checker = checkers.diff_check, timelimit = 1, verbose = True):
-  judging = Judging()
-  # compile the student solution
-  if(verbose): print('compiling java')
-  compile_ok, err = compile_java(mainclass)
-  if not compile_ok:
-    if(verbose): print('compilation error')
-    # compile error
-    judging.set_compile_error(True, format_for_output(err))
-    return judging
-  if(verbose): print('compilation successful')
-  # no compile error, so we run
-  test_index = -1
-  for fn in os.listdir(testdir):
-    if fn.endswith('.in'):
-      if(verbose): print('running test {0}'.format(fn))
-      test_index += 1
-      # get the name of the test case
-      name = fn.split('.')[0]
-      run_ok, time, err = run_java(mainclass, testdir + '/' + fn)
-      if(verbose): print('run finished: {0}s'.format(time))
-      # set the runtime
-      judging.add_time(test_index, time)
-      if time > timelimit:
-        if(verbose): print('time limit exceeded')
-        # time limit exceeded
-        judging.add_time_limit_exceeded(test_index)
-      if not run_ok:
-        if(verbose): print('runtime error')
-        # runtime error
-        judging.add_runtime_error(test_index, format_for_output(err))
-      else:
-        if(verbose): print('chicking the answer')
-        # check whether the answer is correct
-        answer_ok = checker(testdir + '/' + fn, testdir + '/' + name + '.ans', 'output')
-        if not answer_ok:
-          if(verbose): print('wrong answer')
-          # wrong_answer
-          judging.add_wrong_anser(test_index)
-        else:
-          if(verbose): print('correct')
-          # correct
-          judging.add_correct(test_index)
-  if(verbose): print('finished judging')
-  return judging
 
 class Judging:
 
