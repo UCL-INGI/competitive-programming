@@ -82,23 +82,23 @@ def run_java(mainclass = 'Main', inputfile = 'input', outputfile = 'output'):
 """
 Judge a python solution.
 """
-def judge_py(filename, checker, timelimit, reference_time, testdir = './tests',  verbose = True):
+def judge_py(filename, checker, timelimit, testdir = './tests',  verbose = True):
   return judge(filename, run_py, compile_py, checker, timelimit, reference_time, testdir, verbose)
 
 """
 Judge a cpp solution.
 """
-def judge_cpp(filename, checker, timelimit, reference_time, testdir = './tests',  verbose = True):
+def judge_cpp(filename, checker, timelimit, testdir = './tests',  verbose = True):
   return judge(filename, run_cpp, compile_cpp, checker, timelimit, reference_time, testdir, verbose)
 
 """
 Judge a java solution.
 """
-def judge_java(filename, checker, timelimit, reference_time, testdir = './tests',  verbose = True):
+def judge_java(filename, checker, timelimit, testdir = './tests',  verbose = True):
   return judge(filename, run_java, compile_java, checker, timelimit, reference_time, testdir, verbose)
 
 
-def judge(filename, compile, run, checker, timelimit, reference_time, testdir = './tests', verbose = True):
+def judge(filename, compile, run, checker, timelimit, testdir = './tests', verbose = True):
   judging = Judging()
   # compile the student solution
   if(verbose): print('compiling cpp')
@@ -121,10 +121,7 @@ def judge(filename, compile, run, checker, timelimit, reference_time, testdir = 
       if(verbose): print('run finished: {0}s'.format(time))
       # set the runtime
       judging.add_time(test_index, time)
-      TL = timelimit
-      if reference_time > timelimit:
-        TL += reference_time - timelimit
-      if time > TL:
+      if time > timelimit:
         if(verbose): print('time limit exceeded')
         # time limit exceeded
         judging.add_time_limit_exceeded(test_index)
