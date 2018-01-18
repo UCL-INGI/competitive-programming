@@ -60,7 +60,7 @@ def run_cpp(filename, timelimit, inputfile = 'input', outputfile = 'output', ver
     return False, is_empty_file('err'), (timelimit + 0.000001), readlines('err')
   end_time = time.clock()
   run_time = end_time - start_time
-  return is_empty_file('err'), run_time, readlines('err')
+  return True, is_empty_file('err'), run_time, readlines('err')
 
 """
 Run a python3 code.
