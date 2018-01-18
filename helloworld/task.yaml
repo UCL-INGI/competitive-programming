@@ -8,7 +8,7 @@ groups: false
 limits:
     memory: '100'
     output: '2'
-    time: '30'
+    time: '1000'
 name: Hello World
 network_grading: false
 order: 0
