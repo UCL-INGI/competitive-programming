@@ -79,7 +79,7 @@ def run_java(mainclass = 'Main', inputfile = 'input', outputfile = 'output'):
 """
 Judge a python solution.
 """
-def judge_cpp(filename, testdir = './tests', checker = checkers.diff_check, timelimit = 1, verbose = True):
+def judge_py(filename, testdir = './tests', checker = checkers.diff_check, timelimit = 1, verbose = True):
   judging = Judging()
   # compile the student solution
   if(verbose): print('compiling cpp')
