@@ -2,6 +2,7 @@ import filecmp
 from difflib import Differ
 
 def diff_check(input, output, given):
+  """
   f = open(output, 'r')
   lines1 = [line.strip() for line in f.readlines()]
   f = open(given, 'r')
@@ -14,4 +15,5 @@ def diff_check(input, output, given):
     print(lines2[i])
   print(filecmp.cmp(output, given))
   print('----------')
+  """
   return filecmp.cmp(output, given)
