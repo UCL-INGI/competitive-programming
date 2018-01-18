@@ -83,19 +83,19 @@ def run_java(mainclass = 'Main', inputfile = 'input', outputfile = 'output'):
 Judge a python solution.
 """
 def judge_py(filename, checker, timelimit, testdir = './tests',  verbose = True):
-  return judge(filename, run_py, compile_py, checker, timelimit, testdir, verbose)
+  return judge(filename, compile_py, run_py, checker, timelimit, testdir, verbose)
 
 """
 Judge a cpp solution.
 """
 def judge_cpp(filename, checker, timelimit, testdir = './tests',  verbose = True):
-  return judge(filename, run_cpp, compile_cpp, checker, timelimit, testdir, verbose)
+  return judge(filename, compile_cpp, run_cpp, checker, timelimit, testdir, verbose)
 
 """
 Judge a java solution.
 """
 def judge_java(filename, checker, timelimit, testdir = './tests',  verbose = True):
-  return judge(filename, run_java, compile_java, checker, timelimit, testdir, verbose)
+  return judge(filename, compile_java, run_java, checker, timelimit, testdir, verbose)
 
 
 def judge(filename, compile, run, checker, timelimit, testdir = './tests', verbose = True):
