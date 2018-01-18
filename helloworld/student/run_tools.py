@@ -1,6 +1,7 @@
 import time
 import os
 import checkers
+import subprocess
 
 """
 Checks whether the given file is empty.
@@ -57,13 +58,16 @@ def run_cpp(filename, inputfile = 'input', outputfile = 'output'):
 """
 Run a python3 code.
 """
-def run_py(filename, inputfile = 'input', outputfile = 'output'):
+def run_py(filename, timelimit, inputfile = 'input', outputfile = 'output'):
   os.system('> err')
   start_time = time.clock()
-  os.system('cat {0} | python3 {1}.py > {2} 2> err'.format(inputfile, filename, outputfile))
+  try:
+    subprocess.run('cat {0} | python3 {1}.py > {2} 2> err'.format(inputfile, filename, outputfile), timeout = timelimit)
+  except TimeoutExpired:
+    return True, is_empty_file('err'), (timelimit + 0.01), readlines('err')
   end_time = time.clock()
   run_time = end_time - start_time
-  return is_empty_file('err'), run_time, readlines('err')
+  return False, is_empty_file('err'), run_time, readlines('err')
 
 """
 Runs a java code on a given input and writes the output in the given
@@ -97,7 +101,9 @@ Judge a java solution.
 def judge_java(filename, checker, timelimit, testdir = './tests',  verbose = True):
   return judge(filename, compile_java, run_java, checker, timelimit, testdir, verbose)
 
-
+"""
+Judge a solution.
+"""
 def judge(filename, compile, run, checker, timelimit, testdir = './tests', verbose = True):
   judging = Judging()
   # compile the student solution
@@ -117,11 +123,11 @@ def judge(filename, compile, run, checker, timelimit, testdir = './tests', verbo
       test_index += 1
       # get the name of the test case
       name = fn.split('.')[0]
-      run_ok, time, err = run(filename, testdir + '/' + fn)
+      timed_out, run_ok, time, err = run(filename, testdir + '/' + fn)
       if(verbose): print('run finished: {0}s'.format(time))
       # set the runtime
       judging.add_time(test_index, time)
-      if time > timelimit:
+      if timed_out:
         if(verbose): print('time limit exceeded')
         # time limit exceeded
         judging.add_time_limit_exceeded(test_index)
