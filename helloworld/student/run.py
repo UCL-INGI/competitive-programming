@@ -45,7 +45,7 @@ elif(ext == 'py'):
   print('received python solution')
   os.system('getinput {0} > {1}.py'.format(taskname, name))
   judging = judge_py(name, './tests', checker, TL)
-  print('finished judging java')
+  print('finished judging python')
     
 
 if judging.is_accepted():

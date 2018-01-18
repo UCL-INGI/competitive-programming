@@ -54,7 +54,7 @@ def run_cpp(filename, inputfile = 'input', outputfile = 'output'):
 """
 Run a python3 code.
 """
-def run_python(filename, inputfile = 'input', outputfile = 'output'):
+def run_py(filename, inputfile = 'input', outputfile = 'output'):
   os.system('> err')
   start_time = time.clock()
   os.system('cat {0} | python3 {1}.py > {2} 2> err'.format(inputfile, filename, outputfile))
@@ -81,16 +81,6 @@ Judge a python solution.
 """
 def judge_py(filename, testdir = './tests', checker = checkers.diff_check, timelimit = 1, verbose = True):
   judging = Judging()
-  # compile the student solution
-  if(verbose): print('compiling cpp')
-  compile_ok, err = compile_cpp(filename)
-  if not compile_ok:
-    if(verbose): print('compilation error')
-    # compile error
-    judging.set_compile_error(True, format_for_output(err))
-    return judging
-  if(verbose): print('compilation successful')
-  # no compile error, so we run
   test_index = -1
   for fn in os.listdir(testdir):
     if fn.endswith('.in'):
