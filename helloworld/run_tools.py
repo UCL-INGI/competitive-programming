@@ -71,7 +71,9 @@ def run_py(filename, timelimit, inputfile = 'input', outputfile = 'output', verb
   start_time = time.clock()
   # move the test case so that the student has access
   os.system('mv ./tests/{0} ./student/{0}'.format(filename))
+  assert os.path.exists('./student/{0}'.format(filename))
   os.system('run_student --time {0} cat {1} | python3 {2}.py > {3} 2> err'.format(timelimit, inputfile, filename, outputfile))
+  os.system('mv ./student/{0} ./{0}'.format(outputfile))
   """
   try:
     subprocess.run('cat {0} | python3 {1}.py > {2} 2> err'.format(inputfile, filename, outputfile), shell = True, timeout = timelimit)
