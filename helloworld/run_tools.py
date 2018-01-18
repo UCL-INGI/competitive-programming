@@ -69,8 +69,8 @@ def run_py(filename, timelimit, inputfile = 'input', outputfile = 'output', verb
   if(verbose): print('running py with timelimit={0}'.format(timelimit))
   os.system('> err')
   start_time = time.clock()
-  os.system('mv {0} ./student/test')
-  os.system('run_student --time {0} cat test | python3 {2}.py > {3} 2> err'.format(timelimit, inputfile, filename, outputfile))
+  os.system('mv {0} ./student/test.in'.format(inputfile))
+  os.system('run_student --time {0} cat test.in | python3 {1}.py > {2} 2> err'.format(timelimit, filename, outputfile))
   """
   try:
     subprocess.run('cat {0} | python3 {1}.py > {2} 2> err'.format(inputfile, filename, outputfile), shell = True, timeout = timelimit)
