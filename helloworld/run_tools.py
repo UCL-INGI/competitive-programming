@@ -57,7 +57,7 @@ def run_cpp(filename, timelimit, inputfile = 'input', outputfile = 'output', ver
   try:
     subprocess.run('cat {0} | ./{1} > {2} 2> err'.format(inputfile, filename, outputfile), shell = True, timeout = timelimit)
   except TimeoutExpired:
-    return False, is_empty_file('err'), (timelimit + 0.000001), readlines('err')
+    return False, is_empty_file('err'), (timelimit + 0.0001), readlines('err')
   end_time = time.clock()
   run_time = end_time - start_time
   return True, is_empty_file('err'), run_time, readlines('err')
@@ -72,7 +72,7 @@ def run_py(filename, timelimit, inputfile = 'input', outputfile = 'output', verb
   try:
     subprocess.run('cat {0} | python3 {1}.py > {2} 2> err'.format(inputfile, filename, outputfile), shell = True, timeout = timelimit)
   except TimeoutExpired:
-    return False, is_empty_file('err'), (timelimit + 0.000001), readlines('err')
+    return False, is_empty_file('err'), (timelimit + 0.0001), readlines('err')
   end_time = time.clock()
   run_time = end_time - start_time
   return True, is_empty_file('err'), run_time, readlines('err')
@@ -89,7 +89,7 @@ def run_java(mainclass, timelimit, inputfile, outputfile):
   try:
     subprocess.run('cat {0} | java {1} > {2} 2> err'.format(inputfile, mainclass, outputfile), shell = True, timeout = timelimit)
   except TimeoutExpired:
-    return False, is_empty_file('err'), (timelimit + 0.000001), readlines('err')
+    return False, is_empty_file('err'), (timelimit + 0.0001), readlines('err')
   end_time = time.clock()
   run_time = end_time - start_time
   return True, is_empty_file('err'), run_time, readlines('err')
@@ -138,7 +138,9 @@ def judge(filename, compile, run, checker, timelimit, testdir = './tests', verbo
       # set the runtime
       judging.add_time(test_index, time)
       if not run_ok:
-        if(verbose): print('runtime error')
+        if(verbose): 
+          print('runtime error')
+          print(err)
         # runtime error
         judging.add_runtime_error(test_index, format_for_output(err))
       if not time_ok:
