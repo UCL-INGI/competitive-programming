@@ -82,7 +82,7 @@ output file.
 
 Returns the cpu run-time of that code.
 """
-def run_java(mainclass = 'Main', timelimit, inputfile = 'input', outputfile = 'output'):
+def run_java(mainclass, timelimit, inputfile, outputfile):
   os.system('> err')
   start_time = time.clock()
   os.system('cat {0} | java {1} > {2} 2> err'.format(inputfile, mainclass, outputfile))
@@ -129,7 +129,7 @@ def judge(filename, compile, run, checker, timelimit, testdir = './tests', verbo
       test_index += 1
       # get the name of the test case
       name = fn.split('.')[0]
-      time_ok, run_ok, time, err = run(filename, timelimit, testdir + '/' + fn)
+      time_ok, run_ok, time, err = run(filename, timelimit, testdir + '/' + fn, 'output.tmp')
       if(verbose): print('run finished: {0}s'.format(time))
       # set the runtime
       judging.add_time(test_index, time)
