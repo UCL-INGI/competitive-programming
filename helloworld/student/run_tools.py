@@ -28,7 +28,8 @@ def format_for_output(lines):
 """
 Compiles a java code.
 """
-def compile_java(mainclass):
+def compile_java(mainclass, verbose = True):
+  if(verbose): print('compiling java')
   os.system('> err')
   os.system('javac {0}.java 2> err'.format(mainclass))
   return is_empty_file('err'), readlines('err')
@@ -39,7 +40,8 @@ def compile_py(filename):
 """
 Compiles a cpp code.
 """
-def compile_cpp(filename):
+def compile_cpp(filename, verbose = True):
+  if(verbose): print('compiling cpp')
   os.system('> err')
   os.system('g++ -w -O2 -std=c++11 -o {0} {1}.cpp 2> err'.format(filename, filename))
   return is_empty_file('err'), readlines('err')
@@ -47,7 +49,8 @@ def compile_cpp(filename):
 """
 Run a cpp code.
 """
-def run_cpp(filename, inputfile = 'input', outputfile = 'output'):
+def run_cpp(filename, inputfile = 'input', outputfile = 'output', verbose = True):
+  if(verbose): print('running cpp')
   os.system('> err')
   start_time = time.clock()
   os.system('cat {0} | ./{1} > {2} 2> err'.format(inputfile, filename, outputfile))
@@ -58,16 +61,17 @@ def run_cpp(filename, inputfile = 'input', outputfile = 'output'):
 """
 Run a python3 code.
 """
-def run_py(filename, timelimit, inputfile = 'input', outputfile = 'output'):
+def run_py(filename, timelimit, inputfile = 'input', outputfile = 'output', verbose = True):
+  if(verbose): print('running py')
   os.system('> err')
   start_time = time.clock()
   try:
     subprocess.run('cat {0} | python3 {1}.py > {2} 2> err'.format(inputfile, filename, outputfile), timeout = timelimit)
   except TimeoutExpired:
-    return True, is_empty_file('err'), (timelimit + 0.01), readlines('err')
+    return False, is_empty_file('err'), (timelimit + 0.01), readlines('err')
   end_time = time.clock()
   run_time = end_time - start_time
-  return False, is_empty_file('err'), run_time, readlines('err')
+  return True, is_empty_file('err'), run_time, readlines('err')
 
 """
 Runs a java code on a given input and writes the output in the given
@@ -81,7 +85,7 @@ def run_java(mainclass = 'Main', inputfile = 'input', outputfile = 'output'):
   os.system('cat {0} | java {1} > {2} 2> err'.format(inputfile, mainclass, outputfile))
   end_time = time.clock()
   run_time = end_time - start_time
-  return is_empty_file('err'), run_time, readlines('err')
+  return True, is_empty_file('err'), run_time, readlines('err')
 
 """
 Judge a python solution.
@@ -107,7 +111,6 @@ Judge a solution.
 def judge(filename, compile, run, checker, timelimit, testdir = './tests', verbose = True):
   judging = Judging()
   # compile the student solution
-  if(verbose): print('compiling cpp')
   compile_ok, err = compile(filename)
   if not compile_ok:
     if(verbose): print('compilation error')
@@ -123,11 +126,11 @@ def judge(filename, compile, run, checker, timelimit, testdir = './tests', verbo
       test_index += 1
       # get the name of the test case
       name = fn.split('.')[0]
-      timed_out, run_ok, time, err = run(filename, testdir + '/' + fn)
+      time_ok, run_ok, time, err = run(filename, testdir + '/' + fn)
       if(verbose): print('run finished: {0}s'.format(time))
       # set the runtime
       judging.add_time(test_index, time)
-      if timed_out:
+      if not time_ok:
         if(verbose): print('time limit exceeded')
         # time limit exceeded
         judging.add_time_limit_exceeded(test_index)
