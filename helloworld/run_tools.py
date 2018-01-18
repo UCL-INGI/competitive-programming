@@ -144,7 +144,7 @@ def judge(filename, compile, run, checker, timelimit, testdir = './tests', verbo
       else:
         if(verbose): print('chicking the answer')
         # check whether the answer is correct
-        answer_ok = checker(testdir + '/' + fn, testdir + '/' + name + '.ans', 'output')
+        answer_ok = checker(testdir + '/' + fn, testdir + '/' + name + '.ans', 'output.tmp')
         if not answer_ok:
           if(verbose): print('wrong answer')
           # wrong_answer
