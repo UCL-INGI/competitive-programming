@@ -2,6 +2,7 @@ import time
 import os
 import checkers
 import subprocess
+from subprocess import TimeoutExpired
 
 """
 Checks whether the given file is empty.
