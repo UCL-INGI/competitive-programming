@@ -133,15 +133,15 @@ def judge(filename, compile, run, checker, timelimit, testdir = './tests', verbo
       if(verbose): print('run finished: {0}s'.format(time))
       # set the runtime
       judging.add_time(test_index, time)
-      if not time_ok:
-        if(verbose): print('time limit exceeded')
-        # time limit exceeded
-        judging.add_time_limit_exceeded(test_index)
       if not run_ok:
         if(verbose): print('runtime error')
         # runtime error
         judging.add_runtime_error(test_index, format_for_output(err))
-      else:
+      if not time_ok:
+        if(verbose): print('time limit exceeded')
+        # time limit exceeded
+        judging.add_time_limit_exceeded(test_index)
+      if run_ok and time_ok:
         if(verbose): print('chicking the answer')
         # check whether the answer is correct
         answer_ok = checker(testdir + '/' + fn, testdir + '/' + name + '.ans', 'output.tmp')
