@@ -69,10 +69,13 @@ def run_py(filename, timelimit, inputfile = 'input', outputfile = 'output', verb
   if(verbose): print('running py with timelimit={0}'.format(timelimit))
   os.system('> err')
   start_time = time.clock()
+  os.system('run_student --time {0} cat {1} | python3 {2}.py > {3} 2> err'.format(timelimit, inputfile, filename, outputfile))
+  """
   try:
     subprocess.run('cat {0} | python3 {1}.py > {2} 2> err'.format(inputfile, filename, outputfile), shell = True, timeout = timelimit)
   except TimeoutExpired:
     return False, is_empty_file('err'), (timelimit + 0.0001), readlines('err')
+  """
   end_time = time.clock()
   run_time = end_time - start_time
   return True, is_empty_file('err'), run_time, readlines('err')
