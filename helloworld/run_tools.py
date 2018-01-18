@@ -68,13 +68,8 @@ Run a python3 code.
 def run_py(filename, timelimit, inputfile = 'input', outputfile = 'output', verbose = True):
   if(verbose): print('running py with timelimit={0}'.format(timelimit))
   os.system('> err')
-  os.system('> ./student/input')
   start_time = time.clock()
-  # move the test case so that the student has access
-  os.system('mv {0} ./student/input'.format(inputfile))
-  os.system('run_student --time {0} cat input | python3 {1}.py > {2} 2> err'.format(timelimit, inputfile, filename, outputfile))
-  os.system('mv ./student/{0} ./{0}'.format(outputfile))
-
+  os.system('run_student --time {0} cat {1} | python3 ./student/{2}.py > {3} 2> err'.format(timelimit, inputfile, filename, outputfile))
   """
   try:
     subprocess.run('cat {0} | python3 {1}.py > {2} 2> err'.format(inputfile, filename, outputfile), shell = True, timeout = timelimit)
@@ -83,7 +78,7 @@ def run_py(filename, timelimit, inputfile = 'input', outputfile = 'output', verb
   """
   end_time = time.clock()
   run_time = end_time - start_time
-  return True, is_empty_file('./student/err'), run_time, readlines('./student/err')
+  return True, is_empty_file('err'), run_time, readlines('err')
 
 """
 Runs a java code on a given input and writes the output in the given
