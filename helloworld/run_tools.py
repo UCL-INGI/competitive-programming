@@ -67,7 +67,7 @@ def run_py(filename, timelimit, inputfile = 'input', outputfile = 'output', verb
   os.system('> err')
   start_time = time.clock()
   try:
-    subprocess.run('cat {0} | python3 {1}.py > {2} 2> err'.format(inputfile, filename, outputfile), shell = True, timeout = timelimit)
+    subprocess.run('cat {0} | python3 {1}.py > {2} 2> err'.format(inputfile, filename, outputfile), shell = True, timeout = int(timelimit))
   except TimeoutExpired:
     end_time = time.clock()
     run_time = end_time - start_time
