@@ -250,6 +250,9 @@ class Judging:
     if self.is_compile_error():
       return 'Compile error\n\n' + self.compile_message
     s = ''
+    s += str(self.wrong_answer) + '\n\n'
+    s += str(self.time_limit_exceeded) + '\n\n'
+    s += str(self.runtime_error) + '\n\n'
     for test_index in self.tests:
       status = ''
       if test_index in self.correct:
@@ -260,7 +263,7 @@ class Judging:
         status += '[TLE]'
       if test_index in self.runtime_error:
         status += '[RE]'
-      s += 'Test #{0}: status={2}\n\n'.format(test_index + 1, status)
+      s += 'Test #{0}: status={1}\n\n'.format(test_index + 1, status)
       if test_index in self.runtime_error:
         s += self.runtime_error[test_index] + '\n\n'
     overall_status = 'verdict: '
