@@ -70,7 +70,7 @@ def run_py(filename, timelimit, inputfile = 'input', outputfile = 'output', verb
   os.system('> err')
   start_time = time.clock()
   os.system('mv {0} ./student/test.in'.format(inputfile))
-  os.system('run_student --time {0} cat ./student/test.in | python3 ./student/{1}.py > {2} 2> err'.format(timelimit, filename, outputfile))
+  os.system('run_student --time {0} --hard-time {0} cat ./student/test.in | python3 ./student/{1}.py > {2} 2> err'.format(timelimit, filename, outputfile))
   """
   try:
     subprocess.run('cat {0} | python3 {1}.py > {2} 2> err'.format(inputfile, filename, outputfile), shell = True, timeout = timelimit)
