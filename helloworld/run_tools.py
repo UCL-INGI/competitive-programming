@@ -78,19 +78,13 @@ Run a python3 code.
 def run_py(filename, timelimit, inputfile = 'input', outputfile = 'output', verbose = True):
   if(verbose): print('running py with timelimit={0}'.format(timelimit))
   os.system('> err')
-  start_time = time.clock()
   os.system('mv {0} ./student/test.in'.format(inputfile))
   os.system('run_student --time {0} --hard-time {0} ./bin/bash -c "cat ./student/test.in | python3 ./student/{1}.py > {2} 2> err"'.format(timelimit, filename, outputfile))
   code = get_return_code()
-  """
-  try:
-    subprocess.run('cat {0} | python3 {1}.py > {2} 2> err'.format(inputfile, filename, outputfile), shell = True, timeout = timelimit)
-  except TimeoutExpired:
-    return False, is_empty_file('err'), (timelimit + 0.0001), readlines('err')
-  """
-  end_time = time.clock()
-  run_time = end_time - start_time
-  return (code != 253), is_empty_file('err'), run_time, readlines('err')
+  if verbose: print('return code: {0}'.format(code))
+  time_ok = code != 253
+  if verbose: print('time ok? ' + str(time_ok))
+  return time_ok, is_empty_file('err'), run_time, readlines('err')
 
 """
 Runs a java code on a given input and writes the output in the given
