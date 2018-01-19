@@ -80,7 +80,7 @@ def run_py(filename, timelimit, inputfile = 'input', outputfile = 'output', verb
   os.system('> err')
   os.system('mv {0} ./student/test.in'.format(inputfile))
   start_time = time.time()
-  os.system('run_student --time {0} --hard-time {0} ./bin/bash -c "cat ./student/test.in | python3 ./student/{1}.py > {2} 2> err"'.format(timelimit, filename, outputfile))
+  os.system('run_student --time {0} --hard-time {0} /bin/bash -c "cat ./student/test.in | python3 ./student/{1}.py > {2} 2> err"'.format(timelimit, filename, outputfile))
   end_time = time.time()
   code = get_return_code()
   if verbose: print('return code: {0}'.format(code))
