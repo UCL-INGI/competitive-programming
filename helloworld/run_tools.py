@@ -5,6 +5,16 @@ import subprocess
 from subprocess import TimeoutExpired
 
 """
+Get the last bash return code.
+"""
+def get_return_code():
+  os.system('> ret_code.tmp')
+  os.system('echo $? > ret_code.tmp')
+  f = open('ret_code.tmp', 'r')
+  code = f.readlines()[0].strip()
+  return int(code)
+
+"""
 Checks whether the given file is empty.
 """
 def is_empty_file(fn):
@@ -70,7 +80,8 @@ def run_py(filename, timelimit, inputfile = 'input', outputfile = 'output', verb
   os.system('> err')
   start_time = time.clock()
   os.system('mv {0} ./student/test.in'.format(inputfile))
-  os.system('run_student --time {0} --hard-time {0} cat ./student/test.in | python3 ./student/{1}.py > {2} 2> err'.format(timelimit, filename, outputfile))
+  os.system('run_student --time {0} --hard-time {0} ./bin/bash -c "cat ./student/test.in | python3 ./student/{1}.py > {2} 2> err"'.format(timelimit, filename, outputfile))
+  code = get_return_code()
   """
   try:
     subprocess.run('cat {0} | python3 {1}.py > {2} 2> err'.format(inputfile, filename, outputfile), shell = True, timeout = timelimit)
@@ -79,7 +90,7 @@ def run_py(filename, timelimit, inputfile = 'input', outputfile = 'output', verb
   """
   end_time = time.clock()
   run_time = end_time - start_time
-  return True, is_empty_file('err'), run_time, readlines('err')
+  return (code != 253), is_empty_file('err'), run_time, readlines('err')
 
 """
 Runs a java code on a given input and writes the output in the given
