@@ -155,6 +155,7 @@ def judge(filename, compile, run, checker, timelimit, testdir = './tests', verbo
       if(verbose): print('run finished: {0}s'.format(time))
       # add the test
       judging.add_test(test_index)
+      judging.add_time(test_index, time)
       if not run_ok:
         if(verbose): 
           print('runtime error')
@@ -190,6 +191,7 @@ class Judging:
     self.time_limit_exceeded = set()
     self.runtime_error = { }
     self.correct = set()
+    self.run_time = { }
     self.tests = set()
   
   def set_compile_error(self, compile_error, compile_message):
@@ -205,6 +207,9 @@ class Judging:
   def add_runtime_error(self, test_index, message):
     self.runtime_error[test_index] = message
 
+  def add_time(self, test_index, time):
+    self.run_time[test_index] = time
+    
   def add_correct(self, test_index):
     self.correct.add(test_index)
 
@@ -228,7 +233,7 @@ class Judging:
 
   def get_max_runtime(self):
     m = -1
-    for test_index in self.run_time:
+    for test_index in self.tests:
       m = max(m, self.run_time[test_index])
     return m
 
