@@ -153,19 +153,19 @@ def judge(filename, compile, run, checker, timelimit, testdir = './tests', verbo
       name = fn.split('.')[0]
       time_ok, run_ok, time, err = run(filename, timelimit, testdir + '/' + fn, 'output.tmp')
       if(verbose): print('run finished: {0}s'.format(time))
-      # set the runtime
-      judging.add_time(test_index, time)
+      # add the test
+      judging.add_test(test_index)
       if not run_ok:
         if(verbose): 
           print('runtime error')
           print(err)
         # runtime error
         judging.add_runtime_error(test_index, format_for_output(err))
-      if not time_ok:
+      elif not time_ok:
         if(verbose): print('time limit exceeded')
         # time limit exceeded
         judging.add_time_limit_exceeded(test_index)
-      if run_ok and time_ok:
+      else:
         if(verbose): print('chicking the answer')
         # check whether the answer is correct
         answer_ok = checker(testdir + '/' + fn, testdir + '/' + name + '.ans', 'output.tmp')
@@ -182,7 +182,7 @@ def judge(filename, compile, run, checker, timelimit, testdir = './tests', verbo
 
 
 class Judging:
-
+    
   def __init__(self):
     self.compile_error = False
     self.compile_message = None
@@ -190,7 +190,7 @@ class Judging:
     self.time_limit_exceeded = set()
     self.runtime_error = { }
     self.correct = set()
-    self.run_time = { }
+    self.tests = set()
   
   def set_compile_error(self, compile_error, compile_message):
     self.compile_error = compile_error
@@ -208,9 +208,9 @@ class Judging:
   def add_correct(self, test_index):
     self.correct.add(test_index)
 
-  def add_time(self, test_index, run_time):
-    self.run_time[test_index] = run_time
-
+  def add_test(self, test_index):
+    self.tests.add(test_index)
+    
   def is_accepted(self):
     return not self.is_compile_error() and not self.is_wrong_answer() and not self.is_time_limit_exceeded() and not self.is_runtime_error()
   
@@ -245,7 +245,7 @@ class Judging:
     if self.is_compile_error():
       return 'Compile error\n\n' + self.compile_message
     s = ''
-    for test_index in self.run_time:
+    for test_index in self.tests:
       status = ''
       if test_index in self.correct:
         status = '[CORRECT]'
@@ -255,7 +255,7 @@ class Judging:
         status += '[TLE]'
       if test_index in self.runtime_error:
         status += '[RE]'
-      s += 'Test #{0}: runtime={1:.3f}, status={2}\n\n'.format(test_index + 1, self.run_time[test_index], status)
+      s += 'Test #{0}: status={2}\n\n'.format(test_index + 1, status)
       if test_index in self.runtime_error:
         s += self.runtime_error[test_index] + '\n\n'
     overall_status = 'verdict: '
