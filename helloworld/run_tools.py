@@ -79,11 +79,15 @@ def run_py(filename, timelimit, inputfile = 'input', outputfile = 'output', verb
   if(verbose): print('running py with timelimit={0}'.format(timelimit))
   os.system('> err')
   os.system('mv {0} ./student/test.in'.format(inputfile))
+  start_time = time.time()
   os.system('run_student --time {0} --hard-time {0} ./bin/bash -c "cat ./student/test.in | python3 ./student/{1}.py > {2} 2> err"'.format(timelimit, filename, outputfile))
+  end_time = time.time()
   code = get_return_code()
   if verbose: print('return code: {0}'.format(code))
   time_ok = code != 253
   if verbose: print('time ok? ' + str(time_ok))
+  run_time = end_time - start_time
+  if verbose: print('run time: {0}'.format(run_time))
   return time_ok, is_empty_file('err'), run_time, readlines('err')
 
 """
