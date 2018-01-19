@@ -87,7 +87,7 @@ def run_py(filename, timelimit, inputfile = 'input', outputfile = 'output', verb
   start_time = time.time()
   os.system('run_student --time {0} --hard-time {0} /bin/bash -c "cat ./student/test.in | python3 ./student/{1}.py > {2} 2> err" ; echo $? > "ret_code.tmp"'.format(timelimit, filename, outputfile))
   end_time = time.time()
-  code = int(read_first_line('ret_code.tmp'ls))
+  code = int(read_first_line('ret_code.tmp'))
   if verbose: print('return code: {0}'.format(code))
   time_ok = code != 253
   if verbose: print('time ok? ' + str(time_ok))
