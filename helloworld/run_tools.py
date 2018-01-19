@@ -8,7 +8,6 @@ from subprocess import TimeoutExpired
 Get the last bash return code.
 """
 def get_return_code():
-  os.system('> ret_code.tmp')
   os.system('echo $? > ret_code.tmp')
   f = open('ret_code.tmp', 'r')
   code = f.readlines()[0].strip()
