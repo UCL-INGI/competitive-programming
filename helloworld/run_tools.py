@@ -10,7 +10,9 @@ Get the last bash return code.
 def get_return_code():
   os.system('echo $? > ret_code.tmp')
   f = open('ret_code.tmp', 'r')
-  code = f.readlines()[0].strip()
+  lines = f.readlines()
+  print(lines)
+  code = lines[0].strip()
   return int(code)
 
 """
