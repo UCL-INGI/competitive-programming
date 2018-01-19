@@ -6,7 +6,7 @@ environment: pyjavacpp
 evaluate: best
 groups: false
 limits:
-    memory: '100'
+    memory: '1000'
     output: '2'
     time: '1000'
 name: Hello World
