@@ -40,7 +40,7 @@ Compiles a java code.
 def compile_java(filename, verbose = True):
   if(verbose): print('compiling java')
   os.system('> err')
-  os.system('javac -cp {0} {1}.java 2> err'.format(working_dir, filename))
+  os.system('javac -cp {0}.java 2> err'.format(filename))
   return is_empty_file('err'), readlines('err')
 
 def compile_py(filename):
@@ -73,7 +73,7 @@ def run_cpp(filename, timelimit, inputfile = 'input', outputfile = 'output', ver
 """
 Run a python3 code.
 """
-def run_cpp(filename, timelimit, inputfile = 'input', outputfile = 'output', verbose = True):
+def run_py(filename, timelimit, inputfile = 'input', outputfile = 'output', verbose = True):
   if(verbose): print('running python')
   os.system('> err')
   start_time = time.clock()
