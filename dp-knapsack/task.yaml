@@ -129,13 +129,59 @@ evaluate: best
 groups: false
 limits:
     memory: '100'
-    time: '30'
     output: '2'
+    time: '30'
 name: DP - Knapsack
 network_grading: false
 order: 2
 problems:
     dp-knapsack-1:
+        name: Knapsack
+        header: |
+            Put all the pieces that we discussed above together and write a solution for the Knapsack problem.
+
+            **Input**
+
+            - One line with two integers :math:`n` and :math:`C` giving the number of objects and knapsack capacity respectively.
+
+            - :math:`n` lines each with two integers :math:`v` and :math:`w` giving the values and  weights of the items.
+
+            **Output**
+
+            A single line with an integer giving the maximum value that can be achieve by taking a subset of the items with total weight at most :math:`C`.
+
+            Do not forget to print the answer as an int and not a double.
+
+            **Constraints**
+
+            * :math:`1 \leq n \leq 1000`
+            * :math:`1 \leq C \leq 1000`
+            * :math:`1 \leq v, w \leq 100`
+
+            **Sample Test Cases**
+
+            `Sample input 1 <dp-knapsack/1.in>`_
+
+            `Sample output 1 <dp-knapsack/1.ans>`_
+
+
+            `Sample input 2 <dp-knapsack/2.in>`_
+
+            `Sample output 2 <dp-knapsack/2.ans>`_
+        allowed_exts:
+        - .java
+        type: code-file
+    dp-knapsack-read:
+        limit: 0
+        choices:
+        -   feedback: Good luck for the code!
+            text: I read the text.
+            valid: true
+        type: multiple-choice
+        name: Mark text as read.
+        header: ''
+    file:
+        name: Knapsack
         type: code-file
         header: |
             Put all the pieces that we discussed above together and write a solution for the Knapsack problem.
@@ -168,18 +214,10 @@ problems:
             `Sample input 2 <dp-knapsack/2.in>`_
 
             `Sample output 2 <dp-knapsack/2.ans>`_
-        name: Knapsack
         allowed_exts:
         - .java
-    dp-knapsack-read:
-        name: Mark text as read.
-        choices:
-        -   valid: true
-            text: I read the text.
-            feedback: Good luck for the code!
-        limit: 0
-        header: ''
-        type: multiple-choice
+        - .cpp
+        - .py
 stored_submissions: 0
 submission_limit:
     amount: -1
