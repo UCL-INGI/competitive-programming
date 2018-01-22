@@ -64,6 +64,8 @@ def run_cpp(filename, timelimit, inputfile = 'input', outputfile = 'output', ver
   start_time = time.clock()
   try:
     subprocess.run('cat {0} | ./{1} > {2} 2> err'.format(inputfile, filename, outputfile), shell = True, timeout = timelimit)
+    os.system('echo $? > code.tmp')
+    print(read_first_line('code.tmp'))
   except TimeoutExpired:
     return False, is_empty_file('err'), (timelimit + 0.0001), readlines('err')
   end_time = time.clock()
