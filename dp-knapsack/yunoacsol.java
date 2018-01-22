@@ -1,6 +1,7 @@
+
 import java.util.Scanner;
 
-public class Knapsack {
+public class yunoacsol {
 
 	public static void main(String[] args) {
 		Scanner reader = new Scanner(System.in);
@@ -35,4 +36,3 @@ public class Knapsack {
 	}
 
 }
-
