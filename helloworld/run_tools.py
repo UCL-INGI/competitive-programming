@@ -40,7 +40,7 @@ Compiles a java code.
 def compile_java(filename, verbose = True):
   if(verbose): print('compiling java')
   os.system('> err')
-  os.system('javac -cp {0}.java 2> err'.format(filename))
+  os.system('javac {0}.java 2> err'.format(filename))
   return is_empty_file('err'), readlines('err')
 
 def compile_py(filename):
