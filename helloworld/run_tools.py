@@ -78,7 +78,7 @@ def run_py(filename, timelimit, inputfile = 'input', outputfile = 'output', verb
   os.system('> err')
   start_time = time.clock()
   try:
-    subprocess.run('cat {0} | python3 {1} > {2} 2> err'.format(inputfile, filename, outputfile), shell = True, timeout = timelimit)
+    subprocess.run('cat {0} | python3 {1}.py > {2} 2> err'.format(inputfile, filename, outputfile), shell = True, timeout = timelimit)
   except TimeoutExpired:
     return False, is_empty_file('err'), (timelimit + 0.0001), readlines('err')
   end_time = time.clock()
