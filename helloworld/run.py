@@ -22,28 +22,28 @@ max_time = judging.get_max_runtime()
 if max_time > timelimit:
     timelimit += max_time - timelimit
 
-os.system('/bin/bash -c "getinput feedback > tmp"')
+os.system('getinput feedback > tmp')
 f = open('tmp', 'r')
 print(f.readlines())
 
-os.system('/bin/bash -c "getinput {0}:filename > tmp"'.format(taskname))
+os.system('getinput {0}:filename > tmp'.format(taskname))
 f = open('tmp', 'r')
 filename = f.readlines()[0].strip()
 name = filename.split('.')[0]
 ext = filename.split('.')[1]
 if(ext == 'java'):
   print('received java solution')
-  os.system('/bin/bash -c "getinput {0} > ./student/{1}.java"'.format(taskname, name))
+  os.system('getinput {0} > {1}.java'.format(taskname, name))
   judging = judge_java(name, checker, timelimit)
   print('finished judging java')
 elif(ext == 'cpp'):
   print('received cpp solution')
-  os.system('/bin/bash -c "getinput {0} > ./student/{1}.cpp"'.format(taskname, name))
+  os.system('getinput {0} > {1}.cpp'.format(taskname, name))
   judging = judge_cpp(name, checker, timelimit)
   print('finished judging cpp')
 elif(ext == 'py'):
   print('received python solution')
-  os.system('/bin/bash -c "getinput {0} > ./student/{1}.py"'.format(taskname, name))
+  os.system('/bin/bash -c "getinput {0} > {1}.py"'.format(taskname, name))
   judging = judge_py(name, checker, timelimit)
   print('finished judging python')
     

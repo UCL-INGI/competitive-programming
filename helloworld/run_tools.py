@@ -37,10 +37,10 @@ def format_for_output(lines):
 """
 Compiles a java code.
 """
-def compile_java(mainclass, verbose = True):
+def compile_java(filename, verbose = True):
   if(verbose): print('compiling java')
-  execute_command('> err')
-  execute_command('javac {0}.java 2> err'.format(mainclass))
+  os.system('> err')
+  os.system('javac -cp {0} {1}.java 2> err'.format(working_dir, filename))
   return is_empty_file('err'), readlines('err')
 
 def compile_py(filename):
@@ -51,8 +51,8 @@ Compiles a cpp code.
 """
 def compile_cpp(filename, verbose = True):
   if(verbose): print('compiling cpp')
-  execute_command('> err')
-  execute_command('g++ -w -O2 -std=c++11 -o {0} {1}.cpp 2> err'.format(filename, filename))
+  os.system('> err')
+  os.system('g++ -w -O2 -std=c++11 -o {0} {1}.cpp 2> err'.format(filename, filename))
   return is_empty_file('err'), readlines('err')
 
 """
@@ -60,7 +60,7 @@ Run a cpp code.
 """
 def run_cpp(filename, timelimit, inputfile = 'input', outputfile = 'output', verbose = True):
   if(verbose): print('running cpp')
-  execute_command('> err')
+  os.system('> err')
   start_time = time.clock()
   try:
     subprocess.run('cat {0} | ./{1} > {2} 2> err'.format(inputfile, filename, outputfile), shell = True, timeout = timelimit)
@@ -73,20 +73,17 @@ def run_cpp(filename, timelimit, inputfile = 'input', outputfile = 'output', ver
 """
 Run a python3 code.
 """
-def run_py(filename, timelimit, inputfile = 'input', outputfile = 'output', verbose = True):
-  if(verbose): print('running py with timelimit={0}'.format(timelimit))
-  execute_command('> err')
-  execute_command('mv {0} ./student/test.in'.format(inputfile))
-  start_time = time.time()
-  execute_command('run_student --time {0} --hard-time {0} /bin/bash -c "cat ./student/test.in | python3 ./student/{1}.py > {2} 2> err" ; echo $? > "ret_code.tmp"'.format(timelimit, filename, outputfile))
-  end_time = time.time()
+def run_cpp(filename, timelimit, inputfile = 'input', outputfile = 'output', verbose = True):
+  if(verbose): print('running python')
+  os.system('> err')
+  start_time = time.clock()
+  try:
+    subprocess.run('cat {0} | python3 {1} > {2} 2> err'.format(inputfile, filename, outputfile), shell = True, timeout = timelimit)
+  except TimeoutExpired:
+    return False, is_empty_file('err'), (timelimit + 0.0001), readlines('err')
+  end_time = time.clock()
   run_time = end_time - start_time
-  code = int(read_first_line('ret_code.tmp'))
-  if verbose: print('return code: {0}'.format(code))
-  time_ok = code != 253
-  if verbose: print('time ok? ' + str(time_ok))
-  if verbose: print('run time: {0}'.format(run_time))
-  return time_ok, is_empty_file('err'), run_time, readlines('err')
+  return True, is_empty_file('err'), run_time, readlines('err')
 
 """
 Runs a java code on a given input and writes the output in the given
@@ -94,11 +91,11 @@ output file.
 
 Returns the cpu run-time of that code.
 """
-def run_java(mainclass, timelimit, inputfile, outputfile):
+def run_java(filename, timelimit, inputfile, outputfile):
   os.system('/bin/bash -c "> err"')
   start_time = time.clock()
   try:
-    subprocess.run('cat {0} | java {1} > {2} 2> err'.format(inputfile, mainclass, outputfile), shell = True, timeout = timelimit)
+    subprocess.run('cat {0} | java {1} > {2} 2> err'.format(inputfile, filename, outputfile), shell = True, timeout = timelimit)
   except TimeoutExpired:
     return False, is_empty_file('err'), (timelimit + 0.0001), readlines('err')
   end_time = time.clock()
