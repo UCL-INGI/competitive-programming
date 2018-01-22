@@ -8,7 +8,7 @@ from subprocess import TimeoutExpired
 Get the last bash return code.
 """
 def get_return_code():
-  os.system('echo $? > ret_code.tmp')
+  os.system('/bin/bash -c "echo $? > ret_code.tmp"')
   f = open('ret_code.tmp', 'r')
   lines = f.readlines()
   print(lines)
@@ -46,8 +46,8 @@ Compiles a java code.
 """
 def compile_java(mainclass, verbose = True):
   if(verbose): print('compiling java')
-  os.system('> err')
-  os.system('javac {0}.java 2> err'.format(mainclass))
+  os.system('/bin/bash -c "> err"')
+  os.system('/bin/bash -c "javac {0}.java 2> err"'.format(mainclass))
   return is_empty_file('err'), readlines('err')
 
 def compile_py(filename):
@@ -58,8 +58,8 @@ Compiles a cpp code.
 """
 def compile_cpp(filename, verbose = True):
   if(verbose): print('compiling cpp')
-  os.system('> err')
-  os.system('g++ -w -O2 -std=c++11 -o {0} {1}.cpp 2> err'.format(filename, filename))
+  os.system('/bin/bash -c "> err"')
+  os.system('/bin/bash -c "g++ -w -O2 -std=c++11 -o {0} {1}.cpp 2> err"'.format(filename, filename))
   return is_empty_file('err'), readlines('err')
 
 """
@@ -67,7 +67,7 @@ Run a cpp code.
 """
 def run_cpp(filename, timelimit, inputfile = 'input', outputfile = 'output', verbose = True):
   if(verbose): print('running cpp')
-  os.system('> err')
+  os.system('/bin/bash -c "> err"')
   start_time = time.clock()
   try:
     subprocess.run('cat {0} | ./{1} > {2} 2> err'.format(inputfile, filename, outputfile), shell = True, timeout = timelimit)
@@ -82,8 +82,8 @@ Run a python3 code.
 """
 def run_py(filename, timelimit, inputfile = 'input', outputfile = 'output', verbose = True):
   if(verbose): print('running py with timelimit={0}'.format(timelimit))
-  os.system('> err')
-  os.system('mv {0} ./student/test.in'.format(inputfile))
+  os.system('/bin/bash -c "> err"')
+  os.system('/bin/bash -c "mv {0} ./student/test.in"'.format(inputfile))
   start_time = time.time()
   os.system('run_student --time {0} --hard-time {0} /bin/bash -c "cat ./student/test.in | python3 ./student/{1}.py > {2} 2> err" ; echo $? > "ret_code.tmp"'.format(timelimit, filename, outputfile))
   end_time = time.time()
@@ -102,7 +102,7 @@ output file.
 Returns the cpu run-time of that code.
 """
 def run_java(mainclass, timelimit, inputfile, outputfile):
-  os.system('> err')
+  os.system('/bin/bash -c "> err"')
   start_time = time.clock()
   try:
     subprocess.run('cat {0} | java {1} > {2} 2> err'.format(inputfile, mainclass, outputfile), shell = True, timeout = timelimit)
