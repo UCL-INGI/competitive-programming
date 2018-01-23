@@ -125,7 +125,7 @@ def gen_ratio_even(knapsack_capacity, n):
 Write test case.
 """
 def write(knapsack_capacity, weights, values, filename):
-  f = open(filename + '.in', 'w')
+  f = open('./tests/' + filename + '.in', 'w')
   assert len(weights) == len(values)
   n = len(weights)
   f.write('{0} {1}\n'.format(knapsack_capacity, n))
@@ -149,13 +149,13 @@ if __name__ == '__main__':
   ratios = [(1, 1), (2, 1), (3, 1), (4, 1), (5, 1)]
   gen_ratio_groups(1000, ratios, 10)
   ratios = [(1, 1), (1, 2), (1, 3), (1, 4), (1, 5)]
-  gen_ratio_groups(1000, ratios, 50)
+  gen_ratio_groups(1000, ratios, 10)
   ratios = [(3, 5), (7, 9), (4, 6), (11, 13), (4, 5)]
-  gen_ratio_groups(1000, ratios, 100)
+  gen_ratio_groups(1000, ratios, 10)
   ratios = [(100, 95), (100, 96), (100, 97), (100, 98), (100, 99), (100, 101), (100, 102), (100, 103), (100, 104), (100, 105)]
-  gen_ratio_groups(1000, ratios, 50)
+  gen_ratio_groups(1000, ratios, 10)
   ratios = [(y, x) for (x, y) in ratios]
-  gen_ratio_groups(1000, ratios, 100)
+  gen_ratio_groups(1000, ratios, 10)
   gen_random(25, 25, 25, 25)
   gen_random(50, 50, 50, 50)
   gen_random(75, 75, 75, 75)
