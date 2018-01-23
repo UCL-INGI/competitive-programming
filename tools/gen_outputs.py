@@ -7,5 +7,4 @@ for fn in os.listdir('./tests/'):
   print(fn)
   if fn.endswith('.in'):
     name = fn.split('.')[0]
-    print('cat ./tests/{0} | java {1} > ./tests/{2}'.format(fn, classname, name + '.ans'))
     os.system('cat ./tests/{0} | java {1} > ./tests/{2}'.format(fn, classname, name + '.ans'))

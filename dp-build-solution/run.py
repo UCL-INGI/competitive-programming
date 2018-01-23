@@ -11,7 +11,7 @@ CONFIG
 taskname = 'file'
 solname = 'yunoacsol'
 timelimit = 2
-checker = checkers.diff_check
+checker = checkers.knapsack_check
 """
 END OF CONFIG
 """

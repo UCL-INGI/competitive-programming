@@ -161,11 +161,11 @@ def judge(filename, compile, run, checker, timelimit, testdir = './tests', verbo
       else:
         if(verbose): print('chicking the answer')
         # check whether the answer is correct
-        answer_ok = checker(testdir + '/' + fn, testdir + '/' + name + '.ans', 'output.tmp')
+        answer_ok, msg = checker(testdir + '/' + fn, testdir + '/' + name + '.ans', 'output.tmp')
         if not answer_ok:
           if(verbose): print('wrong answer')
           # wrong_answer
-          judging.add_wrong_anser(test_index)
+          judging.add_wrong_answer(test_index, msg)
         else:
           if(verbose): print('correct')
           # correct
@@ -179,7 +179,7 @@ class Judging:
   def __init__(self):
     self.compile_error = False
     self.compile_message = None
-    self.wrong_answer = set()
+    self.wrong_answer = { }
     self.time_limit_exceeded = set()
     self.runtime_error = { }
     self.correct = set()
@@ -190,8 +190,8 @@ class Judging:
     self.compile_error = compile_error
     self.compile_message = compile_message
   
-  def add_wrong_anser(self, test_index):
-    self.wrong_answer.add(test_index)
+  def add_wrong_answer(self, test_index, msg):
+    self.wrong_answer[test_index] = msg
   
   def add_time_limit_exceeded(self, test_index):
     self.time_limit_exceeded.add(test_index)
@@ -258,6 +258,8 @@ class Judging:
       s += 'Test #{0}: status={1}\n\n'.format(test_index + 1, status)
       if test_index in self.runtime_error:
         s += self.runtime_error[test_index] + '\n\n'
+      if test_index in self.wrong_answer and len(self.wrong_answer[test_index]) > 0:
+        s += self.wrong_answer[test_index] + '\n\n'
     overall_status = 'verdict: '
     if self.is_accepted():
       overall_status = '[ACCEPTED]'
