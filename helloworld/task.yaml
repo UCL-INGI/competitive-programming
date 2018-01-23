@@ -7,7 +7,7 @@ evaluate: best
 groups: false
 limits:
     memory: '1000'
-    output: '2'
+    output: '100'
     time: '1000'
 name: Hello World
 network_grading: false
