@@ -39,7 +39,7 @@ context: |-
           memo[i][c] = take;
           action[i][c] = TAKE;
         }
-        return memo[i][c]
+        return memo[i][c];
       }
 
     To build the set of items we start from state :math:`(0, C)` and check what is the value of :math:`action[0][C]`. If it is SKIP then we know that item :math:`0` is not in the optimal solution. Thus we ignore it and go to state :math:`(1, C)`. Otherwise, if it is TAKE, then we know item :math:`0` is in the optimal solution. We add it to the list of items in the solution and go to state :math:`(1, C - w_0)`. We repeat this process until we either run out of items or out of space in the knapsack.
@@ -66,29 +66,31 @@ context: |-
         }
 
     For the bottom-up solution the idea is the same. Try to do it by yourself and submit it to the task bellow to make sure that it is correct.
-environment: scapy
+environment: pyjavacpp
 evaluate: best
 groups: false
 limits:
-    memory: '100'
-    output: '2'
-    time: '30'
+    memory: '1000'
+    output: '100'
+    time: '1000'
 name: DP - Knapsack, build the solution
 network_grading: false
 order: 5
 problems:
     dp-build-solution:
-        allowed_exts:
-        - .java .cpp
         name: Knapsack with solution
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
         header: |-
-            Put all the pieces that we discussed above together and write a solution for the Knapsack problem that is able to print the items that should be taken.
+            Put all the pieces that we discussed above together and write a solution for the Knapsack problem that is able to *print the items that should be taken*.
 
             **Input**
 
-            - One line with two integers :math:`n` and :math:`C` giving the number of objects and knapsack capacity respectively.
+            - One line with two integers :math:`C` and :math:`n` giving the knapsack capacity and the number of items respectively.
 
-            - :math:`n` lines each with two integers :math:`v` and :math:`w` giving the values and  weights of the items.
+            - :math:`n` lines each with two integers :math:`w` and :math:`v` giving the weights and the values of each of the items.
 
             **Output**
 
@@ -96,13 +98,11 @@ problems:
 
             The second line should contain integers separated by single spaces giving the indexes (0 indexed) of the items taken in your solution.
 
-            Any solution will be accepted if several optimal solutions exists.
+            Any solution will be accepted if several optimal solutions exist.
 
             **Constraints**
 
-            * :math:`1 \leq n \leq 1000`
-            * :math:`1 \leq C \leq 1000`
-            * :math:`1 \leq v, w \leq 100`
+            * :math:`1 \leq C, n, v, w \leq 2000`
 
             **Sample Test Cases**
 
