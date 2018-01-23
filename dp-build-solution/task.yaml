@@ -66,21 +66,21 @@ context: |-
         }
 
     For the bottom-up solution the idea is the same. Try to do it by yourself and submit it to the task bellow to make sure that it is correct.
-environment: scapy
+environment: pyjavacpp
 evaluate: best
 groups: false
 limits:
-    memory: '100'
-    output: '2'
-    time: '30'
+    memory: '1000'
+    output: '100'
+    time: '1000'
 name: DP - Knapsack, build the solution
 network_grading: false
 order: 5
 problems:
     dp-build-solution:
+        name: Knapsack with solution
         allowed_exts:
         - .java .cpp
-        name: Knapsack with solution
         header: |-
             Put all the pieces that we discussed above together and write a solution for the Knapsack problem that is able to print the items that should be taken.
 
