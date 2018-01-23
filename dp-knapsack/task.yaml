@@ -154,9 +154,9 @@ problems:
 
             **Constraints**
 
-            * :math:`1 \leq n \leq 1000`
-            * :math:`1 \leq C \leq 1000`
-            * :math:`1 \leq v, w \leq 100`
+            * :math:`1 \leq n \leq 2000`
+            * :math:`1 \leq C \leq 2000`
+            * :math:`1 \leq v, w \leq 2000`
 
             **Sample Test Cases**
 
