@@ -151,7 +151,7 @@ problems:
 
             A single line with an integer giving the maximum value that can be achieve by taking a subset of the items with total weight at most :math:`C`.
 
-            Do not forget to print the answer as an int and not a double.
+            *Do not forget to print the answer as an int and not a double.*
 
             **Constraints**
 
