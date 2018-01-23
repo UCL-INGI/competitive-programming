@@ -83,7 +83,7 @@ order: 3
 problems:
     file:
         header: |
-            Put all the pieces that we discussed above together and write a solution for the Knapsack problem.
+            Put all the pieces that we discussed above together and write a bottom-up solution for the Knapsack problem (the task will not check whether your solution is a bottom-up solution).
 
             **Input**
 
@@ -94,8 +94,6 @@ problems:
             **Output**
 
             A single line with an integer giving the maximum value that can be achieve by taking a subset of the items with total weight at most :math:`C`.
-
-            *Do not forget to print the answer as an int and not a double.*
 
             **Constraints**
 
