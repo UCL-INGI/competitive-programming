@@ -3,8 +3,9 @@ import os
 classname = sys.argv[1]
 
 os.system('javac {0}.java'.format(classname))
-for fn in os.listdir('./'):
+for fn in os.listdir('./tests/'):
   print(fn)
   if fn.endswith('.in'):
     name = fn.split('.')[0]
-    os.system('cat {0} | java {1} > {2}'.format(fn, classname, name + '.ans'))
+    print('cat ./tests/{0} | java {1} > ./tests/{2}'.format(fn, classname, name + '.ans'))
+    os.system('cat ./tests/{0} | java {1} > ./tests/{2}'.format(fn, classname, name + '.ans'))
