@@ -124,19 +124,19 @@ context: |-
     .. code:: java
 
       memo = new Double[n][C + 1];
-environment: python3
+environment: pyjavacpp
 evaluate: best
 groups: false
 limits:
-    memory: '100'
-    time: '30'
-    output: '2'
+    memory: '1000'
+    output: '100'
+    time: '1000'
 name: DP - Knapsack
 network_grading: false
 order: 2
 problems:
-    dp-knapsack-1:
-        type: code-file
+    file:
+        name: Knapsack
         header: |
             Put all the pieces that we discussed above together and write a solution for the Knapsack problem.
 
@@ -168,16 +168,18 @@ problems:
             `Sample input 2 <dp-knapsack/2.in>`_
 
             `Sample output 2 <dp-knapsack/2.ans>`_
-        name: Knapsack
         allowed_exts:
         - .java
+        - .cpp
+        - .py
+        type: code-file
     dp-knapsack-read:
-        name: Mark text as read.
-        choices:
-        -   valid: true
-            text: I read the text.
-            feedback: Good luck for the code!
         limit: 0
+        choices:
+        -   text: I read the text.
+            feedback: Good luck for the code!
+            valid: true
+        name: Mark text as read.
         header: ''
         type: multiple-choice
 stored_submissions: 0
