@@ -70,24 +70,60 @@ context: |-
         }
         return dp[n - 1][C];
       }
-environment: scapy
+environment: pyjavacpp
 evaluate: best
 groups: false
 limits:
-    time: '30'
-    output: '2'
-    memory: '100'
+    output: '100'
+    memory: '1000'
+    time: '1000'
 name: DP - Top down VS Bottom up
 network_grading: false
 order: 3
 problems:
+    file:
+        header: |
+            Put all the pieces that we discussed above together and write a solution for the Knapsack problem.
+
+            **Input**
+
+            - One line with two integers :math:`C` and :math:`n` giving the knapsack capacity and the number of items respectively.
+
+            - :math:`n` lines each with two integers :math:`w` and :math:`v` giving the weights and the values of each of the items.
+
+            **Output**
+
+            A single line with an integer giving the maximum value that can be achieve by taking a subset of the items with total weight at most :math:`C`.
+
+            *Do not forget to print the answer as an int and not a double.*
+
+            **Constraints**
+
+            * :math:`1 \leq C, n, v, w \leq 2000`
+
+            **Sample Test Cases**
+
+            `Sample input 1 <dp-knapsack/1.in>`_
+
+            `Sample output 1 <dp-knapsack/1.ans>`_
+
+
+            `Sample input 2 <dp-knapsack/2.in>`_
+
+            `Sample output 2 <dp-knapsack/2.ans>`_
+        name: Knapsack (same problem as before)
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
+        type: code-file
     dp-topdown-bottomup:
-        header: ''
         name: Mark this section as read?
-        limit: 0
         choices:
         -   valid: true
             text: Yes.
+        limit: 0
+        header: ''
         type: multiple-choice
 stored_submissions: 0
 submission_limit:
