@@ -80,15 +80,17 @@ problems:
     dp-build-solution:
         name: Knapsack with solution
         allowed_exts:
-        - .java .cpp
+        - .java
+        - .cpp
+        - .py
         header: |-
-            Put all the pieces that we discussed above together and write a solution for the Knapsack problem that is able to print the items that should be taken.
+            Put all the pieces that we discussed above together and write a solution for the Knapsack problem that is able to *print the items that should be taken*.
 
             **Input**
 
-            - One line with two integers :math:`n` and :math:`C` giving the number of objects and knapsack capacity respectively.
+            - One line with two integers :math:`C` and :math:`n` giving the knapsack capacity and the number of items respectively.
 
-            - :math:`n` lines each with two integers :math:`v` and :math:`w` giving the values and  weights of the items.
+            - :math:`n` lines each with two integers :math:`w` and :math:`v` giving the weights and the values of each of the items.
 
             **Output**
 
@@ -96,13 +98,11 @@ problems:
 
             The second line should contain integers separated by single spaces giving the indexes (0 indexed) of the items taken in your solution.
 
-            Any solution will be accepted if several optimal solutions exists.
+            Any solution will be accepted if several optimal solutions exist.
 
             **Constraints**
 
-            * :math:`1 \leq n \leq 1000`
-            * :math:`1 \leq C \leq 1000`
-            * :math:`1 \leq v, w \leq 100`
+            * :math:`1 \leq C, n, v, w \leq 2000`
 
             **Sample Test Cases**
 
