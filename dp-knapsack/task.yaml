@@ -65,8 +65,8 @@ context: |-
 
       dp(i, c) =
       \begin{cases}
-        0      & \quad \text{if $i = n$} \\
-        -\infty & \quad \text{if $c < 0$} \\
+        -\infty      & \quad \text{if $c < 0$} \\
+        0 & \quad \text{if $i = n$} \\
         \max \{ dp(i + 1, c), v_i + dp(i + 1, c - w_i) \} & \quad \text{otherwise}
       \end{cases}
 
