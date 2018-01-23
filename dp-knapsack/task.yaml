@@ -66,7 +66,7 @@ context: |-
       dp(i, c) =
       \begin{cases}
         -\infty      & \quad \text{if $c < 0$} \\
-        0 & \quad \text{if $i = n$} \\
+        0 & \quad \text{if $i = n$, $c \geq 0$} \\
         \max \{ dp(i + 1, c), v_i + dp(i + 1, c - w_i) \} & \quad \text{otherwise}
       \end{cases}
 
@@ -74,18 +74,19 @@ context: |-
 
     .. code:: java
 
-      static int n, C;
-      static int[] v, w;
+        static int C, n;
+        static int[] w, v;
 
-      static double dp(int i, int c) {
-        if(i == n) return 0;
-        if(c < 0) return Double.NEGATIVE_INFINITY;
-        // do not take item i
-        double skip = dp(i + 1, c);
-        // take item i
-        double take = v[i] + dp(i + 1, c - w[i]);
-        return Math.max(skip, take);
-      }
+        static double dp(int i, int c) {
+          if(c < 0) return Double.NEGATIVE_INFINITY;
+          if(i == n) return 0;
+          // do not take item i
+          double skip = dp(i + 1, c);
+          // take item i
+          double take = v[i] + dp(i + 1, c - w[i]);
+          // memorize the value of state (i, c)
+          return Math.max(skip, take);
+        }
 
     The reason for using doubles here is simply because it provides a negative infinity that behaves as :math:`-\infty + x = -\infty`.
 
@@ -99,23 +100,23 @@ context: |-
 
     .. code:: java
 
-      static int n, C;
-      static int[] v, w;
-      static Double[][] memo;
+        static int C, n;
+        static int[] w, v;
+        static Double[][] memo;
 
-      static double dp(int i, int c) {
-        if(i == n) return 0;
-        if(c < 0) return Double.NEGATIVE_INFINITY;
-        // check if the value for state (i, c) has already been computed
-        if(memo[i][c] != null) return memo[i][c];
-        // do not take item i
-        double skip = dp(i + 1, c);
-        // take item i
-        double take = v[i] + dp(i + 1, c - w[i]);
-        // memorize the value of state (i, c)
-        memo[i][c] = Math.max(notTake, take);
-        return memo[i][c];
-      }
+        static double dp(int i, int c) {
+          if(c < 0) return Double.NEGATIVE_INFINITY;
+          if(i == n) return 0;
+          // check if the value for state (i, c) has already been computed
+          if(memo[i][c] != null) return memo[i][c];
+          // do not take item i
+          double skip = dp(i + 1, c);
+          // take item i
+          double take = v[i] + dp(i + 1, c - w[i]);
+          // memorize the value of state (i, c)
+          memo[i][c] = Math.max(skip, take);
+          return memo[i][c];
+        }
 
     In this case, since each call takes constant time and each state is computed only once, the total runtime of the algorithm will be :math:`O(n \cdot C)`.
 
