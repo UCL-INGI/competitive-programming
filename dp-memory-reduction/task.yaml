@@ -97,11 +97,10 @@ name: DP - Memory reduction
 network_grading: false
 order: 6
 problems:
-    code:
-        header: ''
-        type: code
-        language: ''
+    file:
         name: ''
+        header: ''
+        type: code-file
 stored_submissions: 0
 submission_limit:
     amount: -1
