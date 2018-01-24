@@ -71,18 +71,14 @@ evaluate: best
 groups: false
 limits:
     memory: '1000'
-    output: '100'
     time: '1000'
+    output: '100'
 name: DP - Knapsack, build the solution
 network_grading: false
 order: 5
 problems:
-    dp-build-solution:
+    file:
         name: Knapsack with solution
-        allowed_exts:
-        - .java
-        - .cpp
-        - .py
         header: |-
             Put all the pieces that we discussed above together and write a solution for the Knapsack problem that is able to *print the items that should be taken*.
 
@@ -115,6 +111,10 @@ problems:
 
             `Sample output 2 <dp-build-solution/2.ans>`_
         type: code-file
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
 stored_submissions: 0
 submission_limit:
     amount: -1
