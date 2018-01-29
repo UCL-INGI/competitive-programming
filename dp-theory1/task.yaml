@@ -24,7 +24,7 @@ order: 1
 problems:
     read:
         name: Mark this section as read?
-        type: multiple-choice
+        type: multiple_choice
         header: ''
         choices:
         -   valid: true

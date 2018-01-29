@@ -114,7 +114,7 @@ problems:
         - .java
         - .cpp
         - .py
-        type: code-file
+        type: file
     dp-topdown-bottomup:
         name: Mark this section as read?
         choices:
@@ -122,7 +122,7 @@ problems:
             text: Yes.
         limit: 0
         header: ''
-        type: multiple-choice
+        type: multiple_choice
 stored_submissions: 0
 submission_limit:
     amount: -1

@@ -56,7 +56,7 @@ problems:
             text: 'Yes'
         name: Mark this sections as read?
         header: ''
-        type: multiple-choice
+        type: multiple_choice
         limit: 0
 stored_submissions: 0
 submission_limit:

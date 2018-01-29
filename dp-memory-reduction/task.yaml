@@ -100,7 +100,7 @@ problems:
     file:
         name: ''
         header: ''
-        type: code-file
+        type: file
         allowed_exts:
         - .java
         - cpp

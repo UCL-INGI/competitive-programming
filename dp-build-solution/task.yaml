@@ -110,7 +110,7 @@ problems:
             `Sample input 2 <dp-build-solution/2.in>`_
 
             `Sample output 2 <dp-build-solution/2.ans>`_
-        type: code-file
+        type: file
         allowed_exts:
         - .java
         - .cpp
