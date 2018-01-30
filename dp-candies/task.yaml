@@ -1,0 +1,28 @@
+accessible: true
+author: ''
+context: |-
+    In this task we will an example of parameter decution in DP.
+
+    Broadly speaking consists of eliminating some parameter un a DP formulation that can be decudes from the others.
+
+    To illustrate this, consider the following simple problem. You have :math:`n` candies to give to 3 kids. Each kid values each of the candies in a different way. The :math:`i`-th candy will have value :math:`a_i` for the first kid, :math:`b_i` for the second and :math:`c_i` for the third. The goal is to distribute all the candies among the kids in a way that is as balanced as possible.
+environment: pyjavacpp
+evaluate: best
+groups: false
+limits:
+    memory: '100'
+    time: '30'
+    output: '2'
+name: DP - Candy problem, parameter decution
+network_grading: false
+problems:
+    file:
+        type: file
+        header: ''
+        name: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0
