@@ -5,7 +5,14 @@ context: |-
 
     Broadly speaking consists of eliminating some parameter un a DP formulation that can be decudes from the others.
 
-    To illustrate this, consider the following simple problem. You have :math:`n` candies to give to 3 kids. Each kid values each of the candies in a different way. The :math:`i`-th candy will have value :math:`a_i` for the first kid, :math:`b_i` for the second and :math:`c_i` for the third. The goal is to distribute all the candies among the kids in a way that is as balanced as possible.
+    To illustrate this, consider the following simple problem. You have :math:`n` candies to give to 3 kids. Each candy as a value that represents how good it is. All kids agree on these values.
+    The goal is to split the candies amongst the kinds so that the difference between the maximum total value and the minimum total value given to a kid is minimum.
+
+    More formally, is :math:`V_i` is the sum of the values of the candies given to the :math:`i`-th kid then the goal is to minimize
+
+    .. math::
+
+      max(V_1, V_2, V_3) - min(V_1, V_2, V_3)
 environment: pyjavacpp
 evaluate: best
 groups: false
