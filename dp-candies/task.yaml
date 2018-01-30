@@ -12,7 +12,9 @@ context: |-
 
     .. math::
 
-      max(V_1, V_2, V_3) - min(V_1, V_2, V_3)
+      max(V_1, V_2, V_3) - min(V_1, V_2, V_3).
+
+    This problem is very naturally formulated as a top-down DP. For each candy we have 3 possible options: give to either the first, the second or the third kid. Thus a possible state can be a tuple :math:`(i, v_1, v_2, v_3)` meaning that we have already given candies :math:`0, \ldots, i - 1` making a total values of the :math:`i`-th kid equal to :math:`v_i`.
 environment: pyjavacpp
 evaluate: best
 groups: false
