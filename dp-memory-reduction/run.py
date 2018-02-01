@@ -10,7 +10,7 @@ CONFIG
 """
 taskname = 'file'
 solname = 'yunoacsol'
-timelimit = 10
+timelimit = 20
 checker = checkers.diff_check
 """
 END OF CONFIG
