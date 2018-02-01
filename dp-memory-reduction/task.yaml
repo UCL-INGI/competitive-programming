@@ -86,13 +86,13 @@ context: |
       because it requires you to remember some cleaver observations.
       Also, is it less customizable. For example, with the above code
       you cannot reconstruct the solution.
-environment: java7
+environment: pyjavacpp
 evaluate: best
 groups: false
 limits:
-    memory: '100'
-    time: '30'
-    output: '2'
+    memory: '1000'
+    time: '1000'
+    output: '100'
 name: DP - Memory reduction
 network_grading: false
 order: 6
@@ -102,9 +102,9 @@ problems:
         - .java
         - cpp
         - .py
-        type: file
         header: ''
         name: ''
+        type: file
 stored_submissions: 0
 submission_limit:
     amount: -1
