@@ -1,0 +1,37 @@
+accessible: true
+author: ''
+context: |-
+    In this task we will an example of parameter decution in DP.
+
+    Broadly speaking consists of eliminating some parameter un a DP formulation that can be decudes from the others.
+
+    To illustrate this, consider the following simple problem. You have :math:`n` candies to give to 3 kids. Each candy as a value that represents how good it is. All kids agree on these values.
+    The goal is to split the candies amongst the kinds so that the difference between the maximum total value and the minimum total value given to a kid is minimum.
+
+    More formally, is :math:`V_i` is the sum of the values of the candies given to the :math:`i`-th kid then the goal is to minimize
+
+    .. math::
+
+      max(V_1, V_2, V_3) - min(V_1, V_2, V_3).
+
+    This problem is very naturally formulated as a top-down DP. For each candy we have 3 possible options: give to either the first, the second or the third kid. Thus a possible state can be a tuple :math:`(i, v_1, v_2, v_3)` meaning that we have already given candies :math:`0, \ldots, i - 1` making a total values of the :math:`i`-th kid equal to :math:`v_i`.
+environment: pyjavacpp
+evaluate: best
+groups: false
+limits:
+    memory: '100'
+    time: '30'
+    output: '2'
+name: DP - Candy problem, parameter decution
+network_grading: false
+problems:
+    file:
+        type: file
+        header: ''
+        name: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0

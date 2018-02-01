@@ -15,7 +15,7 @@ problems:
     dp-knapsack-value:
         header: ''
         name: ''
-        type: code-file
+        type: file
 stored_submissions: 0
 submission_limit:
     amount: -1

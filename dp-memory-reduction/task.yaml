@@ -22,24 +22,24 @@ context: |
 
     .. code:: java
 
-      static int knapsack(int n, int C, int[] v, int [] w) {
-        int[] dp = new int[C + 1];
-        // initialize the base cases
-        for(int c = 0; c < C; c++) {
-          dp[c] = c - w[0] >= 0 ? v[0] : 0;
+        static int knapsack(int C, int n, int[] w, int [] v) {
+            int[] dp = new int[C + 1];
+            // initialize the base cases
+            for(int c = 0; c < C; c++) {
+                dp[c] = c - w[0] >= 0 ? v[0] : 0;
+            }
+            // loop and apply recurrence
+            int[] tmp = new int[C + 1];
+            for(int i = 1; i < n; i++) {
+                for(int c = 0; c <= C; c++) {
+                    int take = c - w[i] >= 0 ? v[i] + dp[c - w[i]] : Integer.MIN_VALUE;
+                    int skip = dp[c];
+                    tmp[c] = Math.max(take, skip);
+                }
+                dp = Arrays.copyOfRange(tmp, 0, tmp.length);
+            }
+            return dp[C];
         }
-        // loop and apply recurrence
-        int[] tmp = new int[C + 1];
-        for(int i = 1; i < n; i++) {
-          for(int c = 0; c < C; c++) {
-            int take = c - w[i] >= 0 ? v[i] + dp[c - w[i]] : Integer.MIN_VALUE;
-            int skip = dp[c];
-            tmp[c] = Math.max(take, skip);
-          }
-          dp = Arrays.copyOfRange(tmp, tmp.length);
-        }
-        return dp[C];
-      }
 
     However we can actually work directly on a single array :math:`dp` if we do it in a clever way. The advantage is mostly that we get a very compact code.
 
@@ -50,17 +50,18 @@ context: |
 
     .. code:: java
 
-      static int knapsack(int n, int C, int[] v, int [] w) {
-        int[] dp = new int[C + 1];
-        for(int i = 0; i < n; i++) {
-          for(int c = C; c >= 0; c--) { // loop in decreasing order
-            int take = c - w[i] >= 0 ? v[i] + dp[c - w[i]] : Integer.MIN_VALUE;
-            int skip = dp[c];
-            dp[c] = Math.max(take, skip);
-          }
+        static int knapsack(int C, int n, int[] w, int [] v) {
+            int[] dp = new int[C + 1];
+            for(int i = 0; i < n; i++) {
+                for(int c = C; c >= 0; c--) { // loop in decreasing order
+                    int take = c - w[i] >= 0 ? v[i] + dp[c - w[i]] : Integer.MIN_VALUE;
+                    int skip = dp[c];
+                    dp[c] = Math.max(take, skip);
+                }
+            }
+            return dp[C];
         }
-        return dp[C];
-      }
+
 
     We can reduce the code further by putting the *take* conditions directly into the for loop for :math:`c`.
 
@@ -69,7 +70,7 @@ context: |
       static int knapsack(int n, int C, int[] v, int [] w) {
         int[] dp = new int[C + 1];
         for(int i = 0; i < n; i++) {
-          for(int c = C; c >= w[i]; c--) { // loop in decreasing order
+          for(int c = C; c >= w[i]; c--) { // start from w[i] to avoid if
             dp[c] = Math.max(dp[c], v[i] + dp[c - w[i]]);
           }
         }
@@ -80,8 +81,8 @@ context: |
     **WARNING**
 
       Condensed code is nice because it take less time to type and
-      takes less space in your cheatsheets. However, it is harder to
-      read and makes it more likely that you will forget how it works
+      takes less space in your cheatsheets. However, it is often harder
+      to read and makes it more likely that you will forget how it works
       because it requires you to remember some cleaver observations.
       Also, is it less customizable. For example, with the above code
       you cannot reconstruct the solution.
@@ -90,19 +91,23 @@ evaluate: best
 groups: false
 limits:
     memory: '100'
-    output: '2'
     time: '30'
+    output: '2'
 name: DP - Memory reduction
 network_grading: false
 order: 6
 problems:
-    code:
-        language: ''
-        type: code
+    file:
+        allowed_exts:
+        - .java
+        - cpp
+        - .py
+        type: file
         header: ''
         name: ''
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
+tags: {}
 weight: 1.0

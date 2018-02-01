@@ -171,7 +171,7 @@ problems:
         - .java
         - .cpp
         - .py
-        type: code-file
+        type: file
     dp-knapsack-read:
         limit: 0
         choices:
@@ -180,7 +180,7 @@ problems:
             valid: true
         name: Mark text as read.
         header: ''
-        type: multiple-choice
+        type: multiple_choice
 stored_submissions: 0
 submission_limit:
     amount: -1
