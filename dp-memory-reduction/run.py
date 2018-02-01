@@ -29,6 +29,8 @@ if not local:
   if max_time > timelimit:
     timelimit += max_time - timelimit
 
+print('maxtime= {0}'.format(timelimit))
+    
 name = None
 ext = None
 files_before = set()
