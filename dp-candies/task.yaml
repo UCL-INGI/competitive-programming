@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |-
+context: |
     In this task we will an example of parameter decution in DP.
 
     Broadly speaking, parameter reduction consists of eliminating some parameter in a DP formulation that can be decuded from the others.
@@ -58,9 +58,16 @@ context: |-
 
     The number of states in this solution is :math:`O(n S^3)` where :math:`S` is the sum of all the values of the candies. Since each state takes constant time to evaluated, that will be the runtime of this solution.
 
-    By now it should be easy to write the code corresponding to this solution. **If you tried to do it** and you still have trouble, you can find it `here<dp-candy/Candy3Kids.java>`_.
+    By now it should be easy to write the code corresponding to this solution. **If you tried to do it** and you still have trouble, you can find it `here<dp-candies/Candy3Kids.java>`_.
 
     Our goal in this task is to reduce the state space from tuples :math:`(i, v_1, v_2, v_3)` to tuples :math:`(i, v_1, v_2)`. This will be possible because we can decude :math:`v_3` from :math:`v_1, v_2`. We only need the value of :math:`v_3` in the end, when all candies have been distributed. At that moment, we know that :math:`v_1 + v_2 + v_3 = S`, the total value of the candies. Therefore, :math:`v_3 = S - v_1 - v_2`.
+
+    We can redefine our subproblems as follows:
+
+      :math:`dp(i, v_1, v_2)` is the minimum difference that we can
+      achieve by giving canides :math:`i, i + 1, \ldots, n - 1` knowing
+      that the first kid has value :math:`v_1` and the second
+      :math:`v_2`.
 environment: pyjavacpp
 evaluate: best
 groups: false
