@@ -66,8 +66,25 @@ context: |
 
       :math:`dp(i, v_1, v_2)` is the minimum difference that we can
       achieve by giving canides :math:`i, i + 1, \ldots, n - 1` knowing
-      that the first kid has value :math:`v_1` and the second
+      that the first kid has value :math:`v_1` and the second has
       :math:`v_2`.
+
+    The recurrence is almost the same as before, except that we drop the last parameter:
+
+    .. math::
+
+      dp(i, v_1, v_2) = \min
+      \begin{cases}
+        dp(i + 1, v_1 + w_i, v_2) & \quad \text{give to kid 1} \\
+        dp(i + 1, v_1, v_2 + w_i) & \quad \text{give to kid 2} \\
+        dp(i + 1, v_1, v_2) & \quad \text{give to kid 3} \\
+      \end{cases}
+
+    When :math:`i = n` we use the fact that :math:`v_3 = S - v_1 - v_2` to evaluate the balance:
+
+    .. math::
+
+      dp(n, v_1, v_2) = \max(v_1, v_2, S - v_1 - v_2) - \min(v_1, v_2, S - v_1 - v_2)
 environment: pyjavacpp
 evaluate: best
 groups: false
