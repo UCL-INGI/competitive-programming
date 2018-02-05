@@ -17,15 +17,20 @@ context: |-
 
     **Example**
 
-    Consider the 6 candies :math:`c_1, c_2, c_3, c_4, c_5, c_6` shown in the picture below:
+      Consider the 6 candies :math:`c_1, c_2, c_3, c_4, c_5, c_6` shown
+      in the picture below:
 
-     .. image:: dp-candies/candy.png
+      .. image:: dp-candies/candy.png
 
-    If we give :math:`c_1, c_2` to the first kid, :math:`c_3, c_4` to the second kid and :math:`c_5, c_6` to the third kid, we have :math:`V_1 = 4 + 3 = 7`, :math:`V_2 = 4 + 3 = 5` and :math:`V_3 = 4 + 3 = 6`. So in this case the balance of the candy distribuiton is
+      If we give :math:`c_1, c_2` to the first kid, :math:`c_3, c_4` to
+      the second kid and :math:`c_5, c_6` to the third kid, we have
+      :math:`V_1 = 4 + 3 = 7`, :math:`V_2 = 4 + 3 = 5` and :math:`V_3 =
+      4 + 3 = 6`. So in this case the balance of the candy distribuiton
+      is
 
-    .. math::
+      .. math::
 
-      max(V_1, V_2, V_3) - min(V_1, V_2, V_3) = max(7, 5, 6) - min(7, 5, 6) = 7 - 5 = 2.
+        max(V_1, V_2, V_3) - min(V_1, V_2, V_3) = max(7, 5, 6) - min(7, 5, 6) = 7 - 5 = 2.
 
     But we can do better! We can instead give :math:`c_1, c_3` to the first kid, :math:`c_2, c_4` to the second kid and :math:`c_5, c_6` to the third kid. In this case :math:`V_1 = V_2 = V_3 = 6` so the balance is 0.
 
