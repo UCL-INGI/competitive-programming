@@ -40,6 +40,8 @@ context: |
       that the :math:`k`-th kid has already value :math:`v_k`.
 
     The original problem is clearly :math:`dp(0, 0, 0, 0)`.
+
+    The number of states in this solution is :math:`O(n S^3)` where :math:`S` is the sum of all the values of the candies.
 environment: pyjavacpp
 evaluate: best
 groups: false
