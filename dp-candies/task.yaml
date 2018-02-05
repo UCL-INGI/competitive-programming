@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |-
+context: |
     In this task we will an example of parameter decution in DP.
 
     Broadly speaking, parameter reduction consists of eliminating some parameter in a DP formulation that can be decuded from the others.
@@ -29,9 +29,17 @@ context: |-
       to the third kid. In this case :math:`V_1 = V_2 = V_3 = 6` so the
       balance is 0.
 
-    This problem is very naturally formulated as a top-down DP. For each candy we have 3 possible options: give to either the first, the second or the third kid. As with the Knapsack problem, the order in which we make the decision does not matter and thus as far as the candies are concerned, we only need to keep track of the index :math:`i` of the next candy for which we are going to make a decision.
+    This problem is very naturally formulated as a top-down DP. For each candy we have 3 possible options: give to either the first, the second or the third kid. As with the Knapsack problem, the order in which we make the decisions does not matter and thus as far as the candies are concerned, we only need to keep track of the index :math:`i` of the next candy for which we are going to make a decision. On the other hand, only after making all the decisions we can evaluate the balance of the candy distribution. Therefore, we also need to keep track of the total value given to each of the kids.
 
     Thus a possible state can be a tuple :math:`(i, v_1, v_2, v_3)` meaning that we have already given candies :math:`0, \ldots, i - 1` making a total values of the :math:`i`-th kid equal to :math:`v_i`.
+
+    We can thus define the subproblems as:
+
+      :math:`dp(i, v_1, v_2, v_3)` is the minimum difference that we can
+      achieve by giving canides :math:`i, i + 1, \ldots, n - 1` knowing
+      that the :math:`k`-th kid has already value :math:`v_k`.
+
+    The original problem is clearly :math:`dp(0, 0, 0, 0)`.
 environment: pyjavacpp
 evaluate: best
 groups: false
