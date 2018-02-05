@@ -89,19 +89,21 @@ environment: pyjavacpp
 evaluate: best
 groups: false
 limits:
-    memory: '100'
     time: '30'
     output: '2'
+    memory: '100'
 name: DP - Candy problem, parameter decution
 network_grading: false
 problems:
     file:
+        name: Candies for 3 kids
+        type: file
         header: |-
             Write the code for the DP solution with reduced state space.
 
             **Input**
 
-            - One line with a single integer :math:`n`giving the number of candies.
+            - One line with a single integer :math:`n` giving the number of candies.
 
             - One line with :math:`n` integers separated by single spaces giving the values :math:`v_i` of each of the candies.
 
@@ -128,8 +130,6 @@ problems:
         - .java
         - .cpp
         - .py
-        name: Candies for 3 kids
-        type: file
 stored_submissions: 0
 submission_limit:
     amount: -1
