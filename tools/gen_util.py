@@ -2,7 +2,7 @@ import os
 
 def find_next_filename(filename):
   k = 1
-  while os.path.exists('{0}_{1}.in'.format(filename, k)):
+  while os.path.exists('./tests/{0}_{1}.in'.format(filename, k)):
     k += 1
   return '{0}_{1}'.format(filename, k)
 

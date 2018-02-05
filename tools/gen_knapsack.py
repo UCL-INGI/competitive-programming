@@ -1,5 +1,6 @@
 import random
 import gen_util
+import os
 
 """
 Generate small test case that kills the greedy algorithm.
@@ -133,12 +134,12 @@ def write(knapsack_capacity, weights, values, filename):
     f.write('{0} {1}\n'.format(weights[i], values[i]))
   f.close()
 
-if __name__ == '__main__':
+def gen_classic():
   random.seed(31)
   gen_kill_greedy(100)
   gen_kill_greedy(1000)
-  gen_random(1000, 1000, 20, 20)
-  gen_random(1000, 1000, 20, 20)
+  gen_random(1000, 1000, 20, 20, False)
+  gen_random(1000, 1000, 20, 20, False)
   gen_ratio(1000, 50, 3, 5)
   gen_ratio(1000, 1000, 1, 1)
   gen_ratio(1000, 100, 7, 5)
@@ -162,3 +163,36 @@ if __name__ == '__main__':
   gen_random(100, 100, 100, 100)
   gen_random(1000, 1000, 1000, 1000)
 
+def gen_memory_reduction():
+  random.seed(31)
+  gen_kill_greedy(100)
+  gen_kill_greedy(1000)
+  gen_kill_greedy(10000)
+  gen_random(50000, 50000, 20, 20, False)
+  gen_random(50000, 50000, 20, 20, False)
+  gen_random(50000, 50000, 20, 20, False)
+  gen_random(50000, 50000, 20, 20, False)
+  gen_random(50000, 50000, 1000, 1000, False)
+  gen_ratio(1000, 50, 3, 5)
+  gen_ratio(1000, 1000, 1, 1)
+  gen_ratio(1000, 100, 7, 5)
+  gen_ratio_even(9, 500)
+  gen_random_ratios_in_range(1000, 1000, 10, 20, 1000, 1000)
+  gen_random_ratios_in_range(1000, 1000, 2, 4, 100, 100)
+  gen_random_ratios_in_range(1000, 1000, 7, 8, 100, 100)
+  ratios = [(1, 1), (2, 1), (3, 1), (4, 1), (5, 1)]
+  gen_ratio_groups(1000, ratios, 10)
+  ratios = [(1, 1), (1, 2), (1, 3), (1, 4), (1, 5)]
+  gen_ratio_groups(1000, ratios, 10)
+  ratios = [(3, 5), (7, 9), (4, 6), (11, 13), (4, 5)]
+  gen_ratio_groups(1000, ratios, 10)
+  ratios = [(100, 95), (100, 96), (100, 97), (100, 98), (100, 99), (100, 101), (100, 102), (100, 103), (100, 104), (100, 105)]
+  gen_ratio_groups(1000, ratios, 10)
+  ratios = [(y, x) for (x, y) in ratios]
+  gen_ratio_groups(1000, ratios, 10)
+
+if __name__ == '__main__':
+  if os.path.exists('./tests'):
+    os.system('rm -r ./tests')
+  os.system('mkdir ./tests')
+  gen_memory_reduction()
