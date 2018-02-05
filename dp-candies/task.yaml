@@ -96,8 +96,39 @@ name: DP - Candy problem, parameter decution
 network_grading: false
 problems:
     file:
-        header: ''
-        name: ''
+        header: |-
+            Write the code for the DP solution with reduced state space.
+
+            **Input**
+
+            - One line with a single integer :math:`n`giving the number of candies.
+
+            - One line with :math:`n` integers separated by single spaces giving the values :math:`v_i` of each of the candies.
+
+            **Output**
+
+            A single line with an integer giving the minimum difference that can be achieved as described above.
+
+            **Constraints**
+
+            * :math:`1 \leq n \leq 50`
+            * :math:`1 \leq v_i \leq 10`
+
+            **Sample Test Cases**
+
+            `Sample input 1 <dp-candies/1.in>`_
+
+            `Sample output 1 <dp-candies/1.ans>`_
+
+
+            `Sample input 2 <dp-candies/2.in>`_
+
+            `Sample output 2 <dp-candies/2.ans>`_
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
+        name: Candies for 3 kids
         type: file
 stored_submissions: 0
 submission_limit:
