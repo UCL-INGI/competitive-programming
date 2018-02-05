@@ -10,7 +10,7 @@ CONFIG
 """
 taskname = 'file'
 solname = 'yunoacsol'
-timelimit = 10
+timelimit = 20
 checker = checkers.diff_check
 """
 END OF CONFIG
@@ -24,11 +24,13 @@ if sys.argv[1] == '1':
 
 if not local:
   from inginious import feedback
-  judging  = judge_java('yunoacsol', checker, 10000, './tests', False)
+  judging  = judge_java('yunoacsol', checker, 10000, './tests')
   max_time = judging.get_max_runtime()
   if max_time > timelimit:
     timelimit += max_time - timelimit
 
+print('maxtime= {0}'.format(timelimit))
+    
 name = None
 ext = None
 files_before = set()

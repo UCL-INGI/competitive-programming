@@ -2,7 +2,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class KnapsackCondensed1 {
+public class yunoacsol {
 	
 	public static void main(String[] args) {
 		Scanner reader = new Scanner(System.in);
@@ -38,5 +38,4 @@ public class KnapsackCondensed1 {
 		  return dp[C];
 		}
 	
-
 }
