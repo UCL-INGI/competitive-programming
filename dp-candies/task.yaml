@@ -9,13 +9,9 @@ context: |-
     The goal is to split the candies amongst the kinds so that the difference between the maximum total value and the minimum total value given to a kid is minimum.
 
     More formally, is :math:`V_i` is the sum of the values of the candies given to the :math:`i`-th kid then the goal is to minimize
-    the balance of the candy distribution, that is, minimize
+    the balance of the candy distribution, that is, minimize :math:`max(V_1, V_2, V_3) - min(V_1, V_2, V_3)`.
 
-    .. math::
-
-      max(V_1, V_2, V_3) - min(V_1, V_2, V_3).
-
-    **Example**
+      **Example**
 
       Consider the 6 candies :math:`c_1, c_2, c_3, c_4, c_5, c_6` shown
       in the picture below:
@@ -26,13 +22,12 @@ context: |-
       the second kid and :math:`c_5, c_6` to the third kid, we have
       :math:`V_1 = 4 + 3 = 7`, :math:`V_2 = 4 + 3 = 5` and :math:`V_3 =
       4 + 3 = 6`. So in this case the balance of the candy distribuiton
-      is
+      is :math:`max(V_1, V_2, V_3) - min(V_1, V_2, V_3) = max(7, 5, 6) - min(7, 5, 6) = 7 - 5 = 2`.
 
-      .. math::
-
-        max(V_1, V_2, V_3) - min(V_1, V_2, V_3) = max(7, 5, 6) - min(7, 5, 6) = 7 - 5 = 2.
-
-    But we can do better! We can instead give :math:`c_1, c_3` to the first kid, :math:`c_2, c_4` to the second kid and :math:`c_5, c_6` to the third kid. In this case :math:`V_1 = V_2 = V_3 = 6` so the balance is 0.
+      But we can do better! We can instead give :math:`c_1, c_3` to the
+      first kid, :math:`c_2, c_4` to the second kid and :math:`c_5, c_6`
+      to the third kid. In this case :math:`V_1 = V_2 = V_3 = 6` so the
+      balance is 0.
 
     This problem is very naturally formulated as a top-down DP. For each candy we have 3 possible options: give to either the first, the second or the third kid. Thus a possible state can be a tuple :math:`(i, v_1, v_2, v_3)` meaning that we have already given candies :math:`0, \ldots, i - 1` making a total values of the :math:`i`-th kid equal to :math:`v_i`.
 environment: pyjavacpp
