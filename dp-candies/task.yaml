@@ -22,8 +22,7 @@ context: |
       the second kid and :math:`c_5, c_6` to the third kid, we have
       :math:`v_1 = 4 + 3 = 7`, :math:`v_2 = 4 + 3 = 5` and :math:`v_3 =
       4 + 3 = 6`. So in this case the balance of the candy distribuiton
-      is :math:`max(v_1, v_2, v_3) - min(v_1, v_2, v_3) = max(7, 5, 6) -
-      min(7, 5, 6) = 7 - 5 = 2`.
+      is :math:`max(7, 5, 6) - min(7, 5, 6) = 7 - 5 = 2`.
 
       But we can do better! We can instead give :math:`c_1, c_3` to the
       first kid, :math:`c_2, c_4` to the second kid and :math:`c_5, c_6`
