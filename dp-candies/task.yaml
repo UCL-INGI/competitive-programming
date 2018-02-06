@@ -22,7 +22,7 @@ context: |
       the second kid and :math:`c_5, c_6` to the third kid, we have
       :math:`v_1 = 4 + 3 = 7`, :math:`v_2 = 4 + 3 = 5` and :math:`v_3 =
       4 + 3 = 6`. So in this case the balance of the candy distribuiton
-      is :math:`max(v_1, v_2, v_3) - min(v_1, v_2, v_3) = max(7, 5, 6) - min(7, 5, 6) = 7 - 5 = 2`.
+      is :math:`max(7, 5, 6) - min(7, 5, 6) = 7 - 5 = 2`.
 
       But we can do better! We can instead give :math:`c_1, c_3` to the
       first kid, :math:`c_2, c_4` to the second kid and :math:`c_5, c_6`
@@ -58,7 +58,7 @@ context: |
 
     The number of states in this solution is :math:`O(n S^3)` where :math:`S` is the sum of all the values of the candies. Since each state takes constant time to evaluated, that will be the runtime of this solution.
 
-    By now it should be easy to write the code corresponding to this solution. **If you tried to do it** and you still have trouble, you can find it `here<dp-candies/Candy3Kids.java>`_.
+    By now it should be easy to write the code corresponding to this solution. **If you tried to do it** and you still have trouble, you can find it `here <dp-candies/Candy3Kids.java>`_.
 
     Our goal in this task is to reduce the state space from tuples :math:`(i, v_1, v_2, v_3)` to tuples :math:`(i, v_1, v_2)`. This will be possible because we can decude :math:`v_3` from :math:`v_1, v_2`. We only need the value of :math:`v_3` in the end, when all candies have been distributed. At that moment, we know that :math:`v_1 + v_2 + v_3 = S`, the total value of the candies. Therefore, :math:`v_3 = S - v_1 - v_2`.
 
@@ -89,19 +89,21 @@ environment: pyjavacpp
 evaluate: best
 groups: false
 limits:
-    memory: '100'
     time: '30'
     output: '2'
+    memory: '100'
 name: DP - Candy problem, parameter decution
 network_grading: false
 problems:
     file:
+        name: Candies for 3 kids
+        type: file
         header: |-
             Write the code for the DP solution with reduced state space.
 
             **Input**
 
-            - One line with a single integer :math:`n`giving the number of candies.
+            - One line with a single integer :math:`n` giving the number of candies.
 
             - One line with :math:`n` integers separated by single spaces giving the values :math:`v_i` of each of the candies.
 
@@ -128,8 +130,6 @@ problems:
         - .java
         - .cpp
         - .py
-        name: Candies for 3 kids
-        type: file
 stored_submissions: 0
 submission_limit:
     amount: -1

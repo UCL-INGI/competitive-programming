@@ -129,15 +129,16 @@ environment: pyjavacpp
 evaluate: best
 groups: false
 limits:
-    memory: '1000'
-    output: '100'
     time: '1000'
+    output: '100'
+    memory: '1000'
 name: DP - Knapsack
 network_grading: false
 order: 2
 problems:
     file:
         name: Knapsack
+        type: file
         header: |
             Put all the pieces that we discussed above together and write a solution for the Knapsack problem.
 
@@ -171,18 +172,18 @@ problems:
         - .java
         - .cpp
         - .py
-        type: file
     dp-knapsack-read:
-        limit: 0
+        type: multiple_choice
+        name: Mark text as read.
         choices:
         -   text: I read the text.
             feedback: Good luck for the code!
             valid: true
-        name: Mark text as read.
         header: ''
-        type: multiple_choice
+        limit: 0
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
+tags: {}
 weight: 1.0
