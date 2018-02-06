@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |-
+context: |+
     In this task we will see that the same problem can have several DP formulations that can be more suited for some situations.
 
     Recall that we defined previously the DP subproblems as:
@@ -23,13 +23,25 @@ context: |-
 
     - *If we don't take item :math:`i`* then then minimum kapacity needed to achieve value :math:`v` with items :math:`0, \ldots, i` is the same as for items :math:`0, \ldots, i - 1`. Thus, this in case, :math:`dp(i, v) = dp(i - 1, v)`.
 
-    - *If we take item :math:`i`* then we need capacity :math:`w_i` plus the minimum capacity to achieve value :math:`v - v_i` using items :math:`0, \ldots, i - 1`. Thus, in this case, :math:`dp(i, v) = w_i + dp(i - 1, v - v_i)`.
+    - *If we take item :math:`i`* then we need capacity :math:`w_i` plus the minimum capacity to achieve value :math:`v - v_i` using items :math:`0, \ldots, i - 1`. Thus, in this case, :math:`dp(i, v) = w_i + dp(i - 1, v - v_i)`. Note that this option is undefined if :math:`v - v_i < 0`. To simplify the formulas, we will assume that it evaluates to :math:`\infty`.
 
     Therefore we can write that :math:`dp(i, v)` is the minimum of those two options:
 
     .. math::
 
        dp(i, v) = \min (dp(i - 1, v), w_i + dp(i - 1, v - v_i))
+
+    The base case is when :math:`i = 0`. In this case the only achievable value is :math:`v_0` and the minimum capacity to do so is :math:`w_0`. Hence, :math:`dp()`
+
+    .. math::
+
+        dp(0, v) =
+        \begin{cases}
+          w_0      & \quad \text{if } v = v_0 \\
+          \infty  & \quad \text{otherwise}
+        \end{cases}
+
+
 environment: java7
 evaluate: best
 groups: false
