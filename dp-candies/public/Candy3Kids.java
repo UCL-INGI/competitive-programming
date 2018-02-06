@@ -15,23 +15,23 @@ public class Candy3Kids {
 			S += w[i];
 		}
 		memo = new Integer[n][S + 1][S + 1][S + 1];
-		int ans = solve(0, 0, 0, 0);
+		int ans = dp(0, 0, 0, 0);
 		System.out.println(ans);
 		reader.close();
 	}
 	
 	static Integer[][][][] memo;
 	
-	static int solve(int i, int v1, int v2, int v3) {
+	static int dp(int i, int v1, int v2, int v3) {
 		if(i == n) {
 			return max(v1, v2, v3) - min(v1, v2, v3);
 		}
 		if(memo[i][v1][v2][v3] != null) {
 			return memo[i][v1][v2][v3];
 		}
-		int give1 = solve(i + 1, v1 + w[i], v2, v3);
-		int give2 = solve(i + 1, v1, v2 + w[i], v3);
-		int give3 = solve(i + 1, v1, v2, v3 + w[i]);
+		int give1 = dp(i + 1, v1 + w[i], v2, v3);
+		int give2 = dp(i + 1, v1, v2 + w[i], v3);
+		int give3 = dp(i + 1, v1, v2, v3 + w[i]);
 		memo[i][v1][v2][v3] = min(give1, give2, give3);
 		return memo[i][v1][v2][v3];
 	}
