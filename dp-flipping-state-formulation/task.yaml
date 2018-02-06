@@ -57,10 +57,9 @@ name: DP - Knapsack flipping the state formulation
 network_grading: false
 order: 7
 problems:
-    code:
-        language: ''
-        name: Knapsack with small values
-        type: code
+    file:
+        name: Knapsakc with small values
+        type: file
         header: |
             Write a solution for the Knapsack problem. Pay attention the the constraints bellow before designing your solution.
 
@@ -90,6 +89,10 @@ problems:
             `Sample input 2 <dp-knapsack/2.in>`_
 
             `Sample output 2 <dp-knapsack/2.ans>`_
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
 stored_submissions: 0
 submission_limit:
     amount: -1
