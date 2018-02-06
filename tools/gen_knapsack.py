@@ -191,8 +191,14 @@ def gen_memory_reduction():
   ratios = [(y, x) for (x, y) in ratios]
   gen_ratio_groups(1000, ratios, 10)
 
+def gen_flip_formulation():
+  random.seed(31)
+  gen_random(1000000, 5000, 100000, 10, False)
+  
+
 if __name__ == '__main__':
   if os.path.exists('./tests'):
     os.system('rm -r ./tests')
   os.system('mkdir ./tests')
-  gen_memory_reduction()
+  #gen_memory_reduction()
+  gen_flip_formulation()
