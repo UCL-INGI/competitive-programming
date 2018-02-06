@@ -13,7 +13,7 @@ context: |-
 
     But this is not the only way the DP subproblems can be formulation. An alternative is to have the states depend on the value instead of the capacity. We define the states as pairs :math:`(i, v)` and the subproblems as:
 
-      :math:`dp(i, v)` is the minimum Knapsack capacity needed in order
+      :math:`dp(i, v)` is the minimum knapsack capacity needed in order
       to achieve value :math:`v` from selecting a subset of the objects
       :math:`0, 1 \ldots, i`.
 
@@ -46,22 +46,50 @@ context: |-
 
     This can be useful for problems where the knapsack is very big because the time complexity does not depend on the knapsack capacity.
     It also shows that if all values are equal to :math:`1` then the problem can be solved in polynomial time :math:`O(n^2)`. But if you think about is, this is obvious, it is easy to solve it in this case in :math:`O(n \cdot \log(n))`.
-environment: java7
+environment: pyjavacpp
 evaluate: best
 groups: false
 limits:
-    time: '30'
-    output: '2'
-    memory: '100'
-name: DP - Knapsack flipping state formulation
+    time: '1000'
+    output: '100'
+    memory: '1000'
+name: DP - Knapsack flipping the state formulation
 network_grading: false
 order: 7
 problems:
     code:
         language: ''
-        name: ''
+        name: Knapsack with small values
         type: code
-        header: ''
+        header: |
+            Write a solution for the Knapsack problem. Pay attention the the constraints bellow before designing your solution.
+
+            **Input**
+
+            - One line with two integers :math:`C` and :math:`n` giving the knapsack capacity and the number of items respectively.
+
+            - :math:`n` lines each with two integers :math:`w` and :math:`v` giving the weights and the values of each of the items.
+
+            **Output**
+
+            A single line with an integer giving the maximum value that can be achieve by taking a subset of the items with total weight at most :math:`C`.
+
+            *Do not forget to print the answer as an int and not a double.*
+
+            **Constraints**
+
+            * :math:`1 \leq C, n, v, w \leq 2000`
+
+            **Sample Test Cases**
+
+            `Sample input 1 <dp-knapsack/1.in>`_
+
+            `Sample output 1 <dp-knapsack/1.ans>`_
+
+
+            `Sample input 2 <dp-knapsack/2.in>`_
+
+            `Sample output 2 <dp-knapsack/2.ans>`_
 stored_submissions: 0
 submission_limit:
     amount: -1
