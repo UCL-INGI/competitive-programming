@@ -1,3 +1,6 @@
+/tests/all_eq_50_9.in: |-
+    48
+    9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9
 accessible: true
 author: ''
 context: |
