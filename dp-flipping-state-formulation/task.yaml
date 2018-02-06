@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |+
+context: |-
     In this task we will see that the same problem can have several DP formulations that can be more suited for some situations.
 
     Recall that we defined previously the DP subproblems as:
@@ -13,30 +13,93 @@ context: |+
 
     But this is not the only way the DP subproblems can be formulation. An alternative is to have the states depend on the value instead of the capacity. We define the states as pairs :math:`(i, v)` and the subproblems as:
 
-      :math:`dp(i, v)` is the minimum Knapsack capacity needed in order
+      :math:`dp(i, v)` is the minimum knapsack capacity needed in order
       to achieve value :math:`v` from selecting a subset of the objects
       :math:`0, 1 \ldots, i`.
 
+    If a value :math:`v` is impossible to achieve, we define :math:`dp(i, v) = \infty` for all :math:`i`.
+
     To relate the subproblems and define the recurrence relation we need to think about what happens depending on whether we decide to skip or take the :math:`i`-th item.
 
-environment: java7
+    - *If we don't take item* :math:`i` then then minimum kapacity needed to achieve value :math:`v` with items :math:`0, \ldots, i` is the same as for items :math:`0, \ldots, i - 1`. Thus, this in case, :math:`dp(i, v) = dp(i - 1, v)`.
+
+    - *If we take item* :math:`i` then we need capacity :math:`w_i` plus the minimum capacity to achieve value :math:`v - v_i` using items :math:`0, \ldots, i - 1`. Thus, in this case, :math:`dp(i, v) = w_i + dp(i - 1, v - v_i)`. Note that this option is undefined if :math:`v - v_i < 0`. To simplify the formulas, we will assume that, in those case, it evaluates to :math:`\infty`.
+
+    Therefore we can write that :math:`dp(i, v)` is the minimum of those two options:
+
+    .. math::
+
+       dp(i, v) = \min (dp(i - 1, v), w_i + dp(i - 1, v - v_i))
+
+    The base cases are when :math:`i = 0`. In this case the only achievable values are :math:`0` with a knapsack of capacity :math:`0` and :math:`v_0` with a knapsack of capacity :math:`w_0`. Hence, :math:`dp()`
+
+    .. math::
+
+        dp(0, v) =
+        \begin{cases}
+          0      & \quad \text{if } v = 0 \\
+          w_0      & \quad \text{if } v = v_0 \\
+          \infty  & \quad \text{if } v \notin \{0, v_0\}
+        \end{cases}
+
+    How to you recover the answer in the end (the value, not the items themselves)? Think about it before reading futher.
+
+    The maximum value that can be achieved will correspond to the maximum :math:`v` for which :math:`dp(n - 1, v)` is smaller than or equal to the knapsack capacity.
+
+    With this formulation the number of states is :math:`O(n \cdot V)` where :math:`V = v_0 + v_1 + \ldots + v_{n - 1}`. We can also write it as :math:`O(n^2 \cdot m_v)` where :math:`m_v = \max_i v_i`. We can do so because :math:`V \leq n \cdot m_v`.
+
+    This can be useful for problems where the knapsack is very big because the time complexity does not depend on the knapsack capacity.
+    It also shows that if all values are equal to :math:`1` then the problem can be solved in polynomial time :math:`O(n^2)`. But if you think about is, this is obvious, it is easy to solve it in this case in :math:`O(n \cdot \log(n))`.
+environment: pyjavacpp
 evaluate: best
 groups: false
 limits:
-    time: '30'
-    memory: '100'
-    output: '2'
-name: DP - Knapsack flipping state formulation
+    time: '1000'
+    output: '100'
+    memory: '1000'
+name: DP - Knapsack flipping the state formulation
 network_grading: false
+order: 7
 problems:
-    code:
-        name: ''
-        header: ''
-        language: ''
-        type: code
+    file:
+        name: Knapsakc with small values
+        type: file
+        header: |
+            Write a solution for the Knapsack problem. Pay attention the the constraints bellow before designing your solution.
+
+            **Input**
+
+            - One line with two integers :math:`C` and :math:`n` giving the knapsack capacity and the number of items respectively.
+
+            - :math:`n` lines each with two integers :math:`w` and :math:`v` giving the weights and the values of each of the items.
+
+            **Output**
+
+            A single line with an integer giving the maximum value that can be achieve by taking a subset of the items with total weight at most :math:`C`.
+
+            *Do not forget to print the answer as an int and not a double.*
+
+            **Constraints**
+
+            * :math:`1 \leq C, n, v, w \leq 2000`
+
+            **Sample Test Cases**
+
+            `Sample input 1 <dp-knapsack/1.in>`_
+
+            `Sample output 1 <dp-knapsack/1.ans>`_
+
+
+            `Sample input 2 <dp-knapsack/2.in>`_
+
+            `Sample output 2 <dp-knapsack/2.ans>`_
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
+tags: {}
 weight: 1.0
-order: 7

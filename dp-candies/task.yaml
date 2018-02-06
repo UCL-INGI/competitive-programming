@@ -89,9 +89,9 @@ environment: pyjavacpp
 evaluate: best
 groups: false
 limits:
-    time: '30'
-    output: '2'
-    memory: '100'
+    time: '1000'
+    output: '100'
+    memory: '1000'
 name: DP - Candy problem, parameter decution
 network_grading: false
 problems:
@@ -136,3 +136,4 @@ submission_limit:
     period: -1
 tags: {}
 weight: 1.0
+order: 9
