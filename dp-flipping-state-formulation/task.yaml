@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |+
+context: |
     In this task we will see that the same problem can have several DP formulations that can be more suited for some situations.
 
     Recall that we defined previously the DP subproblems as:
@@ -41,7 +41,7 @@ context: |+
           \infty  & \quad \text{otherwise}
         \end{cases}
 
-
+    With this formulation the number of states is :math:`O(n \cdot V)` where :math:`V = v_0 + v_1 + \ldots + v_{n - 1}`. We can also write it as :math:`O(n^2 \cdot m_v)` where :math:`m_v = \max_i v_i`. We can do so because :math:`V \leq n \cdot m_v`.
 environment: java7
 evaluate: best
 groups: false
