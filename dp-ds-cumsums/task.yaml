@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |-
+context: |
     In this task we will start looking into ways in which DP is used to stucture data to efficiently answer queries.
 
     We will start with cumulative sums.
@@ -10,6 +10,8 @@ context: |-
     .. math::
 
        \sum_{i = i_1}^{i_2} a[i] = a[i_1] + a[i_1 + 1] + \ldots + a[i_2]
+
+    .. image:: dp-ds-cumsums/acsum.png
 environment: mcq
 evaluate: best
 groups: false
