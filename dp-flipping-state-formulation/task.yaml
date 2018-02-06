@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |+
+context: |-
     In this task we will see that the same problem can have several DP formulations that can be more suited for some situations.
 
     Recall that we defined previously the DP subproblems as:
@@ -17,26 +17,30 @@ context: |+
       to achieve value :math:`v` from selecting a subset of the objects
       :math:`0, 1 \ldots, i`.
 
+    If a value :math:`v` is impossible to achieve, we define :math:`dp(i, v) = \infty` for all :math:`i`.
+
     To relate the subproblems and define the recurrence relation we need to think about what happens depending on whether we decide to skip or take the :math:`i`-th item.
 
+    If we don't take item :math:`i` then then minimum
 environment: java7
 evaluate: best
 groups: false
 limits:
     time: '30'
-    memory: '100'
     output: '2'
+    memory: '100'
 name: DP - Knapsack flipping state formulation
 network_grading: false
+order: 7
 problems:
     code:
-        name: ''
-        header: ''
         language: ''
+        name: ''
         type: code
+        header: ''
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
+tags: {}
 weight: 1.0
-order: 7
