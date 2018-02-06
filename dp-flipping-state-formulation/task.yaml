@@ -21,9 +21,9 @@ context: |+
 
     To relate the subproblems and define the recurrence relation we need to think about what happens depending on whether we decide to skip or take the :math:`i`-th item.
 
-    - *If we don't take item :math:`i`* then then minimum kapacity needed to achieve value :math:`v` with items :math:`0, \ldots, i` is the same as for items :math:`0, \ldots, i - 1`. Thus, this in case, :math:`dp(i, v) = dp(i - 1, v)`.
+    - *If we don't take item* :math:`i` then then minimum kapacity needed to achieve value :math:`v` with items :math:`0, \ldots, i` is the same as for items :math:`0, \ldots, i - 1`. Thus, this in case, :math:`dp(i, v) = dp(i - 1, v)`.
 
-    - *If we take item :math:`i`* then we need capacity :math:`w_i` plus the minimum capacity to achieve value :math:`v - v_i` using items :math:`0, \ldots, i - 1`. Thus, in this case, :math:`dp(i, v) = w_i + dp(i - 1, v - v_i)`. Note that this option is undefined if :math:`v - v_i < 0`. To simplify the formulas, we will assume that it evaluates to :math:`\infty`.
+    - *If we take item* :math:`i` then we need capacity :math:`w_i` plus the minimum capacity to achieve value :math:`v - v_i` using items :math:`0, \ldots, i - 1`. Thus, in this case, :math:`dp(i, v) = w_i + dp(i - 1, v - v_i)`. Note that this option is undefined if :math:`v - v_i < 0`. To simplify the formulas, we will assume that, in those case, it evaluates to :math:`\infty`.
 
     Therefore we can write that :math:`dp(i, v)` is the minimum of those two options:
 
