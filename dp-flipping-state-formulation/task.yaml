@@ -65,7 +65,7 @@ problems:
         name: Knapsakc with small values
         type: file
         header: |
-            Write a solution for the Knapsack problem. You will need to apply memory compression to this formulation in order for your solution to be accepted. The precess is analogous to the one for the other formulation.
+            Write a solution for the Knapsack problem. You will need to apply memory compression to this formulation for your solution to be accepted. The precess is analogous to the one for the other formulation.
 
             **Input**
 
