@@ -12,7 +12,7 @@ context: |+
        \sum_{k = i}^{j} a[i] = a[i] + a[i + 1] + \ldots + a[j]
 
 
-    To simplify the notations, we will denote the sum of the elements from :math:`i` to :math:`j` by :math:`S(i, j)`.
+    To simplify the notations, we will denote this sum by :math:`i` to :math:`j` by :math:`S(i, j)`.
 
     .. image:: dp-ds-cumsums/acsum.png
 
