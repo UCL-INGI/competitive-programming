@@ -3,7 +3,7 @@ author: ''
 context: |-
     In this section we will discuss some theoretical aspects of DP a bit further.
 
-    Underlying a DP problem there is a state graph. The nodes of this graph are the states defined for the problem. There is an edge between two states if the two states depend directly on each other in the recurrence relation.
+    Underlying a DP problem there is a state graph. The nodes of this graph are the states defined for the problem. There is a directed edge from state :math:`s_1` to :math:`s_2` if :math:`s_2` directly depends on :math:`s_1` in the recurrence relation.
 
     To illustrate this, let's go back to the Knapsack example. The states are pairs :math:`(i, c)`. They are related to each other by two actions: taking or skipping object :math:`i` as shown in the following picture.
 
@@ -44,11 +44,12 @@ environment: scapy
 evaluate: best
 groups: false
 limits:
-    memory: '100'
     time: '30'
+    memory: '100'
     output: '2'
 name: DP - State graph
 network_grading: false
+order: 4
 problems:
     dp-stategraph-read:
         choices:
@@ -56,11 +57,11 @@ problems:
             text: 'Yes'
         name: Mark this sections as read?
         header: ''
-        type: multiple_choice
         limit: 0
+        type: multiple_choice
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
+tags: {}
 weight: 1.0
-order: 4
