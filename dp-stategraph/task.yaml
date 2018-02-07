@@ -5,7 +5,17 @@ context: |-
 
     Underlying a DP problem there is a state graph. The nodes of this graph are the states defined for the problem. There is a directed edge from state :math:`s_1` to :math:`s_2` if :math:`s_2` directly depends on :math:`s_1` in the recurrence relation.
 
-    To illustrate this, let's go back to the Knapsack example. The states are pairs :math:`(i, c)`. They are related to each other by two actions: taking or skipping object :math:`i` as shown in the following picture.
+    To illustrate this, let's go back to the bottom-up knapsack example. The recurrence relation was:
+
+    .. math::
+
+      dp(i, c) = \max
+       \begin{cases}
+       dp(i - 1, c - w_i)       & \quad \text{take item $i$}\\
+       dp(i - 1, c) & \quad \text{skip item $i$}
+       \end{cases}
+
+    Thus both :math:`(i - 1, c - w_i)` and :math:`(i - 1, c)` will have an edge to :math:`(i, c)`. The following figure illustrates this.
 
     .. image:: dp-stategraph/knapsack-states.png
 
