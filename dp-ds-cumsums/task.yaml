@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |
+context: |+
     In this task we will start looking into ways in which DP is used to stucture data to efficiently answer queries.
 
     We will start with cumulative sums.
@@ -15,7 +15,7 @@ context: |
 
     .. code:: java
 
-        static long[][] naivePreprocess(int[] a) {
+        static long[][] preprocess(int[] a) {
             long[][] S = new long[a.length][a.length];
             for(int i = 0; i < a.length; i++) {
                 for(int j = i; j < a.length; j++) {
@@ -82,6 +82,10 @@ context: |
         a[0]            & \quad \text{if } i = 0 \\
         a[i] + s[i - 1] & \quad \text{if } i > 0
       \end{cases}
+
+    Then, compute the sum from :math:`i` to :math:`j` we simply have to output :math:`s[j] - s[i - 1]` or :math:`s[j]` is :math:`i = 0`
+
+
 environment: pyjavacpp
 evaluate: best
 groups: false
@@ -98,7 +102,7 @@ problems:
         - .java
         - .cpp
         - .py
-        header: |-
+        header: |
             You will be given an array :math:`a` of size :math:`n` and a list of :math:`q` ranges :math:`[i_1, j_1], \ldots, [i_q, j_q]`. For each of them you have to output the sum of values of :math:`a` in that range.
 
             **Input**
@@ -111,9 +115,27 @@ problems:
 
             - :math:`q` lines each with two integers :math:`i_k` and :math:`j_k` giving the bounds of each range.
 
+            **Constraints**
+
+            * :math:`1 \leq n \leq 10^5`
+            * :math:`-2^{30} \leq a_i \leq 2^{30}`
+            * :math:`1 \leq q \leq 10^5`
+            * :math:`0 \leq i_k \leq j_k \leq n - 1`
+
             **Output**
 
             :math:`q` lines, each with a single integers giving the sum of the values of :math:`a` over the corresponding range.
+
+            **Sample Test Cases**
+
+            `Sample input 1 <dp-ds-cumsums/1.in>`_
+
+            `Sample output 1 <dp-ds-cumsums/1.ans>`_
+
+
+            `Sample input 2 <dp-ds-cumsumsk/2.in>`_
+
+            `Sample output 2 <dp-ds-cumsums/2.ans>`_
         name: 1D cumulative sums
 stored_submissions: 0
 submission_limit:
