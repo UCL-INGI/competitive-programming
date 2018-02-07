@@ -118,7 +118,7 @@ problems:
             **Constraints**
 
             * :math:`1 \leq n \leq 10^5`
-            * :math:`1 \leq a_i \leq 2^30`
+            * :math:`-2^{30} \leq a_i \leq 2^{30}`
             * :math:`1 \leq q \leq 10^5`
             * :math:`0 \leq i_k \leq j_k \leq n - 1`
 
