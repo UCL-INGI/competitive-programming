@@ -19,6 +19,8 @@ context: |-
 
     .. image:: dp-stategraph/knapsack-states.png
 
+    .. image:: dp-stategraph/knapsackstate.png
+
     We claim that this graph does not contain cycles. We encourage you to think about why this is true before reading further.
 
     The reason why this graph is acyclic is that the first coordinate of each node, the object index, is strictly increasing in any path of the graph.
