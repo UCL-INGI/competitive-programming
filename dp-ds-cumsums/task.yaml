@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |+
+context: |
     In this task we will start looking into ways in which DP is used to stucture data to efficiently answer queries.
 
     We will start with cumulative sums.
@@ -68,13 +68,23 @@ context: |+
        \left( \sum_{k = 0}^j a[k] \right) -
        \left( \sum_{k = 0}^{i - 1} a[k] \right) = M[0][j] - M[0][i - 1]
 
+    Of couse this only works if :math:`i > 0`.
+
     This is quite intuitive: to add all elements between :math:`i` and :math:`j` we add all elements from 0 to :math:`j` and then subtract the elements from 0 to :math:`i - 1`.
 
     The following picture illustrates this on a concrete example:
 
     .. image:: dp-ds-cumsums/acsum.png
 
+    To wrap up, we drop the matrix :math:`M` and simply use an array :math:`s` such that :math:`s[i] = S[0][i]`. Then compute the values of :math:`s` using the same recurrence as before:
 
+    .. math::
+
+      s[i] =
+      \begin{cases}
+        a[0]            & \quad \text{if } i = 0 \\
+        a[i] + s[i - 1] & \quad \text{if } i > 0
+      \end{cases}
 environment: pyjavacpp
 evaluate: best
 groups: false
