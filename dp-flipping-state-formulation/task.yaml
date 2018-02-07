@@ -55,17 +55,20 @@ evaluate: best
 groups: false
 limits:
     time: '1000'
-    output: '100'
     memory: '1000'
+    output: '100'
 name: DP - Knapsack flipping the state formulation
 network_grading: false
 order: 7
 problems:
     file:
-        name: Knapsakc with small values
         type: file
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
         header: |
-            Write a solution for the Knapsack problem. You will need to apply memory compression to this formulation for your solution to be accepted. The precess is analogous to the one for the other formulation.
+            Write a solution for the Knapsack problem. You will need to apply memory compression to this formulation for your solution to be accepted. The process is analogous to the one for the other formulation.
 
             **Input**
 
@@ -81,7 +84,10 @@ problems:
 
             **Constraints**
 
-            * :math:`1 \leq C, n, v, w \leq 2000`
+            * :math:`1 \leq C \leq 10^6`
+            * :math:`1 \leq n \leq 5000`
+            * :math:`1 \leq w \leq 10^5`
+            * :math:`1 \leq w \leq 10`
 
             **Sample Test Cases**
 
@@ -93,10 +99,7 @@ problems:
             `Sample input 2 <dp-knapsack/2.in>`_
 
             `Sample output 2 <dp-knapsack/2.ans>`_
-        allowed_exts:
-        - .java
-        - .cpp
-        - .py
+        name: Knapsakc with small values
 stored_submissions: 0
 submission_limit:
     amount: -1
