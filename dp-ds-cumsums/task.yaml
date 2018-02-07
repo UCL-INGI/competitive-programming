@@ -1,17 +1,22 @@
 accessible: true
 author: ''
-context: |
+context: |+
     In this task we will start looking into ways in which DP is used to stucture data to efficiently answer queries.
 
     We will start with cumulative sums.
 
-    Given an array :math:`a`, and we want to be able to compute cumulative sums its subarrays efficiently. More formally, given two indexes :math:`i_1 \leq i_2`, we want to compute the value of
+    Given an array :math:`a`, and we want to be able to compute cumulative sums its subarrays efficiently. More formally, given two indexes :math:`i \leq j`, we want to compute the value of
 
     .. math::
 
-       \sum_{i = i_1}^{i_2} a[i] = a[i_1] + a[i_1 + 1] + \ldots + a[i_2]
+       \sum_{k = i}^{j} a[i] = a[i] + a[i + 1] + \ldots + a[j]
+
+
+    To simplify the notations, we will denote the sum of the elements from :math:`i` to :math:`j` by :math:`S(i, j)`.
 
     .. image:: dp-ds-cumsums/acsum.png
+
+
 environment: pyjavacpp
 evaluate: best
 groups: false
