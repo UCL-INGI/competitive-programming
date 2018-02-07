@@ -53,7 +53,9 @@ context: |
 
     To relate this to DP, you can think of the pairs :math:`(i, j)` as the states and :math:`S` as the subproblems which are related by the above recurrence.
 
-    To do so, we need to avoid having to precompute :math:`O(n^2)` values. We can actually get away by only compute :math:`O(n)` values. Can you think which values are enought to answer any query?
+    To be able to get a better running time, we need to avoid having to precompute :math:`O(n^2)` values since we already are able to compute each such value in constant time.
+
+    We can actually get away by only compute :math:`O(n)` values. Can you think which values are enought to answer any query?
 
     We will focus only on the entries :math:`M[0][j]`. With simple algebraic manipulation we can easily relate any :math:`M[i][j]` to :math:`M[0][j]` and :math:`M[0][i - 1]`:
 
@@ -61,9 +63,9 @@ context: |
 
        M[i][j] = \sum_{k = i}^j a[k] =
        \left( \sum_{k = 0}^j a[k] \right) -
-       \left( \sum_{k = 0}^{i - 1} a[k] \right) = M[0][j] - M[0][i - 1]
+       \left( \sum_{k = 0}^{i - 1} a[k] \right) = M[0][j] - M[0][j - 1]
 
-    Of couse this only works if :math:`i > 0`.
+    Of couse this only works if :math:`j > 0`. If :math:`j = 0` then the only possible value for :math:`i` is 0 and :math:`M[0][0] = a[0]`.
 
     This is quite intuitive: to add all elements between :math:`i` and :math:`j` we add all elements from 0 to :math:`j` and then subtract the elements from 0 to :math:`i - 1`.
 
