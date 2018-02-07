@@ -73,6 +73,8 @@ context: |+
 
     .. image:: dp-ds-cumsums/acsum.png
 
+    .. image:: dp-ds-cumsums/acsum2D.png
+
     To wrap up, we drop the matrix :math:`M` and simply use an array :math:`s` such that :math:`s[i] = S[0][i]`. Then compute the values of :math:`s` using the same recurrence as before:
 
     .. math::
