@@ -15,11 +15,14 @@ context: |-
        dp(i - 1, c) & \quad \text{skip item $i$}
        \end{cases}
 
-    Thus both :math:`(i - 1, c - w_i)` and :math:`(i - 1, c)` will have an edge to :math:`(i, c)`. The following figure illustrates this.
+    Thus both :math:`(i - 1, c - w_i)` and :math:`(i - 1, c)` will have an edge to :math:`(i, c)`. The following figures illustrates this.
 
     .. image:: dp-stategraph/knapsack-states.png
 
+    To show a complete example, imagine that we have :math:`5` items with weights :math:`[1, 3, 3, 2, 4]` and values :math:`[1, 4, 2, 3, 5]` to put on a knapsack of capacity :math:`10`. Then, with the above formulation, the state space graph is the following:
+
     .. image:: dp-stategraph/knapsackstate.png
+
 
     We claim that this graph does not contain cycles. We encourage you to think about why this is true before reading further.
 
