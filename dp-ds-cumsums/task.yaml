@@ -32,6 +32,8 @@ context: |+
 
         static long sum(int i, int j, int[][] M) {return M[i][j];}
 
+    Note that we use the type :code:`long` for the answer as these sums easily overflow.
+
     A slightly better but still quite slow alternative is see that the :math:`M[i][j]` are related to each other. It is easy to see that,
     if :math:`i < j` then
 
@@ -65,6 +67,10 @@ context: |+
        M[i][j] = \sum_{k = i}^j a[k] =
        \left( \sum_{k = 0}^j a[k] \right) -
        \left( \sum_{k = 0}^{i - 1} a[k] \right) = M[0][j] - M[0][i - 1]
+
+    This is quite intuitive: to add all elements between :math:`i` and :math:`j` we add all elements from 0 to :math:`j` and then subtract the elements from 0 to :math:`i - 1`.
+
+    The following picture illustrates this on a concrete example:
 
     .. image:: dp-ds-cumsums/acsum.png
 
