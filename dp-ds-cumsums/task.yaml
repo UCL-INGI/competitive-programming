@@ -12,20 +12,20 @@ context: |
        \sum_{i = i_1}^{i_2} a[i] = a[i_1] + a[i_1 + 1] + \ldots + a[i_2]
 
     .. image:: dp-ds-cumsums/acsum.png
-environment: mcq
+environment: pyjavacpp
 evaluate: best
 groups: false
 limits:
-    time: '30'
-    output: '2'
-    memory: '100'
+    time: '1000'
+    memory: '1000'
+    output: '100'
 name: 'DP - Data structures: cumulative sums'
 network_grading: false
 problems:
     file:
-        name: ''
         type: file
         header: ''
+        name: ''
 stored_submissions: 0
 submission_limit:
     amount: -1
