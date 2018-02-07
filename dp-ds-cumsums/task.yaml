@@ -52,6 +52,8 @@ context: |+
 
     allowing us to compute each :math:`M[i][j]` in :math:`O(1)`.
 
+    To relate this to DP, you can think of :math:`M[i][j]` as the subproblem of computing the sum of elements :math:`i` through :math:`j` and the above recurrence relation as the relation between those subproblems.
+
     .. image:: dp-ds-cumsums/acsum.png
 
 
