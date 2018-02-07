@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |
+context: |+
     In this task we will start looking into ways in which DP is used to stucture data to efficiently answer queries.
 
     We will start with cumulative sums.
@@ -82,6 +82,10 @@ context: |
         a[0]            & \quad \text{if } i = 0 \\
         a[i] + s[i - 1] & \quad \text{if } i > 0
       \end{cases}
+
+    Then, compute the sum from :math:`i` to :math:`j` we simply have to output :math:`s[j] - s[i - 1]` or :math:`s[j]` is :math:`i = 0`
+
+
 environment: pyjavacpp
 evaluate: best
 groups: false
