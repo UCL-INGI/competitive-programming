@@ -15,7 +15,7 @@ context: |
 
     .. code:: java
 
-        static long[][] naivePreprocess(int[] a) {
+        static long[][] preprocess(int[] a) {
             long[][] S = new long[a.length][a.length];
             for(int i = 0; i < a.length; i++) {
                 for(int j = i; j < a.length; j++) {
