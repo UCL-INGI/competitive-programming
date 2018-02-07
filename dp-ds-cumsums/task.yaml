@@ -98,7 +98,7 @@ problems:
         - .java
         - .cpp
         - .py
-        header: |-
+        header: |
             You will be given an array :math:`a` of size :math:`n` and a list of :math:`q` ranges :math:`[i_1, j_1], \ldots, [i_q, j_q]`. For each of them you have to output the sum of values of :math:`a` in that range.
 
             **Input**
@@ -111,9 +111,27 @@ problems:
 
             - :math:`q` lines each with two integers :math:`i_k` and :math:`j_k` giving the bounds of each range.
 
+            **Constraints**
+
+            * :math:`1 \leq n \leq 10^5`
+            * :math:`1 \leq a_i \leq 2^30`
+            * :math:`1 \leq q \leq 10^5`
+            * :math:`0 \leq i_k \leq j_k \leq n - 1`
+
             **Output**
 
             :math:`q` lines, each with a single integers giving the sum of the values of :math:`a` over the corresponding range.
+
+            **Sample Test Cases**
+
+            `Sample input 1 <dp-ds-cumsums/1.in>`_
+
+            `Sample output 1 <dp-ds-cumsums/1.ans>`_
+
+
+            `Sample input 2 <dp-ds-cumsumsk/2.in>`_
+
+            `Sample output 2 <dp-ds-cumsums/2.ans>`_
         name: 1D cumulative sums
 stored_submissions: 0
 submission_limit:
