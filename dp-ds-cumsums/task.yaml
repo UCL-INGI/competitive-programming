@@ -32,7 +32,15 @@ context: |+
 
         static long sum(int i, int j, int[][] M) {return M[i][j];}
 
-    A slightly better but still quite slow alternative is see that the :math:`M[i][j]` are related to each other.
+    A slightly better but still quite slow alternative is see that the :math:`M[i][j]` are related to each other. It is easy to see that
+
+    .. math::
+
+      M[i][j] =
+      \begin{cases}
+        a[i]              & \quad \text{if } i = j \\
+        a[i] + M[i][j - 1] & \quad \text{if } i < j
+      \end{cases}
 
     If :math:`i > 0` it is easy to see that
 
