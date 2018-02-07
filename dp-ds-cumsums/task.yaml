@@ -11,52 +11,47 @@ context: |
 
        \sum_{k = i}^{j} a[k] = a[i] + a[i + 1] + \ldots + a[j]
 
-
-    To simplify the notations, we will denote this sum by :math:`i` to :math:`j` by :math:`S(i, j)`.
-
-    On way to answer such queries in :math:`O(1)` would be to pre-compute a matrix :math:`M` such that :math:`M[i][j] = S(i, j)` and simply retrieve the corresponding entry to answer a query. Done in a naive way this would cost us :math:`O(n^3)` to do since there are :math:`O(n^2)` entries in the matrix and each one take `O(n)` to evaluate. Something like this:
+    On way to answer such queries in :math:`O(1)` would be to pre-compute a matrix :math:`S` such that :math:`S[i][j]` equals the sum of elements :math:`i` through :math:`j` and simply retrieve the corresponding entry to answer a query. Done in a naive way this would cost us :math:`O(n^3)` to do since there are :math:`O(n^2)` entries in the matrix and each one take `O(n)` to evaluate. Something like this:
 
     .. code:: java
 
         static long[][] naivePreprocess(int[] a) {
-            long[][] M = new long[a.length][a.length];
+            long[][] S = new long[a.length][a.length];
             for(int i = 0; i < a.length; i++) {
                 for(int j = i; j < a.length; j++) {
                     for(int k = i; k <= j; k++) {
-                        M[i][j] += a[i];
+                        S[i][j] += a[i];
                     }
                 }
             }
-            return M;
+            return S;
         }
 
-        static long sum(int i, int j, int[][] M) {return M[i][j];}
+        static long sum(int i, int j, int[][] S) {return S[i][j];}
 
     Note that we use the type :code:`long` for the answer as these sums easily overflow.
 
-    A slightly better but still quite slow alternative is see that the :math:`M[i][j]` are related to each other. It is easy to see that,
+    A slightly better but still quite slow alternative is see that the :math:`S[i][j]` are related to each other. It is easy to see that,
     if :math:`i < j` then
 
     .. math::
 
-       M[i][j] = \sum_{k = i}^{j} a[k] = a[i] + \sum_{k = i}^{j - 1} a[k] =
-       a[i] + M[i][j - 1].
+       S[i][j] = \sum_{k = i}^{j} a[k] = a[i] + \sum_{k = i}^{j - 1} a[k] =
+       a[i] + S[i][j - 1].
 
     Thus,
 
     .. math::
 
-      M[i][j] =
+      S[i][j] =
       \begin{cases}
         a[i]              & \quad \text{if } i = j \\
-        a[i] + M[i][j - 1] & \quad \text{if } i < j
+        a[i] + S[i][j - 1] & \quad \text{if } i < j
       \end{cases}
 
-    allowing us to compute each :math:`M[i][j]` in :math:`O(1)`.
+    allowing us to compute each :math:`S[i][j]` in :math:`O(1)`.
 
-    To relate this to DP, you can think of :math:`M[i][j]` as the subproblem of computing the sum of elements :math:`i` through :math:`j` and the above recurrence relation as the relation between those subproblems.
-
-    But we can do even better!
+    To relate this to DP, you can think of the pairs :math:`(i, j)` as the states and :math:`S` as the subproblems which are related by the above recurrence.
 
     To do so, we need to avoid having to precompute :math:`O(n^2)` values. We can actually get away by only compute :math:`O(n)` values. Can you think which values are enought to answer any query?
 
