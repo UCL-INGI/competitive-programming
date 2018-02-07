@@ -54,6 +54,18 @@ context: |+
 
     To relate this to DP, you can think of :math:`M[i][j]` as the subproblem of computing the sum of elements :math:`i` through :math:`j` and the above recurrence relation as the relation between those subproblems.
 
+    But we can do even better!
+
+    To do so, we need to avoid having to precompute :math:`O(n^2)` values. We can actually get away by only compute :math:`O(n)` values. Can you think which values are enought to answer any query?
+
+    We will focus only on the entries :math:`M[0][j]`. With simple algebraic manipulation we can easily relate any :math:`M[i][j]` to :math:`M[0][j]` and :math:`M[0][i - 1]`:
+
+    .. math::
+
+       M[i][j] = \sum_{k = i}^j a[k] =
+       \left( \sum_{k = 0}^j a[k] \right) -
+       \left( \sum_{k = 0}^{i - 1} a[k] \right) = M[0][j] - M[0][i - 1]
+
     .. image:: dp-ds-cumsums/acsum.png
 
 
