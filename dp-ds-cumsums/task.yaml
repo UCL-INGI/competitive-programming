@@ -1,31 +1,66 @@
 accessible: true
 author: ''
-context: |
+context: |+
     In this task we will start looking into ways in which DP is used to stucture data to efficiently answer queries.
 
     We will start with cumulative sums.
 
-    Given an array :math:`a`, and we want to be able to compute cumulative sums its subarrays efficiently. More formally, given two indexes :math:`i_1 \leq i_2`, we want to compute the value of
+    Given an array :math:`a`, and we want to be able to compute cumulative sums its subarrays efficiently. More formally, given two indexes :math:`i \leq j`, we want to compute the value of
 
     .. math::
 
-       \sum_{i = i_1}^{i_2} a[i] = a[i_1] + a[i_1 + 1] + \ldots + a[i_2]
+       \sum_{k = i}^{j} a[i] = a[i] + a[i + 1] + \ldots + a[j]
+
+
+    To simplify the notations, we will denote this sum by :math:`i` to :math:`j` by :math:`S(i, j)`.
+
+    On way to answer such queries in :math:`O(1)` would be to pre-compute a matrix :math:`M` such that :math:`M[i][j] = S(i, j)` and simply retrieve the corresponding entry to answer a query. Done in a naive way this would cost us :math:`O(n^3)` to do since there are :math:`O(n^2)` entries in the matrix and each one take `O(n)` to evaluate. Something like this:
+
+    .. code:: java
+
+        static long[][] naivePreprocess(int[] a) {
+            long[][] M = new long[a.length][a.length];
+            for(int i = 0; i < a.length; i++) {
+                for(int j = i; j < a.length; j++) {
+                    for(int k = i; k <= j; k++) {
+                        M[i][j] += a[i];
+                    }
+                }
+            }
+            return M;
+        }
+
+        static long sum(int i, int j, int[][] M) {return M[i][j];}
+
+    A slightly better but still quite slow alternative is see that the :math:`M[i][j]` are related to each other. It is easy to see that
+
+    .. math::
+
+      M[i][j] =
+      \begin{cases}
+        a[i]              & \quad \text{if } i = j \\
+        a[i] + M[i][j - 1] & \quad \text{if } i < j
+      \end{cases}
+
+    If :math:`i > 0` it is easy to see that
 
     .. image:: dp-ds-cumsums/acsum.png
-environment: mcq
+
+
+environment: pyjavacpp
 evaluate: best
 groups: false
 limits:
-    time: '30'
-    output: '2'
-    memory: '100'
+    time: '1000'
+    memory: '1000'
+    output: '100'
 name: 'DP - Data structures: cumulative sums'
 network_grading: false
 problems:
     file:
-        name: ''
         type: file
         header: ''
+        name: ''
 stored_submissions: 0
 submission_limit:
     amount: -1
