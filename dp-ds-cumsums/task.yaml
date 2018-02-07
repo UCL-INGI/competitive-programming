@@ -9,7 +9,7 @@ context: |+
 
     .. math::
 
-       \sum_{k = i}^{j} a[i] = a[i] + a[i + 1] + \ldots + a[j]
+       \sum_{k = i}^{j} a[k] = a[i] + a[i + 1] + \ldots + a[j]
 
 
     To simplify the notations, we will denote this sum by :math:`i` to :math:`j` by :math:`S(i, j)`.
@@ -32,7 +32,15 @@ context: |+
 
         static long sum(int i, int j, int[][] M) {return M[i][j];}
 
-    A slightly better but still quite slow alternative is see that the :math:`M[i][j]` are related to each other. It is easy to see that
+    A slightly better but still quite slow alternative is see that the :math:`M[i][j]` are related to each other. It is easy to see that,
+    if :math:`i < j` then
+
+    .. math::
+
+       M[i][j] = \sum_{k = i}^{j} a[k] = a[i] + \sum_{k = i}^{j - 1} a[k] =
+       a[i] + M[i][j - 1].
+
+    Thus,
 
     .. math::
 
@@ -42,7 +50,7 @@ context: |+
         a[i] + M[i][j - 1] & \quad \text{if } i < j
       \end{cases}
 
-    If :math:`i > 0` it is easy to see that
+    allowing us to compute each :math:`M[i][j]` in :math:`O(1)`.
 
     .. image:: dp-ds-cumsums/acsum.png
 
