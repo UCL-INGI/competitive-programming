@@ -63,13 +63,13 @@ context: |+
 
        M[i][j] = \sum_{k = i}^j a[k] =
        \left( \sum_{k = 0}^j a[k] \right) -
-       \left( \sum_{k = 0}^{i - 1} a[k] \right) = M[0][j] - M[0][j - 1]
+       \left( \sum_{k = 0}^{i - 1} a[k] \right) = M[0][j] - M[0][i - 1]
 
     Of couse this only works if :math:`j > 0`. If :math:`j = 0` then the only possible value for :math:`i` is 0 and :math:`M[0][0] = a[0]`.
 
     This is quite intuitive: to add all elements between :math:`i` and :math:`j` we add all elements from 0 to :math:`j` and then subtract the elements from 0 to :math:`i - 1`.
 
-    The following picture illustrates this on a concrete example:
+    The following picture illustrates this:
 
     .. image:: dp-ds-cumsums/acsum.png
 
