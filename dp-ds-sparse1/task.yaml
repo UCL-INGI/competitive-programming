@@ -59,11 +59,11 @@ context: |+
 
     Now that we have build a basic idea to solve the problem let's dive into the details.
 
-    We define a matrix :math:`R` such that :math:`R[i][k]` is minimum of the range starting at :math:`i` with size :math:`2^k. In other words,
+    We define a matrix :math:`R` such that :math:`R[i][k]` is minimum of the range starting at :math:`i` with size :math:`2^k`. In other words,
 
     .. math::
 
-       R[i][k] = rmq(i, i + 2^k)
+       R[i][k] = rmq(i, i + 2^k - 1)
 
 
 
