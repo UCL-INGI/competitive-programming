@@ -64,8 +64,42 @@ problems:
         - .java
         - .cpp
         - .py
-        header: ''
-        name: ''
+        header: |
+            You will be given an :math:`n \times m` matrix :math:`A` and a list of :math:`q` tuples :math:`(i_1, j_1, i_2, j_2)_1, \ldots, (i_1, j_1, i_2, j_2)_q`. For each of them you have to output the sum of values of :math:`A` in that range.
+
+            **Input**
+
+            - One line with two integers :math:`n` and :math:`m` giving the size of the matrix.
+
+            - :math:`n` lines each with :math:`m` integers giving the values :math:`A[i][j]` of :math:`A`.
+
+            - One line with a single integer :math:`q` giving the number of ranges.
+
+            - :math:`q` lines each with four integers :math:`i_1, j_1, i_2, j_2` each range.
+
+            **Constraints**
+
+            * :math:`1 \leq n, m \leq 1000`
+            * :math:`-10000 \leq a_i \leq 10000`
+            * :math:`1 \leq q \leq 10^5`
+            * :math:`0 \leq i_1 \leq i_2 \leq n - 1`
+            * :math:`0 \leq j_1 \leq j_2 \leq m - 1`
+
+            **Output**
+
+            :math:`q` lines, each with a single integers giving the sum of the values of :math:`A` over the corresponding range.
+
+            **Sample Test Cases**
+
+            `Sample input 1 <dp-cumsum-2d/1.in>`_
+
+            `Sample output 1 <dp-cumsum-2d/1.ans>`_
+
+
+            `Sample input 2 <dp-cumsum-2d/2.in>`_
+
+            `Sample output 2 <dp-cumsum-2d/2.ans>`_
+        name: 2D cumulative sums
 stored_submissions: 0
 submission_limit:
     amount: -1
