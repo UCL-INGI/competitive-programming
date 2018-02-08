@@ -65,7 +65,11 @@ context: |+
 
        R[i][k] = rmq(i, i + 2^k - 1)
 
+    To compute :math:`R` we first compute all values for :math:`k = 0`. We have
 
+    .. math::
+
+       R[i][0] = rmq(i, i + 2^0 - 1) = rmq(i, i) = a[i]
 
 environment: pyjavacpp
 evaluate: best
