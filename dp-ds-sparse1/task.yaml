@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |-
+context: |+
     We are now going to discuss sparse tables. Sparse table are great at answering a wide range of queries. We will start by discussing range minimum queries (RMQ) and then see how we can extend them to other kind of queries.
 
     |
@@ -57,7 +57,16 @@ context: |-
 
       .. image:: dp-ds-sparse1/rmq3.png
 
-    In each case we
+    Now that we have build a basic idea to solve the problem let's dive into the details.
+
+    We define a matrix :math:`R` such that :math:`R[i][k]` is minimum of the range starting at :math:`i` with size :math:`2^k. In other words,
+
+    .. math::
+
+       R[i][k] = rmq(i, i + 2^k)
+
+
+
 environment: pyjavacpp
 evaluate: best
 groups: false
