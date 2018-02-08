@@ -3,7 +3,7 @@ author: ''
 context: |+
     In this task we will start looking into ways in which DP is used to stucture data to efficiently answer queries.
 
-    We will start with cumulative sums.
+    We will start with 1D cumulative sums.
 
     Given an array :math:`a`, and we want to be able to compute cumulative sums its subarrays efficiently. More formally, given two indexes :math:`i \leq j`, we want to compute the value of
 
