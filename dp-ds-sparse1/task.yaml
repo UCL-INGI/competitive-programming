@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |-
+context: |
     We are now going to discuss sparse tables. Sparse table are great at answering a wide range of queries. We will start by discussing range minimum queries (RMQ) and then see how we can extend them to other kind of queries.
 
     **The range minimum query problem on an fixed array** :math:`a` **of length** :math:`n`:
@@ -29,6 +29,14 @@ context: |-
     This means that all we need is to precompute :math:`rmq` on a set of ranges such that *any range can be covered by two of those ranges, eventually with overlap*.
 
     If we precompute :math:`rmq` over all ranges that have a size equal to a power of :math:`2` then that is clearly enough. To see this, imagine that we want to cover a range of size :math:`s`. Then we compute the largest power of two that is smaller than or equal to :math:`s`. That is, the largest :math:`k` such that :math:`2^k \leq s`. Two such intervals can cover :math:`2^k + 2^k = 2^{k + 1} > s` elements. Therefore they can obvisouly cover the :math:`s` elements of the range that we wanted to cover.
+
+    To make things less abstract, let's consider a few concrete examples.
+
+    .. image:: dp-ds-sparse1/rmq1.png
+
+    .. image:: dp-ds-sparse1/rmq2.png
+
+    .. image:: dp-ds-sparse1/rmq3.png
 environment: pyjavacpp
 evaluate: best
 groups: false
