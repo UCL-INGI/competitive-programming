@@ -1,6 +1,8 @@
 accessible: true
 author: ''
-context: ''
+context: |+
+    We are now going to discuss sparse tables. Sparse table are great at answering a wide range of queries. We will start by discussing range minimum queries (RMQ) and then see how we can extend them to other kind of queries.
+
 environment: pyjavacpp
 evaluate: best
 groups: false
