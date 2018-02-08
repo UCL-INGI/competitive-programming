@@ -24,7 +24,7 @@ context: |-
 
         rmq(i, j) = \min(a[i], a[i + 1], \ldots, a[j])
 
-    The :math:`\min` funcion has a nice property that if we have to ranges :math:`[i, k_1]` and :math:`[k_2, j]` then, even if those ranges overlap, taking the minimum of both will yield the minimum of range :math:`[i, j]`, providade that these two ranges cover it (:math:`k_2 \leq k_1`). More formaly, if :math:`k_2 \leq k_1`, then
+    The :math:`\min` funcion the nice property that if we have to ranges :math:`[i, k_1]` and :math:`[k_2, j]` covering :math:`[i, j]` then, even if those ranges overlap, taking the minimum of both will yield the minimum of range :math:`[i, j]`. More formaly, if :math:`k_2 \leq k_1`, then
 
     .. math::
 
