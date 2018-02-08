@@ -8,6 +8,8 @@ context: |-
     - Input: a range :math:`[i, j]`.
     - Output: :math:`\min (a[i], a[i + 1], \ldots, a[j])`
 
+    *Note:* whenever we mention a range :math:`[i, j]` we assume that :math:`i \leq j`.
+
     There are several possible solution for this problem. Using sparse table we will be able to solve it in :math:`\langle O(n \cdot \log(n)), O(1) \rangle`.
 
     The general idea to solve this problem is similar to the one we used for the range sum query problem: *precompute the solution on some ranges and use express any range as a funcion of the precomputed ranges*.
@@ -18,7 +20,7 @@ context: |-
 
         rmq(i, j) = \min(a[i], a[i + 1], \ldots, a[j])
 
-    The :math:`\min` funcion has a nice property that if we have to ranges :math:`[i, k_1]` and :math:`[k_2, j]` then, even if those ranges overlap, it still holds that :math:`\min
+    The :math:`\min` funcion has a nice property that if we have to ranges :math:`[i, k_1]` and :math:`[k_2, j]` then, even if those ranges overlap, taking the minimum of both will yield the minimum of range :math:`[i, j]`, providade that these two ranges cover it (:math:`k_2 \leq k_1`).
 environment: pyjavacpp
 evaluate: best
 groups: false
