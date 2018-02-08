@@ -9,6 +9,8 @@ context: |-
     - Output: :math:`\min (a[i], a[i + 1], \ldots, a[j])`
 
     There are several possible solution for this problem. Using sparse table we will be able to solve it in :math:`\langle O(n \cdot \log(n)), O(1) \rangle`.
+
+    The general idea to solve this problem is similar to the one we used for the range sum query problem: *precompute the solution on some ranges and use express any range as a funcion of the precomputed ranges*.
 environment: pyjavacpp
 evaluate: best
 groups: false
