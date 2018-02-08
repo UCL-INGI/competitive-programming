@@ -1,8 +1,14 @@
 accessible: true
 author: ''
-context: |+
+context: |-
     We are now going to discuss sparse tables. Sparse table are great at answering a wide range of queries. We will start by discussing range minimum queries (RMQ) and then see how we can extend them to other kind of queries.
 
+    **The range minimum query problem on an fixed array** :math:`a` **of length** :math:`n`:
+
+    - Input: a range :math:`[i, j]`.
+    - Output: :math:`\min (a[i], a[i + 1], \ldots, a[j])`
+
+    There are several possible solution for this problem. Using sparse table we will be able to solve it in :math:`\langle O(n \cdot \log(n)), O(1) \rangle`.
 environment: pyjavacpp
 evaluate: best
 groups: false
