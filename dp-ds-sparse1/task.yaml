@@ -3,12 +3,16 @@ author: ''
 context: |-
     We are now going to discuss sparse tables. Sparse table are great at answering a wide range of queries. We will start by discussing range minimum queries (RMQ) and then see how we can extend them to other kind of queries.
 
+    |
+
     **The range minimum query problem on an fixed array** :math:`a` **of length** :math:`n`:
 
     - Input: a range :math:`[i, j]`.
     - Output: :math:`\min (a[i], a[i + 1], \ldots, a[j])`
 
     *Note:* whenever we mention a range :math:`[i, j]` we assume that :math:`i \leq j`.
+
+    |
 
     There are several possible solution for this problem. Using sparse table we will be able to solve it in :math:`\langle O(n \cdot \log(n)), O(1) \rangle`.
 
@@ -38,12 +42,16 @@ context: |-
 
       .. image:: dp-ds-sparse1/rmq1.png
 
+      |
+
       Example with :math:`s = 15`. Again, 8 is the largest power of 2
       since the next one is 16. We can see that we are able to cover the
       range with 2 ranges of size 8.
 
       .. image:: dp-ds-sparse1/rmq2.png
-      <br>
+
+      |
+
       Example with :math:`s = 16`. Since the size of the array is a
       power of :math:`2` a single array is enough to cover it.
 
