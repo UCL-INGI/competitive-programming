@@ -95,7 +95,7 @@ limits:
     time: '1000'
     memory: '1000'
     output: '100'
-name: 'DP - Data structures: cumulative sums'
+name: 'DP - Data structures: 1D cumulative sums'
 network_grading: false
 problems:
     file:
