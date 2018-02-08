@@ -10,6 +10,14 @@ context: |-
     .. math::
 
       M[i_1][j_1][i_2][j_2] = \sum_{i = i_1}^{i_2} \sum_{j = j_1}^{j_2} A[i][j]
+
+    As before, computing this matrix using the defintion would weild a very slow preprocessing algorithm. To reduce the number of entries that need to be computed to :math:`O(n^2)` we will fix :math:`i_1 = j_1 = 0` and express :math:`M[i_1][j_1][i_2][j_2]` as a function of such entries.
+
+    It is easy to see that if :math:`i_1, j_1 > 0` then
+
+    .. math::
+
+       M[i_1][j_1][i_2][j_2] = M[0][0][i_2][j_2] - M[0][0][i_1 - 1][j_2] - M[0][0][i_2][j_1 - 1] + M[0][0][i_1 - 1][j_1 - 1]
 environment: pyjavacpp
 evaluate: best
 groups: false
