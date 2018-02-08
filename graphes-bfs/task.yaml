@@ -1,0 +1,28 @@
+accessible: true
+author: ''
+context: hhkhj
+environment: mcq
+evaluate: best
+groups: false
+limits:
+    time: '30'
+    memory: '100'
+    output: '2'
+name: Graphe BFS
+network_grading: false
+problems:
+    code:
+        name: ''
+        language: ''
+        type: code
+        header: ''
+    file:
+        type: file
+        header: ''
+        name: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0
