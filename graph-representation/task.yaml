@@ -33,6 +33,21 @@ context: |
       neighbors of :math:`i`.
 
       .. image:: graph-representation/graph_arraylist.png
+
+    In java this can be done as follows:
+
+    .. code:: java
+
+        @SuppressWarnings("unchecked")
+        LinkedList<Integer>[] g = new LinkedList[6];
+        for(int i = 0; i < g.length; i++) {
+            g[i] = new LinkedList<>();
+        }
+        g[0].add(1);
+        g[1].add(2);
+        g[2].add(0);
+        g[2].add(1);
+        g[4].add(5);
 environment: correctoz
 evaluate: best
 groups: false
