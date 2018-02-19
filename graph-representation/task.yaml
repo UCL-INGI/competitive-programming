@@ -14,11 +14,11 @@ context: |+
 
     A edge :math:`(u, v)` reprents the fact that we can go from node :math:`u` to node :math:`v`.
 
-    The most classical example of problem that can be abstracted with graphs are connectivity problems. Suppose that the nodes represent airports the edges represent direct flights between those airports. To find out whether it is possible to travel from some airport :math:`A` to another aiport :math:`B` we can look in the corresponding graph if there is a sequences of nodes :math:`(v_1, v_2, \ldots, v_k)` such that
+    The most classical example of problem that can be abstracted with graphs are connectivity problems. Suppose that the nodes represent airports the edges represent direct flights between those airports. To find out whether it is possible to travel from some airport :math:`A` to another aiport :math:`B` we can look in the corresponding graph if there is a sequences of nodes :math:`(v_1, v_2, \ldots, v_k)` such that:
 
     1. For each pair of consecutive nodes, there is an edge in the graph. Formaly this means that :math:`(v_{i}, v_{i + 1}) \in E(G)`.
 
-    2. The sequence start at :math:`A` (:math:`v_1 = A`) and ends at :math:`B` (:math:`v_1 = B`).
+    2. The sequence start at :math:`A` nd ends at :math:`B`, that is, :math:`v_1 = A` and :math:`v_k = B`.
 
     We are going to start by showing a simple way to represent graphs in code. There many alternative ways to do so but for now we will focus on a simple and easy to code representation and extended when needed.
 
