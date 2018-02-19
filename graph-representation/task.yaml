@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |-
+context: |
     Graphs are useful to model a wide range of interesting problems.
 
     Simply put, a graph :math:`G` is a set of objects :math:`n` objects, usually the set :math:`\{ 0, \ldots, n - 1\}`, where some pairs of those objects are connected together. The set of objects is called the *nodes* of the graph and the connections are called *edges*. Usually the set of nodes is denoted by :math:`V(G)` and the set of edges by :math:`E(G)`.
@@ -50,6 +50,17 @@ context: |-
         g[4].add(5);
 
     The supress warning in necessary in some contest environments as otherwise the code will give a *compile error*. In modern judging systems it is often not necessary. We put it just to be safe.
+
+    This graph representation is suitable to traverse the whole graph to find a path because we can iterate over all outgoing edges of a nodes in linear time. Also, building the graph with this structures take linear time :math:`O(n + m)` since adding an element to a linked list is done in constant time.
+
+    .. code:: java
+
+       // iterating over neights of v
+       for(int u : g[v]) {
+         // do something
+       }
+
+    It is *not suitable* for checking whether two nodes are connected since executing a :code:`contains` call on a list take linear time.
 environment: correctoz
 evaluate: best
 groups: false
