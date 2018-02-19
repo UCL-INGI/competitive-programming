@@ -51,7 +51,7 @@ context: |
 
     The supress warning in necessary in some contest environments as otherwise the code will give a *compile error*. In modern judging systems it is often not necessary. We put it just to be safe.
 
-    This graph representation is suitable to traverse the whole graph to find a path because we can iterate over all outgoing edges of a nodes in linear time. Also, building the graph with this structures take linear time :math:`O(n + m)` since adding an element to a linked list is done in constant time.
+    This graph representation is suitable to traverse the whole graph to find a path because we can iterate over all outgoing edges of a nodes in linear time. Also, building the graph with this structures take linear time :math:`O(n + m)` since adding an element to a :code:`LinkedList` is done in constant time.
 
     .. code:: java
 
@@ -60,7 +60,11 @@ context: |
          // do something
        }
 
-    It is *not suitable* for checking whether two nodes are connected since executing a :code:`contains` call on a list take linear time.
+    It is *not suitable* for checking whether two nodes are connected since executing a :code:`contains` call on a list take linear time. The same goes for deleting an edge.
+
+    If such operations are necessary one alternative is to use a :code:`TreeSet` or :code:`HashSet` instead of the list. The disadvantage is that looping on the neighbors of a node is not linear anymore neither is creating the graph.
+
+    For now we will stick with the list representation as it is enough for the most fundamental graph traversal algorithms.
 environment: correctoz
 evaluate: best
 groups: false
