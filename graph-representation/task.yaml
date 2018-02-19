@@ -3,7 +3,24 @@ author: ''
 context: |+
     Graphs are useful to model a wide range of interesting problems.
 
-    Simply put, a graph is a set of objects :math:`n` objects, usually the set :math:`\{ 0, \ldots, n - 1\}`, where some pairs of those objects are connected together. The set of objects is called the *nodes* of the graph and the connections are called *edges*.
+    Simply put, a graph :math:`G` is a set of objects :math:`n` objects, usually the set :math:`\{ 0, \ldots, n - 1\}`, where some pairs of those objects are connected together. The set of objects is called the *nodes* of the graph and the connections are called *edges*. Usually the set of nodes is denoted by :math:`V(G)` and the set of edges by :math:`E(G)`.
+
+      **Example**
+
+      A graph with :math:`5` nodes and :math:`5` edges :math:`(0, 1),
+      (1, 2), (2, 0), (2, 1)` and :math:`(4, 5)`.
+
+      .. image:: graph-representation/graph.png
+
+    A edge :math:`(u, v)` reprents the fact that we can go from node :math:`u` to node :math:`v`.
+
+    The most classical example of problem that can be abstracted with graphs are connectivity problems. Suppose that the nodes represent airports the edges represent direct flights between those airports. To find out whether it is possible to travel from some airport :math:`A` to another aiport :math:`B` we can look in the corresponding graph if there is a sequences of nodes :math:`(v_1, v_2, \ldots, v_k)` such that:
+
+    1. For each pair of consecutive nodes, there is an edge in the graph. Formaly this means that :math:`(v_{i}, v_{i + 1}) \in E(G)`.
+
+    2. The sequence start at :math:`A` nd ends at :math:`B`, that is, :math:`v_1 = A` and :math:`v_k = B`.
+
+    Observe that in the graph, the geographic positions of the airports in not represented, we abstract all that information and keep only the relations between the airports. This is all we need to anwser the question. When we draw of graph, the relative position of the nodes have no meaning, they are chosen only for readability.
 
     We are going to start by showing a simple way to represent graphs in code. There many alternative ways to do so but for now we will focus on a simple and easy to code representation and extended when needed.
 
