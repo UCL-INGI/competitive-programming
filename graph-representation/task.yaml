@@ -5,7 +5,7 @@ context: |+
 
     Simply put, a graph is a set of objects :math:`n` objects, usually the set :math:`\{ 0, \ldots, n - 1\}`, where some pairs of those objects are connected together. The set of objects is called the *nodes* of the graph and the connections are called *edges*.
 
-    **Example**
+      **Example**
 
       A graph with :math:`5` nodes and :math:`5` edges :math:`(0, 1),
       (1, 2), (2, 0), (2, 1)` and :math:`(4, 5)`.
