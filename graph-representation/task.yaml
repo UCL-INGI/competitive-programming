@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |+
+context: |
     Graphs are useful to model a wide range of interesting problems.
 
     Simply put, a graph :math:`G` is a set of objects :math:`n` objects, usually the set :math:`\{ 0, \ldots, n - 1\}`, where some pairs of those objects are connected together. The set of objects is called the *nodes* of the graph and the connections are called *edges*. Usually the set of nodes is denoted by :math:`V(G)` and the set of edges by :math:`E(G)`.
@@ -26,6 +26,13 @@ context: |+
 
     For each node we will simply keep a list will of the nodes to which it is connected. Since the nodes are numbers from :math:`0` to :math:`n - 1`, the simplest way is to use an array of lists, say :math:`g`, such that :math:`g[v]` is a list of all edges starting at :math:`v` and ending at some node :math:`u`.
 
+      **Example**
+
+      The above is represented by a an array of size :math:`6`. The
+      :math:`i`-th element of the array is a list that contains all the
+      neighbors of :math:`i`.
+
+      .. image:: graph-representation/graph_arraylist.png
 environment: correctoz
 evaluate: best
 groups: false
