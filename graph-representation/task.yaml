@@ -20,6 +20,8 @@ context: |+
 
     2. The sequence start at :math:`A` nd ends at :math:`B`, that is, :math:`v_1 = A` and :math:`v_k = B`.
 
+    Observe that in the graph, the geographic positions of the airports in not represented, we abstract all that information and keep only the relations between the airports. This is all we need to anwser the question. When we draw of graph, the relative position of the nodes have no meaning, they are chosen only for readability.
+
     We are going to start by showing a simple way to represent graphs in code. There many alternative ways to do so but for now we will focus on a simple and easy to code representation and extended when needed.
 
 environment: correctoz
