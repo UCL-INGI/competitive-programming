@@ -24,6 +24,8 @@ context: |+
 
     But before we start solving problems on graphs, we need to find a way to represent them in the computer. There many alternative ways to do so but for now we will focus on a simple and easy to code representation and extended it later, when needed.
 
+    For each node we will simply keep a list will of the nodes to which it is connected. Since the nodes are numbers from :math:`0` to :math:`n - 1`, the simplest way is to use an array of lists, say :math:`g`, such that :math:`g[v]` is a list of all edges starting at :math:`v` and ending at some node :math:`u`.
+
 environment: correctoz
 evaluate: best
 groups: false
