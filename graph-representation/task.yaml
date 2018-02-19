@@ -1,0 +1,29 @@
+accessible: true
+author: ''
+context: |+
+    Graphs are useful to model a wide range of interesting problems.
+
+    Simply put, a graph is a set of objects :math:`n` objects, usually the set :math:`\{ 0, \ldots, n - 1\}`, where some pairs of those objects are connected together. The set of objects is called the *nodes* of the graph and the connections are called *edges*.
+
+    We are going to start by showing a simple way to represent graphs in code. There many alternative ways to do so but for now we will focus on a simple and easy to code representation and extended when needed.
+
+environment: correctoz
+evaluate: best
+groups: false
+limits:
+    output: '2'
+    time: '30'
+    memory: '100'
+name: Graphs - Representation
+network_grading: false
+problems:
+    file:
+        type: file
+        header: ''
+        name: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0
