@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |
+context: |+
     In this task we will focus on the problem of finding a path between two given nodes in a graph.
 
     Let :math:`s` be the source node and :math:`t` the destination node.
@@ -12,6 +12,9 @@ context: |
       :math:`s = 0`.
 
       .. image:: graph-bfs/bfs.png
+
+      .. image:: graph-bfs/bfs_legend.png
+
 environment: pyjavacpp
 evaluate: best
 groups: false
