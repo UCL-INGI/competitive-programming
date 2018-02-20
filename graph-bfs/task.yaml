@@ -6,7 +6,12 @@ context: |
     Let :math:`s` be the source node and :math:`t` the destination node.
     We will keep which nodes have already been visited and which nodes still need to be processed. At each iteration we pick a node to be processed and add all of its unvisited neighbors to the list of nodes to process. If we continue in this way until there are no more nodes to process then we know that there is path from :math:`s` to :math:`t` if and only if :math:`t` was visited.
 
-    .. image:: graph-bfs/bfs.png
+      Example:
+
+      The following figure shows an execution of the this process with
+      :math:`s = 0`.
+
+      .. image:: graph-bfs/bfs.png
 environment: pyjavacpp
 evaluate: best
 groups: false
