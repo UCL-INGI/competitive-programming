@@ -1,21 +1,25 @@
 accessible: true
 author: ''
-context: hhkhj
+context: |-
+    In this task we will focus on the problem of finding a path between two given nodes in a graph.
+
+    Let :math:`s` be the source node and :math:`t` the destination node.
+    To find whether a path exists between :math:`s` and :math:`t` we will add
 environment: mcq
 evaluate: best
 groups: false
 limits:
+    output: '2'
     time: '30'
     memory: '100'
-    output: '2'
-name: Graphe BFS
+name: Graph - Finding a path
 network_grading: false
 problems:
     code:
         name: ''
-        language: ''
         type: code
         header: ''
+        language: ''
     file:
         type: file
         header: ''
