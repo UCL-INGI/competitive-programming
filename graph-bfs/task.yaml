@@ -13,8 +13,6 @@ context: |+
 
       .. image:: graph-bfs/bfs.png
 
-      .. image:: graph-bfs/bfs_legend.png
-
 environment: pyjavacpp
 evaluate: best
 groups: false
