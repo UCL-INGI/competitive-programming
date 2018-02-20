@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |
+context: |-
     Graphs are useful to model a wide range of interesting problems.
 
     Simply put, a graph :math:`G` is a set of objects :math:`n` objects, usually the set :math:`\{ 0, \ldots, n - 1\}`, where some pairs of those objects are connected together. The set of objects is called the *nodes* of the graph and the connections are called *edges*. Usually the set of nodes is denoted by :math:`V(G)` and the set of edges by :math:`E(G)`.
@@ -67,6 +67,27 @@ context: |
     Another alternative is to use an *adjacency matrix*. This means using a binary :math:`n \times n` matrix :math:`A` such that :math:`A[u][v]` is :math:`1` if and only if edge :math:`(u, v) \in E(G)`. This make it very easy to add and delete edges but takes quadratic time to create and traverse. Therefore is should be avoided , except in some specific cases that we will discuss later on.
 
     For now we will stick with the list representation as it is enough for the most fundamental graph traversal algorithms.
+
+    For most problems the graphs are represented in the input by first giving a line with :math:`n` and :math:`m`, the number of nodes and edges, respectively. Then :math:`m` lines each with two integers representing the edges. The following code read a graph represented in this way. You will need it in the following tasks.
+
+    .. code:: java
+
+       public static void main(String[] args) {
+            Scanner reader = new Scanner(System.in);
+            int n = reader.nextInt();
+            int m = reader.nextInt();
+            LinkedList<Integer>[] g = new LinkedList[n];
+            for(int i = 0; i < n; i++) {
+                g[i] = new LinkedList<>();
+            }
+            for(int i = 0; i < m; i++) {
+                int u = reader.nextInt();
+                int v = reader.nextInt();
+                g[u].add(v);
+            }
+            // do something with g
+            reader.close();
+       }
 environment: correctoz
 evaluate: best
 groups: false
@@ -77,10 +98,14 @@ limits:
 name: Graphs - Representation
 network_grading: false
 problems:
-    file:
-        type: file
+    read:
+        choices:
+        -   text: 'Yes'
+            valid: true
         header: ''
-        name: ''
+        type: multiple_choice
+        name: Mark this section as read?
+        limit: 0
 stored_submissions: 0
 submission_limit:
     amount: -1
