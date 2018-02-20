@@ -4,7 +4,7 @@ context: |-
     In this task we will focus on the problem of finding a path between two given nodes in a graph.
 
     Let :math:`s` be the source node and :math:`t` the destination node.
-    To find whether a path exists between :math:`s` and :math:`t` we will add
+    We will keep which nodes have already been visited and which nodes still need to be processed. At each iteration we pick a node to be processed and add all of its unvisited neighbors to the list of nodes to process. If we continue in this way until there are no more nodes to process then we know that there is path from :math:`s` to :math:`t` if and only if :math:`t` was visited.
 environment: mcq
 evaluate: best
 groups: false
