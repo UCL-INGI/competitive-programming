@@ -92,8 +92,8 @@ environment: correctoz
 evaluate: best
 groups: false
 limits:
-    output: '2'
     time: '30'
+    output: '2'
     memory: '100'
 name: Graphs - Representation
 network_grading: false
@@ -102,9 +102,9 @@ problems:
         choices:
         -   text: 'Yes'
             valid: true
-        header: ''
         type: multiple_choice
         name: Mark this section as read?
+        header: ''
         limit: 0
 stored_submissions: 0
 submission_limit:
