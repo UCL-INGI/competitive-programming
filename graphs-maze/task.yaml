@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |-
+context: |+
     We are now going to see how we can solve mazes as the one show below. The goal is to find a path in the maze connecting the two blue points.
 
     |
@@ -55,6 +55,7 @@ context: |-
 
         ``#########``
 
+    Nodes will be represented with array of two elements. So node :math:`u = (i, j)` is represented in code as :code:`int[] u = new int[] {i, j}`.
 
     When we are at node :math:`(i, j)` we know that our candidate neighbors are:
 
@@ -84,6 +85,9 @@ context: |-
                 // do something, the neighbor (i, j) of u
             }
         }
+
+    Putting these pieces together to make a path finding algorithms is straighforward. As before, we need
+
 environment: pyjavacpp
 evaluate: best
 groups: false
