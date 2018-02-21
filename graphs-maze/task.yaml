@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |
+context: |+
     We are now going to see how we can solve mazes as the one show below. The goal is to find a path in the maze connecting the two blue points.
 
     |
@@ -13,13 +13,23 @@ context: |
 
     It is easy to represent the maze problem as a path finding problem on a graph. The graph has one node for each white cell in the maze. There is an edge between two nodes if the corresponding white cells are adjacent. The following figure shows and example:
 
-    |
+        **Example:**
 
-    .. image:: graphs-maze/maze2.png
+        .. image:: graphs-maze/maze2.png
 
-    |
+        |
 
-    Notice that in this case graph, whenever there is an edge :math:`(u, v)` there reverse edge :math:`(v, u)` also exsits. This is because if we can go from cell :math:`x` to cell :math:`y` we can also move from cell :math:`y` to cell :math:`x`. In this case we say that the graph is **undirected**. Usually edges in undirected graphs are represented by segments as show in the right figure instead of having the two arrows. From now on this will be how we represent undirected graphs.
+        Notice that in this case graph, whenever there is an edge
+        :math:`(u, v)` there reverse edge :math:`(v, u)` also exsits.
+        This is because if we can go from cell :math:`x` to cell
+        :math:`y` we can also move from cell :math:`y` to cell
+        :math:`x`. In this case we say that the graph is
+        **undirected**. Usually edges in undirected graphs are
+        represented by segments as show in the right figure instead of
+        having the two arrows. From now on this will be how we represent
+        undirected graphs graphically.
+
+
 environment: pyjavacpp
 evaluate: best
 groups: false
