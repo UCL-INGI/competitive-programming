@@ -8,13 +8,13 @@ context: |-
 
       Example:
 
-      The following figure shows an execution of the this process with
+      The following figure shows an execution of this process with
       :math:`s = 0`.
 
       .. image:: graph-bfs/bfs.png
 
 
-    Let's see what this looks like in Java. We will create a function :code:`pathExists` that takes as input the graph :math:`g`, the source :math:`s` and the destination :math:`t`. We start by adding the source to the queue and then process the nodes until no more nodes remain to be processed. To process a node, we loop over its neighbors and add all its unvidited neighbors to the queue so they are processed later. In the end, all nodes that are reachable from :math:`s` will have been visited.
+    Let's see what this looks like in Java. We will create a function that takes as input the graph :math:`g`, the source :math:`s` and the destination :math:`t`. We start by adding the source to the queue and then process the nodes until no more nodes remain to be processed. To process a node, we loop over its neighbors and add all its unvidited neighbors to the queue so they are processed later. In the end, all nodes that are reachable from :math:`s` will have been visited.
 
     .. code:: java
 
@@ -89,9 +89,9 @@ environment: pyjavacpp
 evaluate: best
 groups: false
 limits:
-    memory: '1000'
-    time: '1000'
     output: '100'
+    time: '1000'
+    memory: '1000'
 name: Graphs - Finding a path
 network_grading: false
 problems:
@@ -101,7 +101,6 @@ problems:
         - .cpp
         - .py
         name: Find the path
-        type: file
         header: |
             Given a graph :math:`g` and two nodes :math:`s` and `t`, find a path from :math:`s` to :math:`t`.
 
@@ -135,6 +134,7 @@ problems:
             `Sample input 2 <graph-bfs/2.in>`_
 
             `Sample output 2 <graph-bfs/2.ans>`_
+        type: file
 stored_submissions: 0
 submission_limit:
     amount: -1
