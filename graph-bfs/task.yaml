@@ -8,13 +8,13 @@ context: |-
 
       Example:
 
-      The following figure shows an execution of the this process with
+      The following figure shows an execution of this process with
       :math:`s = 0`.
 
       .. image:: graph-bfs/bfs.png
 
 
-    Let's see what this looks like in Java. We will create a function :code:`pathExists` that takes as input the graph :math:`g`, the source :math:`s` and the destination :math:`t`. We start by adding the source to the queue and then process the nodes until no more nodes remain to be processed. To process a node, we loop over its neighbors and add all its unvidited neighbors to the queue so they are processed later. In the end, all nodes that are reachable from :math:`s` will have been visited.
+    Let's see what this looks like in Java. We will create a function that takes as input the graph :math:`g`, the source :math:`s` and the destination :math:`t`. We start by adding the source to the queue and then process the nodes until no more nodes remain to be processed. To process a node, we loop over its neighbors and add all its unvidited neighbors to the queue so they are processed later. In the end, all nodes that are reachable from :math:`s` will have been visited.
 
     .. code:: java
 
@@ -40,6 +40,52 @@ context: |-
             // return whether a path exists
             return visited.get(t);
         }
+
+    Ok so now we have a function that checks whether a path exists. Now we are going to extend in so that we are able to compute an actual path between :math:`s` and :math:`t`.
+
+    Doing this is quite simple. We just need to keep track, for each node, of who added it to the queue. If we have this then we can start from :math:`t` and find a who visited him, say :math:`u`. Then we check who put :math:`u` in the queue and continue in this way until we reach the source :math:`s`. Note that we are guaranteed to reach :math:`s` since this was the node on which we started the search.
+
+    Observe that by doing this we will build the path in *reverse order* because we start from :math:`t` and trace back to :math:`s`. Therefore we need to reverse the list of nodes in the end.
+
+    .. code:: java
+
+        static ArrayList<Integer> findPath(LinkedList<Integer>[] g, int s, int t) {
+            // initialize the queue and visited set
+            Queue<Integer> Q = new LinkedList<>();
+            Q.add(s);
+            BitSet visited = new BitSet();
+            visited.set(s);
+            // initialize the parent array
+            Integer[] parent = new Integer[g.length];
+            // loop while there are nodes in the queue to process
+            while(!Q.isEmpty()) {
+                int u = Q.poll();
+                // we are now processing node u
+                for(int v : g[u]) {
+                    // visit edge (u, v)
+                    if(!visited.get(v)) {
+                        // node v has not yet been visited, add it
+                        Q.add(v);
+                        visited.set(v);
+                        // set the parent of v to be u
+                        parent[v] = u;
+                    }
+                }
+            }
+            // check whether a path exists
+            if(!visited.get(t)) return null;
+            // build the path by tracing back from t to s
+            ArrayList<Integer> path = new ArrayList<>();
+            Integer cur = t;
+            // loop until we reach s (s is the only visited node with null parent)
+            while(cur != null) {
+                path.add(cur);
+                cur = parent[cur];
+            }
+            // return the path
+            Collections.reverse(path);
+            return path;
+        }
 environment: pyjavacpp
 evaluate: best
 groups: false
@@ -47,17 +93,49 @@ limits:
     output: '100'
     time: '1000'
     memory: '1000'
-name: Graph - Finding a path
+name: Graphs - Finding a path
 network_grading: false
 problems:
     file:
-        name: ''
-        header: ''
-        type: file
         allowed_exts:
         - .java
         - .cpp
         - .py
+        name: Find the path
+        header: |
+            Given a graph :math:`g` and two nodes :math:`s` and `t`, find a path from :math:`s` to :math:`t`.
+
+            **Input**
+
+            - One line with two integers :math:`n` and :math:`m` giving the number of nodes in the graph and the number of edges respectively.
+
+            - :math:`m` lines each with two integers :math:`u` and :math:`v` giving that there is an edge from :math:`u` to :math:`v`. No edge will appear more than once in the input.
+
+            - One line with two itnegers :math:`s` and :math:`t` giving the source and the destination.
+
+            **Output**
+
+            If there is a path from :math:`s` to :math:`t` print a single lines with the nodes of that path reparated by single spaces. An empty path should be represented by an empty line.
+
+            If not path exists print *impossible*.
+
+            **Constraints**
+
+            * :math:`1 \leq n \leq 1000`
+            * :math:`1 \leq m \leq n (n - 1) / 2`
+            * :math:`0 \leq u, v, s, t < n`
+
+            **Sample Test Cases**
+
+            `Sample input 1 <graph-bfs/1.in>`_
+
+            `Sample output 1 <graph-bfs/1.ans>`_
+
+
+            `Sample input 2 <graph-bfs/2.in>`_
+
+            `Sample output 2 <graph-bfs/2.ans>`_
+        type: file
 stored_submissions: 0
 submission_limit:
     amount: -1
