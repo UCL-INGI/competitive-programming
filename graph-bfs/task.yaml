@@ -13,9 +13,10 @@ context: |-
 
       .. image:: graph-bfs/bfs.png
 
-    .. code:: java
 
-    Let's see what this looks like in Java. We will create a function :code:`bfsVisit` that takes as input the graph, the source and a set of visited nodes. The reason for passing the set of visited nodes as argument doing it like this is that usually we want
+    Let's see what this looks like in Java. We will create a function :code:`pathExists` that takes as input the graph, the source and a set of visited nodes. The reason for passing the set of visited nodes as argument doing it like this is that usually we want
+
+    .. code:: java
 
         static boolean pathExists(LinkedList<Integer>[] g, int s, int t) {
             // initialize the queue and visited set
