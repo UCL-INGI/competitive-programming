@@ -54,6 +54,7 @@ context: |-
             Queue<Integer> Q = new LinkedList<>();
             Q.add(s);
             BitSet visited = new BitSet();
+            visited.set(s);
             // initialize the parent array
             Integer[] parent = new Integer[g.length];
             // loop while there are nodes in the queue to process
