@@ -153,6 +153,8 @@ problems:
 
             - :math:`n` each with a string of length :math:`m` giving the rows of the maze. A '#' represents a wall, a '.' represents a white space, 'S' and 'T' represent the origin and destination, respectively.
 
+            The positions are numbered starting from 0. There is a wall surrounding the maze as in the examples above.
+
 
             **Output**
 
