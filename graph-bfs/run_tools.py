@@ -1,6 +1,6 @@
 import time
 import os
-import checkers
+import checker
 import subprocess
 from subprocess import TimeoutExpired
 

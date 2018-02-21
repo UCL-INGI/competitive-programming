@@ -1,6 +1,6 @@
 import sys
 import os
-import checkers
+import checker
 import time
 import math
 from run_tools import *
@@ -11,7 +11,7 @@ CONFIG
 taskname = 'file'
 solname = 'yunoacsol'
 timelimit = 2
-checker = checkers.diff_check
+checker = checker.check
 """
 END OF CONFIG
 """
