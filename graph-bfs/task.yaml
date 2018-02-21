@@ -43,7 +43,7 @@ context: |-
 
     Ok so now we have a function that checks whether a path exists. Now we are going to extend in so that we are able to compute an actual path between :math:`s` and :math:`t`.
 
-    Doing this is quite simple. We just need to keep stack for each node, of who added it to the queue. If we have this then we can start from :math:`t` and find a who visited him, say :math:`u`. Then we check who put :math:`u` in the queue and continue in this way until we reach the source :math:`s`. Note that we are guaranteed to reach :math:`s` since this was the node on which we started the search.
+    Doing this is quite simple. We just need to keep track, for each node, of who added it to the queue. If we have this then we can start from :math:`t` and find a who visited him, say :math:`u`. Then we check who put :math:`u` in the queue and continue in this way until we reach the source :math:`s`. Note that we are guaranteed to reach :math:`s` since this was the node on which we started the search.
 
     Observe that by doing this we will build the path in *reverse order* because we start from :math:`t` and trace back to :math:`s`. Therefore we need to reverse the list of nodes in the end.
 
@@ -92,7 +92,7 @@ limits:
     memory: '1000'
     time: '1000'
     output: '100'
-name: Graph - Finding a path
+name: Graphs - Finding a path
 network_grading: false
 problems:
     file:
