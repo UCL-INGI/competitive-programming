@@ -14,7 +14,7 @@ context: |-
       .. image:: graph-bfs/bfs.png
 
 
-    Let's see what this looks like in Java. We will create a function :code:`pathExists` that takes as input the graph, the source and a set of visited nodes. The reason for passing the set of visited nodes as argument doing it like this is that usually we want
+    Let's see what this looks like in Java. We will create a function :code:`pathExists` that takes as input the graph :math:`g`, the source :math:`s` and the destination :math:`t`. We start by adding the source to the queue and then process the nodes until no more nodes remain to be processed. To process a node, we loop over its neighbors and add all its unvidited neighbors to the queue so they are processed later. In the end, all nodes that are reachable from :math:`s` will have been visited.
 
     .. code:: java
 
@@ -51,13 +51,13 @@ name: Graph - Finding a path
 network_grading: false
 problems:
     file:
+        name: ''
+        header: ''
+        type: file
         allowed_exts:
         - .java
         - .cpp
         - .py
-        type: file
-        header: ''
-        name: ''
 stored_submissions: 0
 submission_limit:
     amount: -1
