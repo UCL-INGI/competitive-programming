@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |+
+context: |-
     In this task we will focus on the problem of finding a path between two given nodes in a graph.
 
     Let :math:`s` be the source node and :math:`t` the destination node.
@@ -13,6 +13,22 @@ context: |+
 
       .. image:: graph-bfs/bfs.png
 
+    .. code:: java
+
+        static void bfsVisit(LinkedList<Integer>[] g, int s, BitSet visited) {
+            Queue<Integer> Q = new LinkedList<>();
+            Q.add(s);
+            visited.set(s);
+            while(!Q.isEmpty()) {
+                int u = Q.poll();
+                for(int v : g[u]) {
+                    if(!visited.get(v)) {
+                        Q.add(v);
+                        visited.set(v);
+                    }
+                }
+            }
+        }
 environment: pyjavacpp
 evaluate: best
 groups: false
