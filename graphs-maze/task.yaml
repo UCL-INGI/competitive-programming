@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |-
+context: |
     We are now going to see how we can solve mazes as the one show below. The goal is to find a path in the maze connecting the two blue points.
 
     |
@@ -31,11 +31,22 @@ context: |-
 
     One way to solve this problem is to explicitly build the graph that corresponds to the maze and call :code:`findPath`. However we will not do this. Instead we will re-implement the algorithm to run over the maze without explicitly building the graph.
 
+    We represent the maze as an ascii matrix :math:`maze` using :code:`#` for the walls, :code:`.` for the white space, :code:`S` for the starting point and :code:`T` for the destination.
+
+        **Example:**
+
+        The above maze will be represented by:
+
+
+
+
     When we are at node :math:`(i, j)` we know that our candidate neighbors are:
 
     .. math::
 
        (i - 1, j), (i + 1, j), (i, j - 1), (i, j + 1)
+
+    From these we need to remove the ones that correspond to a wall.
 environment: pyjavacpp
 evaluate: best
 groups: false
