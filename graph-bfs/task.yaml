@@ -117,7 +117,7 @@ problems:
 
             If there is a path from :math:`s` to :math:`t` print a single lines with the nodes of that path reparated by single spaces.
 
-            If not path exists print *impossible*.
+            If no path exists print *impossible*.
 
             **Constraints**
 
