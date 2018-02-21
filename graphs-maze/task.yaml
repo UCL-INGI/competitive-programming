@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: ''
+context: '.. image:: graphs-maze/maze.png'
 environment: pyjavacpp
 evaluate: best
 groups: false
