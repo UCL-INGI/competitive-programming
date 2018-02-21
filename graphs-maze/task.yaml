@@ -81,9 +81,7 @@ context: |-
             int i = u[0] + d[0];
             int j = u[1] + d[1];
             if(maze[i][j] != '#') {
-                Q.add(new int[] {i, j});
-                visited[i][j] = true;
-                parent[i][j] = u;
+                // do something, the neighbor (i, j) of u
             }
         }
 environment: pyjavacpp
