@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |
+context: |-
     We are now going to see how we can solve mazes as the one show below. The goal is to find a path in the maze connecting the two blue points.
 
     |
@@ -56,14 +56,36 @@ context: |
         ``#########``
 
 
-
     When we are at node :math:`(i, j)` we know that our candidate neighbors are:
 
     .. math::
 
        (i - 1, j), (i + 1, j), (i, j - 1), (i, j + 1)
 
-    From these we need to remove the ones that correspond to a wall.
+    From these we need to remove the ones that correspond to a wall. To easily iterate over them it is convinient to declare an array with the possible movement directions:
+
+    .. code:: java
+
+        static int[][] dir = new int[][] {
+            new int[] {-1, 0},
+            new int[] {1, 0},
+            new int[] {0, -1},
+            new int[] {0, 1}
+        };
+
+    Then to iterate over the neighbors of :math:`u = [u_i, u_j]` we can simply do:
+
+    .. code:: java
+
+        for(int[] d : dir) {
+            int i = u[0] + d[0];
+            int j = u[1] + d[1];
+            if(maze[i][j] != '#') {
+                Q.add(new int[] {i, j});
+                visited[i][j] = true;
+                parent[i][j] = u;
+            }
+        }
 environment: pyjavacpp
 evaluate: best
 groups: false
