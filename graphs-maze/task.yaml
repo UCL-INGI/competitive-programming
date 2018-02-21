@@ -1,9 +1,15 @@
 accessible: true
 author: ''
-context: |
+context: |-
     We are now going to see how we can solve mazes as the one show below. The goal is to find a path in the maze connecting the two blue points.
 
     .. image:: graphs-maze/maze.png
+
+    We can simply use the path finding algorithm that implemented before. What we are going to learn here is to avoid representing the graph explicitly and execute the path finding algorithm directly on the maze.
+
+    ..
+
+    It is easy to represent the maze problem as a path finding problem on a graph. The graph has one node for each while cell in the maze. There is an edge between two nodes if the corresponding white cells are adjacent.
 environment: pyjavacpp
 evaluate: best
 groups: false
