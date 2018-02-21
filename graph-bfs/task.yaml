@@ -115,7 +115,7 @@ problems:
 
             **Output**
 
-            If there is a path from :math:`s` to :math:`t` print a single lines with the nodes of that path reparated by single spaces. An empty path should be represented by an empty line.
+            If there is a path from :math:`s` to :math:`t` print a single lines with the nodes of that path reparated by single spaces.
 
             If not path exists print *impossible*.
 
@@ -135,6 +135,11 @@ problems:
             `Sample input 2 <graph-bfs/2.in>`_
 
             `Sample output 2 <graph-bfs/2.ans>`_
+
+
+            `Sample input 3 <graph-bfs/3.in>`_
+
+            `Sample output 3 <graph-bfs/3.ans>`_
         type: file
 stored_submissions: 0
 submission_limit:
