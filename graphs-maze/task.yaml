@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |+
+context: |-
     We are now going to see how we can solve mazes as the one show below. The goal is to find a path in the maze connecting the two blue points.
 
     |
@@ -29,7 +29,13 @@ context: |+
         having the two arrows. From now on this will be how we represent
         undirected graphs graphically.
 
+    One way to solve this problem is to explicitly build the graph that corresponds to the maze and call :code:`findPath`. However we will not do this. Instead we will re-implement the algorithm to run over the maze without explicitly building the graph.
 
+    When we are at node :math:`(i, j)` we know that our candidate neighbors are:
+
+    .. math::
+
+       (i - 1, j), (i + 1, j), (i, j - 1), (i, j + 1)
 environment: pyjavacpp
 evaluate: best
 groups: false
