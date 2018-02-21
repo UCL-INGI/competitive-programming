@@ -143,8 +143,39 @@ problems:
         - .java
         - .cpp
         - .py
-        name: ''
-        header: ''
+        name: Finding a path in a maze
+        header: |+
+            Put the piece together in order to be able to find a path in a maze.
+
+            **Input**
+
+            - One line with two integers :math:`n` and :math:`m` giving the number of rows and columns in the maze, respectively.
+
+            - :math:`n` each with a string of length :math:`m` giving the rows of the maze. A '#' represents a wall, a '.' represents a white space, 'S' and 'T' represent the origin and destination, respectively.
+
+
+            **Output**
+
+            Output a sequence of lines each with two integers giving the position of path from S to T. The first integer represents the row and the second the column.
+
+            There is always a path in the mazes provided.
+
+            **Constraints**
+
+            * :math:`1 \leq n, m \leq 1000`
+            * Each characters belongs to '#.ST'.
+
+            **Sample Test Cases**
+
+            `Sample input 1 <graphs-maze/1.in>`_
+
+            `Sample output 1 <graphs-maze/1.ans>`_
+
+
+            `Sample input 2 <graphs-maze/2.in>`_
+
+            `Sample output 2 <graphs-maze/2.ans>`_
+
         type: file
 stored_submissions: 0
 submission_limit:
