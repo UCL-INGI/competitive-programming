@@ -1,6 +1,9 @@
 accessible: true
 author: ''
-context: ''
+context: |
+    We are now going to see how we can solve mazes as the one show below. The goal is to find a path in the maze connecting the two blue points.
+
+    .. image:: graphs-maze/maze.png
 environment: pyjavacpp
 evaluate: best
 groups: false
