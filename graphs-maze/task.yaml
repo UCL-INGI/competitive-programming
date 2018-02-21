@@ -5,9 +5,9 @@ context: |-
 
     .. image:: graphs-maze/maze.png
 
-    We can simply use the path finding algorithm that implemented before. What we are going to learn here is to avoid representing the graph explicitly and execute the path finding algorithm directly on the maze.
+    |
 
-    ..
+    We can simply use the path finding algorithm that implemented before. What we are going to learn here is to avoid representing the graph explicitly and execute the path finding algorithm directly on the maze.
 
     It is easy to represent the maze problem as a path finding problem on a graph. The graph has one node for each while cell in the maze. There is an edge between two nodes if the corresponding white cells are adjacent.
 environment: pyjavacpp
