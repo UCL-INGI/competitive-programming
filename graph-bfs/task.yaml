@@ -40,24 +40,69 @@ context: |-
             // return whether a path exists
             return visited.get(t);
         }
+
+    Ok so now we have a function that checks whether a path exists. Now we are going to extend in so that we are able to compute an actual path between :math:`s` and :math:`t`.
+
+    Doing this is quite simple. We just need to keep stack for each node, of who added it to the queue. If we have this then we can start from :math:`t` and find a who visited him, say :math:`u`. Then we check who put :math:`u` in the queue and continue in this way until we reach the source :math:`s`. Note that we are guaranteed to reach :math:`s` since this was the node on which we started the search.
+
+    Observe that by doing this we will build the path in *reverse order* because we start from :math:`t` and trace back to :math:`s`. Therefore we need to reverse the list of nodes in the end.
+
+    .. code:: java
+
+        static ArrayList<Integer> findPath(LinkedList<Integer>[] g, int s, int t) {
+            // initialize the queue and visited set
+            Queue<Integer> Q = new LinkedList<>();
+            Q.add(s);
+            BitSet visited = new BitSet();
+            // initialize the parent array
+            Integer[] parent = new Integer[g.length];
+            // loop while there are nodes in the queue to process
+            while(!Q.isEmpty()) {
+                int u = Q.poll();
+                // we are now processing node u
+                for(int v : g[u]) {
+                    // visit edge (u, v)
+                    if(!visited.get(v)) {
+                        // node v has not yet been visited, add it
+                        Q.add(v);
+                        visited.set(v);
+                        // set the parent of v to be u
+                        parent[v] = u;
+                    }
+                }
+            }
+            // check whether a path exists
+            if(!visited.get(t)) return null;
+            // build the path by tracing back from t to s
+            ArrayList<Integer> path = new ArrayList<>();
+            Integer cur = t;
+            // loop until we reach s (s is the only visited node with null parent)
+            while(cur != null) {
+                path.add(cur);
+                cur = parent[cur];
+            }
+            // return the path
+            Collections.reverse(path);
+            return path;
+        }
 environment: pyjavacpp
 evaluate: best
 groups: false
 limits:
-    output: '100'
-    time: '1000'
     memory: '1000'
+    time: '1000'
+    output: '100'
 name: Graph - Finding a path
 network_grading: false
 problems:
     file:
-        name: ''
-        header: ''
-        type: file
         allowed_exts:
         - .java
         - .cpp
         - .py
+        name: ''
+        type: file
+        header: ''
 stored_submissions: 0
 submission_limit:
     amount: -1
