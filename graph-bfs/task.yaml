@@ -1,10 +1,10 @@
 accessible: true
 author: ''
-context: |+
+context: |-
     In this task we will focus on the problem of finding a path between two given nodes in a graph.
 
     Let :math:`s` be the source node and :math:`t` the destination node.
-    We will keep which nodes have already been visited and which nodes still need to be processed in a queue. At each iteration we pick the node in front of the queue to be processed and add all of its unvisited neighbors to the queue of nodes to process. If we continue in this way until there are no more nodes to process then we know that there is path from :math:`s` to :math:`t` if and only if :math:`t` was visited.
+    We will keep which nodes have already been visited and which nodes still need to be processed in a queue. At each iteration we pick the node in front of the queue to be processed. Then we add all of its unvisited neighbors to the queue of nodes to process. If we continue in this way until there are no more nodes to process then we know that there is path from :math:`s` to :math:`t` if and only if :math:`t` was visited.
 
       Example:
 
@@ -13,6 +13,33 @@ context: |+
 
       .. image:: graph-bfs/bfs.png
 
+
+    Let's see what this looks like in Java. We will create a function :code:`pathExists` that takes as input the graph :math:`g`, the source :math:`s` and the destination :math:`t`. We start by adding the source to the queue and then process the nodes until no more nodes remain to be processed. To process a node, we loop over its neighbors and add all its unvidited neighbors to the queue so they are processed later. In the end, all nodes that are reachable from :math:`s` will have been visited.
+
+    .. code:: java
+
+        static boolean pathExists(LinkedList<Integer>[] g, int s, int t) {
+            // initialize the queue and visited set
+            Queue<Integer> Q = new LinkedList<>();
+            Q.add(s);
+            BitSet visited = new BitSet();
+            visited.set(s);
+            // loop while there are nodes in the queue to process
+            while(!Q.isEmpty()) {
+                int u = Q.poll();
+                // we are now processing node u
+                for(int v : g[u]) {
+                    // visit edge (u, v)
+                    if(!visited.get(v)) {
+                        // node v has not yet been visited, add  it
+                        Q.add(v);
+                        visited.set(v);
+                    }
+                }
+            }
+            // return whether a path exists
+            return visited.get(t);
+        }
 environment: pyjavacpp
 evaluate: best
 groups: false
@@ -24,13 +51,13 @@ name: Graph - Finding a path
 network_grading: false
 problems:
     file:
+        name: ''
+        header: ''
+        type: file
         allowed_exts:
         - .java
         - .cpp
         - .py
-        type: file
-        header: ''
-        name: ''
 stored_submissions: 0
 submission_limit:
     amount: -1
