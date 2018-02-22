@@ -1,20 +1,9 @@
 import sys
 import os
-import checkers
 import time
 import math
 from run_tools import *
-
-"""
-CONFIG
-"""
-taskname = 'file'
-solname = 'yunoacsol'
-timelimit = 2
-checker = checkers.check
-"""
-END OF CONFIG
-"""
+from config import *
 
 filename = None
 local = False
@@ -24,10 +13,10 @@ if sys.argv[1] == '1':
 
 if not local:
   from inginious import feedback
-  judging  = judge_java('yunoacsol', checker, 10000, './tests', False)
+  judging  = judge_java(SOLNAME, CHECKER, 10000, './tests', False)
   max_time = judging.get_max_runtime()
-  if max_time > timelimit:
-    timelimit += max_time - timelimit
+  if max_time > TIMELIMIT:
+    TIMELIMIT += max_time - TIMELIMIT
 
 name = None
 ext = None
@@ -38,7 +27,7 @@ if local:
     files_before.add(fn)
   os.system('cp ./private/{0} ./{0}'.format(filename))
 else:
-  os.system('getinput {0}:filename > tmp'.format(taskname))
+  os.system('getinput {0}:filename > tmp'.format(TASKNAME))
   f = open('tmp', 'r')
   filename = f.readlines()[0].strip()
 
@@ -61,24 +50,24 @@ def clear_package(filename):
 if(ext == 'java'):
   print('received java solution')
   if not local:
-    os.system('getinput {0} > {1}.java'.format(taskname, name))
+    os.system('getinput {0} > {1}.java'.format(TASKNAME, name))
     clear_package('{0}.java'.format(name))
   else:
     clear_package(filename)
-  judging = judge_java(name, checker, timelimit)
+  judging = judge_java(name, CHECKER, TIMELIMIT)
   print('finished judging java')
 elif(ext == 'cpp'):
   print('received cpp solution')
   if not local:
-    os.system('getinput {0} > {1}.cpp'.format(taskname, name))
+    os.system('getinput {0} > {1}.cpp'.format(TASKNAME, name))
     clear_package()
-  judging = judge_cpp(name, checker, timelimit)
+  judging = judge_cpp(name, CHECKER, TIMELIMIT)
   print('finished judging cpp')
 elif(ext == 'py'):
   print('received python solution')
   if not local:
-    os.system('/bin/bash -c "getinput {0} > {1}.py"'.format(taskname, name))
-  judging = judge_py(name, checker, timelimit)
+    os.system('/bin/bash -c "getinput {0} > {1}.py"'.format(TASKNAME, name))
+  judging = judge_py(name, CHECKER, TIMELIMIT)
   print('finished judging python')
     
 
