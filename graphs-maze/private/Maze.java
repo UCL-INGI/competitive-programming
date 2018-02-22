@@ -1,3 +1,4 @@
+package graph;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -5,7 +6,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class yunoacsol {
+public class Maze {
 
 /*
 11 11
