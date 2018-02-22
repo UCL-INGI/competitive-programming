@@ -5,10 +5,6 @@ import math
 from run_tools import *
 from config import *
 
-if READ:
-  feedback.set_global_result("success")
-  exit(0)
-
 filename = None
 local = False
 if sys.argv[1] == '1':
@@ -17,6 +13,9 @@ if sys.argv[1] == '1':
 
 if not local:
   from inginious import feedback
+  if READ:
+    feedback.set_global_result("success")
+    exit(0)
   judging  = judge_java(SOLNAME, CHECKER, 10000, './tests', False)
   max_time = judging.get_max_runtime()
   if max_time > TIMELIMIT:
