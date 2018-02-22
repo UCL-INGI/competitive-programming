@@ -4,4 +4,4 @@ READ = False
 TASKNAME = 'file'
 SOLNAME = 'yunoacsol'
 TIMELIMIT = 2
-CHECKER = checkers.check
+CHECKER = checkers.diff_check

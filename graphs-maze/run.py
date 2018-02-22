@@ -5,6 +5,10 @@ import math
 from run_tools import *
 from config import *
 
+if READ:
+  feedback.set_global_result("success")
+  exit(0)
+
 filename = None
 local = False
 if sys.argv[1] == '1':

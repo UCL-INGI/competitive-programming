@@ -161,7 +161,11 @@ def judge(filename, compile, run, checker, timelimit, testdir = './tests', verbo
       else:
         if(verbose): print('chicking the answer')
         # check whether the answer is correct
-        answer_ok, msg = checker(testdir + '/' + fn, testdir + '/' + name + '.ans', 'output.tmp')
+        try:
+          answer_ok, msg = checker(testdir + '/' + fn, testdir + '/' + name + '.ans', 'output.tmp')
+        except Exception as e:
+          answer_ok = False
+          msg = 'the output you provided does not respect the specifications'
         if not answer_ok:
           if(verbose): print('wrong answer')
           # wrong_answer
