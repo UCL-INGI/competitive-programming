@@ -1,6 +1,5 @@
 import time
 import os
-import checkers
 import subprocess
 from subprocess import TimeoutExpired
 
@@ -256,7 +255,7 @@ class Judging:
         status += '[TLE]'
       if test_index in self.runtime_error:
         status += '[RE]'
-      s += 'Test #{0}: status={1}\n\n'.format(test_index + 1, status)
+      s += 'Test #{0}: {1}\n\n'.format(test_index + 1, status)
       if test_index in self.runtime_error:
         s += self.runtime_error[test_index] + '\n\n'
       if test_index in self.wrong_answer and len(self.wrong_answer[test_index]) > 0:
