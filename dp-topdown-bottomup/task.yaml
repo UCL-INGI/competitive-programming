@@ -79,7 +79,7 @@ limits:
     time: '1000'
 name: DP - Top down VS Bottom up
 network_grading: false
-order: 3
+order: 7
 problems:
     file:
         header: |
