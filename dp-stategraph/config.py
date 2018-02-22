@@ -1,6 +1,4 @@
-import checkers
-
-READ = False
+READ = True
 TASKNAME = None
 SOLNAME = None
 TIMELIMIT = 0
