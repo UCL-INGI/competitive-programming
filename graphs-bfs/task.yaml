@@ -1,17 +1,17 @@
 accessible: true
 author: ''
 context: |-
-    In this task we are going to extend make some observations about our path finding algorithm and show how we can compute the distances from a given node :math:`s` to every other node.
+    In this task we are going to extend our path finding algorithm and show how we can compute the distances from a given node :math:`s` to every other node.
 
-    In this context, the distance between two nodes is defined as the minimum number of edges in any path between them. Later we will consider weights on the edges and see how to compute shortest paths, that is, paths such that the sum of the weights of the edges is a small as possible. You can think of this case as a specification of the general shortest path problem when all edge weights are equal to :math:`1`.
+    In this context, the distance between two nodes is defined as the minimum number of edges in any path between them. Later, we will consider weights on the edges and see how to compute shortest paths, that is, paths such that the sum of the weights of the edges is a small as possible. You can think of this case as a specification of the general shortest path problem when all edge weights are equal to :math:`1`.
 
-    We will see that the path finding algorithm already has everything we need to be able to compute the distances. To see this, we will execute the algorithm again on the same graph but drawing it in a way that the nodes are organized by distance laybers.
+    We will see that the path finding algorithm already has everything that we need in order to be able to compute the distances. To see this, we will execute the algorithm again on the same graph but drawing it in a way that the nodes are organized by distance layers. That is one layer for nodes at distance 0, one for nodes at distance 1, and so on.
 
-    So let's take the previous graph and label each node with its distance from node :math:`s = 0` and redraw it by placing the nodes that have the same distance on the same layer.
-
-    We obtain this:
+    Take the previous graph and label each node with its distance from node :math:`s = 0` and redraw it by placing the nodes that have the same distance on the same layer as show in the following figure.
 
     .. image:: graphs-bfs/bfs3.png
+
+    On the left you can see the original graph, in the middle the same graph where each node is labeled with its distance from :math:`s` and, on the right, the same graph but with nodes grouped by distance layers.
 
     .. image:: graphs-bfs/anim.gif
 environment: correctoz
