@@ -26,6 +26,35 @@ context: |-
     .. math::
 
        distance(v) = 1 + distance(u)
+
+    In terms of code we can simply replace the visited set by a distance array that keeps the distances initialised to :math:`+\infty`. In this setting, a node has been visited if and only if its distance is infinite. When a node is added to the queue, instead of marking it as visited we will set his distance to one more than the node that is being processed.
+
+    .. code:: java
+
+        static int[] distances(LinkedList<Integer>[] g, int s) {
+            // initialize the queue and visited set
+            Queue<Integer> Q = new LinkedList<>();
+            Q.add(s);
+            int[] distance = new int[g.length];
+            Arrays.fill(distance, Integer.MAX_VALUE);
+            distance[s] = 0;
+            // loop while there are nodes in the queue to process
+            while(!Q.isEmpty()) {
+                int u = Q.poll();
+                // we are now processing node u
+                for(int v : g[u]) {
+                    // visit edge (u, v)
+                    if(distance[v] == Integer.MAX_VALUE) {
+                        // node v has not yet been visited, add it
+                        Q.add(v);
+                        // set the distance of v
+                        distance[v] = 1 + distance[u];
+                    }
+                }
+            }
+            // return the distances from s
+            return distance;
+        }
 environment: correctoz
 evaluate: best
 groups: false
