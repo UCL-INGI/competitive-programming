@@ -56,7 +56,7 @@ context: |
             return distance;
         }
 
-    This algorithm is commondly know as **Breadth First Search (BFS)**. The reason for this name is because of fact that it explores all nodes at distance :math:`d` before exploring nodes at distance :math:`d + 1`. Its runtime is :math:`O(V + E)` where :math:`V` is the number of nodes in the graph and :math:`E` is the number of edges. An easy way to see why this is the case if to count how many operations are perfomed at each node.
+    This algorithm is commondly know as **Breadth-first Search (BFS)**. The reason for this name is because of fact that it explores all nodes at distance :math:`d` before exploring nodes at distance :math:`d + 1`. Its runtime is :math:`O(V + E)` where :math:`V` is the number of nodes in the graph and :math:`E` is the number of edges. An easy way to see why this is the case if to count how many operations are perfomed at each node.
 
     Each node is expanded once, when it is removed from the queue. Therefore, in the worst case the while loop is executed :math:`V(G)` times (one time for each node). Each iteration of the while loop costs :math:`1 + g[u].size()`. Thus the total run time is
 
@@ -71,7 +71,7 @@ limits:
     output: '100'
     time: '1000'
     memory: '1000'
-name: Graphs - Breadth first search
+name: Graphs - Breadth-first search
 network_grading: false
 problems:
     file:
