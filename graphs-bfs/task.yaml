@@ -58,19 +58,19 @@ context: |
 
     This algorithm is commondly know as **Breadth First Search (BFS)**. The reason for this name is because of fact that it explores all nodes at distance :math:`d` before exploring nodes at distance :math:`d + 1`. Its runtime is :math:`O(V + E)` where :math:`V` is the number of nodes in the graph and :math:`E` is the number of edges. An easy way to see why this is the case if to count how many operations are perfomed at each node.
 
-    Each node is expanded once, when it is removed from the queue. Therefore, in the worst case the while loop is executed :math:`V(G)` times (one time for each node). Each iteration of the while loop costs :math:`1 + g[u].size()`. Thus the total run time is roughly
+    Each node is expanded once, when it is removed from the queue. Therefore, in the worst case the while loop is executed :math:`V(G)` times (one time for each node). Each iteration of the while loop costs :math:`1 + g[u].size()`. Thus the total run time is
 
     .. math::
 
-      \sum_{u \in V(G)} \left( 1 + g[u].size() \right) =
-      \left( \sum_{u \in V(G)} 1 \right) + \left( \sum_{u \in V(G)} g[u].size() \right) = V + E
-environment: correctoz
+      O \left( \sum_{u \in V(G)} \left( 1 + g[u].size() \right) \right) =
+      O \left( \left( \sum_{u \in V(G)} 1 \right) + \left( \sum_{u \in V(G)} g[u].size() \right) \right) = O(V + E)
+environment: pyjavacpp
 evaluate: best
 groups: false
 limits:
-    output: '2'
-    time: '30'
-    memory: '100'
+    output: '100'
+    time: '1000'
+    memory: '1000'
 name: Graphs - Breadth first search
 network_grading: false
 problems:
