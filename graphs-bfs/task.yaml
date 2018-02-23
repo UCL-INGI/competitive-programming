@@ -76,8 +76,17 @@ network_grading: false
 problems:
     file:
         type: file
-        header: ''
-        name: ''
+        header: |-
+            There are :math:`n` people using Facebook. Whenever a user makes an interesting post on some day all of its friends will post it on their own profiles on the next day.
+
+            You will be given :math:`n` and the friendship relations between those :math:`n` users. For simplicity the users are numbered from :math:`0` to :math:`n - 1`. If person :math:`0` makes an interesting post today, compute the number of days until every user has posted it on their own profiles.
+
+            You may assume that the graph is connected. That is, there is at least one path of friendships (direct or not) between any two given users.
+        name: Speading the word
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
 stored_submissions: 0
 submission_limit:
     amount: -1
