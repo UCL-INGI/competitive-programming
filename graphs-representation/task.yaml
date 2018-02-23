@@ -1,8 +1,6 @@
 accessible: true
 author: ''
 context: |-
-    .. image:: graph-representation/giphy.gif
-
     Graphs are useful to model a wide range of interesting problems.
 
     Simply put, a graph :math:`G` is a set of objects :math:`n` objects, usually the set :math:`\{ 0, \ldots, n - 1\}`, where some pairs of those objects are connected together. The set of objects is called the *nodes* of the graph and the connections are called *edges*. Usually the set of nodes is denoted by :math:`V(G)` and the set of edges by :math:`E(G)`.
@@ -12,7 +10,7 @@ context: |-
       A graph with :math:`5` nodes and :math:`5` edges :math:`(0, 1),
       (1, 2), (2, 0), (2, 1)` and :math:`(4, 5)`.
 
-      .. image:: graph-representation/graph.png
+      .. image:: graphs-representation/graph.png
 
     A edge :math:`(u, v)` reprents the fact that we can go from node :math:`u` to node :math:`v`.
 
@@ -34,7 +32,7 @@ context: |-
       :math:`i`-th element of the array is a list that contains all the
       neighbors of :math:`i`.
 
-      .. image:: graph-representation/graph_arraylist.png
+      .. image:: graphs-representation/graph_arraylist.png
 
     In java this can be done as follows:
 
@@ -94,20 +92,20 @@ environment: correctoz
 evaluate: best
 groups: false
 limits:
-    time: '30'
     output: '2'
+    time: '30'
     memory: '100'
 name: Graphs - Representation
 network_grading: false
 order: 1
 problems:
     read:
+        name: Mark this section as read?
+        header: ''
         choices:
         -   text: 'Yes'
             valid: true
         type: multiple_choice
-        name: Mark this section as read?
-        header: ''
         limit: 0
 stored_submissions: 0
 submission_limit:
