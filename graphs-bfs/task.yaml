@@ -77,6 +77,8 @@ problems:
     file:
         type: file
         header: |
+            You should be able to solve this problem with a simple application of the BFS algorithm.
+
             There are :math:`n` people using Facebook. Whenever a user makes a post on some day, all of his friends will post it on their own profiles on the next day.
 
             You will be given :math:`n` and the friendship relations between those :math:`n` users. For simplicity the users are numbered from :math:`0` to :math:`n - 1`. If person :math:`0` makes a post today, compute the number of days until every user has posted it on their own profiles.
