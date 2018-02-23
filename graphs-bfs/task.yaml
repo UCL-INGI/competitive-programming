@@ -1,6 +1,21 @@
 accessible: true
 author: ''
-context: '.. image:: graphs-bfs/anim.gif'
+context: |-
+    In this task we are going to extend make some observations about our path finding algorithm and show how we can compute the distances from a given node :math:`s` to every other node.
+
+    In this context, the distance between two nodes is defined as the minimum number of edges in any path between them. Later we will consider weights on the edges and see how to compute shortest paths, that is, paths such that the sum of the weights of the edges is a small as possible. You can think of this case as a specification of the general shortest path problem when all edge weights are equal to :math:`1`.
+
+    We will see that the path finding algorithm already has everything we need to be able to compute the distances. To see this, we will execute the algorithm again on the same graph but drawing it in a way that the nodes are organized by distance laybers.
+
+    So let's take the previous graph and label each node with its distance from node :math:`s = 0` and redraw it by placing the nodes that have the same distance on the same layer.
+
+    We obtain this:
+
+
+
+
+
+    .. image:: graphs-bfs/anim.gif
 environment: correctoz
 evaluate: best
 groups: false
