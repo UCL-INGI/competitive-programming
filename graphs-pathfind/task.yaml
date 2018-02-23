@@ -11,7 +11,7 @@ context: |-
       The following figure shows an execution of this process with
       :math:`s = 0`.
 
-      .. image:: graph-bfs/bfs.png
+      .. image:: graphs-pathfind/anim.gif
 
 
     Let's see what this looks like in Java. We will create a function that takes as input the graph :math:`g`, the source :math:`s` and the destination :math:`t`. We start by adding the source to the queue and then process the nodes until no more nodes remain to be processed. To process a node, we loop over its neighbors and add all its unvidited neighbors to the queue so they are processed later. In the end, all nodes that are reachable from :math:`s` will have been visited.
@@ -95,13 +95,10 @@ limits:
     memory: '1000'
 name: Graphs - Finding a path
 network_grading: false
+order: 2
 problems:
     file:
-        allowed_exts:
-        - .java
-        - .cpp
-        - .py
-        name: Find the path
+        type: file
         header: |
             Given a graph :math:`g` and two nodes :math:`s` and `t`, find a path from :math:`s` to :math:`t`.
 
@@ -140,11 +137,14 @@ problems:
             `Sample input 3 <graph-bfs/3.in>`_
 
             `Sample output 3 <graph-bfs/3.ans>`_
-        type: file
+        name: Find the path
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
 tags: {}
 weight: 1.0
-order: 2
