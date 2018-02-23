@@ -11,7 +11,7 @@ context: |-
 
     .. image:: graphs-bfs/bfs3.png
 
-    On the left you can see the original graph, in the middle the same graph where each node is labeled with its distance from :math:`s` and, on the right, the same graph but with nodes grouped by distance layers.
+    On the left you can see the original graph, in the middle the same graph where each node is labeled with its distance from :math:`s` and, on the right, the same graph but with nodes grouped by distance layers. The set :math:`d_x` denotes the nodes at distance :math:`x` from :math:`s`. Nodes that are unreachable are put into a set that denoted by :math:`d_\infty` and we usualy define their distance to be :math:`+\infty`.
 
     Now we execute again the algorithm but drawing the graph with distance layers:
 
