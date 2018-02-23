@@ -99,6 +99,7 @@ context: |-
             // initialize the parent array
             int[][][] parent = new int[n][m][];
             visited[start[0]][start[1]] = true;
+            // in practice you might want to stop as soon as end is visited
             while(!Q.isEmpty()) {
                 int[] u = Q.poll();
                 // we are now processing node u

@@ -25,6 +25,7 @@ context: |-
             BitSet visited = new BitSet();
             visited.set(s);
             // loop while there are nodes in the queue to process
+            // in practice you might want to stop as soon as end is visited
             while(!Q.isEmpty()) {
                 int u = Q.poll();
                 // we are now processing node u
@@ -58,6 +59,7 @@ context: |-
             // initialize the parent array
             Integer[] parent = new Integer[g.length];
             // loop while there are nodes in the queue to process
+            // in practice you might want to stop as soon as end is visited
             while(!Q.isEmpty()) {
                 int u = Q.poll();
                 // we are now processing node u
