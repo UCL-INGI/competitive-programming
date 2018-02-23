@@ -77,9 +77,9 @@ problems:
     file:
         type: file
         header: |
-            There are :math:`n` people using Facebook. Whenever a user makes an interesting post on some day all of its friends will post it on their own profiles on the next day.
+            There are :math:`n` people using Facebook. Whenever a user makes a post on some day, all of his friends will post it on their own profiles on the next day.
 
-            You will be given :math:`n` and the friendship relations between those :math:`n` users. For simplicity the users are numbered from :math:`0` to :math:`n - 1`. If person :math:`0` makes an interesting post today, compute the number of days until every user has posted it on their own profiles.
+            You will be given :math:`n` and the friendship relations between those :math:`n` users. For simplicity the users are numbered from :math:`0` to :math:`n - 1`. If person :math:`0` makes a post today, compute the number of days until every user has posted it on their own profiles.
 
             You may assume that the graph is connected. That is, there is at least one path of friendships (direct or not) between any two given users. Also, assume friendships are **symmetric**, that is, if user :math:`u` is friends with user :math:`v` then :math:`v` is also friends with :math:`v`.
 
@@ -87,7 +87,7 @@ problems:
 
             - One line with two integers :math:`n` and :math:`m` giving the number of users and friendship relations, respectively.
 
-            - :math:`n` lines each with two integers :math:`w` and :math:`v` giving the weights and the values of each of the items.
+            - :math:`n` lines each with two integers :math:`u_i` and :math:`v_i` giving that users :math:`u_i` and :math:`v_i` are friends.
 
             **Output**
 
@@ -97,18 +97,20 @@ problems:
 
             **Constraints**
 
-            * :math:`1 \leq C, n, v, w \leq 2000`
+            * :math:`1 \leq n \leq 1000`
+            * :math:`1 \leq m \leq n (n - 1) / 2`
+            * :math:`0 \leq u_i, v_i < n`
 
             **Sample Test Cases**
 
-            `Sample input 1 <dp-knapsack/1.in>`_
+            `Sample input 1 <graphs-bfs/1.in>`_
 
-            `Sample output 1 <dp-knapsack/1.ans>`_
+            `Sample output 1 <graphs-bfs/1.ans>`_
 
 
-            `Sample input 2 <dp-knapsack/2.in>`_
+            `Sample input 2 <graphs-bfs/2.in>`_
 
-            `Sample output 2 <dp-knapsack/2.ans>`_
+            `Sample output 2 <graphs-bfs/2.ans>`_
         name: Sharing posts
         allowed_exts:
         - .java
