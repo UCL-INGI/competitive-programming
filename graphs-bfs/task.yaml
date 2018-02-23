@@ -56,7 +56,13 @@ context: |-
             return distance;
         }
 
-    This algorithm is commondly know as **Breadth First Search (BFS)**. The reason for this name is because of fact that it explores all nodes at distance :math:`d` before exploring nodes at distance :math:`d + 1`.
+    This algorithm is commondly know as **Breadth First Search (BFS)**. The reason for this name is because of fact that it explores all nodes at distance :math:`d` before exploring nodes at distance :math:`d + 1`. Its runtime is :math:`O(V + E)` where :math:`V` is the number of nodes in the graph and :math:`E` is the number of edges. An easy way to see why this is the case if to count how many operations are perfomed at each node.
+
+    Each node is expanded once, when it is removed from the queue. The cost of the expansion is to look at each edge going out of the node at perform an :math:`O(1)` operation. Thus, the total runtime is the sum over the nodes of their degrees:
+
+    .. math::
+
+      \sum_{v \in V(G)} deg(v)
 environment: correctoz
 evaluate: best
 groups: false
