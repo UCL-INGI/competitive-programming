@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |
+context: |-
     We are now going to see how we can solve mazes as the one show below. The goal is to find a path in the maze connecting the two blue points.
 
     |
@@ -129,6 +129,10 @@ context: |
             Collections.reverse(path);
             return path;
         }
+
+    The following animation illustrates an execution of this algorithm.
+
+    .. image:: graphs-maze/anim.gif
 environment: pyjavacpp
 evaluate: best
 groups: false
@@ -138,13 +142,10 @@ limits:
     memory: '1000'
 name: Graphs - Solving a maze
 network_grading: false
+order: 3
 problems:
     file:
-        allowed_exts:
-        - .java
-        - .cpp
-        - .py
-        name: Finding a path in a maze
+        type: file
         header: |+
             Put the piece together in order to be able to find a path in a maze.
 
@@ -179,11 +180,14 @@ problems:
 
             `Sample output 2 <graphs-maze/2.ans>`_
 
-        type: file
+        name: Finding a path in a maze
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
 tags: {}
 weight: 1.0
-order: 3
