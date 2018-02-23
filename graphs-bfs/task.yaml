@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: ''
+context: '.. image:: graphs-bfs/anim.gif'
 environment: correctoz
 evaluate: best
 groups: false
@@ -8,13 +8,13 @@ limits:
     output: '2'
     time: '30'
     memory: '100'
-name: ''
+name: Graphs - Breadth first search
 network_grading: false
 problems:
     file:
-        name: ''
-        header: ''
         type: file
+        header: ''
+        name: ''
 stored_submissions: 0
 submission_limit:
     amount: -1
