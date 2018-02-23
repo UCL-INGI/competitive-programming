@@ -55,6 +55,8 @@ context: |-
             // return the distances from s
             return distance;
         }
+
+    This algorithm is commondly know as **Breadth First Search (BFS)**. The reason for this name is because of fact that it explores all nodes at distance :math:`d` before exploring nodes at distance :math:`d + 1`.
 environment: correctoz
 evaluate: best
 groups: false
