@@ -1,33 +1,123 @@
 accessible: true
 author: ''
-context: |-
-    In this task we are going to extend make some observations about our path finding algorithm and show how we can compute the distances from a given node :math:`s` to every other node.
+context: |
+    In this task we are going to extend our path finding algorithm and show how we can compute the distances from a given node :math:`s` to every other node.
 
-    In this context, the distance between two nodes is defined as the minimum number of edges in any path between them. Later we will consider weights on the edges and see how to compute shortest paths, that is, paths such that the sum of the weights of the edges is a small as possible. You can think of this case as a specification of the general shortest path problem when all edge weights are equal to :math:`1`.
+    In this context, the distance between two nodes is defined as the minimum number of edges in any path between them. Later, we will consider weights on the edges and see how to compute shortest paths, that is, paths such that the sum of the weights of the edges is a small as possible. You can think of this case as a specification of the general shortest path problem when all edge weights are equal to :math:`1`.
 
-    We will see that the path finding algorithm already has everything we need to be able to compute the distances. To see this, we will execute the algorithm again on the same graph but drawing it in a way that the nodes are organized by distance laybers.
+    We will see that the path finding algorithm already has everything that we need in order to be able to compute the distances. To see this, we will execute the algorithm again on the same graph but drawing it in a way that the nodes are organized by distance layers. That is one layer for nodes at distance 0, one for nodes at distance 1, and so on.
 
-    So let's take the previous graph and label each node with its distance from node :math:`s = 0` and redraw it by placing the nodes that have the same distance on the same layer.
-
-    We obtain this:
+    Take the previous graph and label each node with its distance from node :math:`s = 0` and redraw it by placing the nodes that have the same distance on the same layer as show in the following figure.
 
     .. image:: graphs-bfs/bfs3.png
 
+    On the left you can see the original graph, in the middle the same graph where each node is labeled with its distance from :math:`s` and, on the right, the same graph but with nodes grouped by distance layers. The set :math:`d_x` denotes the nodes at distance :math:`x` from :math:`s`. Nodes that are unreachable are put into a set that denoted by :math:`d_\infty` and we usualy define their distance to be :math:`+\infty`.
+
+    Now we execute again the algorithm but drawing the graph with distance layers:
+
     .. image:: graphs-bfs/anim.gif
-environment: correctoz
+
+    What do you observe?
+
+    The algorithms vists the node layer by layer! The source node :math`s` is obviously at distance :math:`0`. Everytime a node puts a new node into the queue, the node that was added belongs to the next layer. This means that its distance from :math:`s` is equal to 1 plus the distance of the node that put it into the queue.
+
+    Denote by :math:`distance(u)` the distance from :math:`s` to :math:`u`. Then we can write that if node :math:`u` adds node :math:`v` into the queue it holds
+
+    .. math::
+
+       distance(v) = 1 + distance(u)
+
+    In terms of code we can simply replace the visited set by a distance array that keeps the distances initialised to :math:`+\infty`. In this setting, a node has been visited if and only if its distance is finite. When a node is added to the queue, instead of marking it as visited we will set his distance to one more than the node that is being processed. Infinity is represented by :code:`Integer.MAX_VALUE`.
+
+    .. code:: java
+
+        static int[] distances(LinkedList<Integer>[] g, int s) {
+            // initialize the queue and visited set
+            Queue<Integer> Q = new LinkedList<>();
+            Q.add(s);
+            int[] distance = new int[g.length];
+            Arrays.fill(distance, Integer.MAX_VALUE);
+            distance[s] = 0;
+            // loop while there are nodes in the queue to process
+            while(!Q.isEmpty()) {
+                int u = Q.poll();
+                // we are now processing node u
+                for(int v : g[u]) {
+                    // visit edge (u, v)
+                    if(distance[v] == Integer.MAX_VALUE) {
+                        // node v has not yet been visited, add it
+                        Q.add(v);
+                        // set the distance of v
+                        distance[v] = 1 + distance[u];
+                    }
+                }
+            }
+            // return the distances from s
+            return distance;
+        }
+
+    This algorithm is commondly know as **Breadth-first Search (BFS)**. The reason for this name is because of fact that it explores all nodes at distance :math:`d` before exploring nodes at distance :math:`d + 1`. Its runtime is :math:`O(V + E)` where :math:`V` is the number of nodes in the graph and :math:`E` is the number of edges. An easy way to see why this is the case if to count how many operations are perfomed at each node.
+
+    Each node is expanded once, when it is removed from the queue. Therefore, in the worst case the while loop is executed :math:`V(G)` times (one time for each node). Each iteration of the while loop costs :math:`1 + g[u].size()`. Thus the total run time is
+
+    .. math::
+
+      O \left( \sum_{u \in V(G)} \left( 1 + g[u].size() \right) \right) =
+      O \left( \left( \sum_{u \in V(G)} 1 \right) + \left( \sum_{u \in V(G)} g[u].size() \right) \right) = O(V + E)
+environment: pyjavacpp
 evaluate: best
 groups: false
 limits:
-    output: '2'
-    time: '30'
-    memory: '100'
-name: Graphs - Breadth first search
+    output: '100'
+    time: '1000'
+    memory: '1000'
+name: Graphs - Breadth-first search
 network_grading: false
 problems:
     file:
         type: file
-        header: ''
-        name: ''
+        header: |
+            You should be able to solve this problem with a simple application of the BFS algorithm.
+
+            There are :math:`n` people using Facebook. Whenever a user makes a post on some day, all of his friends will post it on their own profiles on the next day.
+
+            You will be given :math:`n` and the friendship relations between those :math:`n` users. For simplicity the users are numbered from :math:`0` to :math:`n - 1`. If person :math:`0` makes a post today, compute the number of days until every user has posted it on their own profiles.
+
+            You may assume that the graph is connected. That is, there is at least one path of friendships (direct or not) between any two given users. Also, assume friendships are **symmetric**, that is, if user :math:`u` is friends with user :math:`v` then :math:`v` is also friends with :math:`v`.
+
+            **Input**
+
+            - One line with two integers :math:`n` and :math:`m` giving the number of users and friendship relations, respectively.
+
+            - :math:`n` lines each with two integers :math:`u_i` and :math:`v_i` giving that users :math:`u_i` and :math:`v_i` are friends.
+
+            **Output**
+
+            A single line with an integer giving the maximum value that can be achieve by taking a subset of the items with total weight at most :math:`C`.
+
+            *Do not forget to print the answer as an int and not a double.*
+
+            **Constraints**
+
+            * :math:`1 \leq n \leq 1000`
+            * :math:`1 \leq m \leq n (n - 1) / 2`
+            * :math:`0 \leq u_i, v_i < n`
+
+            **Sample Test Cases**
+
+            `Sample input 1 <graphs-bfs/1.in>`_
+
+            `Sample output 1 <graphs-bfs/1.ans>`_
+
+
+            `Sample input 2 <graphs-bfs/2.in>`_
+
+            `Sample output 2 <graphs-bfs/2.ans>`_
+        name: Sharing posts
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
 stored_submissions: 0
 submission_limit:
     amount: -1
