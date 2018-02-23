@@ -20,7 +20,7 @@ limits:
     time: '30'
 name: DP - Introduction
 network_grading: false
-order: 5
+order: 6
 problems:
     read:
         name: Mark this section as read?

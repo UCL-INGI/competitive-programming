@@ -59,7 +59,7 @@ limits:
     output: '100'
 name: DP - Knapsack flipping the state formulation
 network_grading: false
-order: 11
+order: 12
 problems:
     file:
         type: file
