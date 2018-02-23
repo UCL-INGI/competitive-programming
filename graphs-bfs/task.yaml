@@ -13,7 +13,19 @@ context: |-
 
     On the left you can see the original graph, in the middle the same graph where each node is labeled with its distance from :math:`s` and, on the right, the same graph but with nodes grouped by distance layers.
 
+    Now we execute again the algorithm but drawing the graph with distance layers:
+
     .. image:: graphs-bfs/anim.gif
+
+    What do you observe?
+
+    The algorithms vists the node layer by layer! The source node :math`s` is obviously at distance :math:`0`. Everytime a node puts a new node into the queue, the node that was added belongs to the next layer. This means that its distance from :math:`s` is equal to 1 plus the distance of the node that put it into the queue.
+
+    Denote by :math:`distance(u)` the distance from :math:`s` to :math:`u`. Then we can write that if node :math:`u` adds node :math:`v` into the queue it holds
+
+    .. math::
+
+       distance(v) = 1 + distance(u)
 environment: correctoz
 evaluate: best
 groups: false
