@@ -27,7 +27,7 @@ context: |-
 
        distance(v) = 1 + distance(u)
 
-    In terms of code we can simply replace the visited set by a distance array that keeps the distances initialised to :math:`+\infty`. In this setting, a node has been visited if and only if its distance is infinite. When a node is added to the queue, instead of marking it as visited we will set his distance to one more than the node that is being processed.
+    In terms of code we can simply replace the visited set by a distance array that keeps the distances initialised to :math:`+\infty`. In this setting, a node has been visited if and only if its distance is finite. When a node is added to the queue, instead of marking it as visited we will set his distance to one more than the node that is being processed. Infinity is represented by :code:`Integer.MAX_VALUE`.
 
     .. code:: java
 
