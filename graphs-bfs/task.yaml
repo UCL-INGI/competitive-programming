@@ -11,9 +11,7 @@ context: |-
 
     We obtain this:
 
-
-
-
+    .. image:: graphs-bfs/bfs3.png
 
     .. image:: graphs-bfs/anim.gif
 environment: correctoz
