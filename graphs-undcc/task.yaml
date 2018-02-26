@@ -7,7 +7,7 @@ context: |
 
         **Example:**
 
-        The following figure show a graph on the left and its connected
+        The following figure shows a graph on the left and its connected
         component on the right.
 
         .. image:: graphs-undcc/undcc.png
