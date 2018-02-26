@@ -68,8 +68,45 @@ name: Graphs - Connected components
 network_grading: false
 problems:
     file:
-        name: ''
-        header: ''
+        name: Checking the components
+        header: |
+            You will be given an undirected graph and some number of queries each of them composed by two nodes. You have to compute the number of connected components of the given graph and for each query output whether the two given nodes are on the same connected component.
+
+            **Input**
+
+            - One line with two integers :math:`n` and :math:`m` giving the number of nodes in the graph and the number of edges respectively.
+
+            - :math:`m` lines each with two integers :math:`u_i` and :math:`v_i` giving that there is an edge from :math:`u_i` to :math:`v_i`. No edge will appear more than once in the input.
+
+            - One line with one integer :math:`q` giving the number of queries.
+
+            - :math:`q` lines each with two integers :math:`a_i` and :math:`b_i` giving the two nodes of the query.
+
+            **Output**
+
+            The first line must contain the number of connected components in the graph.
+
+            Then follow :math:`q` lines with yes if the nodes :math:`a_i` and :math:`b_i` belong to the same connected component or no
+            otherwise.
+
+            **Constraints**
+
+            * :math:`1 \leq n \leq 20000`
+            * :math:`0 \leq m \leq 100000`
+            * :math:`1 \leq q \leq 10000`
+            * :math:`0 \leq u_i, v_i < n`
+            * :math:`0 \leq a_i, b_i < n`
+
+            **Sample Test Cases**
+
+            `Sample input 1 <graph-undcc/1.in>`_
+
+            `Sample output 1 <graph-undcc/1.ans>`_
+
+
+            `Sample input 2 <graph-undcc/2.in>`_
+
+            `Sample output 2 <graph-undcc/2.ans>`_
         type: file
         allowed_exts:
         - .java
