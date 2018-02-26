@@ -1,6 +1,20 @@
 accessible: true
 author: ''
-context: ''
+context: |-
+    Now that we can find all the nodes that are reachable from a given node, we are going to see how we can compute connected components of an **undirected graph**.
+
+    As the name suggests, the connected components of an undirected graph are the parts of the graph that are connected together, that is, the parts for which any two nodes have at least one path between them.
+
+        **Example:**
+
+        The following figure shows a graph on the left and its connected
+        component on the right.
+
+        .. image:: graphs-undcc/undcc.png
+
+    On the above graph, if we call BFS on node 0 we will visit nodes 0, 1, 2 and 3. In general, when we call BFS on node :math:`u`, it will visit the whole connected component of :math:`u`. Therefore we can compute *all* the connected components by keeping a global visited set and looping over the nodes of the graph and calling BFS for each unvisited node. Each call to BFS will visit a new connected component and we will avoid to vist the same connected component twice because the visited set will be global.
+
+    One way to represent the components is to have and array :math:`comp` such that :math:`comp[u] = comp[v]` if and only if nodes :math:`u` and :math:`v` are one the same connected component. The easiest way to achieve this to label all nodes of each BFS visit with the souce node :math:`s` of that visit.
 environment: pyjavacpp
 evaluate: best
 groups: false
