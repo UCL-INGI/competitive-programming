@@ -5,7 +5,12 @@ context: |
 
     As the name suggests, the connected components of an undirected graph are the parts of the graph that are connected together, that is, the parts for which any two nodes have at least one path between them.
 
-    .. image:: graphs-undcc/undcc.png
+        **Example:**
+
+        The following figure show a graph on the left and its connected
+        component on the right.
+
+        .. image:: graphs-undcc/undcc.png
 environment: pyjavacpp
 evaluate: best
 groups: false
