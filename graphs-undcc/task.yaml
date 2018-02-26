@@ -28,7 +28,7 @@ context: |-
 
         static Integer[] connectedComponents(LinkedList<Integer>[] g) {
             Integer[] comp = new Integer[g.length];
-            int compId = 1;
+            int compId = 0;
             for(int s = 0; s < g.length; s++) {
                 // check is s is already labeled
                 if(comp[s] != null) continue;
@@ -57,8 +57,6 @@ context: |-
             }
             return comp;
         }
-
-    For most problems the :math:`comp` array has all the information that you need. For instance, if you want to know the number of connected components in the graph you can simply compute the maximum of the array :math:`comp`. To check whether two nodes are on the same component you can simply check whether the two nodes have the sampe :math:`comp` value.
 environment: pyjavacpp
 evaluate: best
 groups: false
