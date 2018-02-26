@@ -92,15 +92,15 @@ environment: pyjavacpp
 evaluate: best
 groups: false
 limits:
-    output: '100'
-    time: '1000'
     memory: '1000'
+    time: '1000'
+    output: '100'
 name: Graphs - Finding a path
 network_grading: false
 order: 2
 problems:
     file:
-        type: file
+        name: Find the path
         header: |
             Given a graph :math:`g` and two nodes :math:`s` and `t`, find a path from :math:`s` to :math:`t`.
 
@@ -139,7 +139,7 @@ problems:
             `Sample input 3 <graph-bfs/3.in>`_
 
             `Sample output 3 <graph-bfs/3.ans>`_
-        name: Find the path
+        type: file
         allowed_exts:
         - .java
         - .cpp
