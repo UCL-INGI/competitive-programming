@@ -69,6 +69,11 @@ network_grading: false
 problems:
     file:
         name: Checking the components
+        type: file
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
         header: |
             You will be given an undirected graph and some number of queries each of them composed by two nodes. You have to compute the number of connected components of the given graph and for each query output whether the two given nodes are on the same connected component.
 
@@ -107,14 +112,10 @@ problems:
             `Sample input 2 <graph-undcc/2.in>`_
 
             `Sample output 2 <graph-undcc/2.ans>`_
-        type: file
-        allowed_exts:
-        - .java
-        - .cpp
-        - .py
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
 tags: {}
 weight: 1.0
+order: 5
