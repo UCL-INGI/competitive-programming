@@ -1,0 +1,27 @@
+accessible: true
+author: ''
+context: ''
+environment: pyjavacpp
+evaluate: best
+groups: false
+limits:
+    output: '100'
+    time: '1000'
+    memory: '1000'
+name: Graphs - Connected components
+network_grading: false
+problems:
+    file:
+        type: file
+        header: ''
+        name: ''
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0
