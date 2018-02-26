@@ -1,6 +1,11 @@
 accessible: true
 author: ''
-context: ''
+context: |
+    Now that we can find all the nodes that are reachable from a given node, we are going to see how we can compute connected components of an undirected graph.
+
+    As the name suggests, the connected components of an undirected graph are the parts of the graph that are connected together, that is, the parts for which any two nodes have at least one path between them.
+
+    .. image:: graphs-undcc/undcc.png
 environment: pyjavacpp
 evaluate: best
 groups: false
