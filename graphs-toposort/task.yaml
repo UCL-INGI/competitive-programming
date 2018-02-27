@@ -1,8 +1,9 @@
 accessible: true
 author: ''
-context: |+
-    Suppose that you have a set of :math:`n` tasks to perform some of which depend on each other. If a task :math:`x` depends on taks :math:`y_1, y_2, \ldots, y_k` then we can only do task :math:`x` after having done all the tasks :math:`y_1, y_2, \ldots, y_k`. We would like to compute an order in which we can perform the tasks.
+context: |-
+    Suppose that you have a set of :math:`n` tasks to perform some of which depend on each other. If a task :math:`t` depends on taks :math:`t_1, t_2, \ldots, t_k` then we can only do task :math:`t` after having done all the tasks :math:`t_1, t_2, \ldots, t_k`. We would like to compute an order in which we can perform the tasks.
 
+    The tasks and precedences are naturally modeled by a graph with one node per task and an edge from tast :math:`t_i` to :math:`t_j` if and only if task :math:`t_j` depends on task :math:`t_i`.
 environment: pyjavacpp
 evaluate: best
 groups: false
