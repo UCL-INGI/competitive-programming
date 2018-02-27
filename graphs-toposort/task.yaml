@@ -1,6 +1,8 @@
 accessible: true
 author: ''
-context: ''
+context: |+
+    Suppose that you have a set of :math:`n` tasks to perform some of which depend on each other. If a task :math:`x` depends on taks :math:`y_1, y_2, \ldots, y_k` then we can only do task :math:`x` after having done all the tasks :math:`y_1, y_2, \ldots, y_k`. We would like to compute an order in which we can perform the tasks.
+
 environment: pyjavacpp
 evaluate: best
 groups: false
