@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |-
+context: |+
     The goal of this course is to teach you algorithms for competitive programming. Even though it is designed for competitive programming, we believe that it will be interesting for any computer scientist wishing to improve his algorithmic and data structure design skills.
 
     We will avoid going into deep teoretical proofs and focus on a more practical approach. There is already a lot of books and online material containing proofs that these algorithms are correct. We are hoping to explain them in a way that gives you the intuition of why they must be correct. We are not claiming in any way that intuition is a replacement for formal proofs. We encourage each one of you to dig deeper and formalize what we give you. This will only make you stronger when you have a new problem to solve.
@@ -25,12 +25,17 @@ context: |-
             public static void main(String[] args) {
                 Scanner reader = new Scanner(System.in);
                 // read the input
+                someProblemInput = reader.nextInt();
+                // ...
                 reader.close()
                 solve();
             }
 
             static void solve() {
                 // the code that solved the problem
+                // ...
+                // print the output
+                System.out.println("The answer is 42");
             }
 
             static int someUsefulFunction() {
@@ -46,6 +51,9 @@ context: |-
             }
 
         }
+
+    You are free to not follow this template at all. **Do not copy paste it! Write your own code!** The goal is just to show that everything is usually coded statically.
+
 environment: cpp
 evaluate: best
 groups: false
