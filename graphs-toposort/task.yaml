@@ -32,7 +32,7 @@ limits:
     memory: '1000'
     time: '1000'
     output: '100'
-name: ''
+name: Graphs - Topological sort
 network_grading: false
 problems:
     file:
