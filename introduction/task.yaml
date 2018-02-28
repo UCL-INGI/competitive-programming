@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |+
+context: |-
     **Some words of caution**
 
     First of all note that this course is still under construction. Feel free to give us feedback and report problem that you might encouter during your algorithmic journey with us. We really want our content to be as clear and easy to understand as possible so notify us with sections that are not so that we can improve them!
@@ -100,11 +100,9 @@ context: |+
 
     - **Contest level**: like in a real contests, on the global verdict is given to you.
     - **Per test case**: gives you the verdict for each test case. So you will know exactly how many are correct and what is the state of the others.
-    _ **Help me**: it will give you the details per test case plus eventually some information about what might be wrong with your solution and some tips. It will also provide you with test cases where you code fails.
+    - **Help me**: it will give you the details per test case plus eventually some information about what might be wrong with your solution and some tips. It will also provide you with test cases where you code fails.
 
-    We **strongly** encourage you to always submit using the contest level. The reason in obvious: in a real contests you will never get any help so you might as well get stuck and desperate while you practice rather then while you are actually compeeting. Don't get me wrong but even once you already have a strong knowledge about algorithms you are still nowhere near winning a programming contest. You still need to beat the meta aspects of a contests such as *stress*, *desperation*, *feeling lost*, *overcomming a wrong answer on a code where everything seems correct*, ...
-
-
+    We **strongly** encourage you to always submit using the contest level. The reason in obvious: in a real contests you will never get any help so you might as well get stuck and desperate while you practice rather then while you are actually compeeting. Don't get me wrong but even once you already have a strong knowledge about algorithms you are still nowhere near winning a programming contest. You still need to beat the meta aspects of a contests such as stress, desperation, feeling lost, and so on. Being able to find what is wrong with a code without any clue except that is wrong is very challanging and knowing all algorithms in the world will not help you with this. So, like the rest, the more you practice this, the better you will be and the only way to practice is to try to solve problems where the feedback that is given to you is as little as possible. There are even contests like Google code jam where you are not given any feedback until it is too late so it is aspect is really important. You need to be able find out what is wrong with your code on own.
 environment: cpp
 evaluate: best
 groups: false
