@@ -3,6 +3,8 @@ author: ''
 context: |-
     **Some words of caution**
 
+    First of all note that this course is still under construction. Feel free to give us feedback and report problem that you might encouter during your algorithmic journey with us. We really want our content to be as clear and easy to understand as possible so notify us with sections that are not so that we can improve them!
+
     The goal of this course is to teach you algorithms for competitive programming. Even though it is designed for competitive programming, we believe that it will be interesting for any computer scientist wishing to improve his algorithmic and data structure design skills.
 
     We will avoid going into deep teoretical proofs and focus on a more practical approach. There is already a lot of books and online material containing proofs that these algorithms are correct. We are hoping to explain them in a way that gives you the intuition of why they must be correct. We are not claiming in any way that intuition is a replacement for formal proofs. We encourage each one of you to dig deeper and formalize what we give you. This will only make you stronger when you have a new problem to solve.
