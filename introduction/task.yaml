@@ -61,6 +61,16 @@ context: |-
     **New to programming contests?**
 
     If you are new to programming contests then *welcome*!
+
+    In a typical ACM-ICPC like contest you be given some number of problems and some time to solve as many problems as you can. The winner is the one with the most problems solved. In case of ties, they are broken by the total number of minutes used to solve the problem. To solve a problem, most systems allow you to submit a **single file**. This will then be compiled and ran on some number of predefined test cases. Then you answers will be checked to see if they are corrected. You they are **all** correct, your solution is accepted. If any one of them is wrong you will get no points at all, even if you solve 99 out of 100 test cases.
+
+    The verdicts you can receive are the following:
+
+    * **Accepted**: your solution passed all test cases.
+    * **Wrong answer**: your solution procudes a wrong answer in at least one test case.
+    * **Time limit exceeded**: your solution exceeded the time limit set of the problem in at least one test case.
+    * **Memory limit exceeded**: your soluton exceeded the memory limit while solving at leasy one of test case.
+    * **Compilation error**: the code you provided does not compile.
 environment: cpp
 evaluate: best
 groups: false
