@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |-
+context: |+
     The goal of this course is to teach you algorithms for competitive programming. Even though it is designed for competitive programming, we believe that it will be interesting for any computer scientist wishing to improve his algorithmic and data structure design skills.
 
     We will avoid going into deep teoretical proofs and focus on a more practical approach. There is already a lot of books and online material containing proofs that these algorithms are correct. We are hoping to explain them in a way that gives you the intuition of why they must be correct. We are not claiming in any way that intuition is a replacement for formal proofs. We encourage each one of you to dig deeper and formalize what we give you. This will only make you stronger when you have a new problem to solve.
@@ -10,6 +10,9 @@ context: |-
     This is not a course about software engineering so we will code in a way that is usually frowned upon by this community. Our goal is not to develop an algorithmic library so we will not focus on desining our code in a way that is reusable and general but rather we want to have a compact code that can easily by typed on a contest environment. Our goal is to write code that solves a specific problem and not a set of similar problems. Making the code more general usually makes it longer and thus you will loose time during the contest to type it. Actually, we encourage the students of this course to **always type the solution of each problem from scratch**. This will help you memorise the algorithms so that you don't forget how they work. It will also free some space on your cheatsheets!
 
     However, if you wish to develop a state of the art algorithmic library, by following this course you will learn most of what you need. You will just have to rewrite the code in a way that it is less problem oriented so that in can be used to solve several different situation.
+
+    The code in this course is written in Java. There is not reason for this exceept for personal preference. The language you use should also be the one with which you are the most familiar. Except for python, in today's contests judges make sure that any reasonable solution is accepted in all available languages. So even if Java is slower, any reasonable solution written in it will be accepted. Note that this was not always true so if you program in Java you will find some old problems where most Java solution are too slow.
+
 environment: cpp
 evaluate: best
 groups: false
@@ -26,6 +29,7 @@ problems:
             text: 'Yes'
         type: multiple_choice
         name: ''
+        limit: 0
         header: ''
 stored_submissions: 0
 submission_limit:
