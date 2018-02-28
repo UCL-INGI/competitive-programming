@@ -66,17 +66,19 @@ context: |-
 
     Your solution is evaluated with respect to three aspects:
 
-    1. Whether or not the outputs that is procudes are correct with respect to the problem specification.
+    1. Whether the outputs that is procudes are correct with respect to the problem specification.
     2. Whether your algorithm is fast enough.
-    3. Wehther your algorithm uses a reasonable amout of memory.
+    3. Whether your algorithm uses a reasonable amout of memory.
 
     The verdicts you can receive are the following:
 
-    * **Accepted**: your solution passed all test cases.
+    * **Accepted**: your solution passed **all** test cases.
     * **Wrong answer**: your solution procudes a wrong answer in at least one test case.
     * **Time limit exceeded**: your solution exceeded the time limit set of the problem in at least one test case.
     * **Memory limit exceeded**: your soluton exceeded the memory limit while solving at leasy one of test case.
     * **Compilation error**: the code you provided does not compile.
+
+    A problem that some newcomer run into when participating in these contests is that they do not respect **exactly** you output specification of the problem. If the output asks for a single integer then you have to outout a single integer. Any other caracter printed by your algorithm will produce a wrong answer. Also, always end your lines with '\\n' (or println). Not all systems require this but most of them do so to be on the safe side just do it.
 environment: cpp
 evaluate: best
 groups: false
@@ -92,7 +94,7 @@ problems:
         -   valid: true
             text: 'Yes'
         type: multiple_choice
-        name: ''
+        name: Mark this section as read?
         limit: 0
         header: ''
 stored_submissions: 0
