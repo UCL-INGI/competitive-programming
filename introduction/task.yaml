@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |-
+context: |+
     **Some words of caution**
 
     First of all note that this course is still under construction. Feel free to give us feedback and report problem that you might encouter during your algorithmic journey with us. We really want our content to be as clear and easy to understand as possible so notify us with sections that are not so that we can improve them!
@@ -60,20 +60,6 @@ context: |-
 
     You are free to not follow this template at all. **Do not copy paste it! Write your own code!** The goal is just to show that everything is usually coded statically.
 
-    **How is this course organised?**
-
-    This couse is composed by a series of task. There are several kinds of taks.
-
-    - **Theory tasks**: will usually contain some theory and end with a problem that is a direct application of what you just learned.
-    - **Read tasks**: these taks, like this one, only contains material for you to read. Once you do, mark them a read so that you can more easily keep track of what you have already done.
-    - **Problem tasks**: a task with a problem that envolves any theory that was presented before. Depending on the difficulty it can involve several different fields.
-
-    Most task names start with a keyword that represents its topic. For instance: *Graphs - Find a path* will be a task about graphs. Some tasks like this one do not have one because they do not belong to a specific topic.
-
-    You are assumed to already know how to program. Therefore there is no topic for this.
-
-    The tasks should be done in order to try to make sure that you always have the pre-requisits to solve it. We try however to make them as independent as possible. The course is still under construction and in the future it may start with another topic but in its current state it starts with graph theory as it is the most common topic in programming contests.
-
     **New to programming contests?**
 
     If you are new to programming contests then *welcome*!
@@ -95,6 +81,30 @@ context: |-
     * **Compilation error**: the code you provided does not compile.
 
     A problem that some newcomer run into when participating in these contests is that they do not respect **exactly** you output specification of the problem. If the output asks for a single integer then you have to outout a single integer. Any other caracter printed by your algorithm will produce a wrong answer. Also, always end your lines with '\\n' (or println). Not all systems require this but most of them do so to be on the safe side just do it.
+
+    **How is this course organised?**
+
+    This couse is composed by a series of task. There are several kinds of taks.
+
+    - **Theory tasks**: will usually contain some theory and end with a problem that is a direct application of what you just learned.
+    - **Read tasks**: these taks, like this one, only contains material for you to read. Once you do, mark them a read so that you can more easily keep track of what you have already done.
+    - **Problem tasks**: a task with a problem that envolves any theory that was presented before. Depending on the difficulty it can involve several different fields.
+
+    Most task names start with a keyword that represents its topic. For instance: *Graphs - Find a path* will be a task about graphs. Some tasks like this one do not have one because they do not belong to a specific topic.
+
+    You are assumed to already know how to program. Therefore there is no topic for this.
+
+    The tasks should be done in order to try to make sure that you always have the pre-requisits to solve it. We try however to make them as independent as possible. The course is still under construction and in the future it may start with another topic but in its current state it starts with graph theory as it is the most common topic in programming contests.
+
+    When you submit you code, you can chose the level of the feedback. You have three options:
+
+    - **Contest level**: like in a real contests, on the global verdict is given to you.
+    - **Per test case**: gives you the verdict for each test case. So you will know exactly how many are correct and what is the state of the others.
+    _ **Help me**: it will give you the details per test case plus eventually some information about what might be wrong with your solution and some tips. It will also provide you with test cases where you code fails.
+
+    We **strongly** encourage you to always submit using the contest level. The reason in obvious: in a real contests you will never get any help so you might as well get stuck and desperate while you practice rather then while you are actually compeeting. Don't get me wrong but even once you already have a strong knowledge about algorithms you are still nowhere near winning a programming contest. You still need to beat the meta aspects of a contests such as *stress*, *desperation*, *feeling lost*, *overcomming a wrong answer on a code where everything seems correct*, ...
+
+
 environment: cpp
 evaluate: best
 groups: false
@@ -104,6 +114,7 @@ limits:
     time: '30'
 name: Introduction
 network_grading: false
+order: 0
 problems:
     read:
         choices:
@@ -119,4 +130,3 @@ submission_limit:
     period: -1
 tags: {}
 weight: 1.0
-order: 0
