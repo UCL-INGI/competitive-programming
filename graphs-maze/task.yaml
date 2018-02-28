@@ -143,7 +143,7 @@ limits:
     memory: '1000'
 name: Graphs - Solving a maze
 network_grading: false
-order: 3
+order: 4
 problems:
     file:
         type: file

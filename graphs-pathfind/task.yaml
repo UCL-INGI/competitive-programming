@@ -97,7 +97,7 @@ limits:
     output: '100'
 name: Graphs - Finding a path
 network_grading: false
-order: 2
+order: 3
 problems:
     file:
         name: Find the path
