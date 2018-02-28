@@ -60,6 +60,20 @@ context: |-
 
     You are free to not follow this template at all. **Do not copy paste it! Write your own code!** The goal is just to show that everything is usually coded statically.
 
+    **How is this course organised?**
+
+    This couse is composed by a series of task. There are several kinds of taks.
+
+    - **Theory tasks**: will usually contain some theory and end with a problem that is a direct application of what you just learned.
+    - **Read tasks**: these taks, like this one, only contains material for you to read. Once you do, mark them a read so that you can more easily keep track of what you have already done.
+    - **Problem tasks**: a task with a problem that envolves any theory that was presented before. Depending on the difficulty it can involve several different fields.
+
+    Most task names start with a keyword that represents its topic. For instance: *Graphs - Find a path* will be a task about graphs. Some tasks like this one do not have one because they do not belong to a specific topic.
+
+    You are assumed to already know how to program. Therefore there is no topic for this.
+
+    The tasks should be done in order to try to make sure that you always have the pre-requisits to solve it. We try however to make them as independent as possible. The course is still under construction and in the future it may start with another topic but in its current state it starts with graph theory as it is the most common topic in programming contests.
+
     **New to programming contests?**
 
     If you are new to programming contests then *welcome*!
