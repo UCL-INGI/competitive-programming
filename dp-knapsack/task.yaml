@@ -134,7 +134,7 @@ limits:
     output: '100'
 name: DP - Knapsack
 network_grading: false
-order: 7
+order: 9
 problems:
     file:
         type: file

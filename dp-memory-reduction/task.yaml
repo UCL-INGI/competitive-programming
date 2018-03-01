@@ -177,7 +177,7 @@ limits:
     output: '100'
 name: DP - Memory reduction
 network_grading: false
-order: 11
+order: 13
 problems:
     file:
         allowed_exts:

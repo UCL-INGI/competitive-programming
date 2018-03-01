@@ -11,7 +11,7 @@ limits:
     time: '1000'
 name: Hello World
 network_grading: false
-order: 0
+order: 1
 problems:
     file:
         name: Read and print
