@@ -3,7 +3,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class yunoacsol {
+public class UndCC {
 
 	/*
 14 15

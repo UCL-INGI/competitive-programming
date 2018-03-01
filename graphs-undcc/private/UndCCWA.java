@@ -1,9 +1,10 @@
+package graph;
 
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class yunoacsol {
+public class UndCCWA {
 
 	/*
 14 15
@@ -22,14 +23,6 @@ public class yunoacsol {
 3 10
 10 11
 12 13
-
-
-3 2
-0 1
-2 1
-1
-0 2
-
 
 	 */
 
@@ -69,7 +62,7 @@ public class yunoacsol {
 
 	static Integer[] connectedComponents(LinkedList<Integer>[] g) {
 		Integer[] comp = new Integer[g.length];
-		int compId = 1;
+		int compId = 0;
 		for(int s = 0; s < g.length; s++) {
 			// check is s is already labeled
 			if(comp[s] != null) continue;
