@@ -96,13 +96,13 @@ context: |-
 
     The tasks should be done in order to try to make sure that you always have the per-requisits to solve it. We try however to make them as independent as possible. The course is still under construction and in the future it may start with another topic but in its current state it starts with graph theory as it is the most common topic in programming contests.
 
-    When you submit you code, you can chose the level of the feedback. You have three options:
+    ..  When you submit you code, you can chose the level of the feedback. You have three options:
 
-    - **Contest level**: like in a real contests, on the global verdict is given to you.
-    - **Per test case**: gives you the verdict for each test case. So you will know exactly how many are correct and what is the state of the others.
-    - **Help me**: it will give you the details per test case plus eventually some information about what might be wrong with your solution and some tips. It will also provide you with test cases where you code fails.
+    .. - **Contest level**: like in a real contests, on the global verdict is given to you.
+    .. - **Per test case**: gives you the verdict for each test case. So you will know exactly how many are correct and what is the state of the others.
+    .. - **Help me**: it will give you the details per test case plus eventually some information about what might be wrong with your solution and some tips. It will also provide you with test cases where you code fails.
 
-    We **strongly** encourage you to always submit using the contest level. The reason in obvious: in a real contests you will never get any help so you might as well get stuck and desperate while you practice rather then while you are actually competing. Don't get me wrong but even once you already have a strong knowledge about algorithms you are still nowhere near winning a programming contest. You still need to beat the meta aspects of a contests such as stress, desperation, feeling lost, and so on. Being able to find what is wrong with a code without any clue except that is wrong is very challenging and knowing all algorithms in the world will not help you with this. So, like the rest, the more you practice this, the better you will be and the only way to practice is to try to solve problems where the feedback that is given to you is as little as possible. There are even contests like Google code jam where you are not given any feedback until it is too late so it is aspect is really important. You need to be able find out what is wrong with your code on own.
+    .. We **strongly** encourage you to always submit using the contest level. The reason in obvious: in a real contests you will never get any help so you might as well get stuck and desperate while you practice rather then while you are actually competing. Don't get me wrong but even once you already have a strong knowledge about algorithms you are still nowhere near winning a programming contest. You still need to beat the meta aspects of a contests such as stress, desperation, feeling lost, and so on. Being able to find what is wrong with a code without any clue except that is wrong is very challenging and knowing all algorithms in the world will not help you with this. So, like the rest, the more you practice this, the better you will be and the only way to practice is to try to solve problems where the feedback that is given to you is as little as possible. There are even contests like Google code jam where you are not given any feedback until it is too late so it is aspect is really important. You need to be able find out what is wrong with your code on own.
 environment: cpp
 evaluate: best
 groups: false
