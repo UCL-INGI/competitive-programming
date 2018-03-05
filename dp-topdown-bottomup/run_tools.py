@@ -240,7 +240,7 @@ class Judging:
     return m
 
   def produce_contest_feedback_message(self):
-    if self.is_compile_error(): return 'Compile error\n\n'
+    if self.is_compile_error(): return 'Compile error\n\n' + self.compile_message
     if len(self.wrong_answer) > 0: return 'Wrong answer\n\n'
     if len(self.runtime_error) > 0: return 'Runtime error\n\n'
     if len(self.time_limit_exceeded) > 0: return 'Time limit exceeded\n\n'
