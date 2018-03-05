@@ -69,7 +69,6 @@ elif(ext == 'cpp'):
   print('received cpp solution')
   if not local:
     os.system('getinput {0} > {1}.cpp'.format(TASKNAME, name))
-    clear_package()
   judging = judge_cpp(name, CHECKER, TIMELIMIT)
   print('finished judging cpp')
 elif(ext == 'py'):
