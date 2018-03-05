@@ -96,6 +96,9 @@ context: |-
 
     The tasks should be done in order to try to make sure that you always have the per-requisits to solve it. We try however to make them as independent as possible. The course is still under construction and in the future it may start with another topic but in its current state it starts with graph theory as it is the most common topic in programming contests.
 
+    Each task starts with text explaining what has to be done. Then the input section will describe you the format of the input that you will be given. Follows an output section describing how your output should be formated. As we said above, you **must** follow the described format exactly. Then follows a section giving the problem size constraints. This is a very important section. You solution has to be efficient but that depends on the size of the input. It gives you an hint on the maximum complexity that your algorithm can have.
+    The last component of a task is a series of sample test cases so that you can test your code before submitting.
+
     ..  When you submit you code, you can chose the level of the feedback. You have three options:
 
     .. - **Contest level**: like in a real contests, on the global verdict is given to you.
