@@ -136,7 +136,10 @@ def judge(filename, compile, run, checker, timelimit, testdir = './tests', verbo
   if(verbose): print('compilation successful')
   # no compile error, so we run
   test_index = -1
+  can_be_ac = True
   for fn in os.listdir(testdir):
+    if not can_be_ac:
+      break
     if fn.endswith('.in'):
       if(verbose): print('running test {0}'.format(fn))
       test_index += 1
@@ -148,13 +151,15 @@ def judge(filename, compile, run, checker, timelimit, testdir = './tests', verbo
       judging.add_test(test_index)
       judging.add_time(test_index, time)
       if not run_ok:
-        if(verbose): 
+        if(verbose):
+          can_be_ac = False
           print('runtime error')
           print(err)
         # runtime error
         judging.add_runtime_error(test_index, format_for_output(err))
       elif not time_ok:
         if(verbose): print('time limit exceeded')
+        can_be_ac = False
         # time limit exceeded
         judging.add_time_limit_exceeded(test_index)
       else:
@@ -163,11 +168,13 @@ def judge(filename, compile, run, checker, timelimit, testdir = './tests', verbo
         try:
           answer_ok, msg = checker(testdir + '/' + fn, testdir + '/' + name + '.ans', 'output.tmp')
         except Exception as e:
+          can_be_ac = False
           answer_ok = False
           msg = 'the output you provided does not respect the specifications'
         if not answer_ok:
           if(verbose): print('wrong answer')
           # wrong_answer
+          can_be_ac = False
           judging.add_wrong_answer(test_index, msg)
         else:
           if(verbose): print('correct')
