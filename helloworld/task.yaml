@@ -15,13 +15,8 @@ order: 1
 problems:
     file:
         max_size: 10000000
-        type: file
-        allowed_exts:
-        - .java
-        - .cpp
-        - .py
         name: Read and print
-        header: |+
+        header: |
             In this simple problem you simply have to read a string from the standard input and output that same string into the standard output.
 
             **Input**
@@ -36,18 +31,21 @@ problems:
 
             * :math:`1 \leq |s| \leq 1000` where :math:`|s|` denots the number of characters of the string :math:`s`.
 
-    feedback:
-        choices:
-        -   valid: true
-            text: Contest level
-        -   valid: true
-            text: Test cases
-        -   text: Test cases + error messages
-            valid: true
-        name: Feedback level
-        type: multiple_choice
-        header: ''
-        limit: 0
+            **Sample Test Cases**
+
+            `Sample input 1 <helloworld/1.in>`_
+
+            `Sample output 1 <helloworld/1.ans>`_
+
+
+            `Sample input 2 <helloworld/2.in>`_
+
+            `Sample output 2 <helloworld/2.ans>`_
+        type: file
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
 stored_submissions: 0
 submission_limit:
     amount: -1
