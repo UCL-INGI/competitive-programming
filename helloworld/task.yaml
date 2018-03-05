@@ -1,22 +1,26 @@
 accessible: true
 author: ''
-context: In this task you will be given some very simple taks to make sure that you
-    know how to read and write from the starndard output.
+context: In this task you will be given some very simple tasks to make sure that you
+    know how to read from the standard output and write to the starndard output.
 environment: pyjavacpp
 evaluate: best
 groups: false
 limits:
     memory: '1000'
-    output: '100'
     time: '1000'
+    output: '100'
 name: Hello World
 network_grading: false
 order: 1
 problems:
     file:
-        name: Read and print
-        type: file
         max_size: 10000000
+        type: file
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
+        name: Read and print
         header: |+
             In this simple problem you simply have to read a string from the standard input and output that same string into the standard output.
 
@@ -32,24 +36,21 @@ problems:
 
             * :math:`1 \leq |s| \leq 1000` where :math:`|s|` denots the number of characters of the string :math:`s`.
 
-        allowed_exts:
-        - .java
-        - .cpp
-        - .py
     feedback:
         choices:
-        -   text: Contest level
-            valid: true
+        -   valid: true
+            text: Contest level
         -   valid: true
             text: Test cases
-        -   valid: true
-            text: Test cases + error messages
-        header: ''
-        type: multiple_choice
+        -   text: Test cases + error messages
+            valid: true
         name: Feedback level
+        type: multiple_choice
+        header: ''
         limit: 0
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
+tags: {}
 weight: 1.0
