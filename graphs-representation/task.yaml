@@ -1,8 +1,6 @@
 accessible: true
 author: ''
 context: |-
-    Graphs are useful to model a wide range of interesting problems.
-
     Simply put, a graph :math:`G` is a set of objects :math:`n` objects, usually the set :math:`\{ 0, \ldots, n - 1\}`, where some pairs of those objects are connected together. The set of objects is called the *nodes* of the graph and the connections are called *edges*. Usually the set of nodes is denoted by :math:`V(G)` and the set of edges by :math:`E(G)`.
 
       **Example**
@@ -12,15 +10,15 @@ context: |-
 
       .. image:: graphs-representation/graph.png
 
-    A edge :math:`(u, v)` reprents the fact that we can go from node :math:`u` to node :math:`v`.
+    A edge :math:`(u, v)` represents the fact that we can go from node :math:`u` to node :math:`v`.
 
-    The most classical example of problem that can be abstracted with graphs are connectivity problems. Suppose that the nodes represent airports the edges represent direct flights between those airports. To find out whether it is possible to travel from some airport :math:`A` to another aiport :math:`B` we can look in the corresponding graph if there is a sequences of nodes :math:`(v_1, v_2, \ldots, v_k)` such that:
+    The most classical example of problem that can be abstracted with graphs are connectivity problems. Suppose that the nodes represent airports the edges represent direct flights between those airports. To find out whether it is possible to travel from some airport :math:`A` to another airport :math:`B` we can look in the corresponding graph if there is a sequences of nodes :math:`(v_1, v_2, \ldots, v_k)` such that:
 
-    1. For each pair of consecutive nodes, there is an edge in the graph. Formaly this means that :math:`(v_{i}, v_{i + 1}) \in E(G)`.
+    1. For each pair of consecutive nodes, there is an edge in the graph. Formally this means that :math:`(v_{i}, v_{i + 1}) \in E(G)`.
 
     2. The sequence start at :math:`A` nd ends at :math:`B`, that is, :math:`v_1 = A` and :math:`v_k = B`.
 
-    Observe that in the graph, the geographic positions of the airports is lost in the graph representation of problem. We abstract all that information and keep only the relations between the airports. This is all we need to anwser the question. When we draw of graph, the relative position of the nodes have no meaning, they are chosen only for readability.
+    Observe that in the graph, the geographic positions of the airports is lost in the graph representation of problem. We abstract all that information and keep only the relations between the airports. This is all we need to answer the question. When we draw of graph, the relative position of the nodes have no meaning, they are chosen only for readability.
 
     But before we start solving problems on graphs, we need to find a way to represent them in the computer. There many alternative ways to do so but for now we will focus on a simple and easy to code representation and extended it later, when needed.
 
@@ -49,7 +47,7 @@ context: |-
         g[2].add(1);
         g[4].add(5);
 
-    The supress warning in necessary in some contest environments as otherwise the code will give a *compile error*. In modern judging systems it is often not necessary. We put it just to be safe.
+    The suppress warning in necessary in some contest environments as otherwise the code will give a *compile error*. In modern judging systems it is often not necessary. We put it just to be safe.
 
     This graph representation is suitable to traverse the whole graph to find a path because we can iterate over all outgoing edges of a nodes in linear time. Also, building the graph with this structures take linear time :math:`O(n + m)` since adding an element to a :code:`LinkedList` is done in constant time.
 
@@ -93,20 +91,20 @@ evaluate: best
 groups: false
 limits:
     output: '2'
-    time: '30'
     memory: '100'
+    time: '30'
 name: Graphs - Representation
 network_grading: false
 order: 2
 problems:
     read:
-        name: Mark this section as read?
-        header: ''
         choices:
-        -   text: 'Yes'
-            valid: true
+        -   valid: true
+            text: 'Yes'
         type: multiple_choice
+        name: Mark this section as read?
         limit: 0
+        header: ''
 stored_submissions: 0
 submission_limit:
     amount: -1
