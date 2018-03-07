@@ -29,7 +29,7 @@ context: |+
 
     We define the in-degree of a node :math:`u` as the number of edges that end in :math:`u` and the out-degree as the number of edges that start at it. They are denoted by :math:`indeg(u)` and :math:`outdeg(u)`, respectively.
 
-    It is easy to see that any topological order must start with a node with in
+    It is easy to see that any topological order must start with a node with in-degree :math:`0`.
 
     .. image:: graphs-toposort/anim.gif
 
