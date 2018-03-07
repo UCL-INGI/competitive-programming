@@ -25,6 +25,10 @@ context: |+
         edges to make it clear that all of them go from the left to the
         right, meaning that no predecendes are violated.
 
+    |
+
+    The simplest algorithm that I can think of to achieve this is to simply sort the vertices with a comparator that makes sure that if there is an edge between vertices :math:`u` and :math:`v` then :math:`u` will be smaller than :math:`v`.
+
     .. image:: graphs-toposort/anim.gif
 
 environment: pyjavacpp
