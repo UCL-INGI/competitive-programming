@@ -86,6 +86,8 @@ context: |-
             // do something with g
             reader.close();
        }
+
+    *Note:* In a lot of problems the nodes of the input graph are numbered from :math:`1` to :math:`n` rather than :math:`0` to :math:`n - 1`. In this case the easiest solution is to simply subtract :math:`1` while reading the input and add :math:`1` while writting the output. This may seem obvious but I have seen students subtracting :math:`1` in every acess to :math:`g` which is very annoying an time consuming.
 environment: correctoz
 evaluate: best
 groups: false
