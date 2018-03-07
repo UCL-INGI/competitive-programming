@@ -27,7 +27,9 @@ context: |+
 
     |
 
-    The simplest algorithm that I can think of to achieve this is to simply sort the vertices with a comparator that makes sure that if there is an edge between vertices :math:`u` and :math:`v` then :math:`u` will be smaller than :math:`v`.
+    We define the in-degree of a node :math:`u` as the number of edges that end in :math:`u` and the out-degree as the number of edges that start at it. They are denoted by :math:`indeg(u)` and :math:`outdeg(u)`, respectively.
+
+    It is easy to see that any topological order must start with a node with in
 
     .. image:: graphs-toposort/anim.gif
 
