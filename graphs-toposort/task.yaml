@@ -25,6 +25,8 @@ context: |+
         edges to make it clear that all of them go from the left to the
         right, meaning that no predecendes are violated.
 
+    .. image:: graphs-toposort/anim.gif
+
 environment: pyjavacpp
 evaluate: best
 groups: false
@@ -34,6 +36,7 @@ limits:
     output: '100'
 name: Graphs - Topological sort
 network_grading: false
+order: 7
 problems:
     file:
         name: ''
@@ -49,4 +52,3 @@ submission_limit:
     period: -1
 tags: {}
 weight: 1.0
-order: 7
