@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |
+context: |+
     Suppose that you have a set of :math:`n` tasks to perform some of which depend on each other. If a task :math:`t` depends on taks :math:`t_1, t_2, \ldots, t_k` then we can only do task :math:`t` after having done all the tasks :math:`t_1, t_2, \ldots, t_k`. We would like to compute an order in which we can perform the tasks.
 
     The tasks and precedences are naturally modeled by a graph with one node per task and an edge from tast :math:`t_i` to :math:`t_j` if and only if task :math:`t_j` depends on task :math:`t_i`.
@@ -41,8 +41,13 @@ context: |
 
     If you think about it, this algorithm is quite similar to the BFS. The differences are:
 
-    1. We start from multiple points (all nodes with in-degree :math:`0`), not a single source.
+    1. We start from multiple points (all nodes with in-degree :math:`0` ), not a single source.
     2. We only add a node when its in-degree becomes :math:`0`.
+
+    As you can see, the code is quite similar:
+
+    .. code:: java
+
 environment: pyjavacpp
 evaluate: best
 groups: false
