@@ -33,7 +33,9 @@ context: |+
 
     Compute the in-degree of each node. Put all the nodes with in-degree :math:`0` in a queue to be processed. While there nodes to be processed: select one to process, add it in the next position in the order and delete it by decreasing the in-degree of all of its sucessors while adding new nodes with in-degree :math:`0` to the queue.
 
+    The following animation illustrates an execution of this algorithm on the sample graph given above.
 
+    |
 
     .. image:: graphs-toposort/anim.gif
 
