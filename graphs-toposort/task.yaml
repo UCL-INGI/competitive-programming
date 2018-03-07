@@ -29,7 +29,14 @@ context: |+
 
     We define the in-degree of a node :math:`u` as the number of edges that end in :math:`u` and the out-degree as the number of edges that start at it. They are denoted by :math:`indeg(u)` and :math:`outdeg(u)`, respectively.
 
-    It is easy to see that any topological order must start with a node with in-degree :math:`0`.
+    It is easy to see that any topological order must start with a node with in-degree :math:`0` since such a node has no precedences. Then, if we remove that node from the graph the same is true from the resulting graph: the next node can by any node with in-degree :math:`0`. This suggests the following algorithm.
+
+    1. Compute the in-degree of each node.
+    2. Put all the nodes with in-degree :math:`0` in a queue to be processed.
+    3. While there nodes to be processed:
+    3.1 Select one to process.
+    3.2 Add it in the next position in the order.
+    3.3 Delete the selected node by decreasing the in-degree of all of its sucessors.
 
     .. image:: graphs-toposort/anim.gif
 
