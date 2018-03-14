@@ -1,4 +1,4 @@
-accessible: false
+accessible: true
 author: ''
 context: ''
 environment: pyjavacpp
@@ -14,7 +14,9 @@ network_grading: false
 problems:
     file:
         name: Fire!
-        header: |-
+        header: |
+            *Source: UVa 11624*
+
             Joe works in a maze. Unfortunately, portions of the maze have caught on fire, and the owner of the maze neglected to create a fire escape plan.
 
             Your task is to help Joe escape the maze.
@@ -70,9 +72,6 @@ problems:
             `Sample input 3 <graphs-prob-fire/3.in>`_
 
             `Sample output 3 <graphs-prob-fire/3.ans>`_
-
-
-            *Source: UVa 11624*
         allowed_exts:
         - .java
         - .cpp
@@ -84,3 +83,4 @@ submission_limit:
     period: -1
 tags: {}
 weight: 1.0
+order: 7
