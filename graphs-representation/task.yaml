@@ -16,7 +16,7 @@ context: |-
 
     1. For each pair of consecutive nodes, there is an edge in the graph. Formally this means that :math:`(v_{i}, v_{i + 1}) \in E(G)`.
 
-    2. The sequence start at :math:`A` nd ends at :math:`B`, that is, :math:`v_1 = A` and :math:`v_k = B`.
+    2. The sequence start at :math:`A` and ends at :math:`B`, that is, :math:`v_1 = A` and :math:`v_k = B`.
 
     Observe that in the graph, the geographic positions of the airports is lost in the graph representation of problem. We abstract all that information and keep only the relations between the airports. This is all we need to answer the question. When we draw of graph, the relative position of the nodes have no meaning, they are chosen only for readability.
 
@@ -87,14 +87,15 @@ context: |-
             reader.close();
        }
 
-    *Note:* In a lot of problems the nodes of the input graph are numbered from :math:`1` to :math:`n` rather than :math:`0` to :math:`n - 1`. In this case the easiest solution is to simply subtract :math:`1` while reading the input and add :math:`1` while writting the output. This may seem obvious but I have seen students subtracting :math:`1` in every acess to :math:`g` which is very annoying an time consuming.
+    *Note:* In a lot of problems the nodes of the input graph are numbered from :math:`1` to :math:`n` rather than :math:`0` to :math:`n - 1`. In this case the easiest solution is to simply subtract :math:`1` while reading the input and add :math:`1` while writing the output. This may seem obvious but I have seen students subtracting :math:`1` in every access to :math:`g` which is very annoying an time consuming.
 environment: correctoz
 evaluate: best
 groups: false
+input_random: '0'
 limits:
+    time: '30'
     output: '2'
     memory: '100'
-    time: '30'
 name: Graphs - Representation
 network_grading: false
 order: 2
@@ -104,8 +105,8 @@ problems:
         -   valid: true
             text: 'Yes'
         type: multiple_choice
-        name: Mark this section as read?
         limit: 0
+        name: Mark this section as read?
         header: ''
 stored_submissions: 0
 submission_limit:

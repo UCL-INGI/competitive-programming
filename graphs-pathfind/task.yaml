@@ -14,7 +14,7 @@ context: |-
       .. image:: graphs-pathfind/anim.gif
 
 
-    Let's see what this looks like in Java. We will create a function that takes as input the graph :math:`g`, the source :math:`s` and the destination :math:`t`. We start by adding the source to the queue and then process the nodes until no more nodes remain to be processed. To process a node, we loop over its neighbors and add all its unvidited neighbors to the queue so they are processed later. In the end, all nodes that are reachable from :math:`s` will have been visited.
+    Let's see what this looks like in Java. We will create a function that takes as input the graph :math:`g`, the source :math:`s` and the destination :math:`t`. We start by adding the source to the queue and then process the nodes until no more nodes remain to be processed. To process a node, we loop over its neighbors and add all its unvisited neighbors to the queue so they are processed later. In the end, all nodes that are reachable from :math:`s` will have been visited.
 
     .. code:: java
 
@@ -91,10 +91,11 @@ context: |-
 environment: pyjavacpp
 evaluate: best
 groups: false
+input_random: '0'
 limits:
-    memory: '1000'
     time: '1000'
     output: '100'
+    memory: '1000'
 name: Graphs - Finding a path
 network_grading: false
 order: 3
@@ -139,11 +140,11 @@ problems:
             `Sample input 3 <graph-bfs/3.in>`_
 
             `Sample output 3 <graph-bfs/3.ans>`_
-        type: file
         allowed_exts:
         - .java
         - .cpp
         - .py
+        type: file
 stored_submissions: 0
 submission_limit:
     amount: -1
