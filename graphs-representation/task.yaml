@@ -53,7 +53,7 @@ context: |-
 
     .. code:: java
 
-       // iterating over neights of v
+       // iterating over neighbors of v
        for(int u : g[v]) {
          // do something
        }
