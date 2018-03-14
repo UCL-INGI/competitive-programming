@@ -13,7 +13,7 @@ name: 'Graphs - Problem: Fire!'
 network_grading: false
 problems:
     file:
-        name: Fire! (UVa 11624)
+        name: Fire!
         header: |-
             Joe works in a maze. Unfortunately, portions of the maze have caught on fire, and the owner of the maze neglected to create a fire escape plan.
 
@@ -23,6 +23,47 @@ problems:
 
             Joe and the fire each move one square per minute, vertically or
             horizontally (not diagonally). The fire spreads all four directions from each square that is on fire. Joe may exit the maze from any square that borders the edge of the maze. Neither Joe nor the fire may enter a square that is occupied by a wall.
+
+            **Input**
+
+            The first line of the input contains two integers giving the number of rows :math:`n` and columns :math:`m` in the maze, respectively.
+
+            Then follow :math:`n` lines each with a string on length :math:`m` giving the rows of the mazer. Each string is defined of the alphabet '#', '.', 'J' and 'F' each of the characters having the following meaning:
+
+            - '#': a wall
+            - '.': an empty space
+            - 'J': the initial position of Joe
+            - 'F': a position that is on fire at the start
+
+            There will be exactly one 'J' in the maze.
+
+            **Constraints**
+
+            * :math:`1 \leq n, m \leq 1000`.
+
+            **Output**
+
+            For each test case, output a single line containing IMPOSSIBLE if Joe cannot exit the maze before the fire reaches him, or an integer giving the earliest time Joe can safely exit the maze, in minutes.
+
+            Note that it still takes Joe one minute to go out of the maze once he is already at the border (see the first sample test case, the answer is 3 not 2).
+
+            **Sample Test Cases**
+
+            `Sample input 1 <graphs-prob-fire/1.in>`_
+
+            `Sample output 1 <graphs-prob-fire/1.ans>`_
+
+
+            `Sample input 2 <graphs-prob-fire/2.in>`_
+
+            `Sample output 2 <graphs-prob-fire/2.ans>`_
+
+            `Sample input 3 <graphs-prob-fire/3.in>`_
+
+            `Sample output 3 <graphs-prob-fire/3.ans>`_
+
+
+            *Source: UVa 11624*
         allowed_exts:
         - .java
         - .cpp
