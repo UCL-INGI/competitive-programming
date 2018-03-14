@@ -11,7 +11,7 @@ context: |
 
     .. image:: graphs-bfs/bfs3.png
 
-    On the left you can see the original graph, in the middle the same graph where each node is labeled with its distance from :math:`s` and, on the right, the same graph but with nodes grouped by distance layers. The set :math:`d_x` denotes the nodes at distance :math:`x` from :math:`s`. Nodes that are unreachable are put into a set that denoted by :math:`d_\infty` and we usualy define their distance to be :math:`+\infty`.
+    On the left you can see the original graph, in the middle the same graph where each node is labeled with its distance from :math:`s` and, on the right, the same graph but with nodes grouped by distance layers. The set :math:`d_x` denotes the nodes at distance :math:`x` from :math:`s`. Nodes that are unreachable are put into a set that denoted by :math:`d_\infty` and we usually define their distance to be :math:`+\infty`.
 
     Now we execute again the algorithm but drawing the graph with distance layers:
 
@@ -19,7 +19,7 @@ context: |
 
     What do you observe?
 
-    The algorithms vists the node layer by layer! The source node :math`s` is obviously at distance :math:`0`. Everytime a node puts a new node into the queue, the node that was added belongs to the next layer. This means that its distance from :math:`s` is equal to 1 plus the distance of the node that put it into the queue.
+    The algorithms visits the node layer by layer! The source node :math`s` is obviously at distance :math:`0`. Every time a node puts a new node into the queue, the node that was added belongs to the next layer. This means that its distance from :math:`s` is equal to 1 plus the distance of the node that put it into the queue.
 
     Denote by :math:`distance(u)` the distance from :math:`s` to :math:`u`. Then we can write that if node :math:`u` adds node :math:`v` into the queue it holds
 
@@ -27,7 +27,7 @@ context: |
 
        distance(v) = 1 + distance(u)
 
-    In terms of code we can simply replace the visited set by a distance array that keeps the distances initialised to :math:`+\infty`. In this setting, a node has been visited if and only if its distance is finite. When a node is added to the queue, instead of marking it as visited we will set his distance to one more than the node that is being processed. Infinity is represented by :code:`Integer.MAX_VALUE`.
+    In terms of code we can simply replace the visited set by a distance array that keeps the distances initialized to :math:`+\infty`. In this setting, a node has been visited if and only if its distance is finite. When a node is added to the queue, instead of marking it as visited we will set his distance to one more than the node that is being processed. Infinity is represented by :code:`Integer.MAX_VALUE`.
 
     .. code:: java
 
@@ -56,7 +56,7 @@ context: |
             return distance;
         }
 
-    This algorithm is commondly know as **Breadth-first Search (BFS)**. The reason for this name is because of fact that it explores all nodes at distance :math:`d` before exploring nodes at distance :math:`d + 1`. Its runtime is :math:`O(V + E)` where :math:`V` is the number of nodes in the graph and :math:`E` is the number of edges. An easy way to see why this is the case if to count how many operations are perfomed at each node.
+    This algorithm is commonly know as **Breadth-first Search (BFS)**. The reason for this name is because of fact that it explores all nodes at distance :math:`d` before exploring nodes at distance :math:`d + 1`. Its runtime is :math:`O(V + E)` where :math:`V` is the number of nodes in the graph and :math:`E` is the number of edges. An easy way to see why this is the case if to count how many operations are performed at each node.
 
     Each node is expanded once, when it is removed from the queue. Therefore, in the worst case the while loop is executed :math:`V(G)` times (one time for each node). Each iteration of the while loop costs :math:`1 + g[u].size()`. Thus the total run time is
 
@@ -67,15 +67,17 @@ context: |
 environment: pyjavacpp
 evaluate: best
 groups: false
+input_random: '0'
 limits:
-    output: '100'
     time: '1000'
+    output: '100'
     memory: '1000'
 name: Graphs - Breadth-first search
 network_grading: false
+order: 5
 problems:
     file:
-        type: file
+        name: Sharing posts
         header: |
             You should be able to solve this problem with a simple application of the BFS algorithm.
 
@@ -113,15 +115,14 @@ problems:
             `Sample input 2 <graphs-bfs/2.in>`_
 
             `Sample output 2 <graphs-bfs/2.ans>`_
-        name: Sharing posts
         allowed_exts:
         - .java
         - .cpp
         - .py
+        type: file
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
 tags: {}
 weight: 1.0
-order: 5

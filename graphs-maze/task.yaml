@@ -20,7 +20,7 @@ context: |-
         |
 
         Notice that in this case graph, whenever there is an edge
-        :math:`(u, v)` there reverse edge :math:`(v, u)` also exsits.
+        :math:`(u, v)` there reverse edge :math:`(v, u)` also exists.
         This is because if we can go from cell :math:`x` to cell
         :math:`y` we can also move from cell :math:`y` to cell
         :math:`x`. In this case we say that the graph is
@@ -31,7 +31,7 @@ context: |-
 
     One way to solve this problem is to explicitly build the graph that corresponds to the maze and call :code:`findPath`. However we will not do this. Instead we will re-implement the algorithm to run over the maze without explicitly building the graph.
 
-    We represent the maze as an ascii matrix :math:`maze` using '# for the walls, '.' for the white space, 'S' for the starting point and 'T' for the destination.
+    We represent the maze as an ASCII matrix :math:`maze` using '# for the walls, '.' for the white space, 'S' for the starting point and 'T' for the destination.
 
         **Example:**
 
@@ -64,7 +64,7 @@ context: |-
 
        (i - 1, j), (i + 1, j), (i, j - 1), (i, j + 1)
 
-    From these we need to remove the ones that correspond to a wall. To easily iterate over them it is convinient to declare an array with the possible movement directions:
+    From these we need to remove the ones that correspond to a wall. To easily iterate over them it is convenient to declare an array with the possible movement directions:
 
     .. code:: java
 
@@ -87,7 +87,7 @@ context: |-
             }
         }
 
-    Putting these pieces together to make a path finding algorithms is straighforward. As before, we need to be able to mark a node as visited. The simplest way to do this with when nodes are pairs of integers is to create a matrix such that :math:`visited[i][j]` is true if and only if node :math:`(i, j)` has been visited. Another change is that the parent will also be stored in an array such that :math:`parent[i][j]` contains the parent of node :math:`(i, j)`.
+    Putting these pieces together to make a path finding algorithms is straightforward. As before, we need to be able to mark a node as visited. The simplest way to do this with when nodes are pairs of integers is to create a matrix such that :math:`visited[i][j]` is true if and only if node :math:`(i, j)` has been visited. Another change is that the parent will also be stored in an array such that :math:`parent[i][j]` contains the parent of node :math:`(i, j)`.
 
     .. code:: java
 
@@ -137,16 +137,17 @@ context: |-
 environment: pyjavacpp
 evaluate: best
 groups: false
+input_random: '0'
 limits:
-    output: '100'
     time: '1000'
+    output: '100'
     memory: '1000'
 name: Graphs - Solving a maze
 network_grading: false
 order: 4
 problems:
     file:
-        type: file
+        name: Finding a path in a maze
         header: |+
             Put the piece together in order to be able to find a path in a maze.
 
@@ -181,11 +182,11 @@ problems:
 
             `Sample output 2 <graphs-maze/2.ans>`_
 
-        name: Finding a path in a maze
         allowed_exts:
         - .java
         - .cpp
         - .py
+        type: file
 stored_submissions: 0
 submission_limit:
     amount: -1
