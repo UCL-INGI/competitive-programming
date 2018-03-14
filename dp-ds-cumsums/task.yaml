@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: ''
 context: |+
     In this task we will start looking into ways in which DP is used to stucture data to efficiently answer queries.
@@ -91,19 +91,17 @@ context: |+
 environment: pyjavacpp
 evaluate: best
 groups: false
+input_random: '0'
 limits:
     time: '1000'
-    memory: '1000'
     output: '100'
+    memory: '1000'
 name: 'DP - Data structures: 1D cumulative sums'
 network_grading: false
+order: 17
 problems:
     file:
-        type: file
-        allowed_exts:
-        - .java
-        - .cpp
-        - .py
+        name: 1D cumulative sums
         header: |
             You will be given an array :math:`a` of size :math:`n` and a list of :math:`q` ranges :math:`[i_1, j_1], \ldots, [i_q, j_q]`. For each of them you have to output the sum of values of :math:`a` in that range.
 
@@ -138,11 +136,14 @@ problems:
             `Sample input 2 <dp-ds-cumsumsk/2.in>`_
 
             `Sample output 2 <dp-ds-cumsums/2.ans>`_
-        name: 1D cumulative sums
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
+        type: file
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
 tags: {}
 weight: 1.0
-order: 17

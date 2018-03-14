@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: ''
 context: |-
     The solution that we developed for the Knpasack problem where we solve our problem with a recursive function and memoize the results is called **top-down** dynamic programmig.
@@ -73,15 +73,21 @@ context: |-
 environment: pyjavacpp
 evaluate: best
 groups: false
+input_random: '0'
 limits:
+    time: '1000'
     output: '100'
     memory: '1000'
-    time: '1000'
 name: DP - Top down VS Bottom up
 network_grading: false
 order: 10
 problems:
     file:
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
+        name: Knapsack (same problem as before)
         header: |
             Put all the pieces that we discussed above together and write a bottom-up solution for the Knapsack problem (the task will not check whether your solution is a bottom-up solution).
 
@@ -109,22 +115,18 @@ problems:
             `Sample input 2 <dp-knapsack/2.in>`_
 
             `Sample output 2 <dp-knapsack/2.ans>`_
-        name: Knapsack (same problem as before)
-        allowed_exts:
-        - .java
-        - .cpp
-        - .py
         type: file
     dp-topdown-bottomup:
-        name: Mark this section as read?
-        choices:
-        -   valid: true
-            text: Yes.
-        limit: 0
         header: ''
+        choices:
+        -   text: Yes.
+            valid: true
+        name: Mark this section as read?
+        limit: 0
         type: multiple_choice
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
+tags: {}
 weight: 1.0

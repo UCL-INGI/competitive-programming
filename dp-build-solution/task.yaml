@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: ''
 context: |-
     We now solved the Knapsack problem in two different ways: using top-down and bottom-up dp. However, both those solutions only give the *value* of the solution.
@@ -69,10 +69,11 @@ context: |-
 environment: pyjavacpp
 evaluate: best
 groups: false
+input_random: '0'
 limits:
-    memory: '1000'
     time: '1000'
     output: '100'
+    memory: '1000'
 name: DP - Knapsack, build the solution
 network_grading: false
 order: 12
@@ -110,13 +111,14 @@ problems:
             `Sample input 2 <dp-build-solution/2.in>`_
 
             `Sample output 2 <dp-build-solution/2.ans>`_
-        type: file
         allowed_exts:
         - .java
         - .cpp
         - .py
+        type: file
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
+tags: {}
 weight: 1.0

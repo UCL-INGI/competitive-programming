@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: ''
 context: |
     In this task we will an example of parameter decution in DP.
@@ -88,16 +88,17 @@ context: |
 environment: pyjavacpp
 evaluate: best
 groups: false
+input_random: '0'
 limits:
     time: '1000'
     output: '100'
     memory: '1000'
 name: DP - Candy problem, parameter decution
 network_grading: false
+order: 15
 problems:
     file:
         name: Candies for 3 kids
-        type: file
         header: |-
             Write the code for the DP solution with reduced state space.
 
@@ -130,10 +131,10 @@ problems:
         - .java
         - .cpp
         - .py
+        type: file
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
 tags: {}
 weight: 1.0
-order: 15

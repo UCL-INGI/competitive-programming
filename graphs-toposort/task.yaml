@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: ''
 context: |+
     Suppose that you have a set of :math:`n` tasks to perform some of which depend on each other. If a task :math:`t` depends on taks :math:`t_1, t_2, \ldots, t_k` then we can only do task :math:`t` after having done all the tasks :math:`t_1, t_2, \ldots, t_k`. We would like to compute an order in which we can perform the tasks.
@@ -25,28 +25,85 @@ context: |+
         edges to make it clear that all of them go from the left to the
         right, meaning that no predecendes are violated.
 
+    |
+
+    We define the in-degree of a node :math:`u` as the number of edges that end in :math:`u` and the out-degree as the number of edges that start at it. They are denoted by :math:`indeg(u)` and :math:`outdeg(u)`, respectively.
+
+    It is easy to see that any topological order must start with a node with in-degree :math:`0` since such a node has no precedences. Then, if we remove that node from the graph the same is true from the resulting graph: the next node can by any node with in-degree :math:`0`. This suggests the following algorithm.
+
+    Compute the in-degree of each node. Put all the nodes with in-degree :math:`0` in a queue to be processed. While there nodes to be processed: select one to process, add it in the next position in the order and delete it by decreasing the in-degree of all of its sucessors while adding new nodes with in-degree :math:`0` to the queue.
+
+    The following animation illustrates an execution of this algorithm on the sample graph given above.
+
+    |
+
+    .. image:: graphs-toposort/anim.gif
+
+    If you think about it, this algorithm is quite similar to the BFS. The differences are:
+
+    1. We start from multiple points (all nodes with in-degree :math:`0` ), not a single source.
+    2. We only add a node when its in-degree becomes :math:`0`.
+
+    As you can see, the code is quite similar:
+
+    .. code:: java
+
+        static ArrayList<Integer> toposort(LinkedList<Integer>[] g) {
+            // compute the in-degrees
+            int[] indeg = new int[g.length];
+            for(int u = 0; u < g.length; u++) {
+                for(int v : g[u]) {
+                    indeg[v] += 1;
+                }
+            }
+            // initialize the queue with 0 in-degree nodes
+            Queue<Integer> Q = new LinkedList<>();
+            for(int u = 0; u < g.length; u++) {
+                if(indeg[u] == 0) {
+                    Q.add(u);
+                }
+            }
+            ArrayList<Integer> order = new ArrayList<>();
+            while(!Q.isEmpty()) {
+                int u = Q.poll();
+                // add u as the next node in the topological order
+                order.add(u);
+                // we are now processing node u
+                for(int v : g[u]) {
+                    // visit edge (u, v)
+                    indeg[v] -= 1;
+                    if(indeg[v] == 0) {
+                        // node v has now in-degree 0, add it to the queue
+                        Q.add(v);
+                    }
+                }
+            }
+            return order;
+        }
+
 environment: pyjavacpp
 evaluate: best
 groups: false
+input_random: '0'
 limits:
-    memory: '1000'
     time: '1000'
     output: '100'
+    memory: '1000'
 name: Graphs - Topological sort
 network_grading: false
+order: 7
 problems:
     file:
         name: ''
         header: ''
-        type: file
         allowed_exts:
         - .java
         - .cpp
         - .py
+        type: file
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
 tags: {}
 weight: 1.0
-order: 7

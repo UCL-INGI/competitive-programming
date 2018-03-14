@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: Aubry François
 context: |-
     The **maximum sum subarray problem** is the following:
@@ -50,17 +50,20 @@ context: |-
 environment: java8scala
 evaluate: best
 groups: false
+input_random: '0'
 limits:
+    time: '50'
     output: '40'
     memory: '1000'
-    time: '50'
 name: DP - Maximum sum subarray
 network_grading: false
 order: 16
 problems:
     dp1-maxarraysum-1:
+        name: Maximum sum subarray
         allowed_exts:
         - .java
+        type: file
         header: |-
             Write an :math:`O(n)` algorithm to compute the maximum sum subarray.
 
@@ -74,10 +77,9 @@ problems:
             **Output**
 
             The output consists of a single line with an integer: the value of the maximum sum subarray.
-        name: Maximum sum subarray
-        type: file
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
+tags: {}
 weight: 1.0

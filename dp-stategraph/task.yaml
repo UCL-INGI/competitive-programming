@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: ''
 context: |-
     In this section we will discuss some theoretical aspects of DP a bit further.
@@ -58,10 +58,11 @@ context: |-
 environment: scapy
 evaluate: best
 groups: false
+input_random: '0'
 limits:
     time: '30'
-    memory: '100'
     output: '2'
+    memory: '100'
 name: DP - State graph
 network_grading: false
 order: 11
@@ -70,9 +71,9 @@ problems:
         choices:
         -   valid: true
             text: 'Yes'
-        name: Mark this sections as read?
-        header: ''
         limit: 0
+        header: ''
+        name: Mark this sections as read?
         type: multiple_choice
 stored_submissions: 0
 submission_limit:
