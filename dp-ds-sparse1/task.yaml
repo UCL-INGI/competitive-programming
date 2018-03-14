@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: ''
 context: |-
     We are now going to discuss sparse tables. Sparse table are great at answering a wide range of queries. We will start by discussing range minimum queries (RMQ) and then see how we can extend them to other kind of queries.
@@ -79,21 +79,22 @@ context: |-
 environment: pyjavacpp
 evaluate: best
 groups: false
+input_random: '0'
 limits:
     time: '1000'
-    memory: '1000'
     output: '100'
+    memory: '1000'
 name: 'DP - Data structures: sparse table for RMQ'
 network_grading: false
+order: 19
 problems:
     file:
-        type: file
-        header: ''
         name: ''
+        header: ''
+        type: file
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
 tags: {}
 weight: 1.0
-order: 19

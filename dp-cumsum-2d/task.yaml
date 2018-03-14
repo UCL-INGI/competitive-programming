@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: ''
 context: |-
     In this task we will quickly extended our solution for cumulative 1D sums to cumulative 2D sums. The goal is to be able to answer queries over a fixed :math:`n \times m` matrix :math:`A` which input four integers :math:`0 \leq i_1 \leq i_2 < n`, :math:`0 \leq j_1 \leq j_2 < m` and output the sum of the elements in rows :math:`i_1` to :math:`i_2` and columns :math:`j_1` to :math:`j_2`.
@@ -51,19 +51,17 @@ context: |-
 environment: pyjavacpp
 evaluate: best
 groups: false
+input_random: '0'
 limits:
     time: '1000'
-    memory: '1000'
     output: '100'
+    memory: '1000'
 name: 'DP - Data structures: 2D cumulative sums'
 network_grading: false
+order: 18
 problems:
     file:
-        type: file
-        allowed_exts:
-        - .java
-        - .cpp
-        - .py
+        name: 2D cumulative sums
         header: |
             You will be given an :math:`n \times m` matrix :math:`A` and a list of :math:`q` tuples :math:`(i_1, j_1, i_2, j_2)_1, \ldots, (i_1, j_1, i_2, j_2)_q`. For each of them you have to output the sum of values of :math:`A` in that range.
 
@@ -99,11 +97,14 @@ problems:
             `Sample input 2 <dp-cumsum-2d/2.in>`_
 
             `Sample output 2 <dp-cumsum-2d/2.ans>`_
-        name: 2D cumulative sums
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
+        type: file
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
 tags: {}
 weight: 1.0
-order: 18
