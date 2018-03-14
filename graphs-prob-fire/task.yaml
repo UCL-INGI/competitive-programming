@@ -27,6 +27,8 @@ problems:
             **Example**
 
                 The following image illustrates the first sample test case.
+                Joe is represented in blue, the fire in red and the walls in
+                gray. Joe can escape in 5 minutes as shown in the animation.
 
                 .. image:: graphs-prob-fire/anim.gif
 
