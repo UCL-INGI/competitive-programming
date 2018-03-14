@@ -24,6 +24,15 @@ problems:
             Joe and the fire each move one square per minute, vertically or
             horizontally (not diagonally). The fire spreads all four directions from each square that is on fire. Joe may exit the maze from any square that borders the edge of the maze. Neither Joe nor the fire may enter a square that is occupied by a wall.
 
+            **Example**
+
+                The following image illustrates the first sample test case.
+                Joe is represented in blue, the fire in red and the walls in
+                gray. Joe can escape in 5 minutes as shown in the animation.
+
+                .. image:: graphs-prob-fire/anim.gif
+
+
             **Input**
 
             The first line of the input contains two integers giving the number of rows :math:`n` and columns :math:`m` in the maze, respectively.
@@ -45,7 +54,7 @@ problems:
 
             For each test case, output a single line containing IMPOSSIBLE if Joe cannot exit the maze before the fire reaches him, or an integer giving the earliest time Joe can safely exit the maze, in minutes.
 
-            Note that it still takes Joe one minute to go out of the maze once he is already at the border (see the first sample test case, the answer is 3 not 2).
+            Note that it still takes Joe one minute to go out of the maze once he is already at the border (see the first sample test case, the answer is 5 not 2).
 
             **Sample Test Cases**
 
