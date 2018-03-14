@@ -13,8 +13,16 @@ name: 'Graphs - Problem: Fire!'
 network_grading: false
 problems:
     file:
-        name: ''
-        header: ''
+        name: Fire! (UVa 11624)
+        header: |-
+            Joe works in a maze. Unfortunately, portions of the maze have caught on fire, and the owner of the maze neglected to create a fire escape plan.
+
+            Your task is to help Joe escape the maze.
+
+            Given Joe’s location in the maze and which squares of the maze are on fire, you must determine whether Joe can exit the maze before the fire reaches him, and how fast he can do it.
+
+            Joe and the fire each move one square per minute, vertically or
+            horizontally (not diagonally). The fire spreads all four directions from each square that is on fire. Joe may exit the maze from any square that borders the edge of the maze. Neither Joe nor the fire may enter a square that is occupied by a wall.
         allowed_exts:
         - .java
         - .cpp
