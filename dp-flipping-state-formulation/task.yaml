@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: ''
 context: |-
     In this task we will see that the same problem can have several DP formulations that can be more suited for some situations.
@@ -53,20 +53,17 @@ context: |-
 environment: pyjavacpp
 evaluate: best
 groups: false
+input_random: '0'
 limits:
     time: '1000'
-    memory: '1000'
     output: '100'
+    memory: '1000'
 name: DP - Knapsack flipping the state formulation
 network_grading: false
 order: 14
 problems:
     file:
-        type: file
-        allowed_exts:
-        - .java
-        - .cpp
-        - .py
+        name: Knapsakc with small values
         header: |
             Write a solution for the Knapsack problem. You will need to apply memory compression to this formulation for your solution to be accepted. The process is analogous to the one for the other formulation.
 
@@ -99,7 +96,11 @@ problems:
             `Sample input 2 <dp-knapsack/2.in>`_
 
             `Sample output 2 <dp-knapsack/2.ans>`_
-        name: Knapsakc with small values
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
+        type: file
 stored_submissions: 0
 submission_limit:
     amount: -1

@@ -109,10 +109,11 @@ context: |-
 environment: cpp
 evaluate: best
 groups: false
+input_random: '0'
 limits:
+    time: '30'
     output: '2'
     memory: '100'
-    time: '30'
 name: Introduction
 network_grading: false
 order: 0
@@ -122,8 +123,8 @@ problems:
         -   valid: true
             text: 'Yes'
         type: multiple_choice
-        name: Mark this section as read?
         limit: 0
+        name: Mark this section as read?
         header: ''
 stored_submissions: 0
 submission_limit:

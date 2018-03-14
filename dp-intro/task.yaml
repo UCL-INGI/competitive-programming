@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: ''
 context: |-
     Dynamic Programming (DP for short) in a fundamental technique in the development of efficient algorithms.
@@ -14,24 +14,26 @@ context: |-
 environment: python3
 evaluate: best
 groups: false
+input_random: '0'
 limits:
-    memory: '100'
-    output: '2'
     time: '30'
+    output: '2'
+    memory: '100'
 name: DP - Introduction
 network_grading: false
 order: 8
 problems:
     read:
-        name: Mark this section as read?
-        type: multiple_choice
-        header: ''
         choices:
         -   valid: true
             text: 'Yes'
+        type: multiple_choice
         limit: 0
+        name: Mark this section as read?
+        header: ''
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
+tags: {}
 weight: 1.0
