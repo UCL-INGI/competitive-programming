@@ -65,7 +65,7 @@ limits:
     memory: '100'
 name: DP - State graph
 network_grading: false
-order: 11
+order: 12
 problems:
     dp-stategraph-read:
         choices:
