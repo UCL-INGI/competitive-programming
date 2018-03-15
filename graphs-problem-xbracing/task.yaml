@@ -3,7 +3,7 @@ author: ''
 context: |-
     This is a problem from the UCL Algorithm Contest Round 1 - 2015.
 
-    Sometimes a problem can be translated into a fairly simple graph problem but it is not obvious at all how to cast the problem as a such a problem.
+    Sometimes a problem can be translated into a fairly simple graph problem but it is not obvious at all how to do so.
 
     This problem is one such example. Note that in a real contests it would be harder as no one would give you a tip to try to see it as a graph problem.
 environment: pyjavacpp
@@ -40,7 +40,7 @@ problems:
 
             |
 
-            Triangles help to keep structures rigid. So to make a square rigid we can use a cross section sub-dividing it into two triangles as shown in the figure.
+            Triangles help to keep structures rigid. So, to make a square rigid, we can use a cross section sub-dividing it into two triangles as shown in the figure.
 
             |
 
