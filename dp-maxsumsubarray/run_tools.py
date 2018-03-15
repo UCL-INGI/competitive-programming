@@ -2,6 +2,7 @@ import time
 import os
 import subprocess
 from subprocess import TimeoutExpired
+import re
 
 def execute_command(cmd, verbose = True):
   if(verbose): print('executing: {0}'.format(cmd))
@@ -137,6 +138,7 @@ def judge(filename, compile, run, checker, timelimit, testdir = './tests', verbo
   # no compile error, so we run
   test_index = -1
   can_be_ac = True
+  p = re.compile('^[0-9]+$')
   for fn in os.listdir(testdir):
     if not can_be_ac:
       break
@@ -145,6 +147,9 @@ def judge(filename, compile, run, checker, timelimit, testdir = './tests', verbo
       test_index += 1
       # get the name of the test case
       name = fn.split('.')[0]
+      is_sample = False
+      if p.matches(name):
+        is_sample = True
       time_ok, run_ok, time, err = run(filename, timelimit, testdir + '/' + fn, 'output.tmp')
       if(verbose): print('run finished: {0}s'.format(time))
       # add the test
@@ -156,11 +161,13 @@ def judge(filename, compile, run, checker, timelimit, testdir = './tests', verbo
           print('runtime error')
           print(err)
         # runtime error
+        judging.set_fail_sample(True)
         judging.add_runtime_error(test_index, format_for_output(err))
       elif not time_ok:
         if(verbose): print('time limit exceeded')
         can_be_ac = False
         # time limit exceeded
+        judging.set_fail_sample(True)
         judging.add_time_limit_exceeded(test_index)
       else:
         if(verbose): print('chicking the answer')
@@ -175,6 +182,7 @@ def judge(filename, compile, run, checker, timelimit, testdir = './tests', verbo
           if(verbose): print('wrong answer')
           # wrong_answer
           can_be_ac = False
+          judging.set_fail_sample(True)
           judging.add_wrong_answer(test_index, msg)
         else:
           if(verbose): print('correct')
@@ -195,6 +203,10 @@ class Judging:
     self.correct = set()
     self.run_time = { }
     self.tests = set()
+    self.fail_sample = False
+
+  def set_fail_sample(self, fail_sample):
+    self.fail_sample = fail_sample
   
   def set_compile_error(self, compile_error, compile_message):
     self.compile_error = compile_error
@@ -250,7 +262,7 @@ class Judging:
 
   def produce_feedback_message(self):
     s = ''
-    if not self.is_accepted():
+    if self.fail_sample:
       s += 'PLEASE, ALWAYS TEST YOUR CODE LOCALY ON THE SAMPLE TEST CASES BEFORE SUBMITTING!\n\n'
       s += 'IT WASTES A LOT OF RESOURCES TO RUN THE VIRTUAL MACHINE FOR NOTHING!\n\n----------\n\n'
     if self.is_compile_error():
