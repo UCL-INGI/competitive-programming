@@ -127,19 +127,19 @@ problems:
 
             **Sample Test Cases**
 
-            `Sample input 1 <graph-bfs/1.in>`_
+            `Sample input 1 <graphs-pathfind/1.in>`_
 
-            `Sample output 1 <graph-bfs/1.ans>`_
-
-
-            `Sample input 2 <graph-bfs/2.in>`_
-
-            `Sample output 2 <graph-bfs/2.ans>`_
+            `Sample output 1 <graphs-pathfind/1.ans>`_
 
 
-            `Sample input 3 <graph-bfs/3.in>`_
+            `Sample input 2 <graphs-pathfind/2.in>`_
 
-            `Sample output 3 <graph-bfs/3.ans>`_
+            `Sample output 2 <graphs-pathfind/2.ans>`_
+
+
+            `Sample input 3 <graphs-pathfind/3.in>`_
+
+            `Sample output 3 <graphs-pathfind/3.ans>`_
         allowed_exts:
         - .java
         - .cpp
