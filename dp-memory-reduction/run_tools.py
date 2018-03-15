@@ -249,9 +249,12 @@ class Judging:
         
 
   def produce_feedback_message(self):
-    if self.is_compile_error():
-      return 'Compile error\n\n' + self.compile_message
     s = ''
+    if not self.is_accepted():
+      s += 'PLEASE, ALWAYS TEST YOUR CODE LOCALY ON THE SAMPLE TEST CASES BEFORE SUBMITTING!\n\n'
+      s += 'IT WASTES A LOT OF RESOURCES TO RUN THE VIRTUAL MACHINE FOR NOTHING!\n\n----------\n\n'
+    if self.is_compile_error():
+      return s + 'Compile error\n\n' + self.compile_message
     for test_index in self.tests:
       status = ''
       if test_index in self.correct:
