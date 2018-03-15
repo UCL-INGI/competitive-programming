@@ -91,7 +91,7 @@ def check_path(s, t, graph, path):
   if path[0] != s:
     return False, 'path should start at {0} but starts at {1}'.format(s, path[0])
   if path[-1] != t:
-    return False, 'path should end at {0} but ends at {1}'.format(s, path[-1])
+    return False, 'path should end at {0} but ends at {1}'.format(t, path[-1])
   if not graph.is_path(path):
     return False, 'the provided path {0} is not a path in the graph'.format(path)
   return True, ''
