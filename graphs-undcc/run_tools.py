@@ -148,7 +148,7 @@ def judge(filename, compile, run, checker, timelimit, testdir = './tests', verbo
       # get the name of the test case
       name = fn.split('.')[0]
       is_sample = False
-      if p.matches(name):
+      if p.match(name):
         is_sample = True
       time_ok, run_ok, time, err = run(filename, timelimit, testdir + '/' + fn, 'output.tmp')
       if(verbose): print('run finished: {0}s'.format(time))
