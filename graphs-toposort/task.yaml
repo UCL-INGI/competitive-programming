@@ -91,7 +91,7 @@ limits:
     memory: '1000'
 name: Graphs - Topological sort
 network_grading: false
-order: 8
+order: 9
 problems:
     file:
         name: ''

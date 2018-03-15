@@ -16,6 +16,7 @@ limits:
     time: '1000'
 name: 'Graphs - Problem: Cross Bracing'
 network_grading: false
+order: 8
 problems:
     file:
         allowed_exts:
@@ -27,6 +28,8 @@ problems:
             Many engineering structures are constructed using triangles. Why is this?
 
             .. image:: graphs-problem-xbracing/bridge.jpg
+
+            |
 
             The simple answer is that triangles are stable. A triangle has three sides and, if these are fixed in length, there is only one configuration they can be in. There is no flexibility or freedom. On the other hand, a quadrilateral has more degrees of freedom. Without changing any of the lengths of the sides the shape can be
             deformed.
