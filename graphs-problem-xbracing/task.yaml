@@ -5,7 +5,7 @@ context: |-
 
     Sometimes a problem can be translated into a fairly simple graph problem but it is not obvious at all how to cast the problem as a such a problem.
 
-    This problem is one such example.
+    This problem is one such example. Note that in a real contests it would be harder as no one would give you a tip to try to see it as a graph problem.
 environment: pyjavacpp
 evaluate: best
 groups: false
