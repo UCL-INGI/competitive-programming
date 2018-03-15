@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 
 
-class fitvoye {
+class fitvoyeWA {
 
   static int nC = 0;
 

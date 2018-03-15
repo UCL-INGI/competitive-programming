@@ -292,8 +292,8 @@ class Judging:
     if self.is_runtime_error():
       overall_status += '[RUNTIME ERROR]'
     s += overall_status
-    s += '\n\n----------\n\n'
     if os.path.exists('./mistakes'):
+      s += '\n\n----------\n\n'
       f = open('mistakes', 'r')
       lines = [ line.strip() for line in f.readlines() ]
       s += 'COMMON MISTAKES:\n\n'
