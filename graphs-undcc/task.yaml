@@ -101,14 +101,14 @@ problems:
 
             **Sample Test Cases**
 
-            `Sample input 1 <graph-undcc/1.in>`_
+            `Sample input 1 <graphs-undcc/1.in>`_
 
-            `Sample output 1 <graph-undcc/1.ans>`_
+            `Sample output 1 <graphs-undcc/1.ans>`_
 
 
-            `Sample input 2 <graph-undcc/2.in>`_
+            `Sample input 2 <graphs-undcc/2.in>`_
 
-            `Sample output 2 <graph-undcc/2.ans>`_
+            `Sample output 2 <graphs-undcc/2.ans>`_
         allowed_exts:
         - .java
         - .cpp
