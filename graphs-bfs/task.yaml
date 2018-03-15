@@ -69,14 +69,18 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '1000'
     output: '100'
     memory: '1000'
+    time: '1000'
 name: Graphs - Breadth-first search
 network_grading: false
 order: 5
 problems:
     file:
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
         name: Sharing posts
         header: |
             You should be able to solve this problem with a simple application of the BFS algorithm.
@@ -95,9 +99,7 @@ problems:
 
             **Output**
 
-            A single line with an integer giving the maximum value that can be achieve by taking a subset of the items with total weight at most :math:`C`.
-
-            *Do not forget to print the answer as an int and not a double.*
+            A single integer giving the number of days it takes for everyone to have shared the post.
 
             **Constraints**
 
@@ -115,10 +117,6 @@ problems:
             `Sample input 2 <graphs-bfs/2.in>`_
 
             `Sample output 2 <graphs-bfs/2.ans>`_
-        allowed_exts:
-        - .java
-        - .cpp
-        - .py
         type: file
 stored_submissions: 0
 submission_limit:
