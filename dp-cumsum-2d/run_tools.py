@@ -267,6 +267,8 @@ class Judging:
       s += 'IT WASTES A LOT OF RESOURCES TO RUN THE VIRTUAL MACHINE FOR NOTHING!\n\n----------\n\n'
     if self.is_compile_error():
       return s + 'Compile error\n\n' + self.compile_message
+    if self.is_accepted():
+      return 'verdict: [ACCEPTED]'
     for test_index in self.tests:
       status = ''
       if test_index in self.correct:
@@ -283,8 +285,6 @@ class Judging:
       if test_index in self.wrong_answer and len(self.wrong_answer[test_index]) > 0:
         s += self.wrong_answer[test_index] + '\n\n'
     overall_status = 'verdict: '
-    if self.is_accepted():
-      overall_status = '[ACCEPTED]'
     if self.is_wrong_answer():
       overall_status += '[WRONG ANSWER]'
     if self.is_time_limit_exceeded():
@@ -292,4 +292,11 @@ class Judging:
     if self.is_runtime_error():
       overall_status += '[RUNTIME ERROR]'
     s += overall_status
+    s += '\n\n----------\n\n'
+    if os.path.exists('./mistakes'):
+      f = open('mistakes', 'r')
+      lines = [ line.strip() for line in f.readlines() ]
+      s += 'COMMON MISTAKES:\n\n'
+      for line in lines:
+        s += line + '\n\n'
     return s

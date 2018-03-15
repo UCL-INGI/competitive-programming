@@ -1,0 +1,2 @@
+- Using :code:`==` to compare component id's instead of :code:`.equals`. Even for the :code:`Integer` class this can be a problem.
+- Forgetting to add edges in both directions.
