@@ -161,13 +161,13 @@ def judge(filename, compile, run, checker, timelimit, testdir = './tests', verbo
           print('runtime error')
           print(err)
         # runtime error
-        judging.set_fail_sample(True)
+        if is_sample: judging.set_fail_sample(True)
         judging.add_runtime_error(test_index, format_for_output(err))
       elif not time_ok:
         if(verbose): print('time limit exceeded')
         can_be_ac = False
         # time limit exceeded
-        judging.set_fail_sample(True)
+        if is_sample: judging.set_fail_sample(True)
         judging.add_time_limit_exceeded(test_index)
       else:
         if(verbose): print('chicking the answer')
@@ -182,7 +182,7 @@ def judge(filename, compile, run, checker, timelimit, testdir = './tests', verbo
           if(verbose): print('wrong answer')
           # wrong_answer
           can_be_ac = False
-          judging.set_fail_sample(True)
+          if is_sample: judging.set_fail_sample(True)
           judging.add_wrong_answer(test_index, msg)
         else:
           if(verbose): print('correct')
