@@ -1,6 +1,11 @@
 accessible: true
 author: ''
-context: ''
+context: |-
+    This is a problem from the UCL Algorithm Contest Round 1 - 2015.
+
+    Sometimes a problem can be translated into a fairly simple graph problem but it is not obvious at all how to cast the problem as a such a problem.
+
+    This problem is one such example.
 environment: pyjavacpp
 evaluate: best
 groups: false
@@ -9,7 +14,7 @@ limits:
     output: '100'
     memory: '1000'
     time: '1000'
-name: ''
+name: 'Graphs - Problem: Cross Bracing'
 network_grading: false
 problems:
     file:
@@ -17,8 +22,53 @@ problems:
         - .java
         - .cpp
         - .py
-        name: ''
-        header: ''
+        name: Cross Bracing
+        header: |-
+            Many engineering structures are constructed using triangles. Why is this?
+
+            .. image:: graphs-problem-xbracing/bridge.jpg
+
+            The simple answer is that triangles are stable. A triangle has three sides and, if these are fixed in length, there is only one configuration they can be in. There is no flexibility or freedom. On the other hand, a quadrilateral has more degrees of freedom. Without changing any of the lengths of the sides the shape can be
+            deformed.
+
+            .. image:: graphs-problem-xbracing/img1.jpg
+
+            Triangles help to keep structures rigid. So to make a square rigid we can use a cross section sub-dividing it into two triangles as shown in the figure.
+
+            .. image:: graphs-problem-xbracing/img2.jpg
+
+            In this problem we are interested to know if a given grid structure is rigid or not. A grid structure is rigid if no square can be deformed. For instance the following grid structure is not rigid as it can be deformed while maintaining the lengths of all non-crossed squares and the integrity of the crossed squares.
+
+            .. image:: graphs-problem-xbracing/img3.jpg
+
+            By adding a cross section on the lower left square, we obtain a rigid structure.
+
+            .. image:: graphs-problem-xbracing/img4.jpg
+
+            Given a grid with some cross sections, determine what is the minimum number of cross sections that must be added so that it becomes rigid.
+
+            **Input**
+
+            The first line contains two integers :math:`r` and :math:`c` giving the number of rows and columns of the grid structure. Then follow :math:`r` lines each containing a binary string :math:`s_i` of length :math:`c` such that :math:`s_{ij} = 1` if and only if square at row :math:`i` and column :math:`j` is braced.
+
+            **Constraints**
+
+            * :math:`1 \leq r, c \leq 1000`.
+
+            **Output**
+
+            A single line with a non-negative integer giving the minimum number of cross sections that must be added in order to make the structure rigid.
+
+            **Sample Test Cases**
+
+            `Sample input 1 <graphs-problem-xbracing/1.in>`_
+
+            `Sample output 1 <graphs-problem-xbracing/1.ans>`_
+
+
+            `Sample input 2 <graphs-problem-xbracing/2.in>`_
+
+            `Sample output 2 <graphs-problem-xbracing/2.ans>`_
         type: file
 stored_submissions: 0
 submission_limit:
