@@ -6,13 +6,18 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '1000'
     output: '100'
     memory: '1000'
+    time: '1000'
 name: 'Graphs - Problem: Fire!'
 network_grading: false
+order: 7
 problems:
     file:
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
         name: Fire!
         header: |
             *Source: UVa 11624*
@@ -56,7 +61,7 @@ problems:
 
             For each test case, output a single line containing IMPOSSIBLE if Joe cannot exit the maze before the fire reaches him, or an integer giving the earliest time Joe can safely exit the maze, in minutes.
 
-            Note that it still takes Joe one minute to go out of the maze once he is already at the border (see the first sample test case, the answer is 5 not 2).
+            Note that it still takes Joe one minute to go out of the maze once he is already at the border (see the first sample test case, the answer is 5 not 4).
 
             **Sample Test Cases**
 
@@ -72,10 +77,6 @@ problems:
             `Sample input 3 <graphs-prob-fire/3.in>`_
 
             `Sample output 3 <graphs-prob-fire/3.ans>`_
-        allowed_exts:
-        - .java
-        - .cpp
-        - .py
         type: file
 stored_submissions: 0
 submission_limit:
@@ -83,4 +84,3 @@ submission_limit:
     period: -1
 tags: {}
 weight: 1.0
-order: 7
