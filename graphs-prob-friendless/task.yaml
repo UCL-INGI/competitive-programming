@@ -1,6 +1,11 @@
 accessible: false
 author: ''
-context: This is a problem from the Belgium Algorithm Contest Round 1 - 2017.
+context: |-
+    This is a problem from the Belgium Algorithm Contest Round 1 - 2017.
+
+    An undirected graph is said to be *bipartite* if it its nodes can be partitioned into two disjoint sets :math:`L, R` such that there are not edges between two elements in the same set.
+
+    Graphically, a bipartite graph can
 environment: pyjavacpp
 evaluate: best
 groups: false
