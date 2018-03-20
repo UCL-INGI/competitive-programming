@@ -27,6 +27,36 @@ problems:
             Therefore the teachers would like to split the kids between the buses so that after the trip, no two kids are friends because of gossip.
 
             It is very evil but such a relief for them. Could you help them know whether their evil plan is achievable?
+
+            **Input**
+
+            The first line of the input contains two integers :math:`n` and :math:`m` giving the number of kids in the class and the number of friendships (pairs of kids that are friends with each other).
+
+            Then follow :math:`m` lines each with two integers :math:`x` and :math:`y` meaning that kid :math:`x` is friends with kid :math:`y`. For simplicity, the kids are numbered from :math:`0` to :math:`n - 1`.
+            Assume that friendships are symmetric, meaning that is :math:`x` is friends with :math:`y` then :math:`y` is friends with :math:`x`.
+
+            **Constraints**
+
+            * :math:`1 \leq r, c \leq 1000`
+            * :math:`1 \leq n \leq 10000`
+            * :math:`0 \leq m \leq min(50000, n (n - 1) / 2)`
+            * :math:`0 \leq x, y < n`
+            * :math:`x \neq y`
+
+            **Output**
+
+            A single line with 'yes' if the teachers can split the kids so that all friendships are destroyed by gossip or 'no' otherwise.
+
+            **Sample Test Cases**
+
+            `Sample input 1 <graphs-prob-friendless/1.in>`_
+
+            `Sample output 1 <graphs-prob-friendless/1.ans>`_
+
+
+            `Sample input 2 <graphs-prob-friendless/2.in>`_
+
+            `Sample output 2 <graphs-prob-friendless/2.ans>`_
         type: file
 stored_submissions: 0
 submission_limit:
