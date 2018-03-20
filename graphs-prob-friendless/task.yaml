@@ -1,0 +1,36 @@
+accessible: false
+author: ''
+context: This is a problem from the Belgium Algorithm Contest Round 1 - 2017.
+environment: pyjavacpp
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    output: '100'
+    memory: '1000'
+    time: '1000'
+name: 'Graphs - Problem: Friendless'
+network_grading: false
+problems:
+    file:
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
+        name: Friendless
+        header: |
+            Bob, Alice and Craig are going on a school field trip. There are a total of :math:`n` students that will travel on two buses. Both buses have capacity :math:`n` and the kids can be assigned to the buses in any way the teachers want. The teachers have noticed that
+            the kids are troublesome when they travel with their friends.
+
+            The teachers know that gossip ends friendships. Obviously two people will not gossip about a third one if the three of them are on the same bus. Since everyone loves gossip, the kids in one bus will always gossip about everyone that is on the other bus.
+
+            Therefore the teachers would like to split the kids between the buses so that after the trip, no two kids are friends because of gossip.
+
+            It is very evil but such a relief for them. Could you help them know whether their evil plan is achievable?
+        type: file
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0
