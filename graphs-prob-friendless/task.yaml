@@ -1,8 +1,6 @@
 accessible: false
 author: ''
 context: |-
-    This is a problem from the Belgium Algorithm Contest Round 3 - 2017.
-
     An undirected graph is said to be *bipartite* if its nodes can be partitioned into two disjoint sets :math:`L, R` such that there are no edges between two nodes in the same set.
 
         **Example:**
@@ -39,7 +37,7 @@ limits:
     output: '100'
     memory: '1000'
     time: '1000'
-name: 'Graphs - Problem: Friendless'
+name: Graphs - Bipartite
 network_grading: false
 problems:
     file:
@@ -47,7 +45,7 @@ problems:
         - .java
         - .cpp
         - .py
-        name: Friendless
+        name: Friendless - BAC Round 3 2017
         header: |
             Bob, Alice and Craig are going on a school field trip. There are a total of :math:`n` students that will travel on two buses. Both buses have capacity :math:`n` and the kids can be assigned to the buses in any way the teachers want. The teachers have noticed that
             the kids are troublesome when they travel with their friends.
