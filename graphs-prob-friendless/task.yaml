@@ -1,8 +1,6 @@
 accessible: false
 author: ''
 context: |-
-    This is a problem from the Belgium Algorithm Contest Round 3 - 2017.
-
     An undirected graph is said to be *bipartite* if its nodes can be partitioned into two disjoint sets :math:`L, R` such that there are no edges between two nodes in the same set.
 
         **Example:**
@@ -24,6 +22,13 @@ context: |-
         |
 
         .. image:: graphs-prob-friendless/bipartite2.png
+
+    Checking whether an undirected graph is bipartite graph should be an easy task by adapting the BFS code. We encourage you to try to write you own algorithm to do so.
+
+    It can also computed using the distance array. Just compute the distance labels *on each connected component*, starting at any node.
+    Then loop over the edges and check whether every edge links a node with even distance to a node with odd distance. The graph will be bipartite if and only if this holds.
+
+    The intuition behing why this works is that the if the graph is bipartite, then we can partition it into its nodes into two sets :math:`L` and :math:`R`. Then imagine calling BFS in any node of :math:`L`. The first node will be at distance :math:`0` (even) and all of its neighbors at distance :math:`1` (odd). But all its neighbors are on the right side. Then all the neighbors of the neighbors will be at distance :math:`2`. All the nodes lie on the left side. So you can see how all nodes on the left side will labeled with even distances and all nodes on the right side with odd distances.
 environment: pyjavacpp
 evaluate: best
 groups: false
@@ -32,7 +37,7 @@ limits:
     output: '100'
     memory: '1000'
     time: '1000'
-name: 'Graphs - Problem: Friendless'
+name: Graphs - Bipartite
 network_grading: false
 problems:
     file:
@@ -40,7 +45,7 @@ problems:
         - .java
         - .cpp
         - .py
-        name: Friendless
+        name: Friendless - BAC Round 3 2017
         header: |
             Bob, Alice and Craig are going on a school field trip. There are a total of :math:`n` students that will travel on two buses. Both buses have capacity :math:`n` and the kids can be assigned to the buses in any way the teachers want. The teachers have noticed that
             the kids are troublesome when they travel with their friends.
