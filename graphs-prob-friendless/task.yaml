@@ -27,7 +27,7 @@ context: |-
 
     It can also computed using the distance array. Just compute the distance labels *on each connected component*, starting at any node on the left. Then loop over the edges and check whether every edge links a node with even distance to a node with odd distance. The graph will be bipartite if and only if this holds.
 
-    The reason why this works is that paths starting on :math:`L` on a bipartite graph must alternate between :math:`L` and :math:`R`. Thus as there are not edges within the sets, the distances also alternate between even and odd. The first node will be even (distance 0) on the left then its neighbors odd (distance 1) on the right, the the neighbors of the neigbhros even (distance 2) on the left and so on.
+    The reason why this works is that paths starting on :math:`L` on a bipartite graph must alternate between :math:`L` and :math:`R`. Thus, as there are no edges within the sets, the distances also alternate between even and odd from one side to the other. The first node will be even (distance 0) on the left then its neighbors will be odd (distance 1) on the right, then the neighbors of the neighbors will be even (distance 2) on the left and so on.
 
     The following animation illustrates this.
 
