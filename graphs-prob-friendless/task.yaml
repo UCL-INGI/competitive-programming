@@ -1,7 +1,7 @@
-accessible: false
+accessible: true
 author: ''
 context: |-
-    An undirected graph is said to be *bipartite* if its nodes can be partitioned into two disjoint sets :math:`L, R` such that there are no edges between two nodes in the same set.
+    An undirected graph is said to be *bipartite* if its nodes can be partitioned into two disjoint sets :math:`L, R` such that there are no edges between any two nodes in the same set.
 
         **Example:**
 
@@ -14,10 +14,10 @@ context: |-
         |
 
         This is a bipartite graph because if we set :math:`L = \{0, 2,
-        4\}` and :math:`R=\{1,3,5\}` then there are not edges between
-        any two nodes in :math:`L` nor :math:`R`. To better see this we
-        can draw the graph again by putting the nodes in :math:`L` to
-        the left and the nodes in :math:`R` to the right.
+        4\}` and :math:`R=\{1,3,5\}` then there are no edges between
+        any two nodes in :math:`L` nor :math:`R`. To better see this, we
+        can draw the graph again by putting the nodes in :math:`L` on
+        the left and the nodes in :math:`R` on the right.
 
         |
 
@@ -25,9 +25,9 @@ context: |-
 
     Checking whether an undirected graph is bipartite graph should be an easy task by adapting the BFS code. We encourage you to try to write you own algorithm to do so.
 
-    It can also computed using the distance array. Just compute the distance labels *on each connected component*, starting at any node on the left. Then loop over the edges and check whether every edge links a node with even distance to a node with odd distance. The graph will be bipartite if and only if this holds.
+    It can also computed using the distance array. Just compute the distance labels *on each connected component*, starting at any node on the left for each of them. Then loop over the edges and check whether every edge links a node with even distance to a node with odd distance. The graph will be bipartite if and only if this holds.
 
-    The reason why this works is that paths starting on :math:`L` on a bipartite graph must alternate between :math:`L` and :math:`R`. Thus, as there are no edges within the sets, the distances also alternate between even and odd from one side to the other. The first node will be even (distance 0) on the left then its neighbors will be odd (distance 1) on the right, then the neighbors of the neighbors will be even (distance 2) on the left and so on.
+    The reason why this works is that paths starting on :math:`L` on a bipartite graph must alternate between :math:`L` and :math:`R`. Thus, as there are no edges within the sets, the distances must also alternate between even and odd from one side to the other. The first node will be even (distance 0) on the left then its neighbors will be odd (distance 1) on the right, then the neighbors of the neighbors will be even (distance 2) on the left and so on.
 
     The following animation illustrates this.
 
@@ -42,6 +42,7 @@ limits:
     time: '1000'
 name: Graphs - Bipartite
 network_grading: false
+order: 9
 problems:
     file:
         allowed_exts:

@@ -98,7 +98,7 @@ limits:
     memory: '1000'
 name: 'DP - Data structures: 1D cumulative sums'
 network_grading: false
-order: 19
+order: 20
 problems:
     file:
         name: 1D cumulative sums

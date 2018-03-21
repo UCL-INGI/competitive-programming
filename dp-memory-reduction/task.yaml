@@ -96,7 +96,7 @@ limits:
     memory: '1000'
 name: DP - Memory reduction
 network_grading: false
-order: 15
+order: 16
 problems:
     file:
         name: ''

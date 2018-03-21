@@ -60,7 +60,7 @@ limits:
     memory: '1000'
 name: DP - Knapsack flipping the state formulation
 network_grading: false
-order: 16
+order: 17
 problems:
     file:
         name: Knapsakc with small values
