@@ -1,4 +1,4 @@
-accessible: false
+accessible: true
 author: ''
 context: |-
     An undirected graph is said to be *bipartite* if its nodes can be partitioned into two disjoint sets :math:`L, R` such that there are no edges between two nodes in the same set.
@@ -95,3 +95,4 @@ submission_limit:
     period: -1
 tags: {}
 weight: 1.0
+order: 9

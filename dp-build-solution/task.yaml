@@ -76,7 +76,7 @@ limits:
     memory: '1000'
 name: DP - Knapsack, build the solution
 network_grading: false
-order: 14
+order: 15
 problems:
     file:
         name: Knapsack with solution
