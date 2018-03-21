@@ -86,20 +86,49 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '1000'
     output: '100'
     memory: '1000'
+    time: '1000'
 name: Graphs - Topological sort
 network_grading: false
 order: 10
 problems:
     file:
-        name: ''
-        header: ''
         allowed_exts:
         - .java
         - .cpp
         - .py
+        name: ''
+        header: |-
+            Given a directed acyclic graph, you will have to output a topological order of that graph.
+
+            **Input**
+
+            - One line with two integers :math:`n` and :math:`m` giving the number of nodes in the graph and the number of edges respectively.
+
+            - :math:`m` lines each with two integers :math:`u_i` and :math:`v_i` giving that there is an edge from :math:`u_i` to :math:`v_i`.
+
+            **Constraints**
+
+            * :math:`1 \leq n \leq 20000`
+            * :math:`0 \leq m \leq 100000`
+            * :math:`0 \leq u_i, v_i < n`
+            * :math:`0 \leq a_i, b_i < n`
+
+            **Output**
+
+            A single line with :math:`n` integers separated by single spaces giving a topological order of the nodes of the graph.
+
+            **Sample Test Cases**
+
+            `Sample input 1 <graphs-toposort/1.in>`_
+
+            `Sample output 1 <graphs-toposort/1.ans>`_
+
+
+            `Sample input 2 <graphs-toposort/2.in>`_
+
+            `Sample output 2 <graphs-toposort/2.ans>`_
         type: file
 stored_submissions: 0
 submission_limit:
