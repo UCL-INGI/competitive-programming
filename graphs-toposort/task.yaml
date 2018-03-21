@@ -1,4 +1,4 @@
-accessible: false
+accessible: true
 author: ''
 context: |+
     Suppose that you have a set of :math:`n` tasks to perform some of which depend on each other. If a task :math:`t` depends on taks :math:`t_1, t_2, \ldots, t_k` then we can only do task :math:`t` after having done all the tasks :math:`t_1, t_2, \ldots, t_k`. We would like to compute an order in which we can perform the tasks.
