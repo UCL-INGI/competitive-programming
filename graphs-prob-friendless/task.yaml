@@ -24,6 +24,13 @@ context: |-
         |
 
         .. image:: graphs-prob-friendless/bipartite2.png
+
+    Checking whether an undirected graph is bipartite graph should be an easy task by adapting the BFS code. We encourage you to try to write you own algorithm to do so.
+
+    It can also computed using the distance array. Just compute the distance labels *on each connected component*, starting at any node.
+    Then loop over the edges and check whether every edge links a node with even distance to a node with odd distance. The graph will be bipartite if and only if this holds.
+
+    The intuition behing why this works is that the if the graph is bipartite, then we can partition it into its nodes into two sets :math:`L` and :math:`R`. Then imagine calling BFS in any node of :math:`L`. The first node will be at distance :math:`0` (even) and all of its neighbors at distance :math:`1` (odd). But all its neighbors are on the right side. Then all the neighbors of the neighbors will be at distance :math:`2`. All the nodes lie on the left side. So you can see how all nodes on the left side will labeled with even distances and all nodes on the right side with odd distances.
 environment: pyjavacpp
 evaluate: best
 groups: false
