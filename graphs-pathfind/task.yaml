@@ -93,14 +93,18 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '1000'
     output: '100'
     memory: '1000'
+    time: '1000'
 name: Graphs - Finding a path
 network_grading: false
 order: 3
 problems:
     file:
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
         name: Find the path
         header: |
             Given a graph :math:`g` and two nodes :math:`s` and `t`, find a path from :math:`s` to :math:`t`.
@@ -111,11 +115,11 @@ problems:
 
             - :math:`m` lines each with two integers :math:`u` and :math:`v` giving that there is an edge from :math:`u` to :math:`v`. No edge will appear more than once in the input.
 
-            - One line with two itnegers :math:`s` and :math:`t` giving the source and the destination.
+            - One line with two integers :math:`s` and :math:`t` giving the source and the destination.
 
             **Output**
 
-            If there is a path from :math:`s` to :math:`t` print a single lines with the nodes of that path reparated by single spaces.
+            If there is a path from :math:`s` to :math:`t` print a single line with the nodes of that path separated by single spaces.
 
             If no path exists print *impossible*.
 
@@ -140,10 +144,6 @@ problems:
             `Sample input 3 <graphs-pathfind/3.in>`_
 
             `Sample output 3 <graphs-pathfind/3.ans>`_
-        allowed_exts:
-        - .java
-        - .cpp
-        - .py
         type: file
 stored_submissions: 0
 submission_limit:
