@@ -1,9 +1,9 @@
-accessible: false
+accessible: true
 author: ''
 context: |-
     We now solved the Knapsack problem in two different ways: using top-down and bottom-up dp. However, both those solutions only give the *value* of the solution.
 
-    Here we will see how we can actually recontruct the set of items that are taken for the top-down solution.
+    Here we will see how we can actually reconstruct the set of items that are taken for the top-down solution.
 
     In order to be able to build the solution, we will remember for each state what was the *action* that lead us to the optimal value. Then we will trace back those actions from the initial state :math:`(0, C)`.
 
@@ -44,7 +44,7 @@ context: |-
 
     To build the set of items we start from state :math:`(0, C)` and check what is the value of :math:`action[0][C]`. If it is SKIP then we know that item :math:`0` is not in the optimal solution. Thus we ignore it and go to state :math:`(1, C)`. Otherwise, if it is TAKE, then we know item :math:`0` is in the optimal solution. We add it to the list of items in the solution and go to state :math:`(1, C - w_0)`. We repeat this process until we either run out of items or out of space in the knapsack.
 
-    More generaly, if we are in state :math:`(i, c)` then:
+    More generally, if we are in state :math:`(i, c)` then:
 
     - if :math:`action[i][c] = SKIP` we go to state :math:`(i + 1, c)`
     - if :math:`action[i][c] = TAKE` we go to state :math:`(i + 1, c - w_i)` and add :math:`i` to the list of items taken.
@@ -71,14 +71,18 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '1000'
     output: '100'
     memory: '1000'
+    time: '1000'
 name: DP - Knapsack, build the solution
 network_grading: false
 order: 15
 problems:
     file:
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
         name: Knapsack with solution
         header: |-
             Put all the pieces that we discussed above together and write a solution for the Knapsack problem that is able to *print the items that should be taken*.
@@ -111,10 +115,6 @@ problems:
             `Sample input 2 <dp-build-solution/2.in>`_
 
             `Sample output 2 <dp-build-solution/2.ans>`_
-        allowed_exts:
-        - .java
-        - .cpp
-        - .py
         type: file
 stored_submissions: 0
 submission_limit:
