@@ -1,4 +1,4 @@
-accessible: false
+accessible: true
 author: ''
 context: |-
     The solution that we developed for the Knpasack problem where we solve our problem with a recursive function and memoize the results is called **top-down** dynamic programming.

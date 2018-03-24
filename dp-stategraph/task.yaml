@@ -1,4 +1,4 @@
-accessible: false
+accessible: true
 author: ''
 context: |-
     In this section we will discuss some theoretical aspects of DP a bit further.
@@ -28,7 +28,7 @@ context: |-
 
     The reason why this graph is acyclic is that the first coordinate of each node, the object index, is strictly increasing in any path of the graph.
 
-    This is a **crutial** property that our DP formulation must satisfy. If we happend to have cycles in the DP state graph then the order of the subproblems is not well defined and the algorithm will loop forever because the answer to some subproblems will depend on itself.
+    This is a **crucial** property that our DP formulation must satisfy. If we happend to have cycles in the DP state graph then the order of the subproblems is not well defined and the algorithm will loop forever because the answer to some subproblems will depend on itself.
 
     To better illustrate this consider the shortest path problem. Given a graph :math:`G` with positive edge weights and a node :math:`s` we want to compute the shortest path length from :math:`s` to each other node. Let's have a state for each node :math:`v` of the input graph and define DP subproblems as follows:
 
@@ -55,26 +55,28 @@ context: |-
     In this case a state is simply a node of the graph so clearly both graphs have the same set of nodes. But they also have the same set of edges since two states :math:`u` and :math:`v` are related to each other in the recurrence relation if and only if there is an edge from :math:`u` to :math:`v` them in :math:`G`.
 
     This means, according to what we said above, that this DP formulation will work if and only if the input graph :math:`G` is acyclic.
+
+    We will see later when we study the Bellman-Ford algorithm how we can, at the cost of having more states, change the state formulation in order to break cycles and get a general shortest path algorithm.
 environment: scapy
 evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '30'
     output: '2'
     memory: '100'
+    time: '30'
 name: DP - State graph
 network_grading: false
 order: 14
 problems:
     dp-stategraph-read:
+        type: multiple_choice
+        limit: 0
+        name: Mark this sections as read?
         choices:
         -   valid: true
             text: 'Yes'
-        limit: 0
         header: ''
-        name: Mark this sections as read?
-        type: multiple_choice
 stored_submissions: 0
 submission_limit:
     amount: -1
