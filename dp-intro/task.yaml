@@ -1,4 +1,4 @@
-accessible: false
+accessible: true
 author: ''
 context: |-
     Dynamic Programming (DP for short) in a fundamental technique in the development of efficient algorithms.
@@ -32,6 +32,7 @@ problems:
         header: ''
         name: Mark this section as read?
         limit: 0
+        centralize: true
 stored_submissions: 0
 submission_limit:
     amount: -1
