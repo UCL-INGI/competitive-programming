@@ -16,4 +16,4 @@ def diff_check(input, output, given):
   print(filecmp.cmp(output, given))
   print('----------')
   """
-  return filecmp.cmp(output, given)
+  return filecmp.cmp(output, given), ''
