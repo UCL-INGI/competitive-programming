@@ -175,6 +175,7 @@ def judge(filename, compile, run, checker, timelimit, testdir = './tests', verbo
         try:
           answer_ok, msg = checker(testdir + '/' + fn, testdir + '/' + name + '.ans', 'output.tmp')
         except Exception as e:
+          print(e)
           can_be_ac = False
           answer_ok = False
           msg = 'the output you provided does not respect the specifications'
