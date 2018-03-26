@@ -32,6 +32,12 @@ context: |-
     The following animation illustrates this.
 
     .. image:: graphs-prob-friendless/anim.gif
+
+    |
+
+    One can observe that **a graph is bipartite if and only if it does not contain a cycle of odd length**. This is because we saw that any path must alternate between even and odd distances. Thus, since a cycle starts and ends at the same node, it would mean that some node in the cycle is both labeled as even and odd which is impossible.
+
+    This is an important result that we will use later. It also means that now we have a simple way to check whether a graph contains cycles of odd lenght.
 environment: pyjavacpp
 evaluate: best
 groups: false

@@ -1,9 +1,9 @@
-accessible: false
+accessible: true
 author: ''
 context: |-
-    The solution that we developed for the Knpasack problem where we solve our problem with a recursive function and memoize the results is called **top-down** dynamic programmig.
+    The solution that we developed for the Knpasack problem where we solve our problem with a recursive function and memoize the results is called **top-down** dynamic programming.
 
-    There is another way to implement a DP algorithm which is called **bottom-up**. In most cases the choice of which one you use should be based on the one you are more comfortable writting. Personally I feel that top-down DP is more intuitive but this varies from one person to another.
+    There is another way to implement a DP algorithm which is called **bottom-up**. In most cases the choice of which one you use should be based on the one you are more comfortable writing. Personally I feel that top-down DP is more intuitive but this varies from one person to another.
 
     You should most both ways and be able to switch between them easily as in some cases one is more efficient than the other. We will see examples of this in more advanced DP problems.
 
@@ -13,7 +13,7 @@ context: |-
 
     In the top-down DP solution we defined the states and subproblems starting from the problem that we want to solve. That is, having all objects available and a knapsack of capacity :math:`C`.
 
-    In bottom-up DP we will write an iterative solution to compute the value of *every* state. We will start from the smallest subproblems and iterativelly increase the size and compute the new solutions from the ones we already know. This means that we will have to redefine the subproblems. Then we will need to find how the solution of the problem changes when a new object becomes available.
+    In bottom-up DP we will write an iterative solution to compute the value of *every* state. We will start from the smallest subproblems and iteratively increase the size and compute the new solutions from the ones we already know. This means that we will have to redefine the subproblems. Then we will need to find how the solution of the problem changes when a new object becomes available.
 
     We define the subproblems as follows:
 
@@ -23,7 +23,7 @@ context: |-
 
     Notice that now when we increase :math:`i` we are considering more objects whereas in the previous definitions it would consider less objects.
 
-    The easy suproblems correspond to states where :math:`i = 0`,, that is, we only have one object. In this case we either get value :math:`v_0` if object fits the knapsack or 0 otherwise.
+    The easy subproblems correspond to states where :math:`i = 0`,, that is, we only have one object. In this case we either get value :math:`v_0` if object fits the knapsack or 0 otherwise.
 
     .. math::
 
@@ -75,9 +75,9 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '1000'
     output: '100'
     memory: '1000'
+    time: '1000'
 name: DP - Top down VS Bottom up
 network_grading: false
 order: 13
@@ -116,14 +116,6 @@ problems:
 
             `Sample output 2 <dp-knapsack/2.ans>`_
         type: file
-    dp-topdown-bottomup:
-        header: ''
-        choices:
-        -   text: Yes.
-            valid: true
-        name: Mark this section as read?
-        limit: 0
-        type: multiple_choice
 stored_submissions: 0
 submission_limit:
     amount: -1

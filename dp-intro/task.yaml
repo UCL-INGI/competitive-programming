@@ -1,24 +1,25 @@
-accessible: false
+accessible: true
 author: ''
 context: |-
     Dynamic Programming (DP for short) in a fundamental technique in the development of efficient algorithms.
 
-    Mastering this technique will allow you to solve a lot of problem that seem intractable at first.
+    Mastering this technique will allow you to solve a lot of problem that seem intractable at first and is a necessary condition in order to be a successful algorithmist.
 
     We will start by studying the Knapsack problem and use it to illustrate several aspects of DP, namely:
 
     - Top-down DP vs Bottom-up DP
     - The DP state graph
     - Reconstructing the solution
-    - DP memory reduction.
+    - DP memory reduction
+    - DP state reformulation
 environment: python3
 evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '30'
     output: '2'
     memory: '100'
+    time: '30'
 name: DP - Introduction
 network_grading: false
 order: 11
@@ -28,9 +29,10 @@ problems:
         -   valid: true
             text: 'Yes'
         type: multiple_choice
-        limit: 0
-        name: Mark this section as read?
         header: ''
+        name: Mark this section as read?
+        limit: 0
+        centralize: true
 stored_submissions: 0
 submission_limit:
     amount: -1

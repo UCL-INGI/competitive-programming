@@ -1,4 +1,4 @@
-accessible: false
+accessible: true
 author: ''
 context: |-
     In the Knapsack problem, you are given :math:`n` objects each one with a given integer weight :math:`w_i` and value :math:`v_i`. You can take a subset of these objects such that the sum of their weights is at most a given capacity value :math:`C`. The goal is to maximize the total value of the selected objects.
@@ -40,7 +40,7 @@ context: |-
     The next step is to think how the subproblems relate to each other. For that we need to look at the *choices* that we have at each state.
 
     - *If we do not take object 0* then we need to solve the subproblem :math:`dp(1, C)`: what is the maximum value we can get by putting a subset of the objects :math:`1, 2, \ldots, n - 1` into a knapsack of capacity :math:`C`? This is because we already made a decision for object 0 and since we did not put it into the knapsack, we have the full capacity remaining for the other objects.
-    - *If we take object 0* then we need to solve the subproblem :math:`dp(1, C - w_0)`: what is the maximum value that we can get by putting a subset of the objects :math:`1, 2, \ldots, n - 1` into a knapsack of capacity :math:`C - w_0`? This is because we put object 0 so we the knapsack capacity to put the remaining objects is recuced by the weight of object 0, :math:`w_0`.
+    - *If we take object 0* then we need to solve the subproblem :math:`dp(1, C - w_0)`: what is the maximum value that we can get by putting a subset of the objects :math:`1, 2, \ldots, n - 1` into a knapsack of capacity :math:`C - w_0`? This is because we put object 0 so we the knapsack capacity to put the remaining objects is reduced by the weight of object 0, :math:`w_0`.
 
     We can then generalize and write a recurrence relation between subproblems:
 
@@ -130,9 +130,9 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '1000'
     output: '100'
     memory: '1000'
+    time: '1000'
 name: DP - Knapsack
 network_grading: false
 order: 12
@@ -173,15 +173,6 @@ problems:
 
             `Sample output 2 <dp-knapsack/2.ans>`_
         type: file
-    dp-knapsack-read:
-        choices:
-        -   feedback: Good luck for the code!
-            valid: true
-            text: I read the text.
-        header: ''
-        limit: 0
-        name: Mark text as read.
-        type: multiple_choice
 stored_submissions: 0
 submission_limit:
     amount: -1
