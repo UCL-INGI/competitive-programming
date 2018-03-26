@@ -1,6 +1,6 @@
 accessible: false
 author: ''
-context: |
+context: |-
     We will now show how we can reduce the memory from :math:`O(n \cdot C)` to :math:`O(C)` of the bottom-up DP solution we developed for the Knapsack.
 
     This technique is not usually necessary in programming contests   but it is nice to know it anyway. It also illustrates one advantage of bottom-up DP compared to top-down DP.
@@ -91,20 +91,20 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '1000'
     output: '100'
     memory: '1000'
+    time: '1000'
 name: DP - Memory reduction
 network_grading: false
 order: 16
 problems:
     file:
-        name: ''
-        header: ''
         allowed_exts:
         - .java
         - cpp
         - .py
+        name: ''
+        header: ''
         type: file
 stored_submissions: 0
 submission_limit:

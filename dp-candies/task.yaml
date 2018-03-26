@@ -1,9 +1,9 @@
 accessible: false
 author: ''
-context: |
+context: |-
     In this task we will an example of parameter decution in DP.
 
-    Broadly speaking, parameter reduction consists of eliminating some parameter in a DP formulation that can be decuded from the others.
+    Broadly speaking, parameter reduction consists of eliminating some parameter in a DP formulation that can be deduced from the others.
 
     To illustrate this, consider the following simple problem. You have :math:`n` candies to give to 3 kids. Each candy as a value :math:`w_i` that represents how good it is. All kids agree on these values.
     The goal is to split the candies amongst the kinds so that the difference between the maximum total value and the minimum total value given to a kid is minimum.
@@ -21,7 +21,7 @@ context: |
       If we give :math:`c_1, c_2` to the first kid, :math:`c_3, c_4` to
       the second kid and :math:`c_5, c_6` to the third kid, we have
       :math:`v_1 = 4 + 3 = 7`, :math:`v_2 = 4 + 3 = 5` and :math:`v_3 =
-      4 + 3 = 6`. So in this case the balance of the candy distribuiton
+      4 + 3 = 6`. So in this case the balance of the candy distribution
       is :math:`max(7, 5, 6) - min(7, 5, 6) = 7 - 5 = 2`.
 
       But we can do better! We can instead give :math:`c_1, c_3` to the
@@ -36,7 +36,7 @@ context: |
     We can thus define the subproblems as:
 
       :math:`dp(i, v_1, v_2, v_3)` is the minimum difference that we can
-      achieve by giving canides :math:`i, i + 1, \ldots, n - 1` knowing
+      achieve by giving candies :math:`i, i + 1, \ldots, n - 1` knowing
       that the :math:`k`-th kid has already value :math:`v_k`.
 
     The original problem is clearly :math:`dp(0, 0, 0, 0)`. The recurrence relation easily follows from the three possible actions that we can perform for each candy:
@@ -50,7 +50,7 @@ context: |
         dp(i + 1, v_1, v_2, v_3 + w_i) & \quad \text{give to kid 3} \\
       \end{cases}
 
-    When :math:`i = n` we have finshed distributing the candies. We can the define:
+    When :math:`i = n` we have finished distributing the candies. We can the define:
 
     .. math::
 
@@ -60,12 +60,12 @@ context: |
 
     By now it should be easy to write the code corresponding to this solution. **If you tried to do it** and you still have trouble, you can find it `here <dp-candies/Candy3Kids.java>`_.
 
-    Our goal in this task is to reduce the state space from tuples :math:`(i, v_1, v_2, v_3)` to tuples :math:`(i, v_1, v_2)`. This will be possible because we can decude :math:`v_3` from :math:`v_1, v_2`. We only need the value of :math:`v_3` in the end, when all candies have been distributed. At that moment, we know that :math:`v_1 + v_2 + v_3 = S`, the total value of the candies. Therefore, :math:`v_3 = S - v_1 - v_2`.
+    Our goal in this task is to reduce the state space from tuples :math:`(i, v_1, v_2, v_3)` to tuples :math:`(i, v_1, v_2)`. This will be possible because we can deduce :math:`v_3` from :math:`v_1, v_2`. We only need the value of :math:`v_3` in the end, when all candies have been distributed. At that moment, we know that :math:`v_1 + v_2 + v_3 = S`, the total value of the candies. Therefore, :math:`v_3 = S - v_1 - v_2`.
 
     We can redefine our subproblems as follows:
 
       :math:`dp(i, v_1, v_2)` is the minimum difference that we can
-      achieve by giving canides :math:`i, i + 1, \ldots, n - 1` knowing
+      achieve by giving candies :math:`i, i + 1, \ldots, n - 1` knowing
       that the first kid has value :math:`v_1` and the second has
       :math:`v_2`.
 
@@ -90,17 +90,21 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '1000'
     output: '100'
     memory: '1000'
+    time: '1000'
 name: DP - Candy problem, parameter decution
 network_grading: false
 order: 18
 problems:
     file:
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
         name: Candies for 3 kids
         header: |-
-            Write the code for the DP solution with reduced state space.
+            Write a solution for the candy problem above.
 
             **Input**
 
@@ -127,10 +131,6 @@ problems:
             `Sample input 2 <dp-candies/2.in>`_
 
             `Sample output 2 <dp-candies/2.ans>`_
-        allowed_exts:
-        - .java
-        - .cpp
-        - .py
         type: file
 stored_submissions: 0
 submission_limit:
