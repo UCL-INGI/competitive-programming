@@ -47,6 +47,26 @@ def gen_random_ratios_in_range(knapsack_capacity, n, min_ratio, max_ratio, max_w
   write(knapsack_capacity, weights, values, filename)
 
 """
+Generate a random test case with all ratios in a given range.
+"""
+def gen_random_ratios_in_range2(n, min_ratio, max_ratio, max_weight, max_value, overwrite = True):
+  weights = [ ]
+  values = [ ]
+  for i in range(n):
+    print(i)
+    v = random.randint(1, max_value)
+    w = random.randint(min_ratio * v, max_ratio * v)
+    assert min_ratio <= w / v <= max_ratio
+    weights.append(w)
+    values.append(v)
+  if not overwrite:
+    filename = gen_util.find_next_filename('rndration_cap={0}_n={1}_rlb={2}_rub={3}_mw={4}_mv={5}'.format(sum(weights) // 2, n, min_ratio, max_ratio, max_weight, max_value))
+  else:
+    filename = 'rndration_cap={0}_n={1}_rlb={2}_rub={3}_mw={4}_mv={5}'.format(sum(weights) // 2, n, min_ratio, max_ratio, max_weight, max_value)
+  write(sum(weights) // 2, weights, values, filename)
+
+
+"""
 Generate all ratio = w / v.
 """
 def gen_ratio(knapsack_capacity, n, w, v):
@@ -211,19 +231,19 @@ def gen_flip_formulation():
   gen_kill_greedy(1000)
   gen_kill_greedy(100)
   gen_kill_greedy(10)
-  gen_random_ratios_in_range(100000, 5000, 2, 4, 100000, 10, False)
-  gen_random_ratios_in_range(100000, 5000, 2, 4, 100000, 10, False)
-  gen_random_ratios_in_range(100000, 5000, 10, 20, 100000, 10, False)
-  gen_random_ratios_in_range(100000, 5000, 10, 20, 100000, 10, False)
-  gen_random_ratios_in_range(100000, 5000, 7, 8, 100000, 10, False)
-  gen_random_ratios_in_range(100000, 5000, 7, 8, 100000, 10, False)
+  gen_random_ratios_in_range2(5000, 2, 4, 100000, 10, False)
+  gen_random_ratios_in_range2(5000, 2, 4, 100000, 10, False)
+  gen_random_ratios_in_range2(5000, 10, 20, 100000, 10, False)
+  gen_random_ratios_in_range2(5000, 10, 20, 100000, 10, False)
+  gen_random_ratios_in_range2(5000, 7, 8, 100000, 10, False)
+  gen_random_ratios_in_range2(5000, 7, 8, 100000, 10, False)
 
-  gen_random_ratios_in_range(1000000, 5000, 2, 4, 100000, 10, False)
-  gen_random_ratios_in_range(1000000, 5000, 2, 4, 100000, 10, False)
-  gen_random_ratios_in_range(1000000, 5000, 10, 20, 100000, 10, False)
-  gen_random_ratios_in_range(1000000, 5000, 10, 20, 100000, 10, False)
-  gen_random_ratios_in_range(1000000, 5000, 7, 8, 100000, 10, False)
-  gen_random_ratios_in_range(1000000, 5000, 7, 8, 100000, 10, False)
+  gen_random_ratios_in_range2(5000, 2, 4, 100000, 10, False)
+  gen_random_ratios_in_range2(5000, 2, 4, 100000, 10, False)
+  gen_random_ratios_in_range2(5000, 10, 20, 100000, 10, False)
+  gen_random_ratios_in_range2(5000, 10, 20, 100000, 10, False)
+  gen_random_ratios_in_range2(5000, 7, 8, 100000, 10, False)
+  gen_random_ratios_in_range2(5000, 7, 8, 100000, 10, False)
 
 if __name__ == '__main__':
   if os.path.exists('./tests'):
@@ -231,3 +251,5 @@ if __name__ == '__main__':
   os.system('mkdir ./tests')
   #gen_memory_reduction()
   gen_flip_formulation()
+  #gen_random(100000, 10, 100000, 10, False)
+  #gen_random_ratios_in_range(100000, 10, 7, 8, 100000, 10, False)
