@@ -11,10 +11,10 @@ context: |-
 
     Note that we are basing ourselves on the bottom-up formulation.
 
-    But this is not the only way the DP subproblems can be formulation. An alternative is to have the states depend on the value instead of the capacity. We define the states as pairs :math:`(i, v)` and the subproblems as:
+    This is not the only way the DP subproblems can be formulated. An alternative is to have the states depend on the value instead of the capacity. We define the states as pairs :math:`(i, v)` and the subproblems as:
 
       :math:`dp(i, v)` is the minimum knapsack capacity needed in order
-      to achieve value :math:`v` from selecting a subset of the objects
+      to achieve value :math:`v` by selecting a subset of the objects
       :math:`0, 1 \ldots, i`.
 
     If a value :math:`v` is impossible to achieve, we define :math:`dp(i, v) = \infty` for all :math:`i`.
@@ -92,14 +92,14 @@ problems:
 
             **Sample Test Cases**
 
-            `Sample input 1 <dp-knapsack/1.in>`_
+            `Sample input 1 <dp-flipping-state-formulation/1.in>`_
 
-            `Sample output 1 <dp-knapsack/1.ans>`_
+            `Sample output 1 <dp-flipping-state-formulation/1.ans>`_
 
 
-            `Sample input 2 <dp-knapsack/2.in>`_
+            `Sample input 2 <dp-flipping-state-formulation/2.in>`_
 
-            `Sample output 2 <dp-knapsack/2.ans>`_
+            `Sample output 2 <dp-flipping-state-formulation/2.ans>`_
         type: file
 stored_submissions: 0
 submission_limit:
