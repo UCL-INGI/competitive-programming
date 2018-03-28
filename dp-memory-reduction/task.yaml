@@ -1,4 +1,4 @@
-accessible: false
+accessible: true
 author: ''
 context: |-
     We will now show how we can reduce the memory from :math:`O(n \cdot C)` to :math:`O(C)` of the bottom-up DP solution we developed for the Knapsack.
