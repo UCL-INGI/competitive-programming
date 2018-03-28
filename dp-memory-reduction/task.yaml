@@ -94,7 +94,7 @@ groups: false
 input_random: '0'
 limits:
     output: '100'
-    memory: '1000'
+    memory: '100'
     time: '1000'
 name: DP - Memory reduction
 network_grading: false
