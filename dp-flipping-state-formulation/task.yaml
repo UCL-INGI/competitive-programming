@@ -56,7 +56,7 @@ groups: false
 input_random: '0'
 limits:
     output: '100'
-    memory: '3000'
+    memory: '1000'
     time: '1000'
 name: DP - Knapsack flipping the state formulation
 network_grading: false
