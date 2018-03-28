@@ -198,6 +198,14 @@ def gen_flip_formulation():
   gen_random(100000, 5000, 100000, 10, False)
   gen_random(100000, 5000, 100000, 10, False)
   gen_random(100000, 5000, 100000, 10, False)
+
+  gen_random(1000000, 5000, 100000, 10, False)
+  gen_random(1000000, 5000, 100000, 10, False)
+  gen_random(1000000, 5000, 100000, 10, False)
+  gen_random(1000000, 5000, 100000, 10, False)
+  gen_random(1000000, 5000, 100000, 10, False)
+  gen_random(1000000, 5000, 100000, 10, False)
+
   gen_kill_greedy(100000)
   gen_kill_greedy(10000)
   gen_kill_greedy(1000)
@@ -209,6 +217,13 @@ def gen_flip_formulation():
   gen_random_ratios_in_range(100000, 5000, 10, 20, 100000, 10, False)
   gen_random_ratios_in_range(100000, 5000, 7, 8, 100000, 10, False)
   gen_random_ratios_in_range(100000, 5000, 7, 8, 100000, 10, False)
+
+  gen_random_ratios_in_range(1000000, 5000, 2, 4, 100000, 10, False)
+  gen_random_ratios_in_range(1000000, 5000, 2, 4, 100000, 10, False)
+  gen_random_ratios_in_range(1000000, 5000, 10, 20, 100000, 10, False)
+  gen_random_ratios_in_range(1000000, 5000, 10, 20, 100000, 10, False)
+  gen_random_ratios_in_range(1000000, 5000, 7, 8, 100000, 10, False)
+  gen_random_ratios_in_range(1000000, 5000, 7, 8, 100000, 10, False)
 
 if __name__ == '__main__':
   if os.path.exists('./tests'):

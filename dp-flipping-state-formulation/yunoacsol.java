@@ -2,7 +2,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class yunoacsol {
+public class KnapsackNVCondensed {
 	
 	public static void main(String[] args) {
 		Scanner reader = new Scanner(System.in);
@@ -17,22 +17,17 @@ public class yunoacsol {
 			vsum += V[i];
 		}
 		reader.close();
-		double[][] dp = new double[N][vsum + 1];
-		for(int i = 0; i < N; i++) {
-			Arrays.fill(dp[i], Double.POSITIVE_INFINITY);
-		}
-		dp[0][0] = 0;
-		dp[0][V[0]] = W[0];
+		double[] dp = new double[vsum + 1];
+		Arrays.fill(dp, Double.POSITIVE_INFINITY);
+		dp[0] = 0;
+		dp[V[0]] = W[0];
 		for(int i = 1; i < N; i++) {
-			for(int v = 0; v <= vsum; v++) {
-				dp[i][v] = dp[i - 1][v];
-				if(v - V[i] >= 0 && dp[i - 1][v - V[i]] + W[i] < dp[i][v]) {
-					dp[i][v] = dp[i - 1][v - V[i]] + W[i];
-				}
+			for(int v = vsum; v >= V[i]; v--) {
+				dp[v] = Math.min(dp[v], W[i] + dp[v - V[i]]);
 			}
 		}
 		int v = vsum;
-		while(v >= 0 && dp[N - 1][v] > C) {
+		while(v >= 0 && dp[v] > C) {
 			v--;
 		}
 		System.out.println(v);
