@@ -1,4 +1,4 @@
-accessible: false
+accessible: true
 author: ''
 context: |-
     In this task we will see that the same problem can have several DP formulations that can be more suited for some situations.
