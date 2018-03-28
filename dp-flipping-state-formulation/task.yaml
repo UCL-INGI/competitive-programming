@@ -100,6 +100,16 @@ problems:
             `Sample input 2 <dp-flipping-state-formulation/2.in>`_
 
             `Sample output 2 <dp-flipping-state-formulation/2.ans>`_
+
+
+            `Sample input 3 <dp-flipping-state-formulation/3.in>`_
+
+            `Sample output 3 <dp-flipping-state-formulation/3.ans>`_
+
+
+            `Sample input 4 <dp-flipping-state-formulation/4.in>`_
+
+            `Sample output 4 <dp-flipping-state-formulation/4.ans>`_
         type: file
 stored_submissions: 0
 submission_limit:
