@@ -101,7 +101,7 @@ problems:
     file:
         allowed_exts:
         - .java
-        - cpp
+        - .cpp
         - .py
         name: ''
         header: ''
