@@ -2,7 +2,7 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class KnapsackNVCondensed {
+public class yunoacsol {
 	
 	public static void main(String[] args) {
 		Scanner reader = new Scanner(System.in);
