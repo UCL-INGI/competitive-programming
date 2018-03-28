@@ -1,4 +1,4 @@
-accessible: false
+accessible: true
 author: ''
 context: |-
     We will now show how we can reduce the memory from :math:`O(n \cdot C)` to :math:`O(C)` of the bottom-up DP solution we developed for the Knapsack.
@@ -70,7 +70,7 @@ context: |-
       static int knapsack(int n, int C, int[] v, int [] w) {
         int[] dp = new int[C + 1];
         for(int i = 0; i < n; i++) {
-          for(int c = C; c >= w[i]; c--) { // start from w[i] to avoid if
+          for(int c = C; c >= w[i]; c--) { // stop at w[i] to avoid the if
             dp[c] = Math.max(dp[c], v[i] + dp[c - w[i]]);
           }
         }
@@ -94,7 +94,7 @@ groups: false
 input_random: '0'
 limits:
     output: '100'
-    memory: '1000'
+    memory: '400'
     time: '1000'
 name: DP - Memory reduction
 network_grading: false

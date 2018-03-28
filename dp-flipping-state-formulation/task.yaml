@@ -46,10 +46,10 @@ context: |-
 
     The maximum value that can be achieved will correspond to the maximum :math:`v` for which :math:`dp(n - 1, v)` is smaller than or equal to the knapsack capacity.
 
-    With this formulation the number of states is :math:`O(n \cdot V)` where :math:`V = v_0 + v_1 + \ldots + v_{n - 1}`. We can also write it as :math:`O(n^2 \cdot m_v)` where :math:`m_v = \max_i v_i`. We can do so because :math:`V \leq n \cdot m_v`.
+    With this formulation the number of states is :math:`O(n \cdot V)` where :math:`V = v_0 + v_1 + \ldots + v_{n - 1}`. We can also write it as :math:`O(n^2 \cdot m_v)` where :math:`m_v = \max_i v_i` because :math:`V \leq n \cdot m_v`.
 
     This can be useful for problems where the knapsack is very big because the time complexity does not depend on the knapsack capacity.
-    It also shows that if all values are equal to :math:`1` then the problem can be solved in polynomial time :math:`O(n^2)`. But if you think about is, this is obvious, it is easy to solve it in this case in :math:`O(n \cdot \log(n))`.
+    It also shows that if all values are equal to :math:`1` then the problem can be solved in polynomial time :math:`O(n^2)`. But if you think about it, this is obvious, and it is actually easy to solve it in this case in :math:`O(n \cdot \log(n))`.
 environment: pyjavacpp
 evaluate: best
 groups: false
