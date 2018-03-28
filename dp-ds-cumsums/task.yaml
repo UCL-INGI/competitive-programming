@@ -73,7 +73,7 @@ context: |+
 
     .. image:: dp-ds-cumsums/acsum.png
 
-    .. image:: dp-ds-cumsums/acsum2D.png
+    |
 
     To wrap up, we drop the matrix :math:`M` and simply use an array :math:`s` such that :math:`s[i] = S[0][i]`. Then compute the values of :math:`s` using the same recurrence as before:
 
@@ -93,14 +93,18 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '1000'
     output: '100'
     memory: '1000'
+    time: '1000'
 name: 'DP - Data structures: 1D cumulative sums'
 network_grading: false
 order: 20
 problems:
     file:
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
         name: 1D cumulative sums
         header: |
             You will be given an array :math:`a` of size :math:`n` and a list of :math:`q` ranges :math:`[i_1, j_1], \ldots, [i_q, j_q]`. For each of them you have to output the sum of values of :math:`a` in that range.
@@ -136,10 +140,6 @@ problems:
             `Sample input 2 <dp-ds-cumsumsk/2.in>`_
 
             `Sample output 2 <dp-ds-cumsums/2.ans>`_
-        allowed_exts:
-        - .java
-        - .cpp
-        - .py
         type: file
 stored_submissions: 0
 submission_limit:
