@@ -34,11 +34,10 @@ def gen_random_ratios_in_range(knapsack_capacity, n, min_ratio, max_ratio, max_w
   weights = [ ]
   values = [ ]
   for i in range(n):
-    w = random.randint(1, max_weight)
+    print(i)
     v = random.randint(1, max_value)
-    while not gen_util.in_range(w / v, min_ratio, max_ratio):
-      w = random.randint(1, max_weight)
-      v = random.randint(1, max_value)
+    w = random.randint(min_ratio * v, max_ratio * v)
+    assert min_ratio <= w / v <= max_ratio
     weights.append(w)
     values.append(v)
   if not overwrite:
@@ -193,12 +192,27 @@ def gen_memory_reduction():
 
 def gen_flip_formulation():
   random.seed(31)
-  gen_random(1000000, 5000, 100000, 10, False)
-  
+  gen_random(100000, 5000, 100000, 10, False)
+  gen_random(100000, 5000, 100000, 10, False)
+  gen_random(100000, 5000, 100000, 10, False)
+  gen_random(100000, 5000, 100000, 10, False)
+  gen_random(100000, 5000, 100000, 10, False)
+  gen_random(100000, 5000, 100000, 10, False)
+  gen_kill_greedy(100000)
+  gen_kill_greedy(10000)
+  gen_kill_greedy(1000)
+  gen_kill_greedy(100)
+  gen_kill_greedy(10)
+  gen_random_ratios_in_range(100000, 5000, 2, 4, 100000, 10, False)
+  gen_random_ratios_in_range(100000, 5000, 2, 4, 100000, 10, False)
+  gen_random_ratios_in_range(100000, 5000, 10, 20, 100000, 10, False)
+  gen_random_ratios_in_range(100000, 5000, 10, 20, 100000, 10, False)
+  gen_random_ratios_in_range(100000, 5000, 7, 8, 100000, 10, False)
+  gen_random_ratios_in_range(100000, 5000, 7, 8, 100000, 10, False)
 
 if __name__ == '__main__':
   if os.path.exists('./tests'):
     os.system('rm -r ./tests')
   os.system('mkdir ./tests')
-  gen_memory_reduction()
-  #gen_flip_formulation()
+  #gen_memory_reduction()
+  gen_flip_formulation()
