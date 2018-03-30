@@ -3,7 +3,7 @@ author: ''
 context: |-
     We are now going to study another graph exploration algorithm called depth-first search (DFS). As we will DFS is extremely useful and with it we can solve a wide number of graph related problems.
 
-    In DFS we start from a source node a then recursively visit each of its neighbors. Because of this recursive behavior, after we select the first neighbor :math:`u` of :math:`v` to be explored, the other neighbors of :math:`v` will only be considered after we have finished visiting the whole subgraph that is reachable from :math:`u`. This is the reason why the algorithm is called **depth-first**. To better ilustrate this consider the following example.
+    In DFS we start from a source node a then recursively visit each of its neighbors. Because of this recursive behavior, after we select the first neighbor :math:`u` of :math:`v` to be explored, the other neighbors of :math:`v` will only be considered after we have finished visiting the whole subgraph that is reachable from :math:`u`. This is the reason why the algorithm is called **depth-first** search. To better ilustrate this consider the following example.
 
     .. image:: graphs-dfs/anim.gif
 
@@ -24,6 +24,14 @@ context: |-
       dfs(g, 0, visited);
 
     Then visited will be set to :math:`true` for every node that is reachable from node :math:`0`. In this way, DFS is a much more compact way of coding an algorithm to check for path existance.
+
+    So far this does not really give us something new. There are several ways in which we can extend this algorithm in order to solve different problems.
+
+    Before we do so, it is often convinient to have a more informative state of each node during the search rather than a simple flag sayinh whether a node as been visited or not. We will start by replacing the :code:`visited` array by an array of integers called :code:`state` and define 3 possible states:
+
+    .. code:: java
+
+      static final int UNV = 0, OPEN = 1, CLOSED = 2;
 environment: java8scala
 evaluate: best
 groups: false
