@@ -1,29 +1,30 @@
 accessible: true
 author: ''
-context: |-
+context: |+
     We are now going to study another graph exploration algorithm called depth-first search (DFS). As we will DFS is extremely useful and with it we can solve a wide number of graph related problems.
 
     In DFS we start from a source node a then recursively visit each of its neighbors. Because of this recursive behavior, after we select the first neighbor :math:`u` of :math:`v` to be explored, the other neighbors of :math:`v` will only be considered after we have finished visiting the whole subgraph that is reachable from :math:`u`. This is the reason why the algorithm is called **depth-first** search. To better ilustrate this consider the following example.
 
     .. image:: graphs-dfs/anim.gif
 
-    Coding this algorithm is very simple and can be done as follows:
+    Coding this algorithm is very simple as shown in the following code:
 
     .. code:: java
 
-      static int[] visited;
+        static LinkedList<Integer>[] g;
+        static boolean[] visited;
 
-      static void dfs(LinkedList<Integer>[] g, int u) {
-          visited[u] = true;
-          for(int v : g[u]) if(!visited[v]) dfs(g, v);
-      }
-
+        static void dfs(int u) {
+            visited[u] = true;
+            for(int v : g[u]) if(!visited[v]) dfs(v);
+        }
     If we execute the following code:
 
     .. code:: java
 
-      boolean[] visited = new boolean[g.length];
-      dfs(g, 0);
+        ...
+        boolean[] visited = new boolean[g.length];
+        dfs(0);
 
     Then visited will be set to :math:`true` for every node that is reachable from node :math:`0`. In this way, DFS is a much more compact way of coding an algorithm to check for path existance.
 
@@ -40,6 +41,9 @@ context: |-
     - :math:`state[u] = \textit{UNV}` : node :math:`u` has not been visited before. This corresponds to :math:`visited[u] = false` from before.
     - :math:`state[u] = \textit{OPEN}` : node :math:`u` has been visited but not all of its outgoing edges have been visited.
     - :math:`state[u] = \textit{CLOSED}` : means that all the edges going out of  :math:`u` have been visited.
+
+    To extend the previous code to use this states respecting these semantics is quite simple. Every node should start with the state :math:`\textit{UNV}`. Then the first line should set the state to :math:`\textit{OPEN}` since at this point the node is visited but we did not yet visit any of its outgoing edges. Finally, after the :code:`for` loop finished we should set the state to :math:`\textit{CLOSED}`.
+
 environment: java8scala
 evaluate: best
 groups: false
