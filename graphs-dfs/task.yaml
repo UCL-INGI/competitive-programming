@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |+
+context: |-
     We are now going to study another graph exploration algorithm called depth-first search (DFS). As we will DFS is extremely useful and with it we can solve a wide number of graph related problems.
 
     In DFS we start from a source node a then recursively visit each of its neighbors. Because of this recursive behavior, after we select the first neighbor :math:`u` of :math:`v` to be explored, the other neighbors of :math:`v` will only be considered after we have finished visiting the whole subgraph that is reachable from :math:`u`. This is the reason why the algorithm is called **depth-first** search. To better ilustrate this consider the following example.
@@ -34,7 +34,7 @@ context: |+
 
     .. code:: java
 
-      static final int UNV = 0, OPEN = 1, CLOSED = 2;
+        static final int UNV = 0, OPEN = 1, CLOSED = 2;
 
     These 3 states have the following semantics:
 
@@ -44,6 +44,19 @@ context: |+
 
     To extend the previous code to use this states respecting these semantics is quite simple. Every node should start with the state :math:`\textit{UNV}`. Then the first line should set the state to :math:`\textit{OPEN}` since at this point the node is visited but we did not yet visit any of its outgoing edges. Finally, after the :code:`for` loop finished we should set the state to :math:`\textit{CLOSED}`.
 
+    .. code:: java
+
+        static int[] state;
+
+        static void dfsVisit(int u) {
+            state[u] = OPEN;
+            for(int v : g[u]) {
+                if(state[u] == UNV) {
+                    dfs(v);
+                }
+            }
+            state[u] = CLOSED;
+        }
 environment: java8scala
 evaluate: best
 groups: false
