@@ -23,7 +23,7 @@ context: |-
       boolean[] visited = new boolean[g.length];
       dfs(g, 0, visited);
 
-    Then visited will be set to :code:`true` for every node that is reachable from node :math:`0`. In this way, DFS is a much more compact way of coding an algorithm to check for path existance.
+    Then visited will be set to :math:`true` for every node that is reachable from node :math:`0`. In this way, DFS is a much more compact way of coding an algorithm to check for path existance.
 environment: java8scala
 evaluate: best
 groups: false
