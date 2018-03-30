@@ -34,6 +34,12 @@ context: |-
     .. code:: java
 
       static final int UNV = 0, OPEN = 1, CLOSED = 2;
+
+    These 3 states have the following semantics:
+
+    - :math:`state[u] = \textit{UNV}` : node :math:`u` has not been visited before. This corresponds to :math:`visited[u] = false` from before.
+    - :math:`state[u] = \textit{OPEN}` : node :math:`u` has been visited but not all of its outgoing edges have been visited.
+    - :math:`state[u] = \textit{CLOSED}` : means that all the edges going out of  :math:`u` have been visited.
 environment: java8scala
 evaluate: best
 groups: false
