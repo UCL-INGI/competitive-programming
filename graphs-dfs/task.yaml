@@ -57,6 +57,8 @@ context: |-
             }
             state[u] = CLOSED;
         }
+
+    *Note:* In Java when you create the state array :code:`int[] state = new int[g.length];`, every value is initialized to :math:`0 = UNV`. Therefore nothing needs to be done. In some other languagues you need to make sure that you set the value of every node :math:`UNV` before you start the search.
 environment: java8scala
 evaluate: best
 groups: false
