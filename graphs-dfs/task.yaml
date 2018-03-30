@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |-
+context: |+
     We are now going to study another graph exploration algorithm called depth-first search (DFS). As we will DFS is extremely useful and with it we can solve a wide number of graph related problems.
 
     In DFS we start from a source node a then recursively visit each of its neighbors. Because of this recursive behavior, after we select the first neighbor :math:`u` of :math:`v` to be explored, the other neighbors of :math:`v` will only be considered after we have finished visiting the whole subgraph that is reachable from :math:`u`. This is the reason why the algorithm is called **depth-first** search. To better ilustrate this consider the following example.
@@ -59,6 +59,12 @@ context: |-
         }
 
     *Note:* In Java when you create the state array :code:`int[] state = new int[g.length];`, every value is initialized to :math:`0 = UNV`. Therefore nothing needs to be done. In some other languagues you need to make sure that you set the value of every node :math:`UNV` before you start the search.
+
+    As a first application of DFS we are going to see how we can use the states to simply check whether a directed graph contains a cycle.
+
+    .. image:: graphs-dfs/anim2.gif
+
+
 environment: java8scala
 evaluate: best
 groups: false
@@ -67,7 +73,7 @@ limits:
     output: '100'
     memory: '1000'
     time: '1000'
-name: ''
+name: 'Graphs - Depth-first search: cycle finding'
 network_grading: false
 problems:
     file:
