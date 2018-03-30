@@ -11,9 +11,11 @@ context: |-
 
     .. code:: java
 
-      static void dfs(LinkedList<Integer>[] g, int u, boolean[] visited) {
+      static int[] visited;
+
+      static void dfs(LinkedList<Integer>[] g, int u) {
           visited[u] = true;
-          for(int v : g[u]) if(!visited[v]) dfs(g, v, visited);
+          for(int v : g[u]) if(!visited[v]) dfs(g, v);
       }
 
     If we execute the following code:
@@ -21,7 +23,7 @@ context: |-
     .. code:: java
 
       boolean[] visited = new boolean[g.length];
-      dfs(g, 0, visited);
+      dfs(g, 0);
 
     Then visited will be set to :math:`true` for every node that is reachable from node :math:`0`. In this way, DFS is a much more compact way of coding an algorithm to check for path existance.
 
