@@ -57,8 +57,8 @@ context: |
         static void dfsVisit(int u) {
             state[u] = OPEN;
             for(int v : g[u]) {
-                if(state[u] == UNV) {
-                    parent[u] = v;
+                if(state[v] == UNV) {
+                    parent[v] = u;
                     dfsVisit(v);
                 }
             }
@@ -117,10 +117,10 @@ context: |
         static void dfsVisit(int u) {
             state[u] = OPEN;
             for(int v : g[u]) {
-                if(state[u] == UNV) {
-                    parent[u] = v;
+                if(state[v] == UNV) {
+                    parent[v] = u;
                     dfsVisit(v);
-                } else if(state[u] == OPEN) {
+                } else if(state[v] == OPEN) {
                     // (u, v) is a cycle edge, the graph contains a cycle
                     hasCycle = true;
                 }
