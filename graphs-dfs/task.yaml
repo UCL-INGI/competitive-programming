@@ -145,7 +145,7 @@ problems:
         - .py
         name: Cycle finding in directed graphs
         header: |-
-            Given a directed graph, write an algorithm that detects whether it contains a cycle or not.
+            You have seen how to detect whether a directed graph contains a cycle. In this task you will be asked to also build such a cycle if one exists.
 
             **Input**
 
@@ -161,7 +161,7 @@ problems:
 
             **Output**
 
-            Print *yes* if the graph contains a cycle and *no* otherwise.
+            Print *no* if the graph contains no cycles. Otherwise print any cycle in the graph. The first line should contain the number of nodes :math:`k` in the cycle. Then should follow :math:`k + 1` lines each with a single integer giving the nodes in the cycle :math:`v_1, v_2, \ldots, v_k, v_1` (note that you should repeat the first node at the end).
 
             **Sample Test Cases**
 
