@@ -1,9 +1,9 @@
 accessible: false
 author: ''
-context: |
+context: |-
     We are now going to study another graph exploration algorithm called depth-first search (DFS). As we will DFS is extremely useful and with it we can solve a wide number of graph related problems.
 
-    In DFS we start from a source node a then recursively visit each of its neighbors. Because of this recursive behavior, after we select the first neighbor :math:`u` of :math:`v` to be explored, the other neighbors of :math:`v` will only be considered after we have finished visiting the whole subgraph that is reachable from :math:`u`. This is the reason why the algorithm is called **depth-first** search. To better ilustrate this consider the following example.
+    In DFS we start from a source node a then recursively visit each of its neighbors. Because of this recursive behavior, after we select the first neighbor :math:`u` of :math:`v` to be explored, the other neighbors of :math:`v` will only be considered after we have finished visiting the whole subgraph that is reachable from :math:`u`. This is the reason why the algorithm is called **depth-first** search. To better illustrate this consider the following example.
 
 
     .. image:: graphs-dfs/dfs.gif
@@ -29,11 +29,11 @@ context: |
         boolean[] visited = new boolean[g.length];
         dfs(0);
 
-    Then visited will be set to :math:`true` for every node that is reachable from node :math:`0`. In this way, DFS is a much more compact way of coding an algorithm to check for path existance.
+    Then visited will be set to :math:`true` for every node that is reachable from node :math:`0`. In this way, DFS is a much more compact way of coding an algorithm to check for path existence.
 
     So far this does not really give us something new. There are several ways in which we can extend this algorithm in order to solve different problems.
 
-    Before we do so, it is often convinient to have a more informative state of each node during the search rather than a simple flag sayinh whether a node as been visited or not. We will start by replacing the :code:`visited` array by an array of integers called :code:`state` and define 3 possible states:
+    Before we do so, it is often convenient to have a more informative state of each node during the search rather than a simple flag saying whether a node as been visited or not. We will start by replacing the :code:`visited` array by an array of integers called :code:`state` and define 3 possible states:
 
     .. code:: java
 
@@ -57,17 +57,17 @@ context: |
         static void dfsVisit(int u) {
             state[u] = OPEN;
             for(int v : g[u]) {
-                if(state[u] == UNV) {
-                    parent[u] = v;
+                if(state[v] == UNV) {
+                    parent[v] = u;
                     dfsVisit(v);
                 }
             }
             state[u] = CLOSED;
         }
 
-    *Note:* In Java when you create the :math:`state` array every value is initialized to :math:`0 = UNV`. Therefore nothing needs to be done. In some other languagues you need to make sure that you set the value of every node :math:`UNV` before you start the search.
+    *Note:* In Java when you create the :math:`state` array every value is initialized to :math:`0 = UNV`. Therefore nothing needs to be done. In some other languages you need to make sure that you set the value of every node :math:`UNV` before you start the search.
 
-    The following animation illustrates an exectuion of :code:`\dfsVisit(0)`.
+    The following animation illustrates an execution of :code:`\dfsVisit(0)`.
 
     .. image:: graphs-dfs/states.gif
 
@@ -76,7 +76,7 @@ context: |
     Note that the parent array defines a tree that is a subgraph of the input graph. We call it the *DFS tree*. To detect a cycle we make the following observation:
 
     - During the execution of :code:`dfsVisit(u)`, if any node :math:`v` is :math:`OPEN` then there exists a path from :math:`v` to :math:`u` on the DFS tree. This is so because since :math:`v` is still open and we are at node :math:`u` then :math:`v` must be an ancestor of :math:`u` in the DFS tree.
-    Therefore if during the :code:`for` loop at node :math:`u` we find a neighbor :math:`v` that is :math:`OPEN` we must have a cycle in the graph since as we just observed this means that there is a path from :math:`v` to :math:`u` and this path together with the edge :math:`(u, v)` must form a cylce.
+    Therefore if during the :code:`for` loop at node :math:`u` we find a neighbor :math:`v` that is :math:`OPEN` we must have a cycle in the graph since as we just observed this means that there is a path from :math:`v` to :math:`u` and this path together with the edge :math:`(u, v)` must form a cycle.
 
     We classify the edges of the graph in 4 categories with respect to a DFS.
 
@@ -93,7 +93,7 @@ context: |
 
     |
 
-    We saw above that a graph is there is a cycle edge then the graph contains a cylce. It is not hard to see that the converse is also true, that is, if there is a cycle then there is a cycle edge. Thus we can detect cycles as follows:
+    We saw above that a graph is there is a cycle edge then the graph contains a cycle. It is not hard to see that the converse is also true, that is, if there is a cycle then there is a cycle edge. Thus we can detect cycles as follows:
 
     .. code:: java
 
@@ -117,17 +117,17 @@ context: |
         static void dfsVisit(int u) {
             state[u] = OPEN;
             for(int v : g[u]) {
-                if(state[u] == UNV) {
-                    parent[u] = v;
+                if(state[v] == UNV) {
+                    parent[v] = u;
                     dfsVisit(v);
-                } else if(state[u] == OPEN) {
+                } else if(state[v] == OPEN) {
                     // (u, v) is a cycle edge, the graph contains a cycle
                     hasCycle = true;
                 }
             }
             state[u] = CLOSED;
         }
-environment: java8scala
+environment: pyjavacpp
 evaluate: best
 groups: false
 input_random: '0'
@@ -139,8 +139,40 @@ name: 'Graphs - Depth-first search: cycle finding'
 network_grading: false
 problems:
     file:
-        name: ''
-        header: ''
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
+        name: Cycle finding in directed graphs
+        header: |-
+            You have seen how to detect whether a directed graph contains a cycle. In this task you will be asked to also build such a cycle if one exists.
+
+            **Input**
+
+            - One line with two integers :math:`n` and :math:`m` giving the number of nodes in the graph and the number of edges respectively.
+
+            - :math:`m` lines each with two integers :math:`u` and :math:`v` giving that there is an edge from :math:`u` to :math:`v`. No edge will appear more than once in the input.
+
+            **Constraints**
+
+            * :math:`1 \leq n \leq 10^4`
+            * :math:`0 \leq m \leq \min(10^6, n (n - 1) / 2)`
+            * :math:`0 \leq u, v < n`
+
+            **Output**
+
+            Print *no* if the graph contains no cycles. Otherwise print any cycle in the graph. The first line should contain the number of nodes :math:`k` in the cycle. Then should follow :math:`k + 1` lines each with a single integer giving the nodes in the cycle :math:`v_1, v_2, \ldots, v_k, v_1` (note that you should repeat the first node at the end).
+
+            **Sample Test Cases**
+
+            `Sample input 1 <graphs-dfs/1.in>`_
+
+            `Sample output 1 <graphs-dfs/1.ans>`_
+
+
+            `Sample input 2 <graphs-dfs/2.in>`_
+
+            `Sample output 2 <graphs-dfs/2.ans>`_
         type: file
 stored_submissions: 0
 submission_limit:
