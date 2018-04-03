@@ -1,4 +1,4 @@
-accessible: false
+accessible: true
 author: ''
 context: |-
     We are now going to study another graph exploration algorithm called depth-first search (DFS). As we will DFS is extremely useful and with it we can solve a wide number of graph related problems.
@@ -182,3 +182,4 @@ submission_limit:
     period: -1
 tags: {}
 weight: 1.0
+order: 11
