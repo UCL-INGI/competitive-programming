@@ -59,7 +59,7 @@ context: |
             for(int v : g[u]) {
                 if(state[u] == UNV) {
                     parent[u] = v;
-                    dfs(v);
+                    dfsVisit(v);
                 }
             }
             state[u] = CLOSED;
@@ -119,7 +119,7 @@ context: |
             for(int v : g[u]) {
                 if(state[u] == UNV) {
                     parent[u] = v;
-                    dfs(v);
+                    dfsVisit(v);
                 } else if(state[u] == OPEN) {
                     // (u, v) is a cycle edge, the graph contains a cycle
                     hasCycle = true;
