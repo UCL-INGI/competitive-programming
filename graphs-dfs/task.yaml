@@ -1,6 +1,6 @@
 accessible: false
 author: ''
-context: |-
+context: |
     We are now going to study another graph exploration algorithm called depth-first search (DFS). As we will DFS is extremely useful and with it we can solve a wide number of graph related problems.
 
     In DFS we start from a source node a then recursively visit each of its neighbors. Because of this recursive behavior, after we select the first neighbor :math:`u` of :math:`v` to be explored, the other neighbors of :math:`v` will only be considered after we have finished visiting the whole subgraph that is reachable from :math:`u`. This is the reason why the algorithm is called **depth-first** search. To better ilustrate this consider the following example.
@@ -49,8 +49,10 @@ context: |-
 
     .. code:: java
 
+        static final int UNV = 0, OPEN = 1, CLOSED = 2;
+        static LinkedList<Integer>[] g;
         static int[] state;
-        static int[] parent;
+        static Integer[] parent;
 
         static void dfsVisit(int u) {
             state[u] = OPEN;
@@ -95,8 +97,22 @@ context: |-
 
     .. code:: java
 
+        static final int UNV = 0, OPEN = 1, CLOSED = 2;
+        static LinkedList<Integer>[] g;
         static int[] state;
-        static int[] parent;
+        static Integer[] parent;
+        static boolean hasCycle;
+
+        static void hasCycle() {
+            hasCycle = false;
+            state = new int[g.length];
+            parent = new Integer[g.length];
+            for(int u = 0; u < g.length; u++) {
+                if(state[u] == UNV) {
+                    dfsVisit(u);
+                }
+            }
+        }
 
         static void dfsVisit(int u) {
             state[u] = OPEN;
@@ -106,7 +122,7 @@ context: |-
                     dfs(v);
                 } else if(state[u] == OPEN) {
                     // (u, v) is a cycle edge, the graph contains a cycle
-                    // do something about it
+                    hasCycle = true;
                 }
             }
             state[u] = CLOSED;
