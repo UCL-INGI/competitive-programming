@@ -127,7 +127,7 @@ context: |
             }
             state[u] = CLOSED;
         }
-environment: java8scala
+environment: pyjavacpp
 evaluate: best
 groups: false
 input_random: '0'
@@ -139,8 +139,40 @@ name: 'Graphs - Depth-first search: cycle finding'
 network_grading: false
 problems:
     file:
-        name: ''
-        header: ''
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
+        name: Cycle finding in directed graphs
+        header: |-
+            Given a directed graph, write an algorithm that detects whether it contains a cycle or not.
+
+            **Input**
+
+            - One line with two integers :math:`n` and :math:`m` giving the number of nodes in the graph and the number of edges respectively.
+
+            - :math:`m` lines each with two integers :math:`u` and :math:`v` giving that there is an edge from :math:`u` to :math:`v`. No edge will appear more than once in the input.
+
+            **Constraints**
+
+            * :math:`1 \leq n \leq 10^4`
+            * :math:`0 \leq m \leq \min(10^6, n (n - 1) / 2)`
+            * :math:`0 \leq u, v < n`
+
+            **Output**
+
+            Print *yes* if the graph contains a cycle and *no* otherwise.
+
+            **Sample Test Cases**
+
+            `Sample input 1 <graphs-dfs/1.in>`_
+
+            `Sample output 1 <graphs-dfs/1.ans>`_
+
+
+            `Sample input 2 <graphs-dfs/2.in>`_
+
+            `Sample output 2 <graphs-dfs/2.ans>`_
         type: file
 stored_submissions: 0
 submission_limit:
