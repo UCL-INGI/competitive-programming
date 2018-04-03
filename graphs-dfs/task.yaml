@@ -5,11 +5,9 @@ context: |-
 
     In DFS we start from a source node a then recursively visit each of its neighbors. Because of this recursive behavior, after we select the first neighbor :math:`u` of :math:`v` to be explored, the other neighbors of :math:`v` will only be considered after we have finished visiting the whole subgraph that is reachable from :math:`u`. This is the reason why the algorithm is called **depth-first** search. To better ilustrate this consider the following example.
 
-    |
 
     .. image:: graphs-dfs/dfs.gif
 
-    |
 
     Coding this algorithm is very simple as shown in the following code:
 
@@ -22,6 +20,7 @@ context: |-
             visited[u] = true;
             for(int v : g[u]) if(!visited[v]) dfs(v);
         }
+
     If we execute the following code:
 
     .. code:: java
@@ -66,15 +65,15 @@ context: |-
 
     As a first application of DFS we are going to see how we can use the states to simply check whether a directed graph contains a cycle.
 
-    |
 
     .. image:: graphs-dfs/states.gif
 
-    |
 
     To do so, observe that during the execution of :code:`dfsVisit` on a node :math:`u`, if any node :math:`v` is :math:`OPEN` at that moment then there exists a path from :math:`v` to :math:`u`. This is so because since :math:`v` is still open and we are at node :math:`u` then :math:`v` must be an ancestor of :math:`u` in the DFS tree.
 
     Therefore if during the :code:`for` loop at node :math:`u` we find a neighbor :math:`v` that is :math:`OPEN` we must have a cycle in the graph since as we just observed this means that there is a path from :math:`v` to :math:`u` and this path together with the edge :math:`(u, v)` must form a cylce.
+
+    |
 
     .. image:: graphs-dfs/tree.gif
 environment: java8scala
