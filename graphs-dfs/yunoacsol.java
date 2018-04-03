@@ -1,10 +1,10 @@
-package graph;
 
 import java.util.LinkedList;
 import java.util.Scanner;
+import java.util.Stack;
 
 public class yunoacsol {
-	
+
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
 		Scanner reader = new Scanner(System.in);
@@ -20,39 +20,55 @@ public class yunoacsol {
 			g[orig].add(dest);
 		}
 		hasCycle();
-		System.out.println(hasCycle ? "yes" : "no");
+		if(cycleEdge == null) {
+			System.out.println("no");
+		} else {
+			Stack<Integer> S = new Stack<>();
+			int cur = cycleEdge[0];
+			while(cur != cycleEdge[1]) {
+				S.push(cur);
+				cur = parent[cur];
+			}
+			S.push(cycleEdge[1]);
+			S.push(cycleEdge[0]);
+			while(!S.isEmpty()) {
+				System.out.print(S.pop());					
+				if(S.size() > 0) {
+					System.out.print(' ');
+				}
+			}
+		}
 		reader.close();
 	}
-	
+
 	static final int UNV = 0, OPEN = 1, CLOSED = 2;
 	static LinkedList<Integer>[] g;
 	static int[] state;
 	static Integer[] parent;
-	static boolean hasCycle;
+	static int[] cycleEdge;
 
 	static void hasCycle() {
-	    hasCycle = false;
-	    state = new int[g.length];
-	    parent = new Integer[g.length];
-	    for(int u = 0; u < g.length; u++) {
-	        if(state[u] == UNV) {
-	            dfsVisit(u);
-	        }
-	    }
+		state = new int[g.length];
+		parent = new Integer[g.length];
+		for(int u = 0; u < g.length; u++) {
+			if(state[u] == UNV) {
+				dfsVisit(u);
+			}
+		}
 	}
 
 	static void dfsVisit(int u) {
-	    state[u] = OPEN;
-	    for(int v : g[u]) {
-	        if(state[v] == UNV) {
-	            parent[v] = u;
-	            dfsVisit(v);
-	        } else if(state[v] == OPEN) {
-	            // (u, v) is a cycle edge, the graph contains a cycle
-	            hasCycle = true;
-	        }
-	    }
-	    state[u] = CLOSED;
+		state[u] = OPEN;
+		for(int v : g[u]) {
+			if(state[v] == UNV) {
+				parent[v] = u;
+				dfsVisit(v);
+			} else if(state[v] == OPEN) {
+				// (u, v) is a cycle edge, the graph contains a cycle
+				cycleEdge = new int[] {u, v};
+			}
+		}
+		state[u] = CLOSED;
 	}
 
 }
