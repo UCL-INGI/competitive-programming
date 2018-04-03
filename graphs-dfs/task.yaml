@@ -65,7 +65,7 @@ context: |-
 
     *Note:* In Java when you create the :math:`state` array every value is initialized to :math:`0 = UNV`. Therefore nothing needs to be done. In some other languagues you need to make sure that you set the value of every node :math:`UNV` before you start the search.
 
-    The following animation illustrates an exectuion of :math:`\textit{dfsVisit}(0)`.
+    The following animation illustrates an exectuion of :code:`\dfsVisit(0)`.
 
     .. image:: graphs-dfs/states.gif
 
@@ -73,14 +73,14 @@ context: |-
 
     Note that the parent array defines a tree that is a subgraph of the input graph. We call it the *DFS tree*. To detect a cycle we make the following observation:
 
-    - During the execution of :math:`dfsVisit` on a node :math:`u`, if any node :math:`v` is :math:`OPEN` then there exists a path from :math:`v` to :math:`u` on the DFS tree. This is so because since :math:`v` is still open and we are at node :math:`u` then :math:`v` must be an ancestor of :math:`u` in the DFS tree.
+    - During the execution of :code:`dfsVisit(u)`, if any node :math:`v` is :math:`OPEN` then there exists a path from :math:`v` to :math:`u` on the DFS tree. This is so because since :math:`v` is still open and we are at node :math:`u` then :math:`v` must be an ancestor of :math:`u` in the DFS tree.
 
     Therefore if during the :code:`for` loop at node :math:`u` we find a neighbor :math:`v` that is :math:`OPEN` we must have a cycle in the graph since as we just observed this means that there is a path from :math:`v` to :math:`u` and this path together with the edge :math:`(u, v)` must form a cylce.
 
     We classify the edges of the graph in 4 categories with respect to a DFS.
 
     1. Tree edges: edges that belong to the DFS tree.
-    2. Cycle edges (or back edges): edges from a descendant node to one of its ancestors. **They occur when at some point we have an edge between two open nodes**.
+    2. Cycle edges (or back edges): edges from a descendant node to one of its ancestors. **They occur when at some point we have an edge between two** :math:`OPEN` **nodes**.
     3. Forward edges: edges from an ancestor node to a descendant node. They occur when at some point we have an edge from a
     4. Cross edges: edges between two nodes such that neither is an ancestor of the other.
 
