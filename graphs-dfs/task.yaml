@@ -41,11 +41,11 @@ context: |-
 
     These 3 states have the following semantics:
 
-    - :math:`state[u] = `UNV : node :math:`u` has not been visited before. This corresponds to :math:`visited[u] = false` from before.
+    - :math:`state[u] = \textit{UNV}` : node :math:`u` has not been visited before. This corresponds to :math:`visited[u] = false` from before.
     - :math:`state[u] = \textit{OPEN}` : node :math:`u` has been visited but not all of its outgoing edges have been visited.
     - :math:`state[u] = \textit{CLOSED}` : means that all the edges going out of  :math:`u` have been visited.
 
-    To extend the previous code to use this states respecting these semantics is quite simple. Every node should start with the state UNV. Then the first line should set the state to OPEN since at this point the node is visited but we did not yet visit any of its outgoing edges. Finally, after the :code:`for` loop finished we should set the state to CLOSED. We will also add an array :math:`parent` to keep for each node, who visited him.
+    To extend the previous code to use this states respecting these semantics is quite simple. Every node should start with the state :math:`\textit{UNV}`. Then the first line should set the state to :math:`\textit{OPEN}` since at this point the node is visited but we did not yet visit any of its outgoing edges. Finally, after the :code:`for` loop finished we should set the state to :math:`\textit{CLOSED}`. We will also add an array :math:`parent` to keep for each node, who visited him.
 
     .. code:: java
 
