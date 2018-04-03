@@ -74,7 +74,6 @@ context: |-
     Note that the parent array defines a tree that is a subgraph of the input graph. We call it the *DFS tree*. To detect a cycle we make the following observation:
 
     - During the execution of :code:`dfsVisit(u)`, if any node :math:`v` is :math:`OPEN` then there exists a path from :math:`v` to :math:`u` on the DFS tree. This is so because since :math:`v` is still open and we are at node :math:`u` then :math:`v` must be an ancestor of :math:`u` in the DFS tree.
-
     Therefore if during the :code:`for` loop at node :math:`u` we find a neighbor :math:`v` that is :math:`OPEN` we must have a cycle in the graph since as we just observed this means that there is a path from :math:`v` to :math:`u` and this path together with the edge :math:`(u, v)` must form a cylce.
 
     We classify the edges of the graph in 4 categories with respect to a DFS.
@@ -90,6 +89,10 @@ context: |-
 
     .. image:: graphs-dfs/tree.gif
 
+    |
+
+    We saw above that a graph is there is a cycle edge then the graph contains a cylce. It is not hard to see that the converse is also true, that is, if there is a cycle then there is a cycle edge. Thus we can detect cycles as follows:
+
     .. code:: java
 
         static int[] state;
@@ -103,6 +106,7 @@ context: |-
                     dfs(v);
                 } else if(state[u] == OPEN) {
                     // (u, v) is a cycle edge, the graph contains a cycle
+                    // do something about it
                 }
             }
             state[u] = CLOSED;
