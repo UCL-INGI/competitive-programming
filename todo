@@ -1,0 +1,12 @@
+number theory:
+
+https://en.wikipedia.org/wiki/Prime-counting_function
+
+	static void compute(int sgn, int k, long product) {
+		ans += sgn * (x / product);
+		for(int i = k; i < primes.size() && x / (primes.get(i) * product) > 0; i++) {
+			compute(-sgn, i + 1, product * primes.get(i));
+		}
+	}
+
+how many nodes does this evaluate?
