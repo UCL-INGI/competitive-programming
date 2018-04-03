@@ -89,6 +89,24 @@ context: |-
     |
 
     .. image:: graphs-dfs/tree.gif
+
+    .. code:: java
+
+        static int[] state;
+        static int[] parent;
+
+        static void dfsVisit(int u) {
+            state[u] = OPEN;
+            for(int v : g[u]) {
+                if(state[u] == UNV) {
+                    parent[u] = v;
+                    dfs(v);
+                } else if(state[u] == OPEN) {
+                    // (u, v) is a cycle edge, the graph contains a cycle
+                }
+            }
+            state[u] = CLOSED;
+        }
 environment: java8scala
 evaluate: best
 groups: false
