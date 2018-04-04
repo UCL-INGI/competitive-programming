@@ -1,6 +1,100 @@
-accessible: true
+accessible: false
 author: ''
-context: ''
+context: |-
+    We are going to see that we can very easily compute a topological order of a graph using DFS.
+
+    As with most DFS derived algorithms, all we need to do is to reason about the DFS tree. For clarity we will add the relevant code again:
+
+    .. code:: java
+
+        static void dfsVisit(int u) {
+            state[u] = OPEN;
+            for(int v : g[u]) {
+                if(state[v] == UNV) {
+                    dfsVisit(v);
+                } else if(state[v] == OPEN) {
+                    // (u, v) is a cycle edge
+                }
+            }
+            state[u] = CLOSED;
+        }
+
+
+
+    We are going to argue that:
+
+        **THEOREM**
+
+        In an *acyclic* graph, when a node becomes :math:`CLOSED` then
+        all of its out-neighbors are already closed.
+
+        *PROOF*
+
+        Suppose that we are executing :code:`dfsVisit(u)`. Let consider
+        any out-neighbor :math:`v` of :math:`u` and see why at the end
+        of the :code:`for` loop, :math:`v` must be :math:`CLOSED`. We
+        consider 3 cases depending on the state of :math:`v` when it was
+        inspected in the loop:
+
+            1. :math:`v` was :math:`CLOSED`: then it will also be closed
+            at the end of the loop, there is nothing to prove;
+
+            2. :math:`v` was :math:`UNV`: then we called
+            :code:`dfsVisit(v)` and at the end of that call, :math:`v`
+            became :math:`CLOSED`. Hence it will also be closed at the
+            end of :code:`dfsVisit(u)`;
+
+            3. :math:`v` was :math:`OPEN`: this means that :math:`(u,
+            v)` is a *cycle edge* which is impossible since we assumed
+            that the input graph was acyclic.
+
+    **In short**: a node always becomes closed *after* all of its out-neighbors.
+
+    Recall that in a topological order, we want a node to be placed anywhere *before* all of its out-neighbors. This means that, *the order in which the nodes are closed* must be, if one exists, the *reverse order of a topological order*.
+
+    Therefore, we can compute a topological order of a graph by puting the nodes in a list when we close them. By what we seen above we will get a topological order by reversing that list.
+
+    In our implementation we will use an array instead of a list and put the elements from the end to the start of the array so that we don't need to reverse it in the end. An alternative is to use a stack but did not opt for this solution because in most applications we need those nodes in an array afterwards anyway so that we can access the i-th element of the order in constant time.
+
+    .. code:: java
+
+        static final int UNV = 0, OPEN = 1, CLOSED = 2;
+        static LinkedList<Integer>[] g;
+        static int[] state;
+        static boolean foundCycle;
+
+        static int[] toposort; // toposort will have the node indexes in topological order
+        static int toposortIndex; // to keep track where to put the next node
+
+        static void toposort() {
+            foundCycle = false;
+            state = new int[g.length];
+            toposort = new int[g.length];
+            toposortIndex = g.length - 1;
+            for(int u = 0; u < g.length; u++) {
+                if(state[u] == UNV) {
+                    dfsVisit(u);
+                }
+            }
+        }
+
+        static void dfsVisit(int u) {
+            state[u] = OPEN;
+            for(int v : g[u]) {
+                if(state[v] == UNV) {
+                    dfsVisit(v);
+                } else if(state[v] == OPEN) {
+                    // (u, v) is a cycle edge, the graph contains a cycle
+                    foundCycle = true;
+                }
+            }
+            // add u to the topological order
+            // note that we start from the end since we want to reverse the closing order
+            toposort[toposortIndex--] = u;
+            state[u] = CLOSED;
+        }
+
+    At the end of the execution of :code:`toposort()`, if :math:`foundCycle` is :math:`false` then :math:`toposort` will contain the nodes of the graph in topological order.
 environment: correctoz
 evaluate: best
 groups: false
@@ -9,7 +103,7 @@ limits:
     memory: '100'
     output: '2'
     time: '30'
-name: ''
+name: 'Graphs - DFS: topological order'
 network_grading: false
 problems:
     read:

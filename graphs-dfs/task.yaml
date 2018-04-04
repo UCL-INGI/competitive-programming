@@ -131,23 +131,25 @@ context: |-
 
 
     The graph has a cylce if and only if after executing :code:`hasCycle()` we have :code:`foundCycle == true`.
+
+    The complexity of perfoming a DFS is :math:`O(V + E)` as the total work we perfom per node :math:`v` is :math:`O(outdeg(v))` and
+
+    .. math::
+
+       \displaystyle \sum_{v \in V} outdeg(v) = E
 environment: pyjavacpp
 evaluate: best
 groups: false
 input_random: '0'
 limits:
-    output: '100'
     memory: '1000'
+    output: '100'
     time: '1000'
 name: 'Graphs - Depth-first search: cycle finding'
 network_grading: false
 order: 11
 problems:
     file:
-        allowed_exts:
-        - .java
-        - .cpp
-        - .py
         name: Cycle finding in directed graphs
         header: |-
             You have seen how to detect whether a directed graph contains a cycle. In this task you will be asked to also build such a cycle if one exists.
@@ -181,6 +183,10 @@ problems:
 
             `Sample output 2 <graphs-dfs/2.ans>`_
         type: file
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
 stored_submissions: 0
 submission_limit:
     amount: -1
