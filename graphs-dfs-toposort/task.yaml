@@ -48,7 +48,7 @@ context: |-
             v)` is a *cycle edge* which is impossible since we assumed
             that the input graph was acyclic.
 
-    **In short**: a node always becomes closed *after* all of its out-neighbors.
+    **In short**: in an acyclic graph a node always becomes closed *after* all of its out-neighbors.
 
     Recall that in a topological order, we want a node to be placed anywhere *before* all of its out-neighbors. This means that, *the order in which the nodes are closed* must be, if one exists, the *reverse order of a topological order*.
 
@@ -105,6 +105,7 @@ limits:
     time: '30'
 name: 'Graphs - DFS: topological order'
 network_grading: false
+order: 12
 problems:
     read:
         name: Mark this section as read?
@@ -120,4 +121,3 @@ submission_limit:
     period: -1
 tags: {}
 weight: 1.0
-order: 12
