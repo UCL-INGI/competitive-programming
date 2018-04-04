@@ -5,7 +5,13 @@ context: |-
 
     As with most DFS derived algorithms, all we need to do is to reason about the DFS tree.
 
-    When a node becomes :math:`CLOSED`, it means that we already performed :code:`dfsVisit` on each of its out-neighbors. Therefore, all of them must already be :math:`CLOSED` also.
+    When a node becomes :math:`CLOSED`, it means that we already performed :code:`dfsVisit` on each of its out-neighbors. Therefore, all of them must already also be :math:`CLOSED`.
+
+    **In short**: a node always becomes closed *after* all of its out-neighbors.
+
+    In a topological order, we want a node to be placed anywhere *before* all of its out-neighbors.
+
+    This means that, *the order in which the nodes are closed* must be, if one exists, the *reverse order of a topological order*.
 environment: correctoz
 evaluate: best
 groups: false
