@@ -1,0 +1,28 @@
+accessible: true
+author: ''
+context: ''
+environment: correctoz
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: ''
+network_grading: false
+problems:
+    read:
+        name: Mark this section as read?
+        choices:
+        -   text: 'Yes'
+            valid: true
+        type: multiple_choice
+        limit: 0
+        header: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0
