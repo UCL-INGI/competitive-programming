@@ -7,23 +7,27 @@ context: |-
 
     We are going to argue that:
 
-    **THEOREM**
+        **THEOREM**
 
-        - In an *acyclic* graph, when a node becomes :math:`CLOSED` then
+        In an *acyclic* graph, when a node becomes :math:`CLOSED` then
         all of its out-neighbors are already closed.
 
+        *PROOF*
+
         Suppose that we are executing :code:`dfsVisit(u)`. Let consider
-        any out-neighbors :math:`v`of :math:`u`and see why at the end of
-        the :code:`for` loop, :math:`v` must be :math:`CLOSED`. We
+        any out-neighbor :math:`v` of :math:`u` and see why at the end
+        of the :code:`for` loop, :math:`v` must be :math:`CLOSED`. We
         consider 3 cases depending on the state of :math:`v` when it was
         inspected in the loop:
 
             1. :math:`v` was :math:`CLOSED`: then it will also be closed
             at the end of the loop, there is nothing to prove.
+
             2. :math:`v` was :math:`UNV`: then we called
             :code:`dfsVisit(v)` and at the end of that call, :math:`v`
             became :math:`CLOSED`. Hence it will also be closed at the
             end of :code:`dfsVisit(u)`.
+
             3. :math:`v` was :math:`OPEN`: this means that :math:`(u,
             v)` is a *cycle edge* which is impossible since we assumed
             that the input graph was acyclic.
