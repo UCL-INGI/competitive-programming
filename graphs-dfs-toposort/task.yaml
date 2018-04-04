@@ -1,4 +1,4 @@
-accessible: false
+accessible: true
 author: ''
 context: |-
     We are going to see that we can very easily compute a topological order of a graph using DFS.
@@ -52,7 +52,7 @@ context: |-
 
     Recall that in a topological order, we want a node to be placed anywhere *before* all of its out-neighbors. This means that, *the order in which the nodes are closed* must be, if one exists, the *reverse order of a topological order*.
 
-    Therefore, we can compute a topological order of a graph by puting the nodes in a list when we close them. By what we seen above we will get a topological order by reversing that list.
+    Therefore, we can compute a topological order of a graph by putting the nodes in a list when we close them. By what we seen above we will get a topological order by reversing that list.
 
     In our implementation we will use an array instead of a list and put the elements from the end to the start of the array so that we don't need to reverse it in the end. An alternative is to use a stack but did not opt for this solution because in most applications we need those nodes in an array afterwards anyway so that we can access the i-th element of the order in constant time.
 
@@ -95,7 +95,7 @@ context: |-
         }
 
     At the end of the execution of :code:`toposort()`, if :math:`foundCycle` is :math:`false` then :math:`toposort` will contain the nodes of the graph in topological order.
-environment: correctoz
+environment: pyjavacpp
 evaluate: best
 groups: false
 input_random: '0'
@@ -120,3 +120,4 @@ submission_limit:
     period: -1
 tags: {}
 weight: 1.0
+order: 12

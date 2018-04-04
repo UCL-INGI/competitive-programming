@@ -95,7 +95,7 @@ limits:
     time: '1000'
 name: DP - Candy problem, parameter decution
 network_grading: false
-order: 19
+order: 20
 problems:
     file:
         allowed_exts:
