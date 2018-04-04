@@ -3,7 +3,24 @@ author: ''
 context: |-
     We are going to see that we can very easily compute a topological order of a graph using DFS.
 
-    As with most DFS derived algorithms, all we need to do is to reason about the DFS tree.
+    As with most DFS derived algorithms, all we need to do is to reason about the DFS tree. For clarity we will add the :code:`dfsVisit` code:
+
+    .. code:: java
+
+        static void dfsVisit(int u) {
+            state[u] = OPEN;
+            for(int v : g[u]) {
+                if(state[v] == UNV) {
+                    parent[v] = u;
+                    dfsVisit(v);
+                } else if(state[v] == OPEN) {
+                    // (u, v) is a cycle edge
+                }
+            }
+            state[u] = CLOSED;
+        }
+
+
 
     We are going to argue that:
 
@@ -21,12 +38,12 @@ context: |-
         inspected in the loop:
 
             1. :math:`v` was :math:`CLOSED`: then it will also be closed
-            at the end of the loop, there is nothing to prove.
+            at the end of the loop, there is nothing to prove;
 
             2. :math:`v` was :math:`UNV`: then we called
             :code:`dfsVisit(v)` and at the end of that call, :math:`v`
             became :math:`CLOSED`. Hence it will also be closed at the
-            end of :code:`dfsVisit(u)`.
+            end of :code:`dfsVisit(u)`;
 
             3. :math:`v` was :math:`OPEN`: this means that :math:`(u,
             v)` is a *cycle edge* which is impossible since we assumed
