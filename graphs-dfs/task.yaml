@@ -1,4 +1,4 @@
-accessible: false
+accessible: true
 author: ''
 context: |-
     We are now going to study another graph exploration algorithm called depth-first search (DFS). As we will DFS is extremely useful and with it we can solve a wide number of graph related problems.
@@ -76,14 +76,15 @@ context: |-
     Note that the parent array defines a tree that is a subgraph of the input graph. We call it the *DFS tree*. To detect a cycle we make the following observation:
 
     - During the execution of :code:`dfsVisit(u)`, if any node :math:`v` is :math:`OPEN` then there exists a path from :math:`v` to :math:`u` on the DFS tree. This is so because since :math:`v` is still open and we are at node :math:`u` then :math:`v` must be an ancestor of :math:`u` in the DFS tree.
+
     Therefore if during the :code:`for` loop at node :math:`u` we find a neighbor :math:`v` that is :math:`OPEN` we must have a cycle in the graph since as we just observed this means that there is a path from :math:`v` to :math:`u` and this path together with the edge :math:`(u, v)` must form a cycle.
 
     We classify the edges of the graph in 4 categories with respect to a DFS.
 
-    1. Tree edges: edges that belong to the DFS tree.
-    2. Cycle edges (or back edges): edges from a descendant node to one of its ancestors. **They occur when at some point we have an edge between two** :math:`OPEN` **nodes**.
-    3. Forward edges: edges from an ancestor node to a descendant node. They occur when at some point we have an edge from a
-    4. Cross edges: edges between two nodes such that neither is an ancestor of the other.
+    1. *Tree edges*: edges that belong to the DFS tree.
+    2. *Cycle edges* (or *back edges*): edges from a descendant node to one of its ancestors. **They occur when at some point we have an edge between two** :math:`OPEN` **nodes**.
+    3. *Forward edges*: edges from an ancestor node to a descendant node. They occur when at some point we have an edge from a
+    4. *Cross edges*: edges between two nodes such that neither is an ancestor of the other.
 
     The following animation illustrates the execution of DFS together with the DFS tree and the different kinds of edges.
 
@@ -101,10 +102,10 @@ context: |-
         static LinkedList<Integer>[] g;
         static int[] state;
         static Integer[] parent;
-        static boolean hasCycle;
+        static boolean foundCycle;
 
         static void hasCycle() {
-            hasCycle = false;
+            foundCycle = false;
             state = new int[g.length];
             parent = new Integer[g.length];
             for(int u = 0; u < g.length; u++) {
@@ -122,11 +123,14 @@ context: |-
                     dfsVisit(v);
                 } else if(state[v] == OPEN) {
                     // (u, v) is a cycle edge, the graph contains a cycle
-                    hasCycle = true;
+                    foundCycle = true;
                 }
             }
             state[u] = CLOSED;
         }
+
+
+    The graph has a cylce if and only if after executing :code:`hasCycle()` we have :code:`foundCycle == true`.
 environment: pyjavacpp
 evaluate: best
 groups: false
@@ -137,6 +141,7 @@ limits:
     time: '1000'
 name: 'Graphs - Depth-first search: cycle finding'
 network_grading: false
+order: 11
 problems:
     file:
         allowed_exts:
@@ -161,7 +166,9 @@ problems:
 
             **Output**
 
-            Print *no* if the graph contains no cycles. Otherwise print any cycle in the graph. The first line should contain the number of nodes :math:`k` in the cycle. Then should follow :math:`k + 1` lines each with a single integer giving the nodes in the cycle :math:`v_1, v_2, \ldots, v_k, v_1` (note that you should repeat the first node at the end).
+            Print *no* if the graph contains no cycles. Otherwise print any cycle in the graph. If your cycle is :math:`(v_1, v_2, \ldots, v_k, v_1)` then you should print a single line with the integers :math:`v_1, v_2, \ldots, v_k, v_1` separated by single spaces (note that you should repeat the first node at the end).
+
+            If several cycles exists, any one will be accepted.
 
             **Sample Test Cases**
 
