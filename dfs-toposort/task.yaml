@@ -5,6 +5,10 @@ context: |-
 
     As with most DFS derived algorithms, all we need to do is to reason about the DFS tree.
 
+    We are going to argue that:
+
+    - In an acyclic graph, when a node becomes :math:`CLOSED` then all of its out-neighbors are alread closed.
+
     When a node becomes :math:`CLOSED`, it means that we already performed :code:`dfsVisit` on each of its out-neighbors. Therefore, all of them must already also be :math:`CLOSED`.
 
     **In short**: a node always becomes closed *after* all of its out-neighbors.
