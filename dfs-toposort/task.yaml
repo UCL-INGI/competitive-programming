@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |+
+context: |-
     We are going to see that we can very easily compute a topological order of a graph using DFS.
 
     As with most DFS derived algorithms, all we need to do is to reason about the DFS tree. For clarity we will add the relevant code again:
@@ -94,6 +94,7 @@ context: |+
             state[u] = CLOSED;
         }
 
+    At the end of the execution of :code:`toposort()`, if :math:`foundCycle` is :math:`false` then :math:`toposort` will contain the nodes of the graph in topological order.
 environment: correctoz
 evaluate: best
 groups: false
