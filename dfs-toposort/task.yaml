@@ -1,6 +1,11 @@
 accessible: true
 author: ''
-context: ''
+context: |-
+    We are going to see that we can very easily compute a topological order of a graph using DFS.
+
+    As with most DFS derived algorithms, all we need to do is to reason about the DFS tree.
+
+    When a node becomes :math:`CLOSED`, it means that we already performed :code:`dfsVisit` on each of its out-neighbors. Therefore, all of them must already be :math:`CLOSED` also.
 environment: correctoz
 evaluate: best
 groups: false
@@ -9,7 +14,7 @@ limits:
     memory: '100'
     output: '2'
     time: '30'
-name: ''
+name: 'Graphs - DFS: topological order'
 network_grading: false
 problems:
     read:
