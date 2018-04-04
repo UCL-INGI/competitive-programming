@@ -1,4 +1,4 @@
-accessible: true
+accessible: false
 author: ''
 context: |-
     We are going to see that we can very easily compute a topological order of a graph using DFS.
