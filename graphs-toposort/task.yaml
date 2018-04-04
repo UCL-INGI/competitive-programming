@@ -81,23 +81,30 @@ context: |+
             return order;
         }
 
+    *Note:* This algorithms assumes that the input graph is acyclic and that the topological order exists. If there are cylces in the graph then of nodes in those cycles will have positive degree at the end of the execution. Thus you can check whether the order is valid by checking if some node as positive degree at the end of the execution. Note however that it is not true that in the precense of cycles only nodes in cycles can have positive degree in the end. Thus you cannot use this criteria to output all nodes that belong to a cycle.
+
+        **Example:**
+
+        The following animation shows an execution of the algorithm on a
+        graph that contains cycles.
+
+        .. image:: graphs-toposort/anim2.gif
+
+    Another way to see if the order is exists (the graph is acyclic) is simply to see whether the size of :math:`order` is equal to the number of nodes.
+
 environment: pyjavacpp
 evaluate: best
 groups: false
 input_random: '0'
 limits:
-    output: '100'
     memory: '1000'
+    output: '100'
     time: '1000'
 name: Graphs - Topological sort
 network_grading: false
 order: 10
 problems:
     file:
-        allowed_exts:
-        - .java
-        - .cpp
-        - .py
         name: ''
         header: |-
             Given a directed acyclic graph, you will have to output a topological order of that graph.
@@ -130,6 +137,10 @@ problems:
 
             `Sample output 2 <graphs-toposort/2.ans>`_
         type: file
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
 stored_submissions: 0
 submission_limit:
     amount: -1
