@@ -1,21 +1,29 @@
 accessible: false
 author: ''
-context: ''
+context: |+
+    In this task we are going to learn how to compute the strongly connected components of a directed graph.
+
+    A graph is said to be strongly connected if there exists at least one path between any pair of nodes in that subset.
+
+    The strongly connected components of a graph are the maximal strongly connected subgraphs of that graph.
+
+      **Example:**
+
 environment: python3
 evaluate: best
 groups: false
 input_random: '0'
 limits:
     output: '2'
-    time: '30'
     memory: '100'
+    time: '30'
 name: Graphs - Strongly connected components
 network_grading: false
 problems:
     file:
-        name: ''
         header: ''
         type: file
+        name: ''
 stored_submissions: 0
 submission_limit:
     amount: -1
