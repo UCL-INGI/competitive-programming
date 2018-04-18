@@ -13,6 +13,8 @@ context: |-
       same SCC are colored with the same color.
 
       .. image:: graphs-scc/scc.png
+
+    The first thing that we need to observe is that the SCC's form a directed acyclic graph that we will refer to as SCC-DAG. By this we mean that if we fuse all the nodes in each of the SCC's then the result is a directed graph that contains no cycles.
 environment: python3
 evaluate: best
 groups: false
