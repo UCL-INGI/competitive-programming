@@ -22,7 +22,7 @@ context: |
 
       .. image:: graphs-scc/sccCondensed.png
 
-    The SCC-DAG must be acyclic because by definition the SCC are maximal strongly connected subgraph. If the SCC-DAG would contains a cycle then all nodes in the corresponding SCC's must have been in the same SCC in the original graph to start with. Thus contradicting the fact that they result is distinct nodes in the condensed graph.
+    The SCC-DAG must be acyclic becaus,e by definition, the SCC's are **maximal** strongly connected subgraph. If the SCC-DAG would contain a cycle then all nodes in the corresponding SCC's must have been in the same SCC in the original graph to begin with. Thus contradicting the fact that they resulted is distinct nodes in the condensed graph.
 environment: python3
 evaluate: best
 groups: false
