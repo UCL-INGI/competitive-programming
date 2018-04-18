@@ -1,13 +1,16 @@
 accessible: false
 author: ''
 context: |-
-    In this task we are going to learn how to compute the strongly connected components of a directed graph.
+    In this task we are going to learn how to compute the strongly connected components (SCC's) of a directed graph.
 
     A graph is said to be strongly connected if there exists at least one path between any pair of nodes in that subset.
 
     The strongly connected components of a graph are the maximal strongly connected subgraphs of that graph.
 
       **Example:**
+
+      The following image show a graph with 4 SCC's. The nodes on the
+      same SCC are colored with the same color.
 
       .. image:: graphs-scc/scc.png
 environment: python3
