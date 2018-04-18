@@ -22,7 +22,9 @@ context: |+
 
     .. image:: graphs-scc/anim1.gif
 
-    This suggest that as long as we select a good order to perform DFS's, the set of nodes visited in each DFS corresponds to a SCC.
+    |
+
+    This suggest that as long as we select a good order to perform DFS's, the set of nodes visited in each DFS will correspond to a SCC.
 
     The first thing that we need to observe is that the SCC's form a directed acyclic graph that we will refer to as SCC-DAG. By this we mean that we fuse each SCC into a single node and connect two fused nodes if they contain originally connected nodes.
 
