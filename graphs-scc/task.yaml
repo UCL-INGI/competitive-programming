@@ -14,13 +14,13 @@ context: |+
 
       .. image:: graphs-scc/scc.png
 
-    The first thing that we need to observe is that the SCC's form a directed acyclic graph that we will refer to as SCC-DAG. By this we mean that if we fuse all the nodes in each of the SCC's and connect two fused node iff there
+    The first thing that we need to observe is that the SCC's form a directed acyclic graph that we will refer to as SCC-DAG. By this we mean that we fuse each SCC into a single node and connect two fused nodes if they contain originally connected nodes.
 
       **Example:**
 
       The SCC-DAG corresponding to the previous graph is the following:
 
-      .. image:: graph-scc/sccCondensed.png
+      .. image:: graphs-scc/sccCondensed.png
 
 
 environment: python3
