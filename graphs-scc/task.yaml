@@ -1,6 +1,6 @@
 accessible: false
 author: ''
-context: |-
+context: |+
     In this task we are going to learn how to compute the strongly connected components (SCC's) of a directed graph.
 
     A graph is said to be strongly connected if there exists at least one path between any pair of nodes in that subset.
@@ -15,6 +15,9 @@ context: |-
       .. image:: graphs-scc/scc.png
 
     The first thing that we need to observe is that the SCC's form a directed acyclic graph that we will refer to as SCC-DAG. By this we mean that if we fuse all the nodes in each of the SCC's then the result is a directed graph that contains no cycles.
+
+    The following figure illustrates this:
+
 environment: python3
 evaluate: best
 groups: false
