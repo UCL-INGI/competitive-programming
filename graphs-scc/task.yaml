@@ -18,6 +18,10 @@ context: |+
 
     Imagine that we start a DFS at any red node, say 13. Then the set of nodes that will be visited is exaclty the set of red nodes and no other. So, in this case, we are lucky to visit exactly a SCC of the graph. If we mark the visited nodes as visited and then start from any green node, say 11, we will visit only the green nodes and thus find a new SCC. However, if after than we select a blue node, we will visit all the blue nodes together with the yellow nodes failing to find a new SCC. To avoid this problem we should have first done a DFS from a yellow node and only after from a blue node.
 
+    The following animation illustrates this.
+
+    .. image:: graphs-scc/anim1.gif
+
     This suggest that as long as we select a good order to perform DFS's, the set of nodes visited in each DFS corresponds to a SCC.
 
     The first thing that we need to observe is that the SCC's form a directed acyclic graph that we will refer to as SCC-DAG. By this we mean that we fuse each SCC into a single node and connect two fused nodes if they contain originally connected nodes.
