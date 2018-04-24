@@ -1,5 +1,6 @@
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Scanner;
 
@@ -52,15 +53,22 @@ public class yunoacsol {
 			g[u].add(v);
 		}
 		int[] c = scc(g);
-		int nbscc = 0;
+		HashMap<Integer, LinkedList<Integer>> M = new HashMap<>();
 		for(int i = 0; i < c.length; i++) {
-			nbscc = Math.max(nbscc, c[i]);
+			LinkedList<Integer> L = M.get(c[i]);
+			if(L == null) {
+				L = new LinkedList<>();
+				M.put(c[i], L);
+			}
+			L.add(i);
 		}
-		System.out.println(nbscc);
-		String out = Arrays.toString(c);
-		out = out.substring(1, out.length() - 1);
-		out = out.replace(", ", " ");
-		System.out.println(out);
+		System.out.println(M.size());
+		for(LinkedList<Integer> L : M.values()) {
+			String s = L.toString();
+			s = s.substring(1, s.length() - 1);
+			s = s.replaceAll(", ", " ");
+			System.out.println(s);
+		}
 		reader.close();
 	}
 
@@ -124,3 +132,4 @@ public class yunoacsol {
 	}
 
 }
+
