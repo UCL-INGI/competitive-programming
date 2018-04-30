@@ -98,7 +98,7 @@ limits:
     time: '1000'
 name: DP - Memory reduction
 network_grading: false
-order: 18
+order: 21
 problems:
     file:
         allowed_exts:

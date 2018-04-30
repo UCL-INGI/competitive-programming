@@ -74,7 +74,7 @@ limits:
     time: '1000'
 name: Graphs - Breadth-first search
 network_grading: false
-order: 5
+order: 7
 problems:
     file:
         allowed_exts:

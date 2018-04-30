@@ -1,4 +1,4 @@
-accessible: false
+accessible: true
 author: ''
 context: |-
     In this task we are going to learn how to compute the strongly connected components (SCC's) of a directed graph.
@@ -239,3 +239,4 @@ submission_limit:
     period: -1
 tags: {}
 weight: 1.0
+order: 15
