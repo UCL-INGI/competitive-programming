@@ -1,6 +1,6 @@
 accessible: false
 author: ''
-context: |
+context: |-
     In this task we are going to learn how to compute the strongly connected components (SCC's) of a directed graph.
 
     A graph is said to be strongly connected if there exists at least one path between any pair of nodes in that subset.
@@ -16,7 +16,7 @@ context: |
 
     Let's try to get some intuition on how we could compute these SCC's.
 
-    Imagine that we start a DFS at any red node, say 13. Then the set of nodes that will be visited is exaclty the set of red nodes and no other. So, in this case, we are lucky to visit exactly a SCC of the graph. If we mark the visited nodes as visited and then start from any green node, say 11, we will visit only the green nodes and thus find a new SCC. However, if after than we select a blue node, we will visit all the blue nodes together with the yellow nodes failing to find a new SCC. To avoid this problem we should have first done a DFS from a yellow node and only after from a blue node.
+    Imagine that we start a DFS at any red node, say 13. Then the set of nodes that will be visited is exactly the set of red nodes and no other. So, in this case, we are lucky to visit exactly a SCC of the graph. If we mark the visited nodes as visited and then start from any green node, say 11, we will visit only the green nodes and thus find a new SCC. However, if after than we select a blue node, we will visit all the blue nodes together with the yellow nodes failing to find a new SCC. To avoid this problem we should have first done a DFS from a yellow node and only after from a blue node.
 
     The following animation illustrates this.
 
@@ -26,7 +26,7 @@ context: |
 
     This suggest that as long as we select a good order to perform DFS's, the set of nodes visited in each DFS will correspond to a SCC.
 
-    This is actuall quite natural as we are going to see now. Observe is that the SCC's form a directed acyclic graph that we will refer to as SCC-DAG. By this we mean that we fuse each SCC into a single node and connect two fused nodes if they contain originally connected nodes (we remove parallel edges).
+    This is actually quite natural as we are going to see now. Observe is that the SCC's form a directed acyclic graph that we will refer to as SCC-DAG. By this we mean that we fuse each SCC into a single node and connect two fused nodes if they contain originally connected nodes (we remove parallel edges).
 
       **Example:**
 
@@ -36,7 +36,7 @@ context: |
 
     The SCC-DAG must be acyclic because, by definition, the SCC's are **maximal** strongly connected subgraph. If the SCC-DAG would contain a cycle then all nodes in the corresponding SCC's must have been in the same SCC in the original graph to begin with. Thus contradicting the fact that they resulted is distinct nodes in the condensed graph.
 
-    By being acyclic it must have a topological order. This order tell us exactly the order in which we should call DFS so that each DFS will yield exactly a strongly connected componend: we should do it from the last to the first SCC in a topological order of the SCC-DAG, that is, in the **reverse** order of the SCC-DAG topological order.
+    By being acyclic it must have a topological order. This tell us exactly the order in which we should call DFS so that each DFS yields exactly a strongly connected component. We should do it from the last to the first SCC in a topological order of the SCC-DAG, that is, in the **reverse** order of the SCC-DAG topological order.
 
       **Example:**
 
@@ -63,7 +63,7 @@ context: |
     In general it could have been a different order but it will **always** be a valid topological order of the SCC-DAG (for example, blue, yellow, green red).
 
     The reason why this is true in general is that If a SCC :math:`C` is reachable from a node :math:`u` then if we call :code:`dfsVisit(u)`, :math:`u` will be closed **after** all nodes from :math:`C`.
-    Therefore node :math:`u` will come before all nodes in :math:`C` in the toposort array. This is a consequence of the more general behaviour of DFS: when we call :code:`dfsVisit(u)`, all nodes reachable from :math:`u` will be closed before :math:`u`.
+    Therefore node :math:`u` will come before all nodes in :math:`C` in the toposort array. This is a consequence of the more general behavior of DFS: when we call :code:`dfsVisit(u)`, all nodes reachable from :math:`u` will be closed before :math:`u`.
 
     We almost have what we want! Recall that we saw above that a good order in which to perform DFS would be the **reverse** of the topological order of the SCC-DAG. We already know how to compute the real order, how about the reverse?
 
@@ -155,13 +155,13 @@ context: |
 
     Note that in the second execution the :code:`toposort` array is still update but we don't care about its contents, it is just so that we can reuse the same code for the two tasks. So there is a slight loss in semantics on the code but we believe that is it worth the length gain in this case.
 
-    Also, note that once we have the topological order, the way each comoponent is visited does not matter. Here we did a DFS because we already have the code but any graph exploration algorithm would do, like a BFS for example.
+    Also, note that once we have the topological order, the way each component is visited does not matter. Here we did a DFS because we already have the code but any graph exploration algorithm would do, like a BFS for example.
 
       **Importat thing to remember:**
 
       If you call a toposort on a directed graph, the order you
       obtain is either a topological order if the graph is acyclic or
-      the nodes will be ordered so that the first occurence of a node
+      the nodes will be ordered so that the first occurrence of a node
       from each SCC appears in a topological order of SCC-DAG.
 
       This is was we say when we called toposort on the first graph. We
@@ -171,9 +171,9 @@ context: |
 
       |
 
-      The first occurence of each colors (blue, green, red, yellow)
+      The first occurrence of each colors (blue, green, red, yellow)
       respects a topological order of SCC-DAG. The colors mix at the
-      end but the first occurences of each of them respect the order.
+      end but the first occurrences of each of them respect the order.
 
       .. image:: graphs-scc/scc_small.png
 
@@ -227,8 +227,8 @@ problems:
             `Sample input 2 <graphs-scc/2.in>`_
 
             `Sample output 2 <graphs-scc/2.ans>`_
-        type: file
         name: Strongly connected components
+        type: file
         allowed_exts:
         - .java
         - .cpp
