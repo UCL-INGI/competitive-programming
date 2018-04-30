@@ -227,8 +227,8 @@ problems:
             `Sample input 2 <graphs-scc/2.in>`_
 
             `Sample output 2 <graphs-scc/2.ans>`_
-        name: Strongly connected components
         type: file
+        name: Strongly connected components
         allowed_exts:
         - .java
         - .cpp
