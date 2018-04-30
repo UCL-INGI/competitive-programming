@@ -1,6 +1,6 @@
 accessible: false
 author: ''
-context: |+
+context: |
     In this task we are going to learn how to compute the strongly connected components (SCC's) of a directed graph.
 
     A graph is said to be strongly connected if there exists at least one path between any pair of nodes in that subset.
@@ -26,7 +26,7 @@ context: |+
 
     This suggest that as long as we select a good order to perform DFS's, the set of nodes visited in each DFS will correspond to a SCC.
 
-    The first thing that we need to observe is that the SCC's form a directed acyclic graph that we will refer to as SCC-DAG. By this we mean that we fuse each SCC into a single node and connect two fused nodes if they contain originally connected nodes.
+    This is actuall quite natural as we are going to see now. Observe is that the SCC's form a directed acyclic graph that we will refer to as SCC-DAG. By this we mean that we fuse each SCC into a single node and connect two fused nodes if they contain originally connected nodes (we remove parallel edges).
 
       **Example:**
 
@@ -34,27 +34,205 @@ context: |+
 
       .. image:: graphs-scc/sccCondensed.png
 
-    The SCC-DAG must be acyclic becaus,e by definition, the SCC's are **maximal** strongly connected subgraph. If the SCC-DAG would contain a cycle then all nodes in the corresponding SCC's must have been in the same SCC in the original graph to begin with. Thus contradicting the fact that they resulted is distinct nodes in the condensed graph.
+    The SCC-DAG must be acyclic because, by definition, the SCC's are **maximal** strongly connected subgraph. If the SCC-DAG would contain a cycle then all nodes in the corresponding SCC's must have been in the same SCC in the original graph to begin with. Thus contradicting the fact that they resulted is distinct nodes in the condensed graph.
 
-    By being acyclic it must have a topological order. Suppose for now that we know the topological order of the SCC's. Then, if we call any graph traversal algorithm on the ... TODO
+    By being acyclic it must have a topological order. This order tell us exactly the order in which we should call DFS so that each DFS will yield exactly a strongly connected componend: we should do it from the last to the first SCC in a topological order of the SCC-DAG, that is, in the **reverse** order of the SCC-DAG topological order.
 
+      **Example:**
 
+      One possible topological order is shown. This tells us that we
+      need to do the red nodes before the green ones, the green ones
+      before the blue ones and the yellow nodes before the blue ones.
 
-environment: python3
+      .. image:: graphs-scc/scc_small.png
+
+    Ok, so now we have an idea of what to do. It remains to see how we can do it. So far this idea seems to require us to know the SCC's in the first place... But we are going to see that we can actually very easily compute something close enough to this order with a single DFS.
+
+    We saw `before <graphs-dfs-toposort>`_ that DFS can be used to compute a topological order of a DAG. However what happens when we feed the algorithm a graph that is not a DAG? Obviously it cannot output a topological order since no such order can exist. Let us see what happens by executing it on the same example.
+
+    .. image:: graphs-scc/toposcc.gif
+
+    The order, colored with respect to the SCC's, computed by this algorithm is the following:
+
+    .. image:: graphs-scc/sccOrderDfs.png
+
+    |
+
+    Observe that if we traverse the order from left to right we do not obtain all the nodes from each SCC grouped together and in order. However, if we write down the order in which the colors appear, this order matches the topological order of the SCC-DAG.
+
+    In general it could have been a different order but it will **always** be a valid topological order of the SCC-DAG (for example, blue, yellow, green red).
+
+    The reason why this is true in general is that If a SCC :math:`C` is reachable from a node :math:`u` then if we call :code:`dfsVisit(u)`, :math:`u` will be closed **after** all nodes from :math:`C`.
+    Therefore node :math:`u` will come before all nodes in :math:`C` in the toposort array. This is a consequence of the more general behaviour of DFS: when we call :code:`dfsVisit(u)`, all nodes reachable from :math:`u` will be closed before :math:`u`.
+
+    We almost have what we want! Recall that we saw above that a good order in which to perform DFS would be the **reverse** of the topological order of the SCC-DAG. We already know how to compute the real order, how about the reverse?
+
+    Notice from the example above that just reversing the order is not what we want, the first node would still be a blue node. The reverse order can be obtained by reversing every each of the input graph before computing the toposort array! This works because:
+
+    1. The SCC remain the same under edge reversal;
+    2. The edge connecting the SCC's are reversed so a topological order of the reverse SCC-DAG must be a reverse topological order of the original SCC-DAG.
+
+    The following animation show the execution of the same algorithm as before but on the reversed graph:
+
+    .. image:: graphs-scc/toposcc2.gif
+
+    The order that we obtain this time is the following:
+
+    .. image:: graphs-scc/sccOrderDfs2.png
+
+    |
+
+    As we can see, this time we have a good order to compute the strongly connected components. If we look through the nodes in this order, call DFS on nodes if they are not visited, each DFS call will compute a strongly connected component.
+
+    Now that we have all the right ideas, it is quite straightforward to write the code. The high level sketch is the following:
+
+    1. Compute the reverse graph :math:`gr`
+    2. Call toposort on gr obtaining the :math:`toposort` array
+    3. Loop over the nodes in order of the toposort array and call :code:`dfsVisit` on the original graph :math:`g` if the node has not yet been visited labeling all nodes v visited as belonging to the same SCC.
+
+    .. code:: java
+
+        static final int UNV = 0;
+        // scc will contain the scc label of the nodes
+        // scc[i] = scc[j] iff i, j are on the same scc
+        static int[] scc;
+        static int[] toposort; // toposort will have the node indexes in topological order
+        static int toposortIndex; // to keep track where to put the next node
+
+        @SuppressWarnings("unchecked")
+        static LinkedList<Integer>[] transpose(LinkedList<Integer>[] g) {
+            LinkedList<Integer>[] gt = new LinkedList[g.length];
+            for(int i = 0; i < g.length; i++) {
+                gt[i] = new LinkedList<>();
+            }
+            for(int i = 0; i < g.length; i++) {
+                for(int j : g[i]) {
+                    gt[j].add(i);
+                }
+            }
+            return gt;
+        }
+
+        static int[] scc(LinkedList<Integer>[] g) {
+            // compute the reverse graph
+            LinkedList<Integer>[] gt = transpose(g);
+            // get the order
+            int[] order = toposort(gt);
+            // reset dfs data to visit the SCC's
+            initDFS(g);
+            // initialize the SCC label, nodes with same label are on the same SCC
+            int sccLabel = 1;
+            // loop over the nodes in order to visit the SCC's
+            for(int u : order) if(scc[u] == UNV) {
+                dfsVisit(g, u, sccLabel++);
+            }
+            return Arrays.copyOf(scc, scc.length);
+        }
+
+        static void initDFS(LinkedList<Integer>[] g) {
+            toposort = new int[g.length];
+            toposortIndex = g.length - 1;
+            scc = new int[g.length];
+        }
+
+        static int[] toposort(LinkedList<Integer>[] g) {
+            initDFS(g);
+            for(int u = 0; u < g.length; u++) if(scc[u] == UNV) {
+                dfsVisit(g, u, 1);
+            }
+            return Arrays.copyOf(toposort, toposort.length);
+        }
+
+        static void dfsVisit(LinkedList<Integer>[] g, int u, int sccLabel) {
+            scc[u] = sccLabel;
+            for(int v : g[u]) if(scc[v] == UNV) {
+                dfsVisit(g, v, sccLabel);
+            }
+            toposort[toposortIndex--] = u;
+        }
+
+    To make the implementation shorter we reuse the same data and dropped the unnecessary one. We use the :code:`dfsVisit` both to compute the topological order and to visit the components afterwards. The :code:`scc` array serves two purposed: in the first time it is used simply to mark nodes as visited when we are computing the topological order. In the second time we use it to label all visited nodes with the index of the SCC (starting from 1) so that two nodes with have the same label iff they are on the same connected component.
+
+    Note that in the second execution the :code:`toposort` array is still update but we don't care about its contents, it is just so that we can reuse the same code for the two tasks. So there is a slight loss in semantics on the code but we believe that is it worth the length gain in this case.
+
+    Also, note that once we have the topological order, the way each comoponent is visited does not matter. Here we did a DFS because we already have the code but any graph exploration algorithm would do, like a BFS for example.
+
+      **Importat thing to remember:**
+
+      If you call a toposort on a directed graph, the order you
+      obtain is either a topological order if the graph is acyclic or
+      the nodes will be ordered so that the first occurence of a node
+      from each SCC appears in a topological order of SCC-DAG.
+
+      This is was we say when we called toposort on the first graph. We
+      obtained:
+
+      .. image:: graphs-scc/sccOrderDfs.png
+
+      |
+
+      The first occurence of each colors (blue, green, red, yellow)
+      respects a topological order of SCC-DAG. The colors mix at the
+      end but the first occurences of each of them respect the order.
+
+      .. image:: graphs-scc/scc_small.png
+
+      |
+
+      This is useful because it allows to find a root for the SCC-DAG,
+      that is, a node that can reach everyone else (provided that such
+      a node exists) without computing the contracted graph.
+environment: pyjavacpp
 evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '30'
-    output: '2'
-    memory: '100'
+    time: '1000'
+    output: '100'
+    memory: '1000'
 name: Graphs - Strongly connected components
 network_grading: false
 problems:
     file:
-        header: ''
-        name: ''
+        header: |-
+            You will be given a graph and you have to compute how many storngly connected components it contains and compute the set of nodes in each component.
+
+            **Input**
+
+            - One line with two integers :math:`n` and :math:`m` giving the number of nodes in the graph and the number of edges respectively.
+
+            - :math:`m` lines each with two integers :math:`u_i` and :math:`v_i` giving that there is an edge from :math:`u_i` to :math:`v_i`.
+
+            **Constraints**
+
+            * :math:`1 \leq n \leq 60000`
+            * :math:`0 \leq m \leq 200000`
+            * :math:`0 \leq u_i, v_i < n`
+
+            **Output**
+
+            - One line with the number of strongly connected components of the input graph.
+
+            - One line for each strongly connected component giving the set of nodes in that component separated by single spaces.
+
+            The order in which you give the connected components does not matter neither does the order of the nodes in each SCC.
+
+            **Sample Test Cases**
+
+            `Sample input 1 <graphs-scc/1.in>`_
+
+            `Sample output 1 <graphs-scc/1.ans>`_
+
+
+            `Sample input 2 <graphs-scc/2.in>`_
+
+            `Sample output 2 <graphs-scc/2.ans>`_
+        name: Strongly connected components
         type: file
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
 stored_submissions: 0
 submission_limit:
     amount: -1

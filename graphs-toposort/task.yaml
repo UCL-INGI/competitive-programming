@@ -97,15 +97,14 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    memory: '1000'
-    output: '100'
     time: '1000'
+    output: '100'
+    memory: '1000'
 name: Graphs - Topological sort
 network_grading: false
 order: 10
 problems:
     file:
-        name: ''
         header: |-
             Given a directed acyclic graph, you will have to output a topological order of that graph.
 
@@ -120,7 +119,6 @@ problems:
             * :math:`1 \leq n \leq 20000`
             * :math:`0 \leq m \leq 100000`
             * :math:`0 \leq u_i, v_i < n`
-            * :math:`0 \leq a_i, b_i < n`
 
             **Output**
 
@@ -136,6 +134,7 @@ problems:
             `Sample input 2 <graphs-toposort/2.in>`_
 
             `Sample output 2 <graphs-toposort/2.ans>`_
+        name: ''
         type: file
         allowed_exts:
         - .java

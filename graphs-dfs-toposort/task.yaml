@@ -23,12 +23,12 @@ context: |-
 
     We are going to argue that:
 
-        **THEOREM**
+        **Theorem:**
 
         In an *acyclic* graph, when a node becomes :math:`CLOSED` then
         all of its out-neighbors are already closed.
 
-        *PROOF*
+        *Proof:*
 
         Suppose that we are executing :code:`dfsVisit(u)`. Let consider
         any out-neighbor :math:`v` of :math:`u` and see why at the end
@@ -101,19 +101,19 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    output: '2'
     time: '30'
+    output: '2'
 name: 'Graphs - DFS: topological order'
 network_grading: false
 order: 12
 problems:
     read:
-        name: Mark this section as read?
         choices:
-        -   text: 'Yes'
-            valid: true
-        type: multiple_choice
+        -   valid: true
+            text: 'Yes'
+        name: Mark this section as read?
         limit: 0
+        type: multiple_choice
         header: ''
 stored_submissions: 0
 submission_limit:

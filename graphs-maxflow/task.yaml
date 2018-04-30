@@ -1,0 +1,118 @@
+accessible: false
+author: ''
+context: |-
+    In this task we are going to learn how to compute the maximum flow between two nodes in a graph. In the maximum flow problem each edge has a capacity and we aim at sending the maximum amout of flow (information) between a souce node :math:`s` and a sink node :math:`t` in a graph without exceeding the capacity of any edge.
+
+        **Example:**
+
+        In the following graph, we can send a total of 6 units of flow
+        as shown. The numbers on the edges represent the edge
+        capacities.
+
+        |
+
+        .. image:: graphs-maxflow/flowEx.png
+
+        |
+
+        In this example all the edges leaving the source are saturated
+        (have no capacity remaining). Thus we know that must be the
+        maximum flow as we would never be able to send more than this.
+
+    By looking at such an example it seems that we can compute the maximum flow simply by finding paths from :math:`s` to :math:`t`
+    and pushing as much as we can each time. As we will see, this is a little too greedy to work so we will need to refine the idea a bit in order for it to work.
+
+        **Example:**
+
+        Consider the same graph but pushing flow on a different set of
+        paths. Every time we find a path from :math:`s` to :math:`t` we
+        increment the total flow by the minimum capacity edge on that
+        path. We label each edge with :math:`f / c` where :math:`f`
+        is the flow currently passing on that edge and :math:`c` is its
+        capacity.
+
+        |
+
+        .. image:: graphs-maxflow/flowEx2.png
+
+        |
+
+        The first path found was :math:`(s,4,3,t)` and we could push 1
+        unit of flow.
+
+        |
+
+        .. image:: graphs-maxflow/flowEx3.png
+
+        |
+
+        Then we found path :math:`(s,1,2,t)` and pushed 3 units of flow.
+
+        |
+
+        .. image:: graphs-maxflow/flowEx4.png
+
+        |
+
+        After that we found path :math:`(s,4,t)` and pushed one more
+        unit of flow. Now there are no more paths from :math:`s` to
+        :math:`t` with positive capacity in the graph so we cannot push
+        more flow.
+
+        |
+
+        .. image:: graphs-maxflow/flowEx5.png
+
+        |
+
+        As you can see, we were only able to push a total of 5 units of     flow. However on the first example we saw that the maximum flow     is 6. This shows that simply finding paths with positive
+        capacity and pushing flow does yield an optimal solution.
+
+    If we look at the final flow that we obtained before, we can actually understand how we could manage to send one more unit of flow.
+
+    The flow going from :math:`3` to :math:`t` could come from path :math:`(s, 1, 3, t)` instead and the flow on :math:`(4, 3, t)` could be redirected on edge :math:`(4, t)`.
+
+    |
+
+    .. image:: graphs-maxflow/flowEx6.png
+
+    |
+
+    But how can we find this changes? It turn out that a simple path finding algorithm can achieve it. If you think about it, what we did is as if we had pushed one unit of flow on the following "path":
+
+    |
+
+    .. image:: graphs-maxflow/flowEx7.png
+
+    |
+
+    This is not really a path as edge :math:`(4, 3)` is traversed in the opposit direction. However if we defined that when we push flow on an edge, if the edge direction is correct then we **increase** the flow and when direction is reversed,  we **decrease** the flow, we end up exactly with the flow that we had after we redirected the flow.
+
+    |
+
+    .. image:: graphs-maxflow/flowEx8.png
+
+    |
+
+    The intuition behind this is that when
+environment: mcq
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    time: '30'
+    output: '2'
+    memory: '100'
+name: Graphs - Maximum flow
+network_grading: false
+problems:
+    file:
+        header: ''
+        name: ''
+        type: file
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0
