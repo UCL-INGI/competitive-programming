@@ -116,7 +116,7 @@ limits:
     memory: '100'
 name: Introduction
 network_grading: false
-order: 2
+order: 1
 problems:
     read:
         choices:

@@ -105,7 +105,7 @@ limits:
     output: '2'
 name: 'Graphs - DFS: topological order'
 network_grading: false
-order: 14
+order: 13
 problems:
     read:
         choices:
