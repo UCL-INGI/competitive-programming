@@ -11,6 +11,7 @@ limits:
     memory: '1000'
 name: 'Graphs - Problem: Dominos'
 network_grading: false
+order: 1
 problems:
     file:
         header: |-
@@ -27,6 +28,8 @@ problems:
             - One line with two integers :math:`n` and :math:`m` giving the number of dominos and the number pairs of dominos that make each other fall.
 
             - :math:`m` lines each with two integers :math:`i` and :math:`j` giving that if :math:`i` falls then domino :math:`j` also falls.
+
+            Note that in this problem a domino may cause any number of other dominos to fall.
 
             **Constraints**
 
@@ -60,4 +63,3 @@ submission_limit:
     period: -1
 tags: {}
 weight: 1.0
-order: 1
