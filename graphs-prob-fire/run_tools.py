@@ -143,6 +143,7 @@ def judge(filename, compile, run, checker, timelimit, testdir = './tests', verbo
     if not can_be_ac:
       break
     if fn.endswith('.in'):
+      print('-> ->' + fn)
       if(verbose): print('running test {0}'.format(fn))
       test_index += 1
       # get the name of the test case

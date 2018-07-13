@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Scanner;
 
-public class Dominos {
+public class yunoacsol {
 
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
