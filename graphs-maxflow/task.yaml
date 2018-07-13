@@ -74,13 +74,22 @@ context: |-
 
     Let's look at the final flow that we obtained before and try to understand what we can change in order to send one more unit of flow.
 
-    The flow going from :math:`c` to :math:`t` could come from path :math:`(s, a, c, t)` instead and the flow on :math:`(d, c, t)` could be redirected on edge :math:`(d, t)`.
+    One way to do that is to first take one unit of flow on :math:`(d, c, t)` and redirect it to :math:`(d, t)` as shown in the following figure:
 
     |
 
     .. image:: graphs-maxflow/flowEx6.png
 
     |
+
+    This will free one new unit over path :math:`(s, a, c, t)`:
+
+    |
+
+    .. image:: graphs-maxflow/flowEx6_2.png
+
+    |
+
 
     But how can we find this changes? It turn out that a simple path finding algorithm can achieve it. If you think about it, what we did is as if we had pushed one unit of flow on the following "path":
 
