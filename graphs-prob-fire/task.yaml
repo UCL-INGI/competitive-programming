@@ -11,7 +11,7 @@ limits:
     memory: '1000'
 name: 'Graphs - Problem: Fire!'
 network_grading: false
-order: 9
+order: 8
 problems:
     file:
         header: |

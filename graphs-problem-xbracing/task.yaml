@@ -16,7 +16,7 @@ limits:
     time: '1000'
 name: 'Graphs - Problem: Cross Bracing'
 network_grading: false
-order: 10
+order: 9
 problems:
     file:
         allowed_exts:

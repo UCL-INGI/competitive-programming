@@ -3,6 +3,7 @@ author: ''
 context: |-
     In this task we are going to learn how to compute the maximum flow between two nodes in a graph. In the maximum flow problem each edge has a capacity and we aim at sending the maximum amout of flow (information) between a souce node :math:`s` and a sink node :math:`t` in a graph without exceeding the capacity of any edge.
 
+
         **Example:**
 
         In the following graph, we can send a total of 6 units of flow
@@ -68,7 +69,10 @@ context: |-
         As you can see, we were only able to push a total of 5 units of     flow. However on the first example we saw that the maximum flow     is 6. This shows that simply finding paths with positive
         capacity and pushing flow does yield an optimal solution.
 
-    If we look at the final flow that we obtained before, we can actually understand how we could manage to send one more unit of flow.
+
+    This shows that the order in which the paths are selected is important. However, in order to solve the problem, we are not going to develop an algorithm that find a good order. Rather, we will find a cleaver way so that we can reroute some of the flow that we are already sending in order to accomodate new flows.
+
+    Let's look at the final flow that we obtained before and try to understand what we can change in order to send one more unit of flow.
 
     The flow going from :math:`3` to :math:`t` could come from path :math:`(s, 1, 3, t)` instead and the flow on :math:`(4, 3, t)` could be redirected on edge :math:`(4, t)`.
 
@@ -100,20 +104,20 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '30'
-    output: '2'
     memory: '100'
+    output: '2'
+    time: '30'
 name: Graphs - Maximum flow
 network_grading: false
+order: 0
 problems:
     file:
+        type: file
         header: ''
         name: ''
-        type: file
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
 tags: {}
 weight: 1.0
-order: 0
