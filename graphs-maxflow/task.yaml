@@ -3,6 +3,7 @@ author: ''
 context: |-
     In this task we are going to learn how to compute the maximum flow between two nodes in a graph. In the maximum flow problem each edge has a capacity and we aim at sending the maximum amout of flow (information) between a souce node :math:`s` and a sink node :math:`t` in a graph without exceeding the capacity of any edge.
 
+
         **Example:**
 
         In the following graph, we can send a total of 6 units of flow
@@ -100,20 +101,20 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '30'
-    output: '2'
     memory: '100'
+    output: '2'
+    time: '30'
 name: Graphs - Maximum flow
 network_grading: false
+order: 0
 problems:
     file:
+        type: file
         header: ''
         name: ''
-        type: file
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
 tags: {}
 weight: 1.0
-order: 0
