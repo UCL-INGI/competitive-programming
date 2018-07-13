@@ -91,7 +91,7 @@ context: |-
     |
 
 
-    But how can we find this changes? It turn out that a simple path finding algorithm can achieve it. If you think about it, what we did is as if we had pushed one unit of flow on the following "path":
+    But how can we find this change? It turns out that a simple path finding algorithm can achieve it. If you think about it, what we did is as if we had pushed one unit of flow on the following "path":
 
     |
 
