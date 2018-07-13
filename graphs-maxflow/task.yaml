@@ -91,7 +91,7 @@ context: |-
     |
 
 
-    But how can we find this changes? It turn out that a simple path finding algorithm can achieve it. If you think about it, what we did is as if we had pushed one unit of flow on the following "path":
+    But how can we find this change? It turns out that a simple path finding algorithm can achieve it. If you think about it, the two operations that we performed, the redirection plus pushing a new unit of flow, is the same as if we had pushed one unit of flow on the following "path":
 
     |
 
@@ -99,7 +99,7 @@ context: |-
 
     |
 
-    This is not really a path as edge :math:`(d, c)` is traversed in the opposit direction. However if we defined that when we push flow on an edge, if the edge direction is correct then we **increase** the flow and when direction is reversed,  we **decrease** the flow, we end up exactly with the flow that we had after we redirected the flow.
+    This is not really a path as edge :math:`(d, c)` is traversed in the opposit direction. However if we defined that when we push flow on an edge, if the edge direction is correct then we **increase** the flow and when direction is reversed,  we **decrease** the flow, the two operations achieve the same resulting flow.
 
     |
 
@@ -107,7 +107,13 @@ context: |-
 
     |
 
-    The intuition behind this is that when
+    The intuition behind this is that the part of the path until we cross an edge in the reverse direction corresponds to the new path on which we will push flow and the part of the path after the edge in reverse direction corresponds to where we redirect the flow.
+
+    This is just a high level intuition as in practice the path could cross several edges in the reverse directions but the idea remains the same.
+
+    So how do we implement all this?
+
+    For every edge in the input graph, we will create a residual edge with the reverse direction initially with capacity :math:`0`. Then whenever we push flow :math:`f` on one edge :math:`e`, we decrease the capacity of the :math:`e` by :math:`f` and incrase the capacity of :math:`residual(e)` by :math:`f`. This will allow us to find paths that traverse edge in reverse direction allowing us to redirect the flow passing on it towards another path. We call this modified graph the *residual graph*.
 environment: mcq
 evaluate: best
 groups: false
