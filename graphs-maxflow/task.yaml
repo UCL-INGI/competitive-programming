@@ -107,7 +107,9 @@ context: |-
 
     |
 
-    The intuition behind this is that when
+    The intuition behind this is that the part of the path until we cross an edge in the reverse direction corresponds to the new path on which we will push flow and the part of the path after the edge in reverse direction corresponds to where we redirect the flow.
+
+    This is just a high level intuition as in practice the path could cross several edges in the reverse directions but the idea remains the same.
 environment: mcq
 evaluate: best
 groups: false
