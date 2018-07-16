@@ -261,8 +261,10 @@ context: |
             // perform BFS to find a path to t
             while(!Q.isEmpty() && parent[t] == null) {
                 int cur = Q.poll();
+                // loop over the edges out of cur to expand the paths
                 for(FlowEdge e : g.outE[cur]) {
                     if(e.dest != s && e.cap > 0 && parent[e.dest] == null) {
+                        // we found an unvisited node e.dest
                         parent[e.dest] = e;
                         pathcap[e.dest] = Math.min(pathcap[cur], e.cap);
                         Q.add(e.dest);
