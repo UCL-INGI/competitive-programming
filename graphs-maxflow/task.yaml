@@ -1,6 +1,6 @@
 accessible: false
 author: ''
-context: |+
+context: |
     In this task we are going to learn how to compute the maximum flow between two nodes in a graph. In the maximum flow problem each edge has a capacity and we aim at sending the maximum amout of flow (information) between a souce node :math:`s` and a sink node :math:`t` in a graph without exceeding the capacity of any edge.
 
         **Example:**
@@ -193,7 +193,7 @@ context: |+
 
     .. code:: java
 
-        static class FlowGraph {
+        static class ResidualGraph {
 
             LinkedList<FlowEdge>[] outE;
             int n;
@@ -230,6 +230,57 @@ context: |+
 
     On the first case (top) we push 2 units of flow on the original edge and we reduce its capacity by 2 and increase the residual capacity by 2. The other (bottom) is analogous but we push on the residual so we decrease its capacity an increase the capacity of the original one.
 
+    All that remains is to implement the flow algorithm itself. The idea, as we discussed above, is very simple: while we can find a path :math:`p` from :math:`s` to :math:`t` in the residual graph we push the maximum amout of flow possible on :math:`p`. The maximum amount of flow that we can push on a path is equal to the minimum edge capacity of that path.
+
+    .. code:: java
+
+        static int maxflow(ResidualGraph g, int s, int t) {
+            int maxflow = 0;
+            int flow;
+            while((flow = augmentFlowBFS(s, t)) != 0) {
+                maxflow += flow;
+            }
+            return maxflow;
+        }
+
+    To find the paths we will use a BFS. The code analogous to the one that we created before except that we adapted it to use the :code:`ResidualGraph` structure.
+
+    .. code:: java
+
+        static int augmentFlowBFS(ResidualGraph g, int s, int t) {
+            // find a s-t path in g of positive capacity
+            // initialize path capacities
+            // pcap[u] = capacity of the path from s to u
+            int[] pathcap = new int[g.n];
+            Arrays.fill(pathcap, Integer.MAX_VALUE);
+            // initialize parents to build the paths
+            FlowEdge[] parent = new FlowEdge[g.n];
+            // initialize BFS queue
+            Queue<Integer> Q = new LinkedList<>();
+            Q.add(s);
+            // perform BFS to find a path to t
+            while(!Q.isEmpty() && parent[t] == null) {
+                int cur = Q.poll();
+                for(FlowEdge e : g.outE[cur]) {
+                    if(e.dest != s && e.cap > 0 && parent[e.dest] == null) {
+                        parent[e.dest] = e;
+                        pathcap[e.dest] = Math.min(pathcap[cur], e.cap);
+                        Q.add(e.dest);
+                    }
+                }
+            }
+            // check whether a path was found
+            if(parent[t] == null) return 0;
+            // we found a path, update the flow
+            int flow = pathcap[t];
+            // push the flow on the path
+            int cur = t;
+            while(parent[cur] != null) {
+                parent[cur].push(flow);
+                cur = parent[cur].orig;
+            }
+            return flow;
+        }
 environment: mcq
 evaluate: best
 groups: false
