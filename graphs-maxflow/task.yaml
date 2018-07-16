@@ -1,6 +1,6 @@
 accessible: false
 author: ''
-context: |-
+context: |
     In this task we are going to learn how to compute the maximum flow between two nodes in a graph. In the maximum flow problem each edge has a capacity and we aim at sending the maximum amout of flow (information) between a souce node :math:`s` and a sink node :math:`t` in a graph without exceeding the capacity of any edge.
 
 
@@ -140,13 +140,25 @@ context: |-
         capacity from :math:`s` to :math:`t`. This can be achieve using
         any path finding algorithm that we saw before.
 
-    .. image:: graphs-maxflow/flowEx11.png
+        The following figure show that the strange "path" that we used
+        before now correspond to a normal path in the residual graph.
 
-    |
+        .. image:: graphs-maxflow/flowEx11.png
 
-    .. image:: graphs-maxflow/flowEx12.png
+        |
 
-    |
+        If we push one unit of flow on this path we indeed obtain the
+        same flow as before and now we get a residual graph that
+        contains no paths from :math:`s` to :math:`t` of positive
+        capacity.
+
+        .. image:: graphs-maxflow/flowEx12.png
+
+        |
+
+        In can be shown that when no more paths exist between the
+        source and the destination in the residual graph then we have a
+        maximum flow.
 environment: mcq
 evaluate: best
 groups: false
