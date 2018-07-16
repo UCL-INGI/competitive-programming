@@ -1,6 +1,6 @@
-accessible: false
+accessible: true
 author: ''
-context: |+
+context: |-
     In this task we are going to learn how to compute the maximum flow between two nodes in a graph. In the maximum flow problem each edge has a capacity and we aim at sending the maximum amout of flow (information) between a souce node :math:`s` and a sink node :math:`t` in a graph without exceeding the capacity of any edge.
 
         **Example:**
@@ -289,8 +289,7 @@ context: |+
 
     In the end we check whether a path has been found using the parent array as before. If none was found we return :math:`0` because no new flow can be sent. Otherwise we push the flow on the edges of the path as explained above. This process is quite similar to the one we used to build the paths using the parents.
 
-    The following animation gives an illustration of the maximum flow algorithm.
-
+    The following animation gives an illustration of the maximum flow algorithm. The runtime of this algorithm is :math:`O(V \cdot E^2)`. We will argue why this is the case in a later task.
 environment: pyjavacpp
 evaluate: best
 groups: false
@@ -309,7 +308,37 @@ problems:
         - .java
         - .cpp
         - .py
-        header: ''
+        header: |
+            Given a graph a source node and a destination node, compute the maximum flow from the source to the destination.
+
+            **Input**
+
+            - One line with two integers :math:`n` and :math:`m` giving the number of nodes in the graph and the number of edges respectively.
+
+            - :math:`m` lines each with three integers :math:`u`, :math:`v` and :math:`c` giving that there is an edge from :math:`u` to :math:`v` with capacity :math:`c`.
+
+            - One line with two integers :math:`s` and :math:`t` giving the source and the destination.
+
+            **Output**
+
+            A single line with one integer giving the maximum flow from :math:`s` to :math:`t`.
+
+            **Constraints**
+
+            * :math:`1 \leq n \leq 1000`
+            * :math:`1 \leq m \leq 1000`
+            * :math:`0 \leq u, v, s, t < n`
+
+            **Sample Test Cases**
+
+            `Sample input 1 <graphs-maxflow/1.in>`_
+
+            `Sample output 1 <graphs-maxflow/1.ans>`_
+
+
+            `Sample input 2 <graphs-maxflow/2.in>`_
+
+            `Sample output 2 <graphs-maxflow/2.ans>`_
         name: Maximum flow
 stored_submissions: 0
 submission_limit:
