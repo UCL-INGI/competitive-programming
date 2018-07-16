@@ -115,6 +115,10 @@ context: |-
 
     For every edge in the input graph, we will create a residual edge with the reverse direction initially with capacity :math:`0`. Then whenever we push flow :math:`f` on one edge :math:`e`, we decrease the capacity of :math:`e` by :math:`f` and incrase the capacity of :math:`residual(e)` by :math:`f`. This will allow us to find paths that traverse edges in reverse direction allowing us to redirect the flow passing on it towards another path. We call this modified graph the *residual graph*.
 
+    .. image:: graphs-maxflow/flowEx13.png
+
+    zaaeaea
+
         **Example:**
 
         Lets look at the residual network corresponding to the above      graph where we were only able to push :math:`5` units of flow.
@@ -163,8 +167,6 @@ context: |-
     We are now going to see how we can implement this. The implementation that we will see here is not the most common or succinct but we believe that it is the one that is the closest to what we describe. We will proivde later shorter implementations that are more aimed at competitive programming.
 
     The first thing that we need is a way to represent the edges. For this we create a simple :code:`FlowEdge` class containing the edge information: the origin node, the destination node, its capacity and a pointer to the residual edge.
-
-    .. image:: graphs-maxflow/flowEx13.png
 
     .. image:: graphs-maxflow/flowEx14.png
 
