@@ -135,7 +135,10 @@ context: |-
         - capacity of :math:`residual(e) = flow(e)`
         - capacity of :math:`e = initialCapacity(e) - flow(e)`
 
-        Using this representation
+        Using the residual graph, we can now very easily find new ways
+        to push flow, we simply have to find a path of positive
+        capacity from :math:`s` to :math:`t`. This can be achieve using
+        any path finding algorithm that we saw before.
 
     .. image:: graphs-maxflow/flowEx11.png
 
