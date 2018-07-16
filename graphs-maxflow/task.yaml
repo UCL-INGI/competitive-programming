@@ -228,6 +228,7 @@ context: |+
 
     .. image:: graphs-maxflow/flowEx14.png
 
+    On the first case (top) we push 2 units of flow on the original edge and we reduce its capacity by 2 and increase the residual capacity by 2. The other (bottom) is analogous but we push on the residual so we decrease its capacity an increase the capacity of the original one.
 
 environment: mcq
 evaluate: best
