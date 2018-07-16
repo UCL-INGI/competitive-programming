@@ -194,6 +194,36 @@ context: |-
             }
 
         }
+
+    To represent the graph, we do as before except that intead of having lists of nodes we will have lists of edges. Since whenever we add an edge we need to create and add the residual edge we create a class :code:`FlowGraph` with these operations.
+
+    .. code:: java
+
+        static class FlowGraph {
+
+            LinkedList<FlowEdge>[] outE;
+            int n;
+
+            @SuppressWarnings("unchecked")
+            public FlowGraph(int n) {
+                this.n = n;
+                outE = new LinkedList[n];
+                for(int u = 0; u < n; u++) {
+                    outE[u] = new LinkedList<>();
+                }
+            }
+
+            public void connect(int u, int v, int cap) {
+                FlowEdge e = new FlowEdge(u, v, cap);
+                // create residual edge
+                FlowEdge r = new FlowEdge(v, u, 0);
+                e.residual = r;
+                r.residual = e;
+                outE[u].add(e);
+                outE[v].add(r);
+            }
+
+        }
 environment: mcq
 evaluate: best
 groups: false
