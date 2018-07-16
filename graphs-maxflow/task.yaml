@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |-
+context: |
     In this task we are going to learn how to compute the maximum flow between two nodes in a graph. In the maximum flow problem each edge has a capacity and we aim at sending the maximum amout of flow (information) between a souce node :math:`s` and a sink node :math:`t` in a graph without exceeding the capacity of any edge.
 
         **Example:**
@@ -289,7 +289,11 @@ context: |-
 
     In the end we check whether a path has been found using the parent array as before. If none was found we return :math:`0` because no new flow can be sent. Otherwise we push the flow on the edges of the path as explained above. This process is quite similar to the one we used to build the paths using the parents.
 
-    The following animation gives an illustration of the maximum flow algorithm. The runtime of this algorithm is :math:`O(V \cdot E^2)`. We will argue why this is the case in a later task.
+    The runtime of this algorithm is :math:`O(V \cdot E^2)`. We will argue why this is the case in a later task.
+
+    The following animation gives an illustration of the maximum flow algorithm.
+
+    .. image:: graphs-maxflow/anim.gif
 environment: pyjavacpp
 evaluate: best
 groups: false
@@ -300,7 +304,7 @@ limits:
     time: '1000'
 name: Graphs - Maximum flow
 network_grading: false
-order: 0
+order: 15
 problems:
     file:
         type: file

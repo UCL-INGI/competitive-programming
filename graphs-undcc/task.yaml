@@ -67,7 +67,7 @@ limits:
     time: '1000'
 name: Graphs - Connected components
 network_grading: false
-order: 7
+order: 6
 problems:
     file:
         allowed_exts:
