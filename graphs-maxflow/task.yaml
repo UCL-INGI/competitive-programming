@@ -133,7 +133,7 @@ context: |-
         we have
 
         - capacity of :math:`residual(e) = flow(e)`
-        - capacity of :math:`e` = initial capacity(e) - flow(e)`
+        - capacity of :math:`e = initialCapacity(e) - flow(e)`
 
 
     .. image:: graphs-maxflow/flowEx11.png
