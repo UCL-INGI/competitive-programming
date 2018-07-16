@@ -1,7 +1,7 @@
 accessible: true
 author: ''
-context: |
-    In this task we are going to learn how to compute the maximum flow between two nodes in a graph. In the maximum flow problem each edge has a capacity and we aim at sending the maximum amout of flow (information) between a souce node :math:`s` and a sink node :math:`t` in a graph without exceeding the capacity of any edge.
+context: |-
+    In this task we are going to learn how to compute the maximum flow between two nodes in a graph. In the maximum flow problem each edge has a capacity and we aim at sending the maximum amount of flow (information) between a source node :math:`s` and a sink node :math:`t` in a graph without exceeding the capacity of any edge.
 
         **Example:**
 
@@ -69,7 +69,7 @@ context: |
         capacity and pushing flow does yield an optimal solution.
 
 
-    This shows that the order in which the paths are selected is important. However, in order to solve the problem, we are not going to develop an algorithm that find a good order. Rather, we will find a cleaver way so that we can reroute some of the flow that we are already sending in order to accomodate new flows.
+    This shows that the order in which the paths are selected is important. However, in order to solve the problem, we are not going to develop an algorithm that find a good order. Rather, we will find a cleaver way so that we can reroute some of the flow that we are already sending in order to accommodate new flows.
 
     Let's look at the final flow that we obtained before and try to understand what we can change in order to send one more unit of flow.
 
@@ -98,7 +98,7 @@ context: |
 
     |
 
-    This is not really a path as edge :math:`(d, c)` is traversed in the opposit direction. However if we defined that when we push flow on an edge, if the edge direction is correct then we **increase** the flow and when direction is reversed,  we **decrease** the flow, the two operations achieve the same exact flow.
+    This is not really a path as edge :math:`(d, c)` is traversed in the opposite direction. However if we defined that when we push flow on an edge, if the edge direction is correct then we **increase** the flow and when direction is reversed,  we **decrease** the flow, the two operations achieve the same exact flow.
 
     |
 
@@ -112,7 +112,7 @@ context: |
 
     So how do we implement all this?
 
-    For every edge in the input graph, we will create a residual edge with the reverse direction initially with capacity :math:`0`. Then whenever we push flow :math:`f` on one edge :math:`e`, we decrease the capacity of :math:`e` by :math:`f` and incrase the capacity of :math:`residual(e)` by :math:`f`. This will allow us to find paths that traverse edges in reverse direction allowing us to redirect the flow passing on it towards another path. We call this modified graph the *residual graph*.
+    For every edge in the input graph, we will create a residual edge with the reverse direction initially with capacity :math:`0`. Then whenever we push flow :math:`f` on one edge :math:`e`, we decrease the capacity of :math:`e` by :math:`f` and increase the capacity of :math:`residual(e)` by :math:`f`. This will allow us to find paths that traverse edges in reverse direction allowing us to redirect the flow passing on it towards another path. We call this modified graph the *residual graph*.
 
     The following figure illustrates this.
 
@@ -122,8 +122,8 @@ context: |
 
         **Example:**
 
-        Lets look at the residual network corresponding to the above      graph where we were only able to push :math:`5` units of flow.
-        We will draw the residual edges in gray to help distinguish     them from the original edges.
+        Lets look at the residual network corresponding to the above graph where we were only able to push :math:`5` units of flow.
+        We will draw the residual edges in gray to help distinguish them from the original edges.
 
         |
 
@@ -165,7 +165,7 @@ context: |
         source and the destination in the residual graph then we have a
         maximum flow.
 
-    We are now going to see how we can implement this. The implementation that we will see here is not the most common or succinct but we believe that it is the one that is the closest to what we describe. We will proivde later shorter implementations that are more aimed at competitive programming.
+    We are now going to see how we can implement this. The implementation that we will see here is not the most common or succinct but we believe that it is the one that is the closest to what we describe. We will provide later shorter implementations that are more aimed at competitive programming.
 
     The first thing that we need is a way to represent the edges. For this we create a simple :code:`FlowEdge` class containing the edge information: the origin node, the destination node, its capacity and a pointer to the residual edge.
 
@@ -189,7 +189,7 @@ context: |
 
         }
 
-    To represent the graph, we do as before except that intead of having lists of nodes we will have lists of edges. Since whenever we add an edge we need to create and add the residual edge we create a class :code:`FlowGraph` with these operations.
+    To represent the graph, we do as before except that instead of having lists of nodes we will have lists of edges. Since whenever we add an edge we need to create and add the residual edge we create a class :code:`FlowGraph` with these operations.
 
     .. code:: java
 
@@ -230,7 +230,7 @@ context: |
 
     On the first case (top) we push 2 units of flow on the original edge and we reduce its capacity by 2 and increase the residual capacity by 2. The other (bottom) is analogous but we push on the residual so we decrease its capacity an increase the capacity of the original one.
 
-    All that remains is to implement the flow algorithm itself. The idea, as we discussed above, is very simple: while we can find a path :math:`p` from :math:`s` to :math:`t` in the residual graph we push the maximum amout of flow possible on :math:`p`. The maximum amount of flow that we can push on a path is equal to the minimum edge capacity of that path.
+    All that remains is to implement the flow algorithm itself. The idea, as we discussed above, is very simple: while we can find a path :math:`p` from :math:`s` to :math:`t` in the residual graph we push the maximum amount of flow possible on :math:`p`. The maximum amount of flow that we can push on a path is equal to the minimum edge capacity of that path.
 
     .. code:: java
 
@@ -283,7 +283,7 @@ context: |
             return flow;
         }
 
-    Note that while we perform the BFS we also keep track of the path capacity in an array :code:`pathcap`. The semantics is that :code:`pathcap[u]` will contain the capacity of the path from :math:`s` to :math:`u`. Initialliy this will be set to :math:`0` as no paths are found, except for node :math:`s` which we set to :math:`\infty` since the empty path from :math:`s` has infinite capacity (because it has not edges).
+    Note that while we perform the BFS we also keep track of the path capacity in an array :code:`pathcap`. The semantics is that :code:`pathcap[u]` will contain the capacity of the path from :math:`s` to :math:`u`. Initially this will be set to :math:`0` as no paths are found, except for node :math:`s` which we set to :math:`\infty` since the empty path from :math:`s` has infinite capacity (because it has not edges).
 
     Then whenever we find a new node :math:`dest` from a node :math:`cur` via and edge :math:`(cur, dest, cap)` we update the path capacity to reach :math:`dest` to be the minimum between the capacity to reach :math:`cur` and the capacity :math:`cap` of the edge.
 
