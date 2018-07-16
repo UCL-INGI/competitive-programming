@@ -113,7 +113,7 @@ context: |-
 
     So how do we implement all this?
 
-    For every edge in the input graph, we will create a residual edge with the reverse direction initially with capacity :math:`0`. Then whenever we push flow :math:`f` on one edge :math:`e`, we decrease the capacity of the :math:`e` by :math:`f` and incrase the capacity of :math:`residual(e)` by :math:`f`. This will allow us to find paths that traverse edge in reverse direction allowing us to redirect the flow passing on it towards another path. We call this modified graph the *residual graph*.
+    For every edge in the input graph, we will create a residual edge with the reverse direction initially with capacity :math:`0`. Then whenever we push flow :math:`f` on one edge :math:`e`, we decrease the capacity of :math:`e` by :math:`f` and incrase the capacity of :math:`residual(e)` by :math:`f`. This will allow us to find paths that traverse edge in reverse direction allowing us to redirect the flow passing on it towards another path. We call this modified graph the *residual graph*.
 
     Lets look at the residual network corresponding to the above graph where we were only able to push :math:`5` units of flow:
 
