@@ -130,11 +130,12 @@ context: |-
         correspond to the amout of flow that is passing and the
         capacities of the original edges correspond to the original
         capacity minus the current flow. Thus, *in the residual graph*
-        we have
+        we have:
 
         - capacity of :math:`residual(e) = flow(e)`
         - capacity of :math:`e = initialCapacity(e) - flow(e)`
 
+        Using this representation
 
     .. image:: graphs-maxflow/flowEx11.png
 
