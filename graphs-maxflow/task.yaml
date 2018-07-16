@@ -99,7 +99,7 @@ context: |-
 
     |
 
-    This is not really a path as edge :math:`(d, c)` is traversed in the opposit direction. However if we defined that when we push flow on an edge, if the edge direction is correct then we **increase** the flow and when direction is reversed,  we **decrease** the flow, the two operations achieve the same resulting flow.
+    This is not really a path as edge :math:`(d, c)` is traversed in the opposit direction. However if we defined that when we push flow on an edge, if the edge direction is correct then we **increase** the flow and when direction is reversed,  we **decrease** the flow, the two operations achieve the same exact flow.
 
     |
 
