@@ -1,6 +1,6 @@
 accessible: false
 author: ''
-context: |
+context: |+
     In this task we are going to learn how to compute the maximum flow between two nodes in a graph. In the maximum flow problem each edge has a capacity and we aim at sending the maximum amout of flow (information) between a souce node :math:`s` and a sink node :math:`t` in a graph without exceeding the capacity of any edge.
 
         **Example:**
@@ -250,9 +250,8 @@ context: |
         static int augmentFlowBFS(ResidualGraph g, int s, int t) {
             // find a s-t path in g of positive capacity
             // initialize path capacities
-            // pcap[u] = capacity of the path from s to u
+            // pathcap[u] = capacity of the path from s to u
             int[] pathcap = new int[g.n];
-            Arrays.fill(pathcap, Integer.MAX_VALUE);
             // initialize parents to build the paths
             FlowEdge[] parent = new FlowEdge[g.n];
             // initialize BFS queue
@@ -283,6 +282,15 @@ context: |
             }
             return flow;
         }
+
+    Note that while we perform the BFS we also keep track of the path capacity in an array :code:`pathcap`. The semantics is that :code:`pathcap[u]` will contain the capacity of the path from :math:`s` to :math:`u`. Initialliy this will be set to :math:`0` as no paths are found, except for node :math:`s` which we set to :math:`\infty` since the empty path from :math:`s` has infinite capacity (because it has not edges).
+
+    Then whenever we find a new node :math:`dest` from a node :math:`cur` via and edge :math:`(cur, dest, cap)` we update the path capacity to reach :math:`dest` to be the minimum between the capacity to reach :math:`cur` and the capacity :math:`cap` of the edge.
+
+    In the end we check whether a path has been found using the parent array as before. If none was found we return :math:`0` because no new flow can be sent. Otherwise we push the flow on the edges of the path as explained above. This process is quite similar to the one we used to build the paths using the parents.
+
+    The following animation gives an illustration of the maximum flow algorithm.
+
 environment: mcq
 evaluate: best
 groups: false
