@@ -3,7 +3,6 @@ author: ''
 context: |-
     In this task we are going to learn how to compute the maximum flow between two nodes in a graph. In the maximum flow problem each edge has a capacity and we aim at sending the maximum amout of flow (information) between a souce node :math:`s` and a sink node :math:`t` in a graph without exceeding the capacity of any edge.
 
-
         **Example:**
 
         In the following graph, we can send a total of 6 units of flow
@@ -115,9 +114,11 @@ context: |-
 
     For every edge in the input graph, we will create a residual edge with the reverse direction initially with capacity :math:`0`. Then whenever we push flow :math:`f` on one edge :math:`e`, we decrease the capacity of :math:`e` by :math:`f` and incrase the capacity of :math:`residual(e)` by :math:`f`. This will allow us to find paths that traverse edges in reverse direction allowing us to redirect the flow passing on it towards another path. We call this modified graph the *residual graph*.
 
+    The following figure illustrates this.
+
     .. image:: graphs-maxflow/flowEx13.png
 
-    zaaeaea
+    On the left you can see one edge with capacity :math:`c` with a flow :math:`f` traversing it. On the residual graph this will correspond to an edge with capacity :math:`c - f` and one residual edge (in gray) in the reverse direction with capacity :math:`f` meaning that we can redirect up to :math:`f` units of flow.
 
         **Example:**
 
