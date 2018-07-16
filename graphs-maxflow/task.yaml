@@ -164,6 +164,14 @@ context: |-
 
     The first thing that we need is a way to represent the edges. For this we create a simple :code:`FlowEdge` class containing the edge information: the origin node, the destination node, its capacity and a pointer to the residual edge.
 
+    .. image:: graphs-maxflow/flowEx13.png
+
+    .. image:: graphs-maxflow/flowEx14.png
+
+    .. image:: graphs-maxflow/flowEx15.png
+
+
+
     .. code:: java
 
         static class FlowEdge {
