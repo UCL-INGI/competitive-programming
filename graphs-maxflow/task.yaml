@@ -1,6 +1,6 @@
 accessible: false
 author: ''
-context: |-
+context: |+
     In this task we are going to learn how to compute the maximum flow between two nodes in a graph. In the maximum flow problem each edge has a capacity and we aim at sending the maximum amout of flow (information) between a souce node :math:`s` and a sink node :math:`t` in a graph without exceeding the capacity of any edge.
 
         **Example:**
@@ -169,12 +169,6 @@ context: |-
 
     The first thing that we need is a way to represent the edges. For this we create a simple :code:`FlowEdge` class containing the edge information: the origin node, the destination node, its capacity and a pointer to the residual edge.
 
-    .. image:: graphs-maxflow/flowEx14.png
-
-    .. image:: graphs-maxflow/flowEx15.png
-
-
-
     .. code:: java
 
         static class FlowEdge {
@@ -224,6 +218,17 @@ context: |-
             }
 
         }
+
+    The connect method will automatically create the residual edges.
+    Given an edge :math:`e` its residual also will have a residual edge which will correspond to the original edge :math:`e`. That is, :math:`residual(residual(e)) = e`.
+
+    .. image:: graphs-maxflow/flowEx15.png
+
+    We need this because when we push flow one any one of them we need to update both capacities. The following image illustatres this.
+
+    .. image:: graphs-maxflow/flowEx14.png
+
+
 environment: mcq
 evaluate: best
 groups: false
