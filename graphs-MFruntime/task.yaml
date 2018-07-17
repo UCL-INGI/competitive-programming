@@ -18,6 +18,8 @@ context: |-
         During the exectuion of the algorithm, the distances of the
         nodes from the source never decrease.
 
+    ----
+
     **PROOF**
 
     Assume that, after pushing flow on a path, the distance of some node was decreased. Denote by :math:`d_{bef}` the BFS distances and :math:`d_{aft}` the distances after.
@@ -53,7 +55,17 @@ context: |-
 
     So we have the following situation:
 
-    Before we pushed the flow, the capacity of :math:`(u, v)` was :math:`0` but after it was not, since it was used on the path :math:`p`. The only way in which this is possible is if flow was pushed on the reverse edge :math:`(v, u)`.
+    Before we pushed the flow, the capacity of :math:`(u, v)` was :math:`0` but after it was not, since it is an edge of :math:`p`. The only way in which this is possible is if flow was pushed on the reverse edge :math:`(v, u)`. Since we only push on shortest paths, we must have :math:`d_{bef}(s, u) = d_{bef}(s, v) + 1`. Hence
+
+    .. math::
+
+        d_{bef}(s, v) = d_{bef}(s, u) - 1 \leq d_{aft}(s, u) - 1 = d_{aft}(s, v) - 2
+
+    So that :math:`d_{bef}(s, v) \leq d_{aft}(s, v)` contradicting the fact that the distance to :math:`v` decreased.
+
+    ----
+
+    qsq
 environment: cpp
 evaluate: best
 groups: false
