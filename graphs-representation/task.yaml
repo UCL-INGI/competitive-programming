@@ -1,5 +1,5 @@
 accessible: true
-author: ''
+author: François Aubry
 context: |-
     Simply put, a graph :math:`G` is a set of objects :math:`n` objects, usually the set :math:`\{ 0, \ldots, n - 1\}`, where some pairs of those objects are connected together. The set of objects is called the *nodes* of the graph and the connections are called *edges*. Usually the set of nodes is denoted by :math:`V(G)` and the set of edges by :math:`E(G)`.
 
@@ -12,23 +12,23 @@ context: |-
 
     A edge :math:`(u, v)` represents the fact that we can go from node :math:`u` to node :math:`v`.
 
-    The most classical example of problem that can be abstracted with graphs are connectivity problems. Suppose that the nodes represent airports the edges represent direct flights between those airports. To find out whether it is possible to travel from some airport :math:`A` to another airport :math:`B` we can look in the corresponding graph if there is a sequences of nodes :math:`(v_1, v_2, \ldots, v_k)` such that:
+    The most classical example of problem that can be abstracted with graphs are connectivity problems. Suppose that the nodes represent airports and the edges represent direct flights between those airports. To find out whether it is possible to travel from some airport :math:`A` to another airport :math:`B` we can look in the corresponding graph if there is a sequence of nodes :math:`(v_1, v_2, \ldots, v_k)` such that:
 
     1. For each pair of consecutive nodes, there is an edge in the graph. Formally this means that :math:`(v_{i}, v_{i + 1}) \in E(G)`.
 
-    2. The sequence start at :math:`A` and ends at :math:`B`, that is, :math:`v_1 = A` and :math:`v_k = B`.
+    2. The sequence starts at :math:`A` and ends at :math:`B`, that is, :math:`v_1 = A` and :math:`v_k = B`.
 
-    Observe that in the graph, the geographic positions of the airports is lost in the graph representation of problem. We abstract all that information and keep only the relations between the airports. This is all we need to answer the question. When we draw of graph, the relative position of the nodes have no meaning, they are chosen only for readability.
+    Observe that in the graph, the geographic position of the airports is lost in the graph representation of the problem. We abstract all that information and keep only the relations between the airports. This is all we need to answer the question. When we draw the graph, the relative position of the nodes have no meaning, they are chosen only for readability.
 
-    But before we start solving problems on graphs, we need to find a way to represent them in the computer. There many alternative ways to do so but for now we will focus on a simple and easy to code representation and extended it later, when needed.
+    But before we start solving problems on graphs, we need to find a way to represent them in the computer. There many alternative ways to do so but for now we will focus on a simple and easy-to-code representation and extend it later, when needed.
 
-    For each node we will simply keep a list will of the nodes to which it is connected. Since the nodes are numbers from :math:`0` to :math:`n - 1`, the simplest way is to use an array of lists, say :math:`g`, such that :math:`g[v]` is a list of all edges starting at :math:`v` and ending at some node :math:`u`.
+    For each node we will simply keep a list of the nodes to which it is connected. Since the nodes are numbers from :math:`0` to :math:`n - 1`, the simplest way is to use an array of lists, say :math:`g`, such that :math:`g[v]` is a list of all edges starting at :math:`v` and ending at some node :math:`u`.
 
       **Example**
 
-      The above is represented by a an array of size :math:`6`. The
+      The above is represented by an array of size :math:`6`. The
       :math:`i`-th element of the array is a list that contains all the
-      neighbors of :math:`i`.
+      neighbours of :math:`i`.
 
       .. image:: graphs-representation/graph_arraylist.png
 
@@ -47,26 +47,26 @@ context: |-
         g[2].add(1);
         g[4].add(5);
 
-    The suppress warning in necessary in some contest environments as otherwise the code will give a *compile error*. In modern judging systems it is often not necessary. We put it just to be safe.
+    The suppress warning is necessary in some contest environments as otherwise the code will give a *compile error*. In modern judging systems it is often not necessary. We put it just to be safe.
 
-    This graph representation is suitable to traverse the whole graph to find a path because we can iterate over all outgoing edges of a nodes in linear time. Also, building the graph with this structures take linear time :math:`O(n + m)` since adding an element to a :code:`LinkedList` is done in constant time.
+    This graph representation is suitable to traverse the whole graph to find a path because we can iterate over all outgoing edges of a node in linear time. Also, building the graph with this structure takes linear time :math:`O(n + m)` since adding an element to a :code:`LinkedList` is done in constant time.
 
     .. code:: java
 
-       // iterating over neighbors of v
+       // iterating over neighbours of v
        for(int u : g[v]) {
          // do something
        }
 
-    It is *not suitable* for checking whether two nodes are connected since executing a :code:`contains` call on a list take linear time. The same goes for deleting an edge.
+    It is *not suitable* for checking whether two nodes are connected since executing a :code:`contains` call on a list takes linear time. The same goes for deleting an edge.
 
-    If such operations are necessary one alternative is to use a :code:`TreeSet` or :code:`HashSet` instead of the list. The disadvantage is that looping on the neighbors of a node is not linear anymore neither is creating the graph.
+    If such operations are necessary one alternative is to use a :code:`TreeSet` or :code:`HashSet` instead of the list. The disadvantage is that looping on the neighbours of a node is not linear anymore neither is creating the graph.
 
-    Another alternative is to use an *adjacency matrix*. This means using a binary :math:`n \times n` matrix :math:`A` such that :math:`A[u][v]` is :math:`1` if and only if edge :math:`(u, v) \in E(G)`. This make it very easy to add and delete edges but takes quadratic time to create and traverse. Therefore is should be avoided , except in some specific cases that we will discuss later on.
+    Another alternative is to use an *adjacency matrix*. This means using a binary :math:`n \times n` matrix :math:`A` such that :math:`A[u][v]` is :math:`1` if and only if edge :math:`(u, v) \in E(G)`. This makes it very easy to add and delete edges but takes quadratic time to create and traverse. Therefore it should be avoided, except in some specific cases that we will discuss later on.
 
     For now we will stick with the list representation as it is enough for the most fundamental graph traversal algorithms.
 
-    For most problems the graphs are represented in the input by first giving a line with :math:`n` and :math:`m`, the number of nodes and edges, respectively. Then :math:`m` lines each with two integers representing the edges. The following code read a graph represented in this way. You will need it in the following tasks.
+    For most problems the graphs are represented in the input by first giving a line with :math:`n` and :math:`m`, the number of nodes and edges, respectively. Then :math:`m` lines each with two integers representing the edges. The following code reads a graph represented in this way. You will need it in the following tasks.
 
     .. code:: java
 
@@ -87,15 +87,15 @@ context: |-
             reader.close();
        }
 
-    *Note:* In a lot of problems the nodes of the input graph are numbered from :math:`1` to :math:`n` rather than :math:`0` to :math:`n - 1`. In this case the easiest solution is to simply subtract :math:`1` while reading the input and add :math:`1` while writing the output. This may seem obvious but I have seen students subtracting :math:`1` in every access to :math:`g` which is very annoying an time consuming.
+    *Note:* In a lot of problems the nodes of the input graph are numbered from :math:`1` to :math:`n` rather than :math:`0` to :math:`n - 1`. In this case the easiest solution is to simply subtract :math:`1` while reading the input and add :math:`1` while writing the output. This may seem obvious but I have seen students subtracting :math:`1` in every access to :math:`g` which is very annoying and time consuming.
 environment: correctoz
 evaluate: best
 groups: false
 input_random: '0'
 limits:
+    memory: '100'
     time: '30'
     output: '2'
-    memory: '100'
 name: Graphs - Representation
 network_grading: false
 order: 2
@@ -104,9 +104,9 @@ problems:
         choices:
         -   valid: true
             text: 'Yes'
+        name: Mark this section as read?
         type: multiple_choice
         limit: 0
-        name: Mark this section as read?
         header: ''
 stored_submissions: 0
 submission_limit:
