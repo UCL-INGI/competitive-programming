@@ -9,7 +9,7 @@ context: |+
 
     |
 
-    However this is not a very good news as we usually do not want the complexity to depend on the *value* of the answer since it could mean that even on a very small graph with, say :math:`F = 10^{10}`, the algorithm would take forever to run.
+    However, this is not a very good news as we usually do not want the complexity to depend on the *value* of the answer since it could mean that even on a very small graph with, say :math:`F = 10^{10}`, the algorithm would take forever to run.
 
     We are going to show that using BFS to find the paths, the runs in :math:`O(V E^2)`.
 
