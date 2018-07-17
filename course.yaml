@@ -14,7 +14,7 @@ registration_password: null
 registration_ac: null
 registration_ac_list:
 - ''
-allow_preview: false
+allow_preview: true
 is_lti: false
 lti_keys: {}
 lti_send_back_grade: false
