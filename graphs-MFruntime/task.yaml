@@ -52,7 +52,7 @@ context: |
 
         d_{bef}(s, u) \leq d_{aft}(s, u)
 
-    We can now show that the capacity of (u, v) *before* was :math:`0`. If it was not, then it was considered by the BFS and thus, by triangle inequality :math:`d_{bef}(s, v) \leq d_{bef}(s, v) + 1`.
+    We can now show that the capacity of (u, v) *before* was :math:`0`. If it was not, then it was considered by the BFS and thus, by the triangular inequality, :math:`d_{bef}(s, v) \leq d_{bef}(s, v) + 1`.
 
     |
 
@@ -80,6 +80,12 @@ context: |
     So that, :math:`d_{bef}(s, v) \leq d_{aft}(s, v)` contradicting the fact that the distance to :math:`v` decreased.
 
     ----
+
+    We are now going to use the fact that the distances never decrease to prove the time complexity of the algorithm.
+
+        **Theorem**
+
+        Edmonds-Karp algorithm performs at most :math:`O(VE)` BFS's.
 environment: cpp
 evaluate: best
 groups: false
