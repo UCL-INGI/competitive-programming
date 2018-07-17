@@ -1,5 +1,5 @@
 accessible: true
-author: ''
+author: François Aubry
 context: |-
     Now that we can find all the nodes that are reachable from a given node, we are going to see how we can compute connected components of an **undirected graph**.
 
@@ -8,14 +8,14 @@ context: |-
         **Example:**
 
         The following figure shows a graph on the left and its connected
-        component on the right. Nodes on the same component are colored
+        components on the right. Nodes on the same component are colored
         with the same color.
 
         .. image:: graphs-undcc/undcc.png
 
     On the above graph, if we call BFS on node 0 we will visit nodes 0, 1, 2 and 3. In general, when we call BFS on node :math:`u`, it will visit the whole connected component of :math:`u`. Therefore we can compute *all* the connected components by keeping a global visited set and looping over the nodes of the graph and calling BFS for each unvisited node. Each call to BFS will visit a new connected component and we will avoid to vist the same connected component twice because the visited set will be global.
 
-    One way to represent the components is to have and array :math:`comp` such that :math:`comp[u] = comp[v]` if and only if nodes :math:`u` and :math:`v` are one the same connected component. We can achieve this to label all nodes of each BFS visit with and id that we increment every time that we start a new BFS.
+    One way to represent the components is to have an array :math:`comp` such that :math:`comp[u] = comp[v]` if and only if nodes :math:`u` and :math:`v` are one the same connected component. We can achieve this by labelling all nodes of each BFS visit with an id :math:`compId` that we increment every time that we start a new BFS.
 
     The following animation illustrates this process.
 
@@ -52,7 +52,7 @@ context: |-
                         }
                     }
                 }
-                // finished labeling the component, increment the component id
+                // finished labelling the component, increment the component id
                 compId += 1;
             }
             return comp;
@@ -62,8 +62,8 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    output: '100'
     memory: '1000'
+    output: '100'
     time: '1000'
 name: Graphs - Connected components
 network_grading: false
@@ -75,6 +75,7 @@ problems:
         - .cpp
         - .py
         name: Checking the components
+        type: file
         header: |
             You will be given an undirected graph and some number of queries each of them composed by two nodes. You have to compute the number of connected components of the given graph and for each query output whether the two given nodes are on the same connected component.
 
@@ -113,7 +114,6 @@ problems:
             `Sample input 2 <graphs-undcc/2.in>`_
 
             `Sample output 2 <graphs-undcc/2.ans>`_
-        type: file
 stored_submissions: 0
 submission_limit:
     amount: -1
