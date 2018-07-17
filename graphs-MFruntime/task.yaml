@@ -91,29 +91,31 @@ context: |-
 
     **PROOF**
 
-    We say that an edge is **critical** on a path :math:`p` if it is a minimum capacity edge. In other words, it is an edge that will have capacity :math:`0` after we push flow on :math:`p`.
+    We say that an edge is **critical** if we push flow on a path :math:`p` that contains it and that edge is a minimum capacity edge of that path. In other words, it is an edge that will have capacity :math:`0` after we push flow on :math:`p`.
 
-    We are going to bound the number of times an edge can become critical. Let :math:`(u, v)` be any edge in the  graph. Since we find shortest paths to push flow, the first time that :math:`(u, v)` becomes critical we have
+    We are going to bound the number of times an edge can become critical. Let :math:`(u, v)` be any edge in the  graph. Denote by :math:`d_{bef}` the BFS distances just before :math:`(u, v)` becomes critical. Since we find shortest paths to push flow we must have
 
     .. math::
 
         d_{bef}(s, v) = d_{bef}(s, u) + 1
+
+    After we push the flow, since :math:`(u, v)` is critical, it will have capacity 0.
 environment: cpp
 evaluate: best
 groups: false
 input_random: '0'
 limits:
-    memory: '100'
-    time: '30'
     output: '2'
+    time: '30'
+    memory: '100'
 name: Graphs - Maximum flow runtime
 network_grading: false
 problems:
     read:
+        name: Mark this section as read?
         choices:
         -   valid: true
             text: 'Yes'
-        name: Mark this section as read?
         type: multiple_choice
         limit: 1
         header: ''
