@@ -76,7 +76,7 @@ limits:
     time: '1000'
 name: DP - Knapsack, build the solution
 network_grading: false
-order: 20
+order: 21
 problems:
     file:
         allowed_exts:

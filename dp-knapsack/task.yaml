@@ -135,7 +135,7 @@ limits:
     time: '1000'
 name: DP - Knapsack
 network_grading: false
-order: 17
+order: 18
 problems:
     file:
         allowed_exts:
