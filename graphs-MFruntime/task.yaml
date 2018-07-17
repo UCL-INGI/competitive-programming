@@ -93,13 +93,23 @@ context: |-
 
     We say that an edge is **critical** if we push flow on a path :math:`p` that contains it and that edge is a minimum capacity edge of that path. In other words, it is an edge that will have capacity :math:`0` after we push flow on :math:`p`.
 
-    We are going to bound the number of times an edge can become critical. Let :math:`(u, v)` be any edge in the  graph. Denote by :math:`d_{bef}` the BFS distances just before :math:`(u, v)` becomes critical. Since we find shortest paths to push flow we must have
+    We are going to bound the number of times an edge can become critical. Let :math:`(u, v)` be any edge in the  graph. Denote by :math:`d` the BFS distances just before :math:`(u, v)` becomes critical. Since we find shortest paths to push flow we must have
 
     .. math::
 
-        d_{bef}(s, v) = d_{bef}(s, u) + 1
+        d(s, v) = d(s, u) + 1
 
-    After we push the flow, since :math:`(u, v)` is critical, it will have capacity 0.
+    After we push the flow, since :math:`(u, v)` is critical, it will have capacity 0. Thus, for it to become critical again, we must first push flow on the reverse edge :math:`(v, u)`. Let :math:`d'` denote the distances just before this happends. Again, we must have
+
+    .. math::
+
+        d'(s, u) = d(s, v) + 1
+
+    Therefore, since distances cannot decrease, we have that :math:`d(s, v) \leq d'(s, v)` and thus
+
+    .. math::
+
+        d'(s, u) = d'(s, v) + 1 \geq d(s, v) + 1 = d(s, u) + 2
 environment: cpp
 evaluate: best
 groups: false
