@@ -92,6 +92,12 @@ context: |-
     **PROOF**
 
     We say that an edge is **critical** on a path :math:`p` if it is a minimum capacity edge. In other words, it is an edge that will have capacity :math:`0` after we push flow on :math:`p`.
+
+    We are going to bound the number of times an edge can become critical. Let :math:`(u, v)` be any edge in the  graph. Since we find shortest paths to push flow, the first time that :math:`(u, v)` becomes critical we have
+
+    .. math::
+
+        d_{bef}(s, v) = d_{bef}(s, u) + 1
 environment: cpp
 evaluate: best
 groups: false
