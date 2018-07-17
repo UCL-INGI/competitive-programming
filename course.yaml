@@ -4,8 +4,8 @@ admins:
 - faubry
 - fraubry
 - hdevillez
-tutors:
 - agobeaux
+tutors: []
 groups_student_choice: false
 use_classrooms: true
 allow_unregister: true
