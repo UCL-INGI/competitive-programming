@@ -11,7 +11,15 @@ context: |
 
     However, this is not a very good news as we usually do not want the complexity to depend on the *value* of the answer since it could mean that even on a very small graph with, say :math:`F = 10^{10}`, the algorithm would take forever to run.
 
-    We are going to show that using BFS to find the paths, the runs in :math:`O(V E^2)`. Recall that BFS compute shortest paths (in terms on the number of edges). The first thing that we need to show is that:
+    We are going to show that using BFS to find the paths, the runs in :math:`O(V E^2)`.
+
+    The remainder of this section is quite theoretical. So if anything the take home messages are that:
+
+    1. An augmenting path algorithm to compute the maximum flow will make at most :math:`F` path computations.
+    2. Using BFS we can bound the number of path computations to :math:`O(VE)`.
+
+    |
+
 
         **Theorem**
 
