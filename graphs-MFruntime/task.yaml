@@ -37,7 +37,13 @@ context: |-
 
         d_{bef}(s, u) \leq d_{aft}(s, u)
 
-    We can now show that the capacity of (u, v)
+    We can now show that the capacity of (u, v) *before* was :math:`0`. If it was not, then it was considered by the BFS and thus, by triangle inequality :math:`d_{bef}(s, v) \leq d_{bef}(s, v) + 1`. Therefore
+
+    .. math::
+
+        d_{bef}(s, v) \leq d_{bef}(s, u) + 1 \leq d_{aft}(s, u) + 1 = d_{aft}(s, v)
+
+    This would contradict the fact that the distance of :math:`v` was decreased.
 environment: cpp
 evaluate: best
 groups: false
