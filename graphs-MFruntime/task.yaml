@@ -110,14 +110,16 @@ context: |-
     .. math::
 
         d'(s, u) = d'(s, v) + 1 \geq d(s, v) + 1 = d(s, u) + 2
+
+    We conclude that between two iterations where :math:`(u, v)` is critical **the distance from s to u must increase by at least 2**. Since the distances are at most :math:`V`, it means that each edge will become critical at most :math:`V \slash 2` times. As there are :math:`E` edges in total, the maximum number of times an edge can become critical overall is :math:`E V \slash 2 = O(VE)`. Since whenever we push flow on a path, that path must contain at least one critical edge, we conclude that the number of call to :code:`augmentFlowBFS` is :math:`O(VE)`.
 environment: cpp
 evaluate: best
 groups: false
 input_random: '0'
 limits:
     output: '2'
-    time: '30'
     memory: '100'
+    time: '30'
 name: Graphs - Maximum flow runtime
 network_grading: false
 problems:
@@ -126,9 +128,9 @@ problems:
         choices:
         -   valid: true
             text: 'Yes'
+        header: ''
         type: multiple_choice
         limit: 1
-        header: ''
 stored_submissions: 0
 submission_limit:
     amount: -1
