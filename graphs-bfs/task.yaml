@@ -90,7 +90,7 @@ problems:
 
             You will be given :math:`n` and the friendship relations between those :math:`n` users. For simplicity the users are numbered from :math:`0` to :math:`n - 1`. If person :math:`0` makes a post today, compute the number of days until every user has posted it on their own profiles.
 
-            You may assume that the graph is connected. That is, there is at least one path of friendships (direct or not) between any two given users. Also, assume friendships are **symmetric**, that is, if user :math:`u` is friends with user :math:`v` then :math:`v` is also friends with :math:`u`.
+            You may assume that the graph is connected. That is, there is at least one path of friendships (direct or not) between any two given users. Also, assume friendships are **symmetric**, that is, if user :math:`u` is friend with user :math:`v` then :math:`v` is also friend with :math:`u`.
 
             **Input**
 
