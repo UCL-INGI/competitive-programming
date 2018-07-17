@@ -85,7 +85,7 @@ context: |
 
         **Theorem**
 
-        Edmonds-Karp algorithm performs at most :math:`O(VE)` BFS's.
+        Edmonds-Karp algorithm performs at most :math:`O(VE)` BFS's (that is, calls to :code:`augmentFlowBFS`).
 environment: cpp
 evaluate: best
 groups: false
