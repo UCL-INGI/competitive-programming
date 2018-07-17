@@ -44,6 +44,8 @@ context: |-
         d_{bef}(s, v) \leq d_{bef}(s, u) + 1 \leq d_{aft}(s, u) + 1 = d_{aft}(s, v)
 
     This would contradict the fact that the distance of :math:`v` was decreased.
+
+    So we have the following situation: before we pushed the flow, the capacity of :math:`(u, v)` was :math:`0` but after it was not (since it was used on the path).
 environment: cpp
 evaluate: best
 groups: false
