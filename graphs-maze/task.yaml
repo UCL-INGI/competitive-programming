@@ -149,7 +149,7 @@ problems:
         - .cpp
         - .py
         header: |+
-            Put the piece together in order to be able to find a path in a maze.
+            Put the pieces together in order to be able to find a path in a maze.
 
             **Input**
 
@@ -169,7 +169,7 @@ problems:
             **Constraints**
 
             * :math:`1 \leq n, m \leq 1000`
-            * Each characters belongs to '#.ST'.
+            * Each character belongs to '#.ST'.
 
             **Sample Test Cases**
 
