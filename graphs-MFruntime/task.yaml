@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |-
+context: |
     The algorithm that we presented in the `maxflow task <graphs-maxflow>`_ is due to Jack Edmonds and Richard Karp and thus named Edmonds-Karp. The idea of finding paths in the residual graph was already know. Their contribution was to show that the algorithm runs in polynomial time if we use BFS to find the paths. These class of algorithms are callled *augmenting path algorithms*.
 
     In general, it is easy to find an upper bound for the running time an augmenting path algorithm:
@@ -11,7 +11,15 @@ context: |-
 
     However, this is not a very good news as we usually do not want the complexity to depend on the *value* of the answer since it could mean that even on a very small graph with, say :math:`F = 10^{10}`, the algorithm would take forever to run.
 
-    We are going to show that using BFS to find the paths, the runs in :math:`O(V E^2)`. Recall that BFS compute shortest paths (in terms on the number of edges). The first thing that we need to show is that:
+    We are going to show that using BFS to find the paths, the runs in :math:`O(V E^2)`.
+
+    The remainder of this section is quite theoretical. So if anything the take home messages are that:
+
+    1. An augmenting path algorithm to compute the maximum flow will make at most :math:`F` path computations.
+    2. Using BFS we can bound the number of path computations to :math:`O(VE)`.
+
+    |
+
 
         **Theorem**
 
@@ -31,6 +39,13 @@ context: |-
 
     Let :math:`p = (s, \ldots, u, v)` be a shortest path from :math:`s` to :math:`v` on the residual graph *after* the we pushed the flow.
 
+    |
+
+    .. image:: graphs-MFruntime/flowTheory1.png
+
+    |
+    |
+
     **Recall that in the BFS we ignore edges of capacity 0.** Therefore it means that every edge of :math:`p` has positive capacity.
 
     By definition we have that
@@ -45,7 +60,16 @@ context: |-
 
         d_{bef}(s, u) \leq d_{aft}(s, u)
 
-    We can now show that the capacity of (u, v) *before* was :math:`0`. If it was not, then it was considered by the BFS and thus, by triangle inequality :math:`d_{bef}(s, v) \leq d_{bef}(s, v) + 1`. Therefore
+    We can now show that the capacity of (u, v) *before* was :math:`0`. If it was not, then it was considered by the BFS and thus, by the triangular inequality, :math:`d_{bef}(s, v) \leq d_{bef}(s, v) + 1`.
+
+    |
+
+    .. image:: graphs-MFruntime/flowTheory2.png
+
+    |
+    |
+
+    Therefore
 
     .. math::
 
@@ -61,30 +85,68 @@ context: |-
 
         d_{bef}(s, v) = d_{bef}(s, u) - 1 \leq d_{aft}(s, u) - 1 = d_{aft}(s, v) - 2
 
-    So that :math:`d_{bef}(s, v) \leq d_{aft}(s, v)` contradicting the fact that the distance to :math:`v` decreased.
+    So that, :math:`d_{bef}(s, v) \leq d_{aft}(s, v)` contradicting the fact that the distance to :math:`v` decreased.
 
     ----
 
-    qsq
+    We are now going to use the fact that the distances never decrease to prove the time complexity of the algorithm.
+
+        **Theorem**
+
+        Edmonds-Karp algorithm performs at most :math:`O(VE)` BFS's, that is, calls to :code:`augmentFlowBFS`.
+
+    ----
+
+    **PROOF**
+
+    We say that an edge is **critical** if we push flow on a path :math:`p` that contains it and that edge is a minimum capacity edge of that path. In other words, it is an edge that will have capacity :math:`0` after we push flow on :math:`p`.
+
+    We are going to bound the number of times an edge can become critical. Let :math:`(u, v)` be any edge in the  graph. Denote by :math:`d` the BFS distances just before :math:`(u, v)` becomes critical. Since we find shortest paths to push flow we must have
+
+    .. math::
+
+        d(s, v) = d(s, u) + 1
+
+    After we push the flow, since :math:`(u, v)` is critical, it will have capacity 0. Thus, for it to become critical again, we must first push flow on the reverse edge :math:`(v, u)`. Let :math:`d'` denote the distances just before this happends. Again, we must have
+
+    .. math::
+
+        d'(s, u) = d(s, v) + 1
+
+    Therefore, since distances cannot decrease, we have that :math:`d(s, v) \leq d'(s, v)` and thus
+
+    .. math::
+
+        d'(s, u) = d'(s, v) + 1 \geq d(s, v) + 1 = d(s, u) + 2
+
+    We conclude that between two iterations where :math:`(u, v)` is critical **the distance from s to u must increase by at least 2**. Since the distances are at most :math:`V`, it means that each edge will become critical at most :math:`V / 2` times. As there are :math:`E` edges in total, the maximum number of times an edge can become critical overall is :math:`E V / 2 = O(VE)`. Since whenever we push flow on a path, that path must contain at least one critical edge, we conclude that the number of call to :code:`augmentFlowBFS` is :math:`O(VE)`.
+
+    ----
+
+    Since the time complexity of BFS is :math:`O(V + E)` we have the following theorem for the time complexity of Edmond-Karp maximum flow algorithm.
+
+    **Theorem**
+
+        Edmonds-Karp algorithm runs in :math:`O(VE^2)`
 environment: cpp
 evaluate: best
 groups: false
 input_random: '0'
 limits:
     memory: '100'
-    time: '30'
     output: '2'
+    time: '30'
 name: Graphs - Maximum flow runtime
 network_grading: false
 problems:
     read:
         choices:
-        -   valid: true
-            text: 'Yes'
-        name: Mark this section as read?
+        -   text: 'Yes'
+            valid: true
         type: multiple_choice
-        limit: 1
+        name: Mark this section as read?
         header: ''
+        limit: 1
 stored_submissions: 0
 submission_limit:
     amount: -1

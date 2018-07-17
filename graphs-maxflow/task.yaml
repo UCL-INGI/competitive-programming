@@ -234,7 +234,7 @@ context: |-
 
     .. code:: java
 
-        static int maxflow(ResidualGraph g, int s, int t) {
+        static int maxflowEK(ResidualGraph g, int s, int t) {
             int maxflow = 0;
             int flow;
             while((flow = augmentFlowBFS(s, t)) != 0) {
@@ -300,18 +300,19 @@ groups: false
 input_random: '0'
 limits:
     memory: '1000'
-    output: '100'
     time: '1000'
-name: Graphs - Maximum flow
+    output: '100'
+name: Graphs - Maximum flow (Edmonds-Karp)
 network_grading: false
 order: 15
 problems:
     file:
-        type: file
         allowed_exts:
         - .java
         - .cpp
         - .py
+        type: file
+        name: Maximum flow
         header: |
             Given a graph a source node and a destination node, compute the maximum flow from the source to the destination.
 
@@ -343,7 +344,6 @@ problems:
             `Sample input 2 <graphs-maxflow/2.in>`_
 
             `Sample output 2 <graphs-maxflow/2.ans>`_
-        name: Maximum flow
 stored_submissions: 0
 submission_limit:
     amount: -1
