@@ -90,19 +90,19 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    output: '100'
     memory: '1000'
+    output: '100'
     time: '1000'
 name: DP - Candy problem, parameter decution
 network_grading: false
 order: 23
 problems:
     file:
+        type: file
         allowed_exts:
         - .java
         - .cpp
         - .py
-        name: Candies for 3 kids
         header: |-
             Write a solution for the candy problem above.
 
@@ -131,7 +131,7 @@ problems:
             `Sample input 2 <dp-candies/2.in>`_
 
             `Sample output 2 <dp-candies/2.ans>`_
-        type: file
+        name: Candies for 3 kids
 stored_submissions: 0
 submission_limit:
     amount: -1

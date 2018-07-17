@@ -1,0 +1,28 @@
+accessible: true
+author: ''
+context: The algorithm that we presented in `here <graphs-maxflow>`_
+environment: cpp
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: Graphs - Maximum flow runtime
+network_grading: false
+problems:
+    read:
+        header: ''
+        type: multiple_choice
+        choices:
+        -   valid: true
+            text: 'Yes'
+        limit: 1
+        name: Mark this section as read?
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0
