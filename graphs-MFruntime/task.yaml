@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |
+context: |-
     The algorithm that we presented in the `maxflow task <graphs-maxflow>`_ is due to Jack Edmonds and Richard Karp and thus named Edmonds-Karp. The idea of finding paths in the residual graph was already know. Their contribution was to show that the algorithm runs in polynomial time if we use BFS to find the paths. These class of algorithms are callled *augmenting path algorithms*.
 
     In general, it is easy to find an upper bound for the running time an augmenting path algorithm:
@@ -86,6 +86,12 @@ context: |
         **Theorem**
 
         Edmonds-Karp algorithm performs at most :math:`O(VE)` BFS's (that is, calls to :code:`augmentFlowBFS`).
+
+    ----
+
+    **PROOF**
+
+    We say that an edge is **critical** on a path :math:`p` if it is a minimum capacity edge. In other words, it is an edge that will have capacity :math:`0` after we push flow on :math:`p`.
 environment: cpp
 evaluate: best
 groups: false
