@@ -11,7 +11,7 @@ context: |-
 
     However, this is not a very good news as we usually do not want the complexity to depend on the *value* of the answer since it could mean that even on a very small graph with, say :math:`F = 10^{10}`, the algorithm would take forever to run.
 
-    We are going to show that using BFS to find the paths, the runs in :math:`O(V E^2)`. Recall that BFS compute shortest paths (in terms on the number of edges).  The first thing that we need to show is that:
+    We are going to show that using BFS to find the paths, the runs in :math:`O(V E^2)`. Recall that BFS compute shortest paths (in terms on the number of edges). The first thing that we need to show is that:
 
         **Theorem**
 
@@ -20,12 +20,18 @@ context: |-
 
     **PROOF**
 
-    Assume that, after pushing flow on a path, the distance of some node was decreased. Denote by :math:`d_{bef}` the BFS distances and :math:`d_{aft}` the distances after. Recall that in the BFS we ignore edges of capacity :math:`0`. Let :math:`v` be the closest node to the source :math:`s` whose distance was decresed. That is :math:`v` is such that:
+    Assume that, after pushing flow on a path, the distance of some node was decreased. Denote by :math:`d_{bef}` the BFS distances and :math:`d_{aft}` the distances after.
+
+    Let :math:`v` be the closest node to the source :math:`s` whose distance was decresed. That is :math:`v` is such that:
 
     1. :math:`d_{aft}(s, v)` is minimum
     2. :math:`d_{aft}(s, v) < d_{bef}(s, v)`
 
-    Let :math:`p = (s, \ldots, u, v)` be a shortest path from :math:`s` to :math:`v` on the residual graph *after* the we pushed the flow. By definition we have that
+    Let :math:`p = (s, \ldots, u, v)` be a shortest path from :math:`s` to :math:`v` on the residual graph *after* the we pushed the flow.
+
+    **Recall that in the BFS we ignore edges of capacity 0.** Therefore it means that every edge of :math:`p` has positive capacity.
+
+    By definition we have that
 
     .. math::
 
@@ -45,7 +51,9 @@ context: |-
 
     This would contradict the fact that the distance of :math:`v` was decreased.
 
-    So we have the following situation: before we pushed the flow, the capacity of :math:`(u, v)` was :math:`0` but after it was not (since it was used on the path).
+    So we have the following situation:
+
+    Before we pushed the flow, the capacity of :math:`(u, v)` was :math:`0` but after it was not, since it was used on the path :math:`p`.
 environment: cpp
 evaluate: best
 groups: false
