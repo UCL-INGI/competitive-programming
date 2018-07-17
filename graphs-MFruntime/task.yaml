@@ -53,7 +53,7 @@ context: |-
 
     So we have the following situation:
 
-    Before we pushed the flow, the capacity of :math:`(u, v)` was :math:`0` but after it was not, since it was used on the path :math:`p`.
+    Before we pushed the flow, the capacity of :math:`(u, v)` was :math:`0` but after it was not, since it was used on the path :math:`p`. The only way in which this is possible is if flow was pushed on the reverse edge :math:`(v, u)`.
 environment: cpp
 evaluate: best
 groups: false
