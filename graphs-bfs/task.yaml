@@ -1,11 +1,11 @@
 accessible: true
-author: ''
+author: François Aubry
 context: |
-    In this task we are going to extend our path finding algorithm and show how we can compute the distances from a given node :math:`s` to every other node.
+    In this task we are going to extend our pathfinding algorithm and show how we can compute the distances from a given node :math:`s` to every other node.
 
-    In this context, the distance between two nodes is defined as the minimum number of edges in any path between them. Later, we will consider weights on the edges and see how to compute shortest paths, that is, paths such that the sum of the weights of the edges is a small as possible. You can think of this case as a specification of the general shortest path problem when all edge weights are equal to :math:`1`.
+    In this context, the distance between two nodes is defined as the minimum number of edges in any path between them. Later, we will consider weights on the edges and see how to compute shortest paths, that is, paths such that the sum of the weights of the edges is as small as possible. You can think of this case as a specification of the general shortest path problem when all edge weights are equal to :math:`1`.
 
-    We will see that the path finding algorithm already has everything that we need in order to be able to compute the distances. To see this, we will execute the algorithm again on the same graph but drawing it in a way that the nodes are organized by distance layers. That is one layer for nodes at distance 0, one for nodes at distance 1, and so on.
+    We will see that the pathfinding algorithm already has everything that we need in order to be able to compute the distances. To see this, we will execute the algorithm again on the same graph but drawing it in a way that the nodes are organized by distance layers. That is one layer for nodes at distance 0, one for nodes at distance 1, and so on.
 
     Take the previous graph and label each node with its distance from node :math:`s = 0` and redraw it by placing the nodes that have the same distance on the same layer as show in the following figure.
 
@@ -56,7 +56,7 @@ context: |
             return distance;
         }
 
-    This algorithm is commonly know as **Breadth-first Search (BFS)**. The reason for this name is because of fact that it explores all nodes at distance :math:`d` before exploring nodes at distance :math:`d + 1`. Its runtime is :math:`O(V + E)` where :math:`V` is the number of nodes in the graph and :math:`E` is the number of edges. An easy way to see why this is the case if to count how many operations are performed at each node.
+    This algorithm is commonly know as **Breadth-first Search (BFS)**. The reason for this name is because of the fact that it explores all nodes at distance :math:`d` before exploring nodes at distance :math:`d + 1`. Its runtime is :math:`O(V + E)` where :math:`V` is the number of nodes in the graph and :math:`E` is the number of edges. An easy way to see why this is the case is to count how many operations are performed at each node.
 
     Each node is expanded once, when it is removed from the queue. Therefore, in the worst case the while loop is executed :math:`V(G)` times (one time for each node). Each iteration of the while loop costs :math:`1 + g[u].size()`. Thus the total run time is
 
@@ -69,8 +69,8 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    output: '100'
     memory: '1000'
+    output: '100'
     time: '1000'
 name: Graphs - Breadth-first search
 network_grading: false
@@ -82,6 +82,7 @@ problems:
         - .cpp
         - .py
         name: Sharing posts
+        type: file
         header: |
             You should be able to solve this problem with a simple application of the BFS algorithm.
 
@@ -105,19 +106,18 @@ problems:
 
             * :math:`1 \leq n \leq 1000`
             * :math:`1 \leq m \leq n (n - 1) / 2`
-            * :math:`0 \leq u_i, v_i < n`
+            * :math:`0 \leq u_i, v_i &lt; n`
 
             **Sample Test Cases**
 
-            `Sample input 1 <graphs-bfs/1.in>`_
+            `Sample input 1 &lt;graphs-bfs/1.in&gt;`_
 
-            `Sample output 1 <graphs-bfs/1.ans>`_
+            `Sample output 1 &lt;graphs-bfs/1.ans&gt;`_
 
 
-            `Sample input 2 <graphs-bfs/2.in>`_
+            `Sample input 2 &lt;graphs-bfs/2.in&gt;`_
 
-            `Sample output 2 <graphs-bfs/2.ans>`_
-        type: file
+            `Sample output 2 &lt;graphs-bfs/2.ans&gt;`_
 stored_submissions: 0
 submission_limit:
     amount: -1
