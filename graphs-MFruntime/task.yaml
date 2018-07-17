@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |-
+context: |
     The algorithm that we presented in the `maxflow task <graphs-maxflow>`_ is due to Jack Edmonds and Richard Karp and thus named Edmonds-Karp. The idea of finding paths in the residual graph was already know. Their contribution was to show that the algorithm runs in polynomial time if we use BFS to find the paths. These class of algorithms are callled *augmenting path algorithms*.
 
     In general, it is easy to find an upper bound for the running time an augmenting path algorithm:
@@ -111,25 +111,33 @@ context: |-
 
         d'(s, u) = d'(s, v) + 1 \geq d(s, v) + 1 = d(s, u) + 2
 
-    We conclude that between two iterations where :math:`(u, v)` is critical **the distance from s to u must increase by at least 2**. Since the distances are at most :math:`V`, it means that each edge will become critical at most :math:`V \slash 2` times. As there are :math:`E` edges in total, the maximum number of times an edge can become critical overall is :math:`E V \slash 2 = O(VE)`. Since whenever we push flow on a path, that path must contain at least one critical edge, we conclude that the number of call to :code:`augmentFlowBFS` is :math:`O(VE)`.
+    We conclude that between two iterations where :math:`(u, v)` is critical **the distance from s to u must increase by at least 2**. Since the distances are at most :math:`V`, it means that each edge will become critical at most :math:`V / 2` times. As there are :math:`E` edges in total, the maximum number of times an edge can become critical overall is :math:`E V / 2 = O(VE)`. Since whenever we push flow on a path, that path must contain at least one critical edge, we conclude that the number of call to :code:`augmentFlowBFS` is :math:`O(VE)`.
+
+    ----
+
+    Since the time complexity of BFS is :math:`O(V + E)` we have the following theorem for the time complexity of Edmond-Karp maximum flow algorithm.
+
+    **Theorem**
+
+        Edmonds-Karp algorithm runs in :math:`O(VE^2)`
 environment: cpp
 evaluate: best
 groups: false
 input_random: '0'
 limits:
-    output: '2'
     memory: '100'
+    output: '2'
     time: '30'
 name: Graphs - Maximum flow runtime
 network_grading: false
 problems:
     read:
-        name: Mark this section as read?
         choices:
-        -   valid: true
-            text: 'Yes'
-        header: ''
+        -   text: 'Yes'
+            valid: true
         type: multiple_choice
+        name: Mark this section as read?
+        header: ''
         limit: 1
 stored_submissions: 0
 submission_limit:
