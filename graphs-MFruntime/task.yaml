@@ -111,7 +111,7 @@ context: |
 
     .. math::
 
-        d'(s, u) = d(s, v) + 1
+        d'(s, u) = d'(s, v) + 1
 
     Therefore, since distances cannot decrease, we have that :math:`d(s, v) \leq d'(s, v)` and thus
 
