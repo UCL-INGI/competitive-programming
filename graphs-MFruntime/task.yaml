@@ -1,6 +1,12 @@
 accessible: true
 author: ''
-context: The algorithm that we presented in `here <graphs-maxflow>`_
+context: |+
+    The algorithm that we presented in the `maxflow task <graphs-maxflow>`_ is due to Jack Edmonds and Richard Karp and thus named Edmonds-Karp.
+
+    We are going to argue why the algorithm runs in :math:`O(V E^2)` and make some observations of what would happend if we used DFS to find the paths instead of BFS.
+
+    Be warned that this section will be a bit more theoretical.
+
 environment: cpp
 evaluate: best
 groups: false
