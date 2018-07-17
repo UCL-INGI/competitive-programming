@@ -1,5 +1,5 @@
 accessible: true
-author: ''
+author: François Aubry
 context: |-
     We are now going to see how we can solve mazes as the one show below. The goal is to find a path in the maze connecting the two blue points.
 
@@ -9,9 +9,9 @@ context: |-
 
     |
 
-    We can simply use the path finding algorithm that implemented before. What we are going to learn here is to avoid representing the graph explicitly and execute the path finding algorithm directly on the maze.
+    We can simply use the path finding algorithm implemented before. What we are going to learn here is to avoid representing the graph explicitly and execute the path finding algorithm directly on the maze.
 
-    It is easy to represent the maze problem as a path finding problem on a graph. The graph has one node for each white cell in the maze. There is an edge between two nodes if the corresponding white cells are adjacent. The following figure illustrates this.
+    It is easy to represent the maze problem as a pathfinding problem on a graph. The graph has one node for each white cell in the maze. There is an edge between two nodes if the corresponding white cells are adjacent. The following figure illustrates this.
 
         **Example:**
 
@@ -20,12 +20,12 @@ context: |-
         |
 
         Notice that in this case graph, whenever there is an edge
-        :math:`(u, v)` there reverse edge :math:`(v, u)` also exists.
+        :math:`(u, v)` the reversed edge :math:`(v, u)` also exists.
         This is because if we can go from cell :math:`x` to cell
         :math:`y` we can also move from cell :math:`y` to cell
         :math:`x`. In this case we say that the graph is
         **undirected**. Usually edges in undirected graphs are
-        represented by segments as show in the right figure instead of
+        represented by segments as shown in the right figure instead of
         having the two arrows. From now on this will be how we represent
         undirected graphs graphically.
 
@@ -71,7 +71,7 @@ context: |-
         static int[][] dir = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 
 
-    Then to iterate over the neighbors of :math:`u = [u_i, u_j]` we can simply do:
+    Then to iterate over the neighbours of :math:`u = [u_i, u_j]` we can simply do:
 
     .. code:: java
 
@@ -79,11 +79,11 @@ context: |-
             int i = u[0] + d[0];
             int j = u[1] + d[1];
             if(maze[i][j] != '#') {
-                // do something, the neighbor (i, j) of u
+                // do something, the neighbour (i, j) of u
             }
         }
 
-    Putting these pieces together to make a path finding algorithms is straightforward. As before, we need to be able to mark a node as visited. The simplest way to do this with when nodes are pairs of integers is to create a matrix such that :math:`visited[i][j]` is true if and only if node :math:`(i, j)` has been visited. Another change is that the parent will also be stored in an array such that :math:`parent[i][j]` contains the parent of node :math:`(i, j)`.
+    Putting these pieces together to make a pathfinding algorithm is straightforward. As before, we need to be able to mark a node as visited. The simplest way to do this with when nodes are pairs of integers is to create a matrix such that :math:`visited[i][j]` is true if and only if node :math:`(i, j)` has been visited. Another change is that the parent will also be stored in an array such that :math:`parent[i][j]` contains the parent of node :math:`(i, j)`.
 
     .. code:: java
 
@@ -135,19 +135,19 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    output: '100'
     memory: '1000'
+    output: '100'
     time: '1000'
 name: Graphs - Solving a maze
 network_grading: false
 order: 4
 problems:
     file:
+        type: file
         allowed_exts:
         - .java
         - .cpp
         - .py
-        name: Finding a path in a maze
         header: |+
             Put the piece together in order to be able to find a path in a maze.
 
@@ -182,7 +182,7 @@ problems:
 
             `Sample output 2 <graphs-maze/2.ans>`_
 
-        type: file
+        name: Finding a path in a maze
 stored_submissions: 0
 submission_limit:
     amount: -1
