@@ -13,11 +13,10 @@ context: |
 
     We are going to show that using BFS to find the paths, the runs in :math:`O(V E^2)`. Recall that BFS compute shortest paths (in terms on the number of edges).  The first thing that we need to show is that **during the exectuion of the algorithm, the distances of the nodes from the source never decrease**.
 
-    Assume that, after pushing flow on a path, the distance of some node was decreased. Denote by :math:`d_{bef}` the BFS distances and :math:`d_{aft}` the distances after. Let :math:`v` be the closest node to the source :math:`s` whose distance was decresed. Thus we have:
+    Assume that, after pushing flow on a path, the distance of some node was decreased. Denote by :math:`d_{bef}` the BFS distances and :math:`d_{aft}` the distances after. Let :math:`v` be the closest node to the source :math:`s` whose distance was decresed. That is :math:`v` is such that:
 
-    .. math::
-
-       d_{aft}(s, v) < d_{bef}(s, v)
+    1. :math:`d_{aft}(s, v)` is minimum
+    2. :math:`d_{aft}(s, v) < d_{bef}(s, v)`
 environment: cpp
 evaluate: best
 groups: false
