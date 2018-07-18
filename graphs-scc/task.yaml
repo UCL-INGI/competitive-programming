@@ -92,7 +92,7 @@ context: |-
 
     .. code:: java
 
-        static final int UNV = 0;
+        static final int UNV = -1;
         // scc will contain the scc label of the nodes
         // scc[i] = scc[j] iff i, j are on the same scc
         static int[] scc;
@@ -135,6 +135,7 @@ context: |-
             toposort = new int[g.length];
             toposortIndex = g.length - 1;
             scc = new int[g.length];
+            Arrays.fill(scc, UNV);
         }
 
         static int[] toposort(LinkedList<Integer>[] g) {
