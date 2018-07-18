@@ -141,7 +141,7 @@ context: |-
         static int[] toposort(LinkedList<Integer>[] g) {
             initDFS(g);
             for(int u = 0; u < g.length; u++) if(scc[u] == UNV) {
-                dfsVisit(g, u, 1);
+                dfsVisit(g, u, 0);
             }
             return Arrays.copyOf(toposort, toposort.length);
         }
