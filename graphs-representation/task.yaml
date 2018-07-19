@@ -70,6 +70,7 @@ context: |-
 
     .. code:: java
 
+       @SuppressWarnings("unchecked")
        public static void main(String[] args) {
             Scanner reader = new Scanner(System.in);
             int n = reader.nextInt();
@@ -94,20 +95,20 @@ groups: false
 input_random: '0'
 limits:
     memory: '100'
-    time: '30'
     output: '2'
+    time: '30'
 name: Graphs - Representation
 network_grading: false
 order: 2
 problems:
     read:
         choices:
-        -   valid: true
-            text: 'Yes'
-        name: Mark this section as read?
+        -   text: 'Yes'
+            valid: true
         type: multiple_choice
-        limit: 0
         header: ''
+        limit: 0
+        name: Mark this section as read?
 stored_submissions: 0
 submission_limit:
     amount: -1
