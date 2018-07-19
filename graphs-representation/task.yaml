@@ -36,7 +36,6 @@ context: |-
 
     .. code:: java
 
-        @SuppressWarnings("unchecked")
         LinkedList<Integer>[] g = new LinkedList[6];
         for(int v = 0; v < g.length; v++) {
             g[v] = new LinkedList<>();
@@ -46,8 +45,6 @@ context: |-
         g[2].add(0);
         g[2].add(1);
         g[4].add(5);
-
-    The suppress warning is necessary in some contest environments as otherwise the code will give a *compile error*. In modern judging systems it is often not necessary. We put it just to be safe.
 
     This graph representation is suitable to traverse the whole graph to find a path because we can iterate over all outgoing edges of a node in linear time. Also, building the graph with this structure takes linear time :math:`O(n + m)` since adding an element to a :code:`LinkedList` is done in constant time.
 
@@ -87,6 +84,8 @@ context: |-
             // do something with g
             reader.close();
        }
+
+    The suppress warning is necessary in some contest environments as otherwise the code will give a *compile error*. In modern judging systems it is often not necessary. We put it just to be safe.
 
     *Note:* In a lot of problems the nodes of the input graph are numbered from :math:`1` to :math:`n` rather than :math:`0` to :math:`n - 1`. In this case the easiest solution is to simply subtract :math:`1` while reading the input and add :math:`1` while writing the output. This may seem obvious but I have seen students subtracting :math:`1` in every access to :math:`g` which is very annoying and time consuming.
 environment: correctoz
