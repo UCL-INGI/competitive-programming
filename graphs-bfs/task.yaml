@@ -106,18 +106,18 @@ problems:
 
             * :math:`1 \leq n \leq 1000`
             * :math:`1 \leq m \leq n (n - 1) / 2`
-            * :math:`0 \leq u_i, v_i &lt; n`
+            * :math:`0 \leq u_i, v_i \leq n`
 
             **Sample Test Cases**
 
-            `Sample input 1 &lt;graphs-bfs/1.in&gt;`_
+            `Sample input 1 <graphs-bfs/1.in>`_
 
-            `Sample output 1 &lt;graphs-bfs/1.ans&gt;`_
+            `Sample output 1 <graphs-bfs/1.ans>`_
 
 
-            `Sample input 2 &lt;graphs-bfs/2.in&gt;`_
+            `Sample input 2 <graphs-bfs/2.in>`_
 
-            `Sample output 2 &lt;graphs-bfs/2.ans&gt;`_
+            `Sample output 2 <graphs-bfs/2.ans>`_
 stored_submissions: 0
 submission_limit:
     amount: -1
