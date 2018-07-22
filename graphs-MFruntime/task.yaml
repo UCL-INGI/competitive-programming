@@ -1,19 +1,19 @@
 accessible: true
-author: ''
+author: François Aubry
 context: |-
-    The algorithm that we presented in the `maxflow task <graphs-maxflow>`_ is due to Jack Edmonds and Richard Karp and thus named Edmonds-Karp. The idea of finding paths in the residual graph was already know. Their contribution was to show that the algorithm runs in polynomial time if we use BFS to find the paths. These class of algorithms are called *augmenting path algorithms*.
+    The algorithm that we presented in the `maxflow task <graphs-maxflow>`_ is due to Jack Edmonds and Richard Karp and thus named Edmonds-Karp. The idea of finding paths in the residual graph was already known. Their contribution was to show that the algorithm runs in polynomial time if we use BFS to find the paths. This class of algorithms is called *augmenting path algorithms*.
 
-    In general, it is easy to find an upper bound for the running time an augmenting path algorithm:
+    In general, it is easy to find an upper bound for the running time of an augmenting path algorithm:
 
-    Whenever we are able to find a path, we push at least one new unit of flow. Therefore the total flow is strictly increasing so that we will perform at most :math:`F` path finding iterations, where :math:`F` is the maximum flow. Thus the complexity is :math:`O(F (V + E))` if we use an :math:`O(V + E)` algorithm to find the path such as DFS of BFS.
+    Whenever we are able to find a path, we push at least one new unit of flow. Therefore the total flow is strictly increasing so that we will perform at most :math:`F` pathfinding iterations, where :math:`F` is the maximum flow. Thus the complexity is :math:`O(F (V + E))` if we use an :math:`O(V + E)` algorithm to find the path such as DFS of BFS.
 
     |
 
-    However, this is not a very good news as we usually do not want the complexity to depend on the *value* of the answer since it could mean that even on a very small graph with, say :math:`F = 10^{10}`, the algorithm would take forever to run.
+    However, this is not very good news as we usually do not want the complexity to depend on the *value* of the answer since it could mean that even on a very small graph with, say :math:`F = 10^{10}`, the algorithm would take forever to run.
 
-    We are going to show that using BFS to find the paths, the runs in :math:`O(V E^2)`.
+    We are going to show that if we use BFS to find the paths, the complexity will be :math:`O(V E^2)`.
 
-    The remainder of this section is quite theoretical. So if anything the take home messages are that:
+    The remainder of this section is quite theoretical. So, if anything, the take-home messages are that:
 
     1. An augmenting path algorithm to compute the maximum flow will make at most :math:`F` path computations.
     2. Using BFS we can bound the number of path computations to :math:`O(VE)`.
@@ -32,12 +32,12 @@ context: |-
 
     Assume that, after pushing flow on a path, the distance of some node was decreased. Denote by :math:`d_{bef}` the BFS distances and :math:`d_{aft}` the distances after.
 
-    Let :math:`v` be the closest node to the source :math:`s` whose distance was decreased. That is :math:`v` is such that:
+    Let :math:`v` be the closest node to the source :math:`s` whose distance was decreased. That is :math:`v` such that:
 
     1. :math:`d_{aft}(s, v)` is minimum
     2. :math:`d_{aft}(s, v) < d_{bef}(s, v)`
 
-    Let :math:`p = (s, \ldots, u, v)` be a shortest path from :math:`s` to :math:`v` on the residual graph *after* the we pushed the flow.
+    Let :math:`p = (s, \ldots, u, v)` be the shortest path from :math:`s` to :math:`v` on the residual graph *after* that we pushed the flow.
 
     |
 
@@ -119,7 +119,7 @@ context: |-
 
         d'(s, u) = d'(s, v) + 1 \geq d(s, v) + 1 = d(s, u) + 2
 
-    We conclude that between two iterations where :math:`(u, v)` is critical **the distance from s to u must increase by at least 2**. Since the distances are at most :math:`V`, it means that each edge will become critical at most :math:`V / 2` times. As there are :math:`E` edges in total, the maximum number of times an edge can become critical overall is :math:`E V / 2 = O(VE)`. Since whenever we push flow on a path, that path must contain at least one critical edge, we conclude that the number of call to :code:`augmentFlowBFS` is :math:`O(VE)`.
+    We conclude that between two iterations where :math:`(u, v)` is critical **the distance from s to u must increase by at least 2**. Since the distances are at most :math:`V`, it means that each edge will become critical at most :math:`V / 2` times. As there are :math:`E` edges in total, the maximum number of times an edge can become critical overall is :math:`E V / 2 = O(VE)`. Since whenever we push flow on a path, that path must contain at least one critical edge, we conclude that the number of calls to :code:`augmentFlowBFS` is :math:`O(VE)`.
 
     ----
 
@@ -145,9 +145,9 @@ problems:
         -   text: 'Yes'
             valid: true
         type: multiple_choice
-        name: Mark this section as read?
         header: ''
         limit: 1
+        name: Mark this section as read?
 stored_submissions: 0
 submission_limit:
     amount: -1
