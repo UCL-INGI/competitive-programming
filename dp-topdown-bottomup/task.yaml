@@ -44,7 +44,7 @@ context: |-
 
        dp(i, c) = \max
        \begin{cases}
-       dp(i - 1, c - w_i)       & \quad \text{take item $i$}\\
+       v_i + dp(i - 1, c - w_i)       & \quad \text{take item $i$}\\
        dp(i - 1, c) & \quad \text{skip item $i$}
       \end{cases}
 
@@ -62,7 +62,7 @@ context: |-
         }
         // loop and apply recurrence
         for(int i = 1; i < n; i++) {
-          for(int c = 0; c < C; c++) {
+          for(int c = 0; c <= C; c++) {
             int take = c - w[i] >= 0 ? v[i] + dp[i - 1][c - w[i]] : Integer.MIN_VALUE;
             int skip = dp[i - 1][c];
             dp[i][c] = Math.max(take, skip);
@@ -75,8 +75,8 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    output: '100'
     memory: '1000'
+    output: '100'
     time: '1000'
 name: DP - Top down VS Bottom up
 network_grading: false
@@ -88,6 +88,7 @@ problems:
         - .cpp
         - .py
         name: Knapsack (same problem as before)
+        type: file
         header: |
             Put all the pieces that we discussed above together and write a bottom-up solution for the Knapsack problem (the task will not check whether your solution is a bottom-up solution).
 
@@ -115,7 +116,6 @@ problems:
             `Sample input 2 <dp-knapsack/2.in>`_
 
             `Sample output 2 <dp-knapsack/2.ans>`_
-        type: file
 stored_submissions: 0
 submission_limit:
     amount: -1
