@@ -57,26 +57,26 @@ context: |-
     This means, according to what we said above, that this DP formulation will work if and only if the input graph :math:`G` is acyclic.
 
     We will see later when we study the Bellman-Ford algorithm how we can, at the cost of having more states, change the state formulation in order to break cycles and get a general shortest path algorithm.
-environment: scapy
+environment: default
 evaluate: best
 groups: false
 input_random: '0'
 limits:
     output: '2'
-    memory: '100'
     time: '30'
+    memory: '100'
 name: DP - State graph
 network_grading: false
 order: 20
 problems:
-    dp-stategraph-read:
-        type: multiple_choice
-        limit: 0
-        name: Mark this sections as read?
+    read:
+        header: ''
         choices:
         -   valid: true
             text: 'Yes'
-        header: ''
+        limit: 0
+        type: multiple_choice
+        name: Mark this sections as read?
 stored_submissions: 0
 submission_limit:
     amount: -1

@@ -57,7 +57,7 @@ context: |-
       static int knapsack(int n, int C, int[] v, int [] w) {
         int[][] dp = new int[n][C + 1];
         // initialize the base cases
-        for(int c = 0; c < C; c++) {
+        for(int c = 0; c <= C; c++) {
           dp[0][c] = c - w[0] >= 0 ? v[0] : 0;
         }
         // loop and apply recurrence
@@ -75,19 +75,19 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    memory: '1000'
-    output: '100'
     time: '1000'
+    output: '100'
+    memory: '1000'
 name: DP - Top down VS Bottom up
 network_grading: false
 order: 19
 problems:
     file:
+        name: Knapsack (same problem as before)
         allowed_exts:
         - .java
         - .cpp
         - .py
-        name: Knapsack (same problem as before)
         type: file
         header: |
             Put all the pieces that we discussed above together and write a bottom-up solution for the Knapsack problem (the task will not check whether your solution is a bottom-up solution).
