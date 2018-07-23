@@ -11,7 +11,7 @@ context: |-
 
       dp(i, c) = \max
        \begin{cases}
-       dp(i - 1, c - w_i)       & \quad \text{take item $i$}\\
+       v_i + dp(i - 1, c - w_i)       & \quad \text{take item $i$}\\
        dp(i - 1, c) & \quad \text{skip item $i$}
       \end{cases}
 
@@ -93,19 +93,20 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
+    time: '1000'
     output: '100'
     memory: '400'
-    time: '1000'
 name: DP - Memory reduction
 network_grading: false
 order: 22
 problems:
     file:
+        name: Knapsack low memory
         allowed_exts:
         - .java
         - .cpp
         - .py
-        name: Knapsack low memory
+        type: file
         header: |
             Put all the pieces that we discussed above together and write a solution for the Knapsack problem with reduced memory usage.
 
@@ -135,7 +136,6 @@ problems:
             `Sample input 2 <dp-memory-reduction/2.in>`_
 
             `Sample output 2 <dp-memory-reduction/2.ans>`_
-        type: file
 stored_submissions: 0
 submission_limit:
     amount: -1

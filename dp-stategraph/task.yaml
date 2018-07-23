@@ -11,7 +11,7 @@ context: |-
 
       dp(i, c) = \max
        \begin{cases}
-       dp(i - 1, c - w_i)       & \quad \text{take item $i$}\\
+       v_i + dp(i - 1, c - w_i)       & \quad \text{take item $i$}\\
        dp(i - 1, c) & \quad \text{skip item $i$}
        \end{cases}
 
