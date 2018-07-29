@@ -1,29 +1,30 @@
 accessible: true
-author: ''
+author: François Aubry
 context: |-
     This is a problem from the UCL Algorithm Contest Round 1 - 2015.
 
     Sometimes a problem can be translated into a fairly simple graph problem but it is not obvious at all how to do so.
 
-    This problem is one such example. Note that in a real contests it would be harder as no one would give you a tip to try to see it as a graph problem.
+    This problem is one such example. Note that in a real contest it would be harder as no one would give you a tip to try to see it as a graph problem.
 environment: pyjavacpp
 evaluate: best
 groups: false
 input_random: '0'
 limits:
+    time: '1000'
     output: '100'
     memory: '1000'
-    time: '1000'
 name: 'Graphs - Problem: Cross Bracing'
 network_grading: false
 order: 8
 problems:
     file:
+        name: Cross Bracing
         allowed_exts:
         - .java
         - .cpp
         - .py
-        name: Cross Bracing
+        type: file
         header: |-
             Many engineering structures are constructed using triangles. Why is this?
 
@@ -88,7 +89,6 @@ problems:
             `Sample input 2 <graphs-problem-xbracing/2.in>`_
 
             `Sample output 2 <graphs-problem-xbracing/2.ans>`_
-        type: file
 stored_submissions: 0
 submission_limit:
     amount: -1
