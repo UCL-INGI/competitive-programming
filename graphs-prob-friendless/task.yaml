@@ -1,5 +1,5 @@
 accessible: true
-author: ''
+author: François Aubry
 context: |-
     An undirected graph is said to be *bipartite* if its nodes can be partitioned into two disjoint sets :math:`L, R` such that there are no edges between any two nodes in the same set.
 
@@ -25,7 +25,7 @@ context: |-
 
     Checking whether an undirected graph is bipartite graph should be an easy task by adapting the BFS code. We encourage you to try to write you own algorithm to do so.
 
-    It can also computed using the distance array. Just compute the distance labels *on each connected component*, starting at any node on the left for each of them. Then loop over the edges and check whether every edge links a node with even distance to a node with odd distance. The graph will be bipartite if and only if this holds.
+    It can also be computed using the distance array. Just compute the distance labels *on each connected component*, starting at any node on the left for each of them. Then loop over the edges and check whether every edge links a node with even distance to a node with odd distance. The graph will be bipartite if and only if this holds.
 
     The reason why this works is that paths starting on :math:`L` on a bipartite graph must alternate between :math:`L` and :math:`R`. Thus, as there are no edges within the sets, the distances must also alternate between even and odd from one side to the other. The first node will be even (distance 0) on the left then its neighbors will be odd (distance 1) on the right, then the neighbors of the neighbors will be even (distance 2) on the left and so on.
 
@@ -37,25 +37,26 @@ context: |-
 
     One can observe that **a graph is bipartite if and only if it does not contain a cycle of odd length**. This is because we saw that any path must alternate between even and odd distances. Thus, since a cycle starts and ends at the same node, it would mean that some node in the cycle is both labeled as even and odd which is impossible.
 
-    This is an important result that we will use later. It also means that now we have a simple way to check whether a graph contains cycles of odd lenght.
+    This is an important result that we will use later. It also means that now we have a simple way to check whether a graph contains cycles of odd length.
 environment: pyjavacpp
 evaluate: best
 groups: false
 input_random: '0'
 limits:
+    time: '1000'
     output: '100'
     memory: '1000'
-    time: '1000'
 name: Graphs - Bipartite
 network_grading: false
 order: 9
 problems:
     file:
+        name: Friendless - BAC Round 3 2017
         allowed_exts:
         - .java
         - .cpp
         - .py
-        name: Friendless - BAC Round 3 2017
+        type: file
         header: |
             Bob, Alice and Craig are going on a school field trip. There are a total of :math:`n` students that will travel on two buses. Both buses have capacity :math:`n` and the kids can be assigned to the buses in any way the teachers want. The teachers have noticed that
             the kids are troublesome when they travel with their friends.
@@ -95,7 +96,6 @@ problems:
             `Sample input 2 <graphs-prob-friendless/2.in>`_
 
             `Sample output 2 <graphs-prob-friendless/2.ans>`_
-        type: file
 stored_submissions: 0
 submission_limit:
     amount: -1
