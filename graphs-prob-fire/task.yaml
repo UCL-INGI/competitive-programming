@@ -1,5 +1,5 @@
 accessible: true
-author: ''
+author: François Aubry
 context: ''
 environment: pyjavacpp
 evaluate: best
@@ -14,6 +14,12 @@ network_grading: false
 order: 7
 problems:
     file:
+        name: Fire!
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
+        type: file
         header: |
             Adapted from: `UVa 11624 <https://uva.onlinejudge.org/external/115/11624.pdf>`_
 
@@ -72,12 +78,6 @@ problems:
             `Sample input 3 <graphs-prob-fire/3.in>`_
 
             `Sample output 3 <graphs-prob-fire/3.ans>`_
-        name: Fire!
-        type: file
-        allowed_exts:
-        - .java
-        - .cpp
-        - .py
 stored_submissions: 0
 submission_limit:
     amount: -1
