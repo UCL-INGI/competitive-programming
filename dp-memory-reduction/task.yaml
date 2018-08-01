@@ -25,7 +25,7 @@ context: |-
         static int knapsack(int C, int n, int[] w, int [] v) {
             int[] dp = new int[C + 1];
             // initialize the base cases
-            for(int c = 0; c < C; c++) {
+            for(int c = 0; c <= C; c++) {
                 dp[c] = c - w[0] >= 0 ? v[0] : 0;
             }
             // loop and apply recurrence
