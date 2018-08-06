@@ -1,5 +1,5 @@
 accessible: true
-author: ''
+author: François Aubry
 context: |-
     We are going to see that we can very easily compute a topological order of a graph using DFS.
 
@@ -26,12 +26,12 @@ context: |-
         **Theorem:**
 
         In an *acyclic* graph, when a node becomes :math:`CLOSED` then
-        all of its out-neighbors are already closed.
+        all of its out-neighbours are already closed.
 
         *Proof:*
 
-        Suppose that we are executing :code:`dfsVisit(u)`. Let consider
-        any out-neighbor :math:`v` of :math:`u` and see why at the end
+        Suppose that we are executing :code:`dfsVisit(u)`. Let's consider
+        any out-neighbour :math:`v` of :math:`u` and see why at the end
         of the :code:`for` loop, :math:`v` must be :math:`CLOSED`. We
         consider 3 cases depending on the state of :math:`v` when it was
         inspected in the loop:
@@ -48,13 +48,13 @@ context: |-
             v)` is a *cycle edge* which is impossible since we assumed
             that the input graph was acyclic.
 
-    **In short**: in an acyclic graph a node always becomes :math:`CLOSED` *after* all of its out-neighbors.
+    **In short**: in an acyclic graph a node always becomes :math:`CLOSED` *after* all of its out-neighbours.
 
-    Recall that in a topological order, we want a node to be placed anywhere *before* all of its out-neighbors. This means that, *the order in which the nodes are closed* must be, if one exists, the *reverse order of a topological order*.
+    Recall that in a topological order, we want a node to be placed anywhere *before* all of its out-neighborus. This means that, *the order in which the nodes are closed* must be, if one exists, the *reverse order of a topological order*.
 
-    Therefore, we can compute a topological order of a graph by putting the nodes in a list when we close them. By what we seen above we will get a topological order by reversing that list.
+    Therefore, we can compute a topological order of a graph by putting the nodes in a list when we close them. By what we've seen above we will get a topological order by reversing that list.
 
-    In our implementation we will use an array instead of a list and put the elements from the end to the start of the array so that we don't need to reverse it in the end. An alternative is to use a stack but did not opt for this solution because in most applications we need those nodes in an array afterwards anyway so that we can access the i-th element of the order in constant time.
+    In our implementation we will use an array instead of a list and put the elements from the end to the start of the array so that we don't need to reverse it in the end. An alternative is to use a stack but we did not opt for this solution because in most applications we need those nodes in an array afterwards anyway so that we can access the i-th element of the order in constant time.
 
     .. code:: java
 
@@ -100,21 +100,21 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    memory: '100'
-    time: '30'
     output: '2'
+    time: '30'
+    memory: '100'
 name: 'Graphs - DFS: topological order'
 network_grading: false
 order: 12
 problems:
     read:
+        header: ''
         choices:
         -   valid: true
             text: 'Yes'
-        name: Mark this section as read?
         limit: 0
         type: multiple_choice
-        header: ''
+        name: Mark this section as read?
 stored_submissions: 0
 submission_limit:
     amount: -1
