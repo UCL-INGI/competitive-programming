@@ -1,7 +1,7 @@
 accessible: true
-author: ''
+author: François Aubry
 context: |-
-    In this task we are going to learn how to compute the maximum flow between two nodes in a graph. In the maximum flow problem each edge has a capacity and we aim at sending the maximum amount of flow (information) between a source node :math:`s` and a sink node :math:`t` in a graph without exceeding the capacity of any edge.
+    In this task we are going to learn how to compute the maximum flow between two nodes in a graph. In the maximum flow problem each edge has a capacity and we aim to send the maximum amount of flow (information) between a source node :math:`s` and a sink node :math:`t` in a graph without exceeding the capacity of any edge.
 
         **Example:**
 
@@ -69,7 +69,7 @@ context: |-
         capacity and pushing flow does yield an optimal solution.
 
 
-    This shows that the order in which the paths are selected is important. However, in order to solve the problem, we are not going to develop an algorithm that find a good order. Rather, we will find a cleaver way so that we can reroute some of the flow that we are already sending in order to accommodate new flows.
+    This shows that the order in which the paths are selected is important. However, in order to solve the problem, we are not going to develop an algorithm that finds a good order. Rather, we will find a clever way so that we can reroute some of the flow that we are already sending in order to accommodate new flows.
 
     Let's look at the final flow that we obtained before and try to understand what we can change in order to send one more unit of flow.
 
@@ -90,7 +90,7 @@ context: |-
     |
 
 
-    But how can we find this change? It turns out that a simple path finding algorithm can achieve it. If you think about it, the two operations that we performed, the redirection plus pushing a new unit of flow, is the same as if we had pushed one unit of flow on the following "path":
+    But how can we find this change? It turns out that a simple pathfinding algorithm can achieve it. If you think about it, the two operations that we performed, the redirection plus pushing a new unit of flow, is the same as if we had pushed one unit of flow on the following "path":
 
     |
 
@@ -98,7 +98,7 @@ context: |-
 
     |
 
-    This is not really a path as edge :math:`(d, c)` is traversed in the opposite direction. However if we defined that when we push flow on an edge, if the edge direction is correct then we **increase** the flow and when direction is reversed,  we **decrease** the flow, the two operations achieve the same exact flow.
+    This is not really a path as edge :math:`(d, c)` is traversed in the opposite direction. However if we defined that when we push flow on an edge, if the edge direction is correct then we **increase** the flow and when the direction is reversed,  we **decrease** the flow, the two operations achieve the same exact flow.
 
     |
 
@@ -122,7 +122,7 @@ context: |-
 
         **Example:**
 
-        Lets look at the residual network corresponding to the above graph where we were only able to push :math:`5` units of flow.
+        Let's look at the residual network corresponding to the above graph where we were only able to push :math:`5` units of flow.
         We will draw the residual edges in gray to help distinguish them from the original edges.
 
         |
@@ -132,7 +132,7 @@ context: |-
         |
 
         You can see that the capacities of the residual edges
-        correspond to the amout of flow that is passing and the
+        correspond to the amount of flow that is passing and the
         capacities of the original edges correspond to the original
         capacity minus the current flow. Thus, *in the residual graph*
         we have:
@@ -142,11 +142,11 @@ context: |-
 
         Using the residual graph, we can now very easily find new ways
         to push flow, we simply have to find a path of positive
-        capacity from :math:`s` to :math:`t`. This can be achieve using
-        any path finding algorithm that we saw before.
+        capacity from :math:`s` to :math:`t`. This can be achieved using
+        any pathfinding algorithm that we saw before.
 
         The following figure show that the strange "path" that we used
-        before now correspond to a normal path in the residual graph.
+        before now corresponds to a normal path in the residual graph.
 
         .. image:: graphs-maxflow/flowEx11.png
 
@@ -161,7 +161,7 @@ context: |-
 
         |
 
-        In can be shown that when no more paths exist between the
+        It can be shown that when no more paths exist between the
         source and the destination in the residual graph then we have a
         maximum flow.
 
@@ -189,7 +189,7 @@ context: |-
 
         }
 
-    To represent the graph, we do as before except that instead of having lists of nodes we will have lists of edges. Since whenever we add an edge we need to create and add the residual edge we create a class :code:`FlowGraph` with these operations.
+    To represent the graph, we do the same as before except that instead of having lists of nodes we will have lists of edges. Since whenever we add an edge we need to create and add the residual edge we create a class :code:`FlowGraph` with these operations.
 
     .. code:: java
 
@@ -220,15 +220,15 @@ context: |-
         }
 
     The connect method will automatically create the residual edges.
-    Given an edge :math:`e` its residual also will have a residual edge which will correspond to the original edge :math:`e`. That is, :math:`residual(residual(e)) = e`.
+    Given an edge :math:`e` its residual will also have a residual edge which will correspond to the original edge :math:`e`. That is, :math:`residual(residual(e)) = e`.
 
     .. image:: graphs-maxflow/flowEx15.png
 
-    We need this because when we push flow one any one of them we need to update both capacities. The following image illustatres this.
+    We need this because when we push flow on any one of them we need to update both capacities. The following image illustrates this.
 
     .. image:: graphs-maxflow/flowEx14.png
 
-    On the first case (top) we push 2 units of flow on the original edge and we reduce its capacity by 2 and increase the residual capacity by 2. The other (bottom) is analogous but we push on the residual so we decrease its capacity an increase the capacity of the original one.
+    On the first case (top) we push 2 units of flow on the original edge and we reduce its capacity by 2 and increase the residual capacity by 2. The other (bottom) is analogous but we push on the residual so we decrease its capacity and increase the capacity of the original one.
 
     All that remains is to implement the flow algorithm itself. The idea, as we discussed above, is very simple: while we can find a path :math:`p` from :math:`s` to :math:`t` in the residual graph we push the maximum amount of flow possible on :math:`p`. The maximum amount of flow that we can push on a path is equal to the minimum edge capacity of that path.
 
@@ -243,7 +243,7 @@ context: |-
             return maxflow;
         }
 
-    To find the paths we will use a BFS. The code analogous to the one that we created before except that we adapted it to use the :code:`ResidualGraph` structure.
+    To find the paths we will use a BFS. The code is analogous to the one that we created before except that we adapted it to use the :code:`ResidualGraph` structure.
 
     .. code:: java
 
@@ -284,7 +284,7 @@ context: |-
             return flow;
         }
 
-    Note that while we perform the BFS we also keep track of the path capacity in an array :code:`pathcap`. The semantics is that :code:`pathcap[u]` will contain the capacity of the path from :math:`s` to :math:`u`. Initially this will be set to :math:`0` as no paths are found, except for node :math:`s` which we set to :math:`\infty` since the empty path from :math:`s` has infinite capacity (because it has not edges).
+    Note that while we perform the BFS we also keep track of the path capacity in an array :code:`pathcap`. The semantics are that :code:`pathcap[u]` will contain the capacity of the path from :math:`s` to :math:`u`. Initially this will be set to :math:`0` as no paths are found, except for node :math:`s` which we set to :math:`\infty` since the empty path from :math:`s` has infinite capacity (because it has not edges).
 
     Then whenever we find a new node :math:`dest` from a node :math:`cur` via and edge :math:`(cur, dest, cap)` we update the path capacity to reach :math:`dest` to be the minimum between the capacity to reach :math:`cur` and the capacity :math:`cap` of the edge.
 
@@ -300,22 +300,22 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    memory: '1000'
-    output: '100'
     time: '1000'
+    output: '100'
+    memory: '1000'
 name: Graphs - Maximum flow (Edmonds-Karp)
 network_grading: false
 order: 15
 problems:
     file:
+        name: Maximum flow
         allowed_exts:
         - .java
         - .cpp
         - .py
-        name: Maximum flow
         type: file
         header: |
-            Given a graph a source node and a destination node, compute the maximum flow from the source to the destination.
+            Given a graph, a source node and a destination node, compute the maximum flow from the source to the destination.
 
             **Input**
 
