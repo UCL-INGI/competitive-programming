@@ -1,14 +1,14 @@
 accessible: true
-author: ''
+author: François Aubry
 context: |+
     Suppose that you have a set of :math:`n` tasks to perform some of which depend on each other. If a task :math:`t` depends on taks :math:`t_1, t_2, \ldots, t_k` then we can only do task :math:`t` after having done all the tasks :math:`t_1, t_2, \ldots, t_k`. We would like to compute an order in which we can perform the tasks.
 
-    The tasks and precedences are naturally modeled by a graph with one node per task and an edge from tast :math:`t_i` to :math:`t_j` if and only if task :math:`t_j` depends on task :math:`t_i`.
+    The tasks and precedences are naturally modeled by a graph with one node per task and an edge from task :math:`t_i` to :math:`t_j` if and only if task :math:`t_j` depends on task :math:`t_i`.
 
         **Example:**
 
         Consider the simple example of getting dressed. There are some
-        clothing items that you cannot put before other. For instance,
+        clothing items that you cannot put before others. For instance,
         the undershorts must be put before the pants, the socks
         before the shoes and so on.
 
@@ -21,9 +21,9 @@ context: |+
 
         |
 
-        The graph on the bottom shown a possible order. We draw the
+        The graph on the bottom shows a possible order. We draw the
         edges to make it clear that all of them go from the left to the
-        right, meaning that no predecendes are violated.
+        right, meaning that no precedences are violated.
 
     |
 
@@ -31,7 +31,7 @@ context: |+
 
     It is easy to see that any topological order must start with a node with in-degree :math:`0` since such a node has no precedences. Then, if we remove that node from the graph the same is true from the resulting graph: the next node can by any node with in-degree :math:`0`. This suggests the following algorithm.
 
-    Compute the in-degree of each node. Put all the nodes with in-degree :math:`0` in a queue to be processed. While there nodes to be processed: select one to process, add it in the next position in the order and delete it by decreasing the in-degree of all of its sucessors while adding new nodes with in-degree :math:`0` to the queue.
+    Compute the in-degree of each node. Put all the nodes with in-degree :math:`0` in a queue to be processed. While there are nodes to be processed: select one to process, add it in the next position in the order and delete it by decreasing the in-degree of all of its sucessors while adding new nodes with in-degree :math:`0` to the queue.
 
     The following animation illustrates an execution of this algorithm on the sample graph given above.
 
@@ -81,7 +81,7 @@ context: |+
             return order;
         }
 
-    *Note:* This algorithms assumes that the input graph is acyclic and that the topological order exists. If there are cylces in the graph then of nodes in those cycles will have positive degree at the end of the execution. Thus you can check whether the order is valid by checking if some node as positive degree at the end of the execution. Note however that it is not true that in the precense of cycles only nodes in cycles can have positive degree in the end. Thus you cannot use this criteria to output all nodes that belong to a cycle.
+    *Note:* This algorithm assumes that the input graph is acyclic and that the topological order exists. If there are cycles in the graph then the nodes in those cycles will have a positive degree at the end of the execution. Thus you can check whether the order is valid by checking if some node has a positive degree at the end of the execution. Note however that it is not true that in the presence of cycles only nodes in cycles can have a positive degree in the end. Thus you cannot use this criteria to output all nodes that belong to a cycle.
 
         **Example:**
 
@@ -90,7 +90,7 @@ context: |+
 
         .. image:: graphs-toposort/anim2.gif
 
-    Another way to see if the order is exists (the graph is acyclic) is simply to see whether the size of :math:`order` is equal to the number of nodes.
+    Another way to see if the order exists (for an acyclic graph) is simply to see whether the size of :math:`order` is equal to the number of nodes.
 
 environment: pyjavacpp
 evaluate: best
@@ -105,6 +105,12 @@ network_grading: false
 order: 10
 problems:
     file:
+        name: ''
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
+        type: file
         header: |-
             Given a directed acyclic graph, you will have to output a topological order of that graph.
 
@@ -134,12 +140,6 @@ problems:
             `Sample input 2 <graphs-toposort/2.in>`_
 
             `Sample output 2 <graphs-toposort/2.ans>`_
-        name: ''
-        type: file
-        allowed_exts:
-        - .java
-        - .cpp
-        - .py
 stored_submissions: 0
 submission_limit:
     amount: -1
