@@ -1,5 +1,5 @@
 accessible: true
-author: ''
+author: François Aubry
 context: |-
     In the Knapsack problem, you are given :math:`n` objects each one with a given integer weight :math:`w_i` and value :math:`v_i`. You can take a subset of these objects such that the sum of their weights is at most a given capacity value :math:`C`. The goal is to maximize the total value of the selected objects.
 
@@ -16,15 +16,15 @@ context: |-
       The total weight is :math:`1 + 4 + 1 + 2 = 8 \leq 15` and the
       total value is :math:`2 + 10 + 1 + 2 = 15`.
 
-    In order to solve this problem with dynamic programming we first need to think about it as a sequence of choices. What are the choices we are making here?
+    In order to solve this problem with dynamic programming, we first need to think about it as a sequence of choices. What are the choices we are making here?
 
-    For each object we have two options: either we take it or we don't. So far so good. The next step is to think about what information to we need to keep track of in order to decide whether a choice is possible? Do we need to know what objects were taken so far?
+    For each object we have two options: either we take it or we don't. So far so good. The next step is to think about what information we need to keep track of in order to decide whether a choice is possible. Do we need to know what objects were taken so far?
 
-    No. The exact set of objects taken so far is too much information, all we need to know is the remaining capacity in the knapsack. If the remaining capacity is larger than or equal to the weight of the object we are deciding on, then we can take either take it or not take it. Otherwise we are forced to not take it.
+    No. The exact set of objects taken so far is too much information, all we need to know is the remaining capacity of the knapsack. If the remaining capacity is larger than or equal to the weight of the object we are deciding on, then we can take either take it or not take it. Otherwise we are forced to not take it.
 
     Also, observe that the order in which the decisions are made does not matter. If a set of objects fits into the knapsack, it does not matter in which order you decided to put them, only the total weight matters.
 
-    This suggests that we go through the objects one by one, in the order in which they are given and for each of them make a decision. Given what we said above this means that we need to keep track of two pieces of information:
+    This suggests that we go through the objects one by one, in the order in which they are given and for each of them make a decision. Given what we said above, this means that we need to keep track of two pieces of information:
 
     1. The index of the current object :math:`i`
     2. The remaining capacity :math:`c`
@@ -35,12 +35,12 @@ context: |-
       selecting a subset of the objects :math:`i, i + 1, \ldots, n - 1`
       from a knapsack of capacity :math:`c`.
 
-    The original problem is described by the *state* :math:`(0, C)` since :math:`dp(0, C)` represents the maximum value we can obtain by selecting a subsets of *all* objects on a knapsack of capacity :math:`C`.
+    The original problem is described by the *state* :math:`(0, C)` since :math:`dp(0, C)` represents the maximum value we can obtain by selecting a subset of *all* objects on a knapsack of capacity :math:`C`.
 
     The next step is to think how the subproblems relate to each other. For that we need to look at the *choices* that we have at each state.
 
     - *If we do not take object 0* then we need to solve the subproblem :math:`dp(1, C)`: what is the maximum value we can get by putting a subset of the objects :math:`1, 2, \ldots, n - 1` into a knapsack of capacity :math:`C`? This is because we already made a decision for object 0 and since we did not put it into the knapsack, we have the full capacity remaining for the other objects.
-    - *If we take object 0* then we need to solve the subproblem :math:`dp(1, C - w_0)`: what is the maximum value that we can get by putting a subset of the objects :math:`1, 2, \ldots, n - 1` into a knapsack of capacity :math:`C - w_0`? This is because we put object 0 so we the knapsack capacity to put the remaining objects is reduced by the weight of object 0, :math:`w_0`.
+    - *If we take object 0* then we need to solve the subproblem :math:`dp(1, C - w_0)`: what is the maximum value that we can get by putting a subset of the objects :math:`1, 2, \ldots, n - 1` into a knapsack of capacity :math:`C - w_0`? This is because we put object 0 so the knapsack capacity to put the remaining objects is reduced by the weight of object 0, :math:`w_0`.
 
     We can then generalize and write a recurrence relation between subproblems:
 
@@ -70,7 +70,7 @@ context: |-
         \max \{ dp(i + 1, c), v_i + dp(i + 1, c - w_i) \} & \quad \text{otherwise}
       \end{cases}
 
-    If should be now a simple task to write a recursive function that computes this. The answer to the problem will be :math:`dp(0, C)`.
+    It should be now a simple task to write a recursive function that computes this. The answer to the problem will be :math:`dp(0, C)`.
 
     .. code:: java
 
@@ -90,11 +90,11 @@ context: |-
 
     The reason for using doubles here is simply because it provides a negative infinity that behaves as :math:`-\infty + x = -\infty`.
 
-    Now, just like this, the code still runs very slowly since for each state it will make two recursive calls. Thus the total number of recursive calls is :math:`O(2^n)`.
+    Now, just like this, the code still runs very slowly since for each state it will make two recursive calls. Thus, the total number of recursive calls is :math:`O(2^n)`.
 
     This is easy to overcome. Look at the recursive call parameters. It is a state :math:`(i, c)`. How many *different* such states exist?
 
-    The answer to this is simply the number of possible values for :math:`i` times the number of possible values for :math:`c`, that is, :math:`O(n \cdot C)`. Since there are :math:`O(2^n)` recursive calls and each of them corresponds to a state, if :math:`2^n > n \cdot C` it must be the case that we have *repeated* recurive calls. In other words, some states are uselessly computed several times.
+    The answer to this is simply the number of possible values for :math:`i` times the number of possible values for :math:`c`, that is, :math:`O(n \cdot C)`. Since there are :math:`O(2^n)` recursive calls and each of them corresponds to a state, if :math:`2^n > n \cdot C` it must be the case that we have *repeated* some recursive calls. In other words, some states are uselessly computed several times.
 
     We can avoid this repetition by storing the result of each recursive call in a table. Then, we can simply check whether the current state has already been computed and return the value that was stored previously if that is the case.
 
@@ -120,7 +120,7 @@ context: |-
 
     In this case, since each call takes constant time and each state is computed only once, the total runtime of the algorithm will be :math:`O(n \cdot C)`.
 
-    The matrix has size :math:`n \times (C + 1)` since :math:`i` can range between 0 and :math:`n - 1` and :math:`c` can range between 0 and :math:`C`. It should this be initialized before calling *dp* as follows:
+    The matrix has size :math:`n \times (C + 1)` since :math:`i` can range between 0 and :math:`n - 1` and :math:`c` can range between 0 and :math:`C`. It should be initialized before calling *dp* as follows:
 
     .. code:: java
 
@@ -130,19 +130,20 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
+    time: '1000'
     output: '100'
     memory: '1000'
-    time: '1000'
 name: DP - Knapsack
 network_grading: false
 order: 18
 problems:
     file:
+        name: Knapsack
         allowed_exts:
         - .java
         - .cpp
         - .py
-        name: Knapsack
+        type: file
         header: |
             Put all the pieces that we discussed above together and write a solution for the Knapsack problem.
 
@@ -154,7 +155,7 @@ problems:
 
             **Output**
 
-            A single line with an integer giving the maximum value that can be achieve by taking a subset of the items with total weight at most :math:`C`.
+            A single line with an integer giving the maximum value that can be achieved by taking a subset of the items with total weight at most :math:`C`.
 
             *Do not forget to print the answer as an int and not a double.*
 
@@ -172,7 +173,6 @@ problems:
             `Sample input 2 <dp-knapsack/2.in>`_
 
             `Sample output 2 <dp-knapsack/2.ans>`_
-        type: file
 stored_submissions: 0
 submission_limit:
     amount: -1
