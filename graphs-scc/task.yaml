@@ -167,7 +167,7 @@ context: |-
       the nodes will be ordered so that the first occurrence of a node
       from each SCC appears in a topological order of SCC-DAG.
 
-      This is was we say when we called toposort on the first graph. We
+      This is what we saw when we called toposort on the first graph. We
       obtained:
 
       .. image:: graphs-scc/sccOrderDfs.png
