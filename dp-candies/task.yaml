@@ -1,12 +1,12 @@
 accessible: true
-author: ''
+author: François Aubry
 context: |-
-    In this task we will an example of parameter decution in DP.
+    In this task we will see an example of parameter reduction in DP.
 
     Broadly speaking, parameter reduction consists of eliminating some parameter in a DP formulation that can be deduced from the others.
 
-    To illustrate this, consider the following simple problem. You have :math:`n` candies to give to 3 kids. Each candy as a value :math:`w_i` that represents how good it is. All kids agree on these values.
-    The goal is to split the candies amongst the kinds so that the difference between the maximum total value and the minimum total value given to a kid is minimum.
+    To illustrate this, consider the following simple problem. You have :math:`n` candies to give to 3 kids. Each candy has a value :math:`w_i` that represents how good it is. All kids agree on these values.
+    The goal is to split the candies amongst the kids so that the difference between the maximum total value and the minimum total value given to a kid is minimum.
 
     More formally, is :math:`V_i` is the sum of the values of the candies given to the :math:`i`-th kid then the goal is to minimize
     the balance of the candy distribution, that is, minimize :math:`max(V_1, V_2, V_3) - min(V_1, V_2, V_3)`.
@@ -21,7 +21,7 @@ context: |-
       If we give :math:`c_1, c_2` to the first kid, :math:`c_3, c_4` to
       the second kid and :math:`c_5, c_6` to the third kid, we have
       :math:`v_1 = 4 + 3 = 7`, :math:`v_2 = 4 + 3 = 5` and :math:`v_3 =
-      4 + 3 = 6`. So in this case the balance of the candy distribution
+      4 + 3 = 6`. So, in this case, the balance of the candy distribution
       is :math:`max(7, 5, 6) - min(7, 5, 6) = 7 - 5 = 2`.
 
       But we can do better! We can instead give :math:`c_1, c_3` to the
@@ -50,7 +50,7 @@ context: |-
         dp(i + 1, v_1, v_2, v_3 + w_i) & \quad \text{give to kid 3} \\
       \end{cases}
 
-    When :math:`i = n` we have finished distributing the candies. We can the define:
+    When :math:`i = n` we have finished distributing the candies. We can then define:
 
     .. math::
 
@@ -90,19 +90,20 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    memory: '1000'
-    output: '100'
     time: '1000'
+    output: '100'
+    memory: '1000'
 name: DP - Candy problem, parameter decution
 network_grading: false
 order: 24
 problems:
     file:
-        type: file
+        name: Candies for 3 kids
         allowed_exts:
         - .java
         - .cpp
         - .py
+        type: file
         header: |-
             Write a solution for the candy problem above.
 
@@ -131,7 +132,6 @@ problems:
             `Sample input 2 <dp-candies/2.in>`_
 
             `Sample output 2 <dp-candies/2.ans>`_
-        name: Candies for 3 kids
 stored_submissions: 0
 submission_limit:
     amount: -1
