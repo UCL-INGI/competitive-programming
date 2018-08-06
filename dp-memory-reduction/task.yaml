@@ -1,9 +1,9 @@
 accessible: true
-author: ''
+author: François Aubry
 context: |-
     We will now show how we can reduce the memory from :math:`O(n \cdot C)` to :math:`O(C)` of the bottom-up DP solution we developed for the Knapsack.
 
-    This technique is not usually necessary in programming contests   but it is nice to know it anyway. It also illustrates one advantage of bottom-up DP compared to top-down DP.
+    This technique is not usually necessary in programming contests but it is nice to know it anyway. It also illustrates one advantage of bottom-up DP compared to top-down DP.
 
     If we look at the recurrence:
 
@@ -18,7 +18,7 @@ context: |-
     We can observe that the values of states for a given :math:`i` only depend on the values for :math:`i - 1`. Thus, we don't need to keep
     the full matrix in memory, we only need to keep the last line.
 
-    The straightforward way to implement this is to use a temporary array on which we compute the new values and then update the :math:`dp` array at the end of each iteration as show in the code below.
+    The straightforward way to implement this is to use a temporary array on which we compute the new values and then update the :math:`dp` array at the end of each iteration as shown in the code below.
 
     .. code:: java
 
@@ -81,10 +81,10 @@ context: |-
 
         **WARNING**
 
-        Condensed code is nice because it take less time to type and
+        Condensed code is nice because it takes less time to type and
         takes less space in your cheatsheets. However, it is often
         harder to read and makes it more likely that you will forget how
-        it works because it requires you to remember some cleaver
+        it works because it requires you to remember some clever
         observations.
         Also, is it less customizable. For example, with the above code
         you cannot reconstruct the solution.
