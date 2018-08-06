@@ -1,5 +1,5 @@
 accessible: true
-author: ''
+author: François Aubry
 context: ''
 environment: pyjavacpp
 evaluate: best
@@ -14,6 +14,12 @@ network_grading: false
 order: 14
 problems:
     file:
+        name: Dominoes
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
+        type: file
         header: |-
             Adapted from: `UVa 11504 <https://uva.onlinejudge.org/external/115/11504.pdf>`_
 
@@ -51,12 +57,6 @@ problems:
             `Sample input 2 <graphs-prob-dominos/2.in>`_
 
             `Sample output 2 <graphs-prob-dominos/2.ans>`_
-        name: Dominoes
-        type: file
-        allowed_exts:
-        - .java
-        - .cpp
-        - .py
 stored_submissions: 0
 submission_limit:
     amount: -1
