@@ -83,7 +83,7 @@ context: |-
 
     1. *Tree edges*: edges that belong to the DFS tree.
     2. *Cycle edges* (or *back edges*): edges from a descendant node to one of its ancestors. **They occur when at some point we have an edge between two** :math:`OPEN` **nodes**.
-    3. *Forward edges*: edges from an ancestor node to a descendant node. They occur when at some point we have an edge from a
+    3. *Forward edges*: a non tree edge from an ancestor node to a descendant node.
     4. *Cross edges*: edges between two nodes such that neither is an ancestor of the other.
 
     The following animation illustrates the execution of DFS together with the DFS tree and the different kinds of edges.
