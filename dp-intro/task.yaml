@@ -1,7 +1,7 @@
 accessible: true
-author: ''
+author: François Aubry
 context: |-
-    Dynamic Programming (DP for short) in a fundamental technique in the development of efficient algorithms.
+    Dynamic Programming (DP for short) is a fundamental technique in the development of efficient algorithms.
 
     Mastering this technique will allow you to solve a lot of problem that seem intractable at first and is a necessary condition in order to be a successful algorithmist.
 
@@ -18,21 +18,21 @@ groups: false
 input_random: '0'
 limits:
     output: '2'
-    memory: '100'
     time: '30'
+    memory: '100'
 name: DP - Introduction
 network_grading: false
 order: 17
 problems:
     read:
+        header: ''
         choices:
         -   valid: true
             text: 'Yes'
-        type: multiple_choice
-        header: ''
-        name: Mark this section as read?
         limit: 0
         centralize: true
+        type: multiple_choice
+        name: Mark this section as read?
 stored_submissions: 0
 submission_limit:
     amount: -1
