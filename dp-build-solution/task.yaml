@@ -1,5 +1,5 @@
 accessible: true
-author: ''
+author: François Aubry
 context: |-
     We now solved the Knapsack problem in two different ways: using top-down and bottom-up dp. However, both those solutions only give the *value* of the solution.
 
@@ -9,7 +9,7 @@ context: |-
 
     In this problem there are two actions: skip an item and take an item. To make the code more readable but not require to create a lot of objects in memory, we will simply define those as two integers with the names SKIP and TAKE.
 
-    Also, we will need to keep track of which action lead to each of the states. We an do this with a matrix :math:`action` of size :math:`n` by :math:`C + 1`.
+    Also, we will need to keep track of which action lead to each of the states. We can do this with a matrix :math:`action` of size :math:`n` by :math:`C + 1`.
 
     .. code:: java
 
@@ -65,25 +65,26 @@ context: |-
           return taken;
         }
 
-    For the bottom-up solution the idea is the same. Try to do it by yourself and submit it to the task bellow to make sure that it is correct.
+    For the bottom-up solution the idea is the same. Try to do it by yourself and submit it to the task below to make sure that it is correct.
 environment: pyjavacpp
 evaluate: best
 groups: false
 input_random: '0'
 limits:
+    time: '1000'
     output: '100'
     memory: '1000'
-    time: '1000'
 name: DP - Knapsack, build the solution
 network_grading: false
 order: 21
 problems:
     file:
+        name: Knapsack with solution
         allowed_exts:
         - .java
         - .cpp
         - .py
-        name: Knapsack with solution
+        type: file
         header: |-
             Put all the pieces that we discussed above together and write a solution for the Knapsack problem that is able to *print the items that should be taken*.
 
@@ -115,7 +116,6 @@ problems:
             `Sample input 2 <dp-build-solution/2.in>`_
 
             `Sample output 2 <dp-build-solution/2.ans>`_
-        type: file
 stored_submissions: 0
 submission_limit:
     amount: -1
