@@ -1,5 +1,5 @@
 accessible: true
-author: ''
+author: François Aubry
 context: |-
     In this section we will discuss some theoretical aspects of DP a bit further.
 
@@ -15,7 +15,7 @@ context: |-
        dp(i - 1, c) & \quad \text{skip item $i$}
        \end{cases}
 
-    Thus both :math:`(i - 1, c - w_i)` and :math:`(i - 1, c)` will have an edge to :math:`(i, c)`. The following figures illustrates this.
+    Thus both :math:`(i - 1, c - w_i)` and :math:`(i - 1, c)` will have an edge to :math:`(i, c)`. The following figure illustrates this.
 
     .. image:: dp-stategraph/knapsack-states.png
 
@@ -24,7 +24,7 @@ context: |-
     .. image:: dp-stategraph/knapsackstate.png
 
 
-    We claim that this graph does not contain cycles. We encourage you to think about why this is true before reading further.
+    We claim that this graph does not contain any cycles. We encourage you to think about why this is true before reading further.
 
     The reason why this graph is acyclic is that the first coordinate of each node, the object index, is strictly increasing in any path of the graph.
 
@@ -40,19 +40,19 @@ context: |-
 
     .. image:: dp-stategraph/shortestpath.png
 
-    This means that we reduced the problem :math:`dp(v)` of computing the shortest path to :math:`v`, to the problem of computing the shortest path to each in-neighbor :math:`u` of :math:`v`.
+    This means that we reduced the problem :math:`dp(v)` of computing the shortest path to :math:`v`, to the problem of computing the shortest path to each in-neighbour :math:`u` of :math:`v`.
 
-    We the write the following recurrence relation:
+    We then write the following recurrence relation:
 
     .. math::
 
        dp(v) = \min_{u \ \textrm{in-neighbor of} \ v} dp(u) + w(u, v)
 
-    What does the state graph for this DP formulation looks like? Think about it for a while.
+    What does the state graph for this DP formulation look like? Think about it for a while.
 
     It is exactly the input graph :math:`G` !
 
-    In this case a state is simply a node of the graph so clearly both graphs have the same set of nodes. But they also have the same set of edges since two states :math:`u` and :math:`v` are related to each other in the recurrence relation if and only if there is an edge from :math:`u` to :math:`v` them in :math:`G`.
+    In this case, a state is simply a node of the graph so clearly both graphs have the same set of nodes. But they also have the same set of edges since two states :math:`u` and :math:`v` are related to each other in the recurrence relation if and only if there is an edge from :math:`u` to :math:`v` in :math:`G`.
 
     This means, according to what we said above, that this DP formulation will work if and only if the input graph :math:`G` is acyclic.
 
