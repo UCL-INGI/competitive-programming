@@ -1,11 +1,11 @@
 accessible: true
-author: ''
+author: François Aubry
 context: |-
-    The solution that we developed for the Knpasack problem where we solve our problem with a recursive function and memoize the results is called **top-down** dynamic programming.
+    The solution that we developed for the Knapsack problem where we solve our problem with a recursive function and memoize the results is called **top-down** dynamic programming.
 
-    There is another way to implement a DP algorithm which is called **bottom-up**. In most cases the choice of which one you use should be based on the one you are more comfortable writing. Personally I feel that top-down DP is more intuitive but this varies from one person to another.
+    There is another way to implement a DP algorithm which is called **bottom-up**. In most cases, the choice of which one you use should be based on the one you are more comfortable writing. Personally I feel that top-down DP is more intuitive but this varies from one person to another.
 
-    You should most both ways and be able to switch between them easily as in some cases one is more efficient than the other. We will see examples of this in more advanced DP problems.
+    You should know both ways and be able to switch between them easily as in some cases one is more efficient than the other. We will see examples of this in more advanced DP problems.
 
     For now let's explain what bottom-up DP consists of and write such a solution for the Knapsack problem.
 
@@ -21,9 +21,9 @@ context: |-
       selecting a subset of the objects :math:`0, 1 \ldots, i`
       from a knapsack of capacity :math:`c`.
 
-    Notice that now when we increase :math:`i` we are considering more objects whereas in the previous definitions it would consider less objects.
+    Notice that now when we increase :math:`i` we are considering more objects whereas in the previous definition it would consider less objects.
 
-    The easy subproblems correspond to states where :math:`i = 0`,, that is, we only have one object. In this case we either get value :math:`v_0` if object fits the knapsack or 0 otherwise.
+    The easy subproblems correspond to states where :math:`i = 0`, that is, we only have one object. In this case, we either get value :math:`v_0` if object fits the knapsack or 0 otherwise.
 
     .. math::
 
@@ -50,7 +50,7 @@ context: |-
 
     We need to be careful with the fact that we can only take item :math:`i` if it fits the knapsack. Otherwise :math:`c - w_i < 0` and :math:`dp(i - 1, c - w_i)` is undefined. We can treat these cases to have value :math:`-\infty` so they are ignored in the maximization.
 
-    In bottom-up DP we usually compute the values by creating a matrix that with one entry per subproblem and then iterate over the states in order and apply use the recurrence relation to compute the values. The following code gives a possible implementation.
+    In bottom-up DP we usually compute the values by creating a matrix that has one entry per subproblem and then iterate over the states in order and use the recurrence relation to compute the values. The following code gives a possible implementation.
 
     .. code:: java
 
@@ -100,7 +100,7 @@ problems:
 
             **Output**
 
-            A single line with an integer giving the maximum value that can be achieve by taking a subset of the items with total weight at most :math:`C`.
+            A single line with an integer giving the maximum value that can be achieved by taking a subset of the items with total weight at most :math:`C`.
 
             **Constraints**
 
