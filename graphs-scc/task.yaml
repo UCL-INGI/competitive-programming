@@ -205,7 +205,7 @@ problems:
         - .py
         type: file
         header: |-
-            You will be given a graph and you have to compute how many storngly connected components it contains and compute the set of nodes in each component.
+            You will be given a graph and you have to compute how many strongly connected components it contains and compute the set of nodes in each component.
 
             **Input**
 
