@@ -1,4 +1,3 @@
-package graph;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -6,19 +5,7 @@ import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 
-/*
-3
-2 1 0 1
-0 1 100
-3 3 2 0
-0 1 100
-0 2 200
-1 2 50
-2 0 0 1
-
- */
-
-public class Dijkstra {
+public class yunoacsol {
 
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
