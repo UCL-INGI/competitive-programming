@@ -1,8 +1,13 @@
 accessible: false
 author: ''
-context: |+
+context: |-
     Dijkstra's algorithm is an algorithm to compute shortest paths in graphs with **non-negative** edge weights.
 
+    As BFS, we will design the algorithm to receive a source node :math:`s` as input and compute the shortest path distances to each other node in the graph.
+
+    The idea is that we will explore the graph while keeping an array :math:`dist` representing shortest path distance and satisfying the following invariant:
+
+        At all times, :math:`dist[v]` represented the shortest path distance from :math:`s` to :math:`v` passing only by visited nodes. If :math:`v` is not visited, :math:`dist[v] = \infty`.
 environment: java8scala
 evaluate: best
 groups: false
