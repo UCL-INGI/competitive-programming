@@ -5,6 +5,13 @@ context: |+
 
     As BFS, we will design the algorithm to receive a source node :math:`s` as input and compute the shortest path distances to each other node in the graph.
 
+    Let :math:`dist` be an array such that :math:`dist[v]` is equal to the shortest path distance between node :math:`s` and node :math:`v`.
+    The idea of Dijkstra's algorithm is to keep a set of nodes :math:`S` for which we know the value of :math:`dist` and grow it until :math:`S = V`.
+
+    Since there are no negative edge weights, we know that :math:`dist[s] = 0`. This means that we can initialize :math:`S = \{s \}`. For the other nodes, we initially set :math:`dist[v] = \infty`.
+
+
+
         Let :math:`S` a set of nodes for which we know the :math:`dist[v]`. Let :math:`E(S)` be the set of all edges linking a node in :math:`S` to a node outside of :math:`S`. Then if
 
     .. image:: graphs-dijkstra/dijkstra1.png
