@@ -1,7 +1,7 @@
 accessible: false
 author: ''
 context: |
-    Dijkstra's algorithm is an algorithm to compute shortest paths in graphs with **non-negative** edge weights.
+    Dijkstra's algorithm is an algorithm to compute shortest paths in graphs with **non-negative** edge weights. Denote by :math:`w` the edge weights.
 
     As BFS, we will design the algorithm to receive a source node :math:`s` as input and compute the shortest path distances to each other node in the graph.
 
@@ -12,7 +12,7 @@ context: |
 
     Given the set :math:`S`, how can we find a new node to add to it and its distance?
 
-    We will consider all edges that go from a node in :math:`S` to a node outside of :math:`S`. From all such edges, we will pick an edge :math:`(u, v)` such that :math:`dist[u]` is **minimum**. Then, it is not hard to see that, :math:`dist[v] = dist[u] + w(u, v)`.
+    We will consider all edges that go from a node in :math:`S` to a node outside of :math:`S`. From all such edges, we will pick an edge :math:`(u, v)` such that :math:`dist[u] + w(u, v)` is **minimum**. Then, it is not hard to see that, :math:`dist[v] = dist[u] + w(u, v)`.
 
     To convince yourself that this is indeed the case, imagine that there is a better way of reaching :math:`v`. Since :math:`s \in S` and :math`v \notin S`, this alternative path must at some point exit the set :math:`S`. Suppose that it does to by an edge :math:`(x, y)` other than :math:`(u, v)`. The following figure illustrates the situation:
 
@@ -44,7 +44,7 @@ context: |
 
         dist[u] + w(u, v) \leq dist[x] + w(x, y) + cost(x, y)
 
-    Since by choice of :math:`u` we have :math:`dist[u] \leq dist[v]`.
+    because we selected :math:`u` such that :math:`dist[u] + w(u, v) \leq dist[x] + w(x, y)` and we know that, since the edge weights are non-negative, :math:`cost(x, y) \geq 0`.
 environment: java8scala
 evaluate: best
 groups: false
