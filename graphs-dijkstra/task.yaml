@@ -56,6 +56,8 @@ context: |-
 
     A more efficient alternative is to use a *priority queue*. A priority queue enables to maintain a queue of ordered elements and retrieve the minimal element in the order efficiently. In our context, the elements will be the edges sorted by their value of :math:`dist[u] + w(u, v)`.
 
+    The Java code doing this is given below.
+
     .. code:: java
 
         // class used to represent edges
@@ -92,7 +94,7 @@ context: |-
 
         }
 
-        static double[] disjktra(LinkedList<Edge>[] g, int s) {
+        static double[] dijkstra(LinkedList<Edge>[] g, int s) {
             // initialize distances
             double[] dist = new double[g.length];
             Arrays.fill(dist, Double.POSITIVE_INFINITY);
