@@ -12,6 +12,10 @@ context: |-
     Clearly, one all nodes are visited, our invariant reads:
 
         :math:`dist[v]` is equal to the shortest path distance from :math:`s`to :math:`v`
+
+    Which is exactly what we want to compute. Now it only remains to find an efficient way to visit all nodes while keeping this condition true.
+
+    At the beggining, we will start with only node :math:`s` being visited. In this case, to satisfy our invariant, we simply need to have :math:`dist[s] = 0` and :math:`dist[v] = \infty` for all other nodes. Note that there are no negative edge weights so we are sure that :math:`dist[s] = 0`. Otherwise, this base case could be wrong.
 environment: java8scala
 evaluate: best
 groups: false
