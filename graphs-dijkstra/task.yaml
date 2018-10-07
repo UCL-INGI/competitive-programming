@@ -12,9 +12,13 @@ context: |+
 
     Given the set :math:`S`, how can we find a new node to add to it and its distance?
 
-    We will consider all edges that go from a node in :math:`S` to a node outside of :math:`S`. From all such edges, we will pick an edge :math:`(u, v)` such that :math:`dist[u]` is **minimum**. Then, it is not hard to see that, :math:`dist[v] = dist[u] + w(u, v)`. Why?
+    We will consider all edges that go from a node in :math:`S` to a node outside of :math:`S`. From all such edges, we will pick an edge :math:`(u, v)` such that :math:`dist[u]` is **minimum**. Then, it is not hard to see that, :math:`dist[v] = dist[u] + w(u, v)`.
 
+    To convince yourself that this is indeed the case, imagine that there is a better way of reaching :math:`v`. Since :math:`s \in S` and :math`v \notin S`, this alternative path must at some point exit the set :math:`S`. Suppose that it does to by an edge :math:`(x, y)` other than :math:`(u, v)`. Then, the path will have the form :math:`(s, \ldots, x, y, \ldots, v)`. It cost must be the sum of
 
+    - the cost of reaching :math:`x` from :math:`s`: :math:`dist[x]`
+    - the cost of edge :math:`(x, y)`: :math:`w(x, y)`
+    - the cost of the path from :math:`x` to :math:`y`: let write it :math:`cost(x, y)`
 
 
 
