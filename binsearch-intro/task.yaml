@@ -1,6 +1,6 @@
 accessible: false
 author: ''
-context: |-
+context: |
     Binary search is a fundamental technique in the development of algorithms and an essential tool in your algorithmist toolkit.
 
     In its most pure form, binary search is used to find an element in a sorted array. So let's start by solving that problem.
@@ -28,6 +28,22 @@ context: |-
         M = (L + R) / 2
 
     where the division stands for integer divison (so that for instance 5 / 2 = 2 and not 2.5).
+
+    By what we said above, if :math:`a[M] < t` then we can discard the lower half of the array. This can be achieve by setting :math:`L` to :math:`M + 1`. If :math:`a[M] > t` then we can discard the upper half of the array by setting :math:`R` to :math:`M - 1`. We stop when only one element is left, that is, when :math:`L = R`. In code we get the following:
+
+    .. code::
+
+        static int binSearch(int[] a, int t) {
+            int L = 0;
+            int R = a.length - 1;
+            while(L <= R) {
+                int M = (L + R) / 2;
+                if(a[M] == t) return M;
+                if(a[M] < t) L = M + 1;
+                if(a[M] > t) R = M - 1;
+            }
+            return -1;
+        }
 environment: pyjavacpp
 evaluate: best
 groups: false
