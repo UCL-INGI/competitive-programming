@@ -1,9 +1,12 @@
 accessible: false
 author: ''
-context: |-
+context: |+
     Binary search is a fundamental technique in the development of algorithms and an essential tool in your algorithmist toolkit.
 
-    In its most pure form, binary search is used to find an element in a sorted array.
+    In its most pure form, binary search is used to find an element in a sorted array. So let's start by solving that problem.
+
+        Given a sorted array :math:`a` of integers, how can we efficiently determine whether it contains a given target element :math:`t`?
+
 environment: pyjavacpp
 evaluate: best
 groups: false
