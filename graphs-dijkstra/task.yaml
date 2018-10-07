@@ -1,6 +1,6 @@
 accessible: false
 author: ''
-context: |-
+context: |+
     Dijkstra's algorithm is an algorithm to compute shortest paths in graphs with **non-negative** edge weights.
 
     As BFS, we will design the algorithm to receive a source node :math:`s` as input and compute the shortest path distances to each other node in the graph.
@@ -15,7 +15,8 @@ context: |-
 
     Which is exactly what we want to compute. Now it only remains to find an efficient way to visit all nodes while keeping this condition true.
 
-    At the beggining, we will start with only node :math:`s` being visited. In this case, to satisfy our invariant, we simply need to have :math:`dist[s] = 0` and :math:`dist[v] = \infty` for all other nodes. Note that there are no negative edge weights so we are sure that :math:`dist[s] = 0`. Otherwise, this base case could be wrong.
+    At the beggining, we will start with only node :math:`s` being visited. In this case, to satisfy our invariant, we simply need to initialize :math:`dist[s] = 0` and :math:`dist[v] = \infty` for all other nodes. Note that there are no negative edge weights so we are sure that :math:`dist[s] = 0`. Otherwise, this base case could be wrong.
+
 environment: java8scala
 evaluate: best
 groups: false
