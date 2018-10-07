@@ -1,6 +1,8 @@
-accessible: true
+accessible: false
 author: ''
-context: ''
+context: |+
+    Dijkstra's algorithm is an algorithm to compute shortest paths in graphs with **non-negative** edge weights.
+
 environment: java8scala
 evaluate: best
 groups: false
