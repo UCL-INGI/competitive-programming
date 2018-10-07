@@ -1,4 +1,4 @@
-accessible: false
+accessible: true
 author: ''
 context: |-
     Dijkstra's algorithm is an algorithm to compute shortest paths in graphs with **non-negative** edge weights. Denote by :math:`w(u, v)` the weight of edge :math:`(u, v)`.
@@ -124,6 +124,7 @@ limits:
     time: '1000'
 name: Graphs - Dijkstra
 network_grading: false
+order: 15
 problems:
     file:
         name: Single source shortest path
@@ -138,7 +139,7 @@ problems:
 
             - One line with fours integers :math:`n`, :math:`m`, :math:`s` and :math:`t` giving the number of nodes, the number of edges, the source of the path and the destination.
 
-            - :math:`m` lines each with with threee integers :math:`u, v` and :math:`c` giving that nodes :math:`u` and :math:`v` are connected with a bidirectional edge of cost :math:`c`.
+            - :math:`m` lines each with with three integers :math:`u, v` and :math:`c` giving that nodes :math:`u` and :math:`v` are connected with a bidirectional edge of cost :math:`c`.
 
             The nodes are numbered starting from 0.
 

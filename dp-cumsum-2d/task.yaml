@@ -58,7 +58,7 @@ limits:
     memory: '1000'
 name: 'DP - Data structures: 2D cumulative sums'
 network_grading: false
-order: 27
+order: 28
 problems:
     file:
         name: 2D cumulative sums
