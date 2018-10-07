@@ -19,7 +19,7 @@ context: |
 
     But then what do we do once we discarded half of the array?
 
-    We can repeat the same process recursivelly on the new smaller array and discard half again and so on until a single element is left.
+    We can repeat the same process recursivelly on the new smaller array and discard half again and so on until either we find :math:`t` or we discard all elements of the array.
 
     In order to avoid copying the subarrays, we will simply keep track of the index of the first and last elements of the array. Call them :math:`L` and :math:`R`, respectivelly. In the begining we start with :math:`L = 0` and :math:`R = n - 1`. The middle element can be computed as
 
@@ -29,7 +29,7 @@ context: |
 
     where the division stands for integer divison (so that for instance 5 / 2 = 2 and not 2.5).
 
-    By what we said above, if :math:`a[M] < t` then we can discard the lower half of the array. This can be achieve by setting :math:`L` to :math:`M + 1`. If :math:`a[M] > t` then we can discard the upper half of the array by setting :math:`R` to :math:`M - 1`. We stop when only one element is left, that is, when :math:`L = R`. In code we get the following:
+    By what we said above, if :math:`a[M] < t` then we can discard the lower half of the array. This can be achieve by setting :math:`L` to :math:`M + 1`. If :math:`a[M] > t` then we can discard the upper half of the array by setting :math:`R` to :math:`M - 1`. We stop when the array becomes empty, that is, when :math:`L > R`, returnin :math:`-1` indicating that :math:`t` is not an element of :math:`a`. In code we get the following:
 
     .. code::
 
