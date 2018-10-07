@@ -3,15 +3,17 @@ author: ''
 context: |-
     Binary search is a fundamental technique in the development of algorithms and an essential tool in your algorithmist toolkit.
 
-    In its most pure form, binary search is used to find an element in a sorted array. So let's start by solving that problem.
+    In its most pure form, binary search is used to find an element in a sorted array. We will start by solving that problem. This is quite a straightforward thing to do but you will see that binary search is incredibly powerful and in the next tasks we will see how we can use it to solve problems that seem very complex at first.
+
+    But first things first, let's solve the following problem:
 
         Given a sorted array :math:`a` of :math:`n` integers, how can we efficiently determine whether it contains a given target element :math:`t`?
 
-    Denote by :math:`a[i:j]` the subarray of :math:`a` from indexes :math:`i` to :math:`j` (inculive), that is, :math:`a[i], a[i + 1], \ldots, a[j]`.
+    Denote by :math:`a[i:j]` the sub array of :math:`a` from indexes :math:`i` to :math:`j` (inclusive), that is, :math:`a[i], a[i + 1], \ldots, a[j]`.
 
     Let's say we check element at position :math:`i`. If :math:`a[i] = t` then we can report that :math:`a` contains :math:`t` at position :math:`i`. Otherwise, we either have :math:`a[i] < t` or :math:`a[i] > t`.
 
-    Since :math:`a` is sorted, if :math:`a[i] < t` then we know that all elements before index :math:`i`, that is, :math:`a[0], a[1], \ldots, a[i - 1]` are also smaller than :math:`t`. Hence we can discard them and save us the trouble of comparing all of the against :math:`t`. In other words, we recuded the problem of finding :math:`t` in :math:`a` to the problem of finding :math:`t` in :math:`a[i+1:n-1]`.
+    Since :math:`a` is sorted, if :math:`a[i] < t` then we know that all elements before index :math:`i`, that is, :math:`a[0], a[1], \ldots, a[i - 1]` are also smaller than :math:`t`. Hence we can discard them and save us the trouble of comparing all of the against :math:`t`. In other words, we reduced the problem of finding :math:`t` in :math:`a` to the problem of finding :math:`t` in :math:`a[i+1:n-1]`.
 
     On the other case, when :math:`a[i] > t` we can apply an analogous reasoning to discard all elements after index :math:`i`.
 
@@ -19,17 +21,17 @@ context: |-
 
     But then what do we do once we discarded half of the array?
 
-    We can repeat the same process recursivelly on the new smaller array and discard half again and so on until either we find :math:`t` or we discard all elements of the array.
+    We can repeat the same process recursively on the new smaller array and discard half again and so on until either we find :math:`t` or we discard all elements of the array.
 
-    In order to avoid copying the subarrays, we will simply keep track of the index of the first and last elements of the array. Call them :math:`L` and :math:`R`, respectivelly. In the begining we start with :math:`L = 0` and :math:`R = n - 1`. The middle element can be computed as
+    In order to avoid copying the sub arrays, we will simply keep track of the index of the first and last elements of the array. Call them :math:`L` and :math:`R`, respectively. In the beginning we start with :math:`L = 0` and :math:`R = n - 1`. The middle element can be computed as
 
     .. math::
 
         M = (L + R) / 2
 
-    where the division stands for integer divison (so that for instance 5 / 2 = 2 and not 2.5).
+    where the division stands for integer division (so that for instance 5 / 2 = 2 and not 2.5).
 
-    By what we said above, if :math:`a[M] < t` then we can discard the lower half of the array. This can be achieve by setting :math:`L` to :math:`M + 1`. If :math:`a[M] > t` then we can discard the upper half of the array by setting :math:`R` to :math:`M - 1`. We stop when the array becomes empty, that is, when :math:`L > R`, returnin :math:`-1` indicating that :math:`t` is not an element of :math:`a`.
+    By what we said above, if :math:`a[M] < t` then we can discard the lower half of the array. This can be achieve by setting :math:`L` to :math:`M + 1`. If :math:`a[M] > t` then we can discard the upper half of the array by setting :math:`R` to :math:`M - 1`. We stop when the array becomes empty, that is, when :math:`L > R`, returning :math:`-1` indicating that :math:`t` is not an element of :math:`a`.
 
     In code we get the following:
 
@@ -48,7 +50,7 @@ context: |-
             return -1;
         }
 
-    You can also implement it recursivelly. Depending on the person, some people find one easier to read than the other.
+    You can also implement it recursively. Depending on the person, some people find one easier to read than the other.
 
     .. code:: java
 
