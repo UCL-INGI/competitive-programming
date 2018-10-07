@@ -7,7 +7,11 @@ context: |-
 
     The idea is that we will explore the graph while keeping an array :math:`dist` representing shortest path distance and satisfying the following invariant:
 
-        At all times, :math:`dist[v]` represented the shortest path distance from :math:`s` to :math:`v` passing only by visited nodes. If :math:`v` is not visited, :math:`dist[v] = \infty`.
+        At all times, :math:`dist[v]` is equal to the shortest path distance from :math:`s` to :math:`v` passing only by visited nodes. If :math:`v` is not visited, :math:`dist[v] = \infty`.
+
+    Clearly, one all nodes are visited, our invariant reads:
+
+        :math:`dist[v]` is equal to the shortest path distance from :math:`s`to :math:`v`
 environment: java8scala
 evaluate: best
 groups: false
