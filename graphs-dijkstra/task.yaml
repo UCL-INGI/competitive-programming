@@ -53,6 +53,8 @@ context: |-
     3. While :math:`S \neq V`, pick :math:`(u, v) \in E` such that :math:`u \in S, v \notin S` and :math:`dist[u] + w(u, v)` is minimum and set :math:`dist[v] = dist[u] + w(u, v)`.
 
     Now the only question is how fast can we perform the edge selection in step 3. The naive way of doing so is to simply loop over each node :math:`u \in S` and each edge out of :math:`u` to check the condition and get the minimum. This would cost :math:`O(|E|)` making the algorithm run in :math:`O(|V| |E|)` since there are :math:`|V|` iterartions.
+
+    A more efficient alternative is to use a *priority queue*. A priority queue enables to maitain a queue of ordered elements an retreive the minimal element in the order efficiently. In our context, the elements will be the edges sorted by their value of :math:`dist[u] + w(u, v)`.
 environment: java8scala
 evaluate: best
 groups: false
