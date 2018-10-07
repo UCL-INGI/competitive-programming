@@ -50,7 +50,9 @@ context: |-
 
     1. Initialize :math:`dist[s] = 0` and :math:`dist[v] = \infty` for each :math:`v \neq s`
     2. Set :math:`S = \{s\}`
-    3. While :math:`S \neq V`, pick :math:`(u, v) \in E` such that :math:`u \in S` and :math:`dist[u] + w(u, v)` is minimum and set :math:`dist[v] = dist[u] + w(u, v)`.
+    3. While :math:`S \neq V`, pick :math:`(u, v) \in E` such that :math:`u \in S, v \notin S` and :math:`dist[u] + w(u, v)` is minimum and set :math:`dist[v] = dist[u] + w(u, v)`.
+
+    Now the only question is how fast can we perform the edge selection in step 3. The naive way of doing so is to simply loop over each node :math:`u \in S` and each edge out of :math:`u` to check the condition and get the minimum. This would cost :math:`O(|E|)` making the algorithm run in :math:`O(|V| |E|)` since there are :math:`|V|` iterartions.
 environment: java8scala
 evaluate: best
 groups: false
