@@ -1,6 +1,6 @@
 accessible: false
 author: ''
-context: |+
+context: |
     Dijkstra's algorithm is an algorithm to compute shortest paths in graphs with **non-negative** edge weights.
 
     As BFS, we will design the algorithm to receive a source node :math:`s` as input and compute the shortest path distances to each other node in the graph.
@@ -20,9 +20,11 @@ context: |+
 
     |
 
-    Then, the path will have the form :math:`(s, \ldots, x, y, \ldots, v)`. Its cost will be
+    Then, the path (show in orange) will have the form :math:`(s, \ldots, x, y, \ldots, v)`. Its cost will be
 
-    dist[x] + w(x, y) + cost(x, y)
+    .. math::
+
+        dist[x] + w(x, y) + cost(x, y)
 
     where
 
@@ -30,24 +32,19 @@ context: |+
     - :math:`w(x, y)` is the cost of edge :math:`(x, y)`
     - :math:`cost(x, y)` is the cost of the path from :math:`x` to :math:`y`
 
+    On the other hand, the blue path has cost:
+
     .. math::
 
+        dist[u] + w(u, v)
 
-        Let :math:`S` a set of nodes for which we know the :math:`dist[v]`. Let :math:`E(S)` be the set of all edges linking a node in :math:`S` to a node outside of :math:`S`. Then if
+    And we must have
 
+    .. math::
 
-    The idea is that we will explore the graph while keeping an array :math:`dist` representing shortest path distance and satisfying the following invariant:
+        dist[u] + w(u, v) \leq dist[x] + w(x, y) + cost(x, y)
 
-        At all times, :math:`dist[v]` is equal to the shortest path distance from :math:`s` to :math:`v` passing only by visited nodes. If :math:`v` is not visited, :math:`dist[v] = \infty`.
-
-    Clearly, one all nodes are visited, our invariant reads:
-
-        :math:`dist[v]` is equal to the shortest path distance from :math:`s`to :math:`v`
-
-    Which is exactly what we want to compute. Now it only remains to find an efficient way to visit all nodes while keeping this condition true.
-
-    At the beggining, we will start with only node :math:`s` being visited. In this case, to satisfy our invariant, we simply need to initialize :math:`dist[s] = 0` and :math:`dist[v] = \infty` for all other nodes. Note that there are no negative edge weights so we are sure that :math:`dist[s] = 0`. Otherwise, this base case could be wrong.
-
+    Since by choice of :math:`u` we have :math:`dist[u] \leq dist[v]`.
 environment: java8scala
 evaluate: best
 groups: false
