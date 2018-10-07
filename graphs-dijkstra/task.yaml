@@ -48,7 +48,9 @@ context: |-
 
     After this discussion it should be quite straighforward for you implement Dijkstra's algorithm. The high level ideas is the follwoing:
 
-    1. Initialize :math:`dist[s] = 0` and :math:`dist[v] = \infty` for each :math:`v \neq s`.
+    1. Initialize :math:`dist[s] = 0` and :math:`dist[v] = \infty` for each :math:`v \neq s`
+    2. Set :math:`S = \{s\}`
+    3. While :math:`S \neq V`, pick :math:`(u, v) \in E` such that :math:`u \in S` and :math:`dist[u] + w(u, v)` is minimum and set :math:`dist[v] = dist[u] + w(u, v)`.
 environment: java8scala
 evaluate: best
 groups: false
