@@ -116,7 +116,9 @@ context: |-
         }
 
 
-    The runtime of this algorithm is :math:`O(|E| \log(|V|))` since each edge will be at most one time in the queue and the priority queue :code:`poll` and :code:`add` operations are perfomed in logarithmic time with respect to the size of the queue. The maximum size of the queue is :math:`|E|` so the maximum runtime of a queue operation is :math:`O(\log(|E|)) = O(\log(|V|^2)) = O(\log(|V|))`.
+    The runtime of this algorithm is :math:`O(|E| \log(|V|))` since each edge will be at most one time in the queue and the priority queue :code:`poll` and :code:`add` operations are performed in logarithmic time with respect to the size of the queue. The maximum size of the queue is :math:`|E|` so the maximum runtime of a queue operation is :math:`O(\log(|E|)) = O(\log(|V|^2)) = O(\log(|V|))`.
+
+    For you algorithmic culture, it is possible to implement Dijkstra's algorithm using a Fibonacci Heap instead of a priority queue reducing the runtime to :math:`O(|E| + |V| log|V|)` but this has little to no use in competitive programming.
 environment: java8scala
 evaluate: best
 groups: false
