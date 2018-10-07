@@ -58,6 +58,7 @@ context: |-
 
     .. code:: java
 
+        // class used to represent edges
         static class Edge {
 
             public int orig, dest, cost;
@@ -74,6 +75,7 @@ context: |-
 
         }
 
+        // class used to order the edges
         static class EdgeCmp implements Comparator<Edge> {
 
             private double[] dist;
