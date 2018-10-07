@@ -12,7 +12,9 @@ context: |+
 
     Given the set :math:`S`, how can we find a new node to add to it and its distance?
 
-    We will consider all edges that go from a node in :math:`S` to a node outside of :math:`S`. From all such edges, we will pick an edge :math:`(u, v)` such that :math:`dist[u]` is **minimum**. Then, it is not hard to see that :math:`dist[v] = dist[u] + w(u, v)`.
+    We will consider all edges that go from a node in :math:`S` to a node outside of :math:`S`. From all such edges, we will pick an edge :math:`(u, v)` such that :math:`dist[u]` is **minimum**. Then, it is not hard to see that, :math:`dist[v] = dist[u] + w(u, v)`. Why?
+
+
 
 
 
