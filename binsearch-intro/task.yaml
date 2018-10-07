@@ -68,6 +68,8 @@ context: |-
         }
 
     Whichever you use, should not really matter except that maybe the recursive implementation may have some little overheard because of the recursion stack. In most problems that should not have any impact and you should use the one you feel more comfortable with.
+
+    In most programming languages, this function is already implemented. For instance, in Java, you can use :code:`Arrays.binarySearch()`.
 environment: pyjavacpp
 evaluate: best
 groups: false
