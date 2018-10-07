@@ -1,7 +1,7 @@
 accessible: false
 author: ''
 context: |
-    Dijkstra's algorithm is an algorithm to compute shortest paths in graphs with **non-negative** edge weights. Denote by :math:`w` the edge weights.
+    Dijkstra's algorithm is an algorithm to compute shortest paths in graphs with **non-negative** edge weights. Denote by :math:`w(u, v)` the weight of edge :math:`(u, v)`.
 
     As BFS, we will design the algorithm to receive a source node :math:`s` as input and compute the shortest path distances to each other node in the graph.
 
