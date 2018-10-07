@@ -20,7 +20,7 @@ context: |-
 
     |
 
-    Then, the path (show in orange) will have the form :math:`(s, \ldots, x, y, \ldots, v)`. Its cost will be
+    Then, the path (shown in orange) will have the form :math:`(s, \ldots, x, y, \ldots, v)`. Its cost will be
 
     .. math::
 
@@ -46,15 +46,70 @@ context: |-
 
     because we selected :math:`u` such that :math:`dist[u] + w(u, v) \leq dist[x] + w(x, y)` and we know that, since the edge weights are non-negative, :math:`cost(x, y) \geq 0`.
 
-    After this discussion it should be quite straighforward for you implement Dijkstra's algorithm. The high level ideas is the follwoing:
+    After this discussion it should be quite straightforward for you implement Dijkstra's algorithm. The high level ideas is the following:
 
     1. Initialize :math:`dist[s] = 0` and :math:`dist[v] = \infty` for each :math:`v \neq s`
     2. Set :math:`S = \{s\}`
     3. While :math:`S \neq V`, pick :math:`(u, v) \in E` such that :math:`u \in S, v \notin S` and :math:`dist[u] + w(u, v)` is minimum and set :math:`dist[v] = dist[u] + w(u, v)`.
 
-    Now the only question is how fast can we perform the edge selection in step 3. The naive way of doing so is to simply loop over each node :math:`u \in S` and each edge out of :math:`u` to check the condition and get the minimum. This would cost :math:`O(|E|)` making the algorithm run in :math:`O(|V| |E|)` since there are :math:`|V|` iterartions.
+    Now the only question is how fast can we perform the edge selection in step 3. The naive way of doing so is to simply loop over each node :math:`u \in S` and each edge out of :math:`u` to check the condition and get the minimum. This would cost :math:`O(|E|)` making the algorithm run in :math:`O(|V| |E|)` since there are :math:`|V|` iterations.
 
-    A more efficient alternative is to use a *priority queue*. A priority queue enables to maitain a queue of ordered elements and retreive the minimal element in the order efficiently. In our context, the elements will be the edges sorted by their value of :math:`dist[u] + w(u, v)`.
+    A more efficient alternative is to use a *priority queue*. A priority queue enables to maintain a queue of ordered elements and retrieve the minimal element in the order efficiently. In our context, the elements will be the edges sorted by their value of :math:`dist[u] + w(u, v)`.
+
+    .. code:: java
+
+        static class Edge {
+
+            public int orig, dest, cost;
+
+            public Edge(int orig, int dest, int cost) {
+                this.orig = orig;
+                this.dest = dest;
+                this.cost = cost;
+            }
+
+            public String toString() {
+                return String.format("(%d, %d, %d)", orig, dest, cost);
+            }
+
+        }
+
+        static class EdgeCmp implements Comparator<Edge> {
+
+            private double[] dist;
+
+            public EdgeCmp(double[] dist) {
+                this.dist = dist;
+            }
+
+            public int compare(Edge e1, Edge e2) {
+                double v1 = dist[e1.orig] + e1.cost;
+                double v2 = dist[e2.orig] + e2.cost;
+                return Double.compare(v1, v2);
+            }
+
+        }
+
+        static double[] disjktra(LinkedList<Edge>[] g, int s) {
+            // initialize distances
+            double[] dist = new double[g.length];
+            Arrays.fill(dist, Double.POSITIVE_INFINITY);
+            dist[s] = 0;
+            // initialize PQ
+            PriorityQueue<Edge> Q = new PriorityQueue<>(new EdgeCmp(dist));
+            for(Edge e : g[s]) Q.add(e);
+            while(!Q.isEmpty()) {
+                Edge mine = Q.poll();
+                // check whether the edge goes out of S
+                if(dist[mine.dest] == Double.POSITIVE_INFINITY) {
+                    dist[mine.dest] = dist[mine.orig] + mine.cost;
+                    for(Edge e : g[mine.dest]) {
+                        Q.add(e);
+                    }
+                }
+            }
+            return dist;
+        }
 environment: java8scala
 evaluate: best
 groups: false
