@@ -1,19 +1,26 @@
-accessible: true
+accessible: false
 author: ''
-context: ''
-environment: dafny
+context: |-
+    Binary search is a fundamental technique in the development of algorithms and an essential tool in your algorithmist toolkit.
+
+    In its most pure form, binary search is used to find an element in a sorted array.
+environment: pyjavacpp
 evaluate: best
 groups: false
 input_random: '0'
 limits:
-    output: '2'
-    memory: '100'
-    time: '30'
+    output: '100'
+    memory: '1000'
+    time: '1000'
 name: Binary search - Introduction
 network_grading: false
 problems:
     file:
         name: ''
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
         header: ''
         type: file
 stored_submissions: 0
