@@ -114,6 +114,9 @@ context: |-
             }
             return dist;
         }
+
+
+    The runtime of this algorithm is :math:`O(|E| \log(|V|))` since each edge will be at most one time in the queue and the priority queue :code:`poll` and :code:`add` operations are perfomed in logarithmic time with respect to the size of the queue. The maximum size of the queue is :math:`|E|` so the maximum runtime of a queue operation is :math:`O(\log(|E|)) = O(\log(|V|^2)) = O(\log(|V|))`.
 environment: java8scala
 evaluate: best
 groups: false
