@@ -33,7 +33,7 @@ context: |-
 
     In code we get the following:
 
-    .. code::
+    .. code:: java
 
         // iterative implementation
         static int binSearch(int[] a, int t) {
@@ -50,7 +50,7 @@ context: |-
 
     You can also implement it recursivelly. Depending on the person, some people find one easier to read than the other.
 
-    .. code::
+    .. code:: java
 
         // recursive implementation
         static int binSearch(int[] a, int t) {
