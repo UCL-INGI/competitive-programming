@@ -10,6 +10,10 @@ context: |+
 
     Since there are no negative edge weights, we know that :math:`dist[s] = 0`. This means that we can initialize :math:`S = \{s \}`. For the other nodes, we initially set :math:`dist[v] = \infty`.
 
+    Given the set :math:`S`, how can we find a new node to add to it and its distance?
+
+    We will consider all edges that go from a node in :math:`S` to a node outside of :math:`S`. From all such edges, we will pick an edge :math:`(u, v)` such that :math:`dist[u]` is **minimum**. Then, it is not hard to see that :math:`dist[v] = dist[u] + w(u, v)`.
+
 
 
         Let :math:`S` a set of nodes for which we know the :math:`dist[v]`. Let :math:`E(S)` be the set of all edges linking a node in :math:`S` to a node outside of :math:`S`. Then if
