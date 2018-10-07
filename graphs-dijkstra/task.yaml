@@ -124,12 +124,41 @@ name: Graphs - Dijkstra
 network_grading: false
 problems:
     file:
-        name: ''
+        name: Shortest path
         allowed_exts:
         - .java
         - .cpp
         - .py
-        header: ''
+        header: |
+            Put the pieces together in order to be able to compute shortest paths in an *undirected* graph with non negative edge weights.
+
+            **Input**
+
+            - One line with fours integers :math:`n`, :math:`m`, :math:`s` and :math:`t` giving the number of nodes, the number of edges, the source of the path and the destination.
+
+            - :math:`m` lines each with with threee integers :math:`u, v` and :math:`c` giving that nodes :math:`u` and :math:`v` are connected with a bidirectional edge of cost :math:`c`.
+
+            The nodes are numbered starting from 0.
+
+            **Output**
+
+            A single integer with the cost of the shortest path from node :math:`s` to node :math:`t`.
+
+            **Constraints**
+
+            * :math:`1 \leq n, m \leq 1000`
+            * Each character belongs to '#.ST'.
+
+            **Sample Test Cases**
+
+            `Sample input 1 <graphs-maze/1.in>`_
+
+            `Sample output 1 <graphs-maze/1.ans>`_
+
+
+            `Sample input 2 <graphs-maze/2.in>`_
+
+            `Sample output 2 <graphs-maze/2.ans>`_
         type: file
 stored_submissions: 0
 submission_limit:
