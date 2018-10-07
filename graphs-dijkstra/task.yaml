@@ -124,7 +124,7 @@ name: Graphs - Dijkstra
 network_grading: false
 problems:
     file:
-        name: Shortest path
+        name: Single source shortest path
         allowed_exts:
         - .java
         - .cpp
