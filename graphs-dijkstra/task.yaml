@@ -142,7 +142,7 @@ problems:
 
             **Output**
 
-            A single integer with the cost of the shortest path from node :math:`s` to node :math:`t`.
+            A single integer with the cost of the shortest path from node :math:`s` to node :math:`t` or the word :code:`unreachable`.
 
             **Constraints**
 
@@ -151,14 +151,14 @@ problems:
 
             **Sample Test Cases**
 
-            `Sample input 1 <graphs-maze/1.in>`_
+            `Sample input 1 <graphs-dijkstra/1.in>`_
 
-            `Sample output 1 <graphs-maze/1.ans>`_
+            `Sample output 1 <graphs-dijkstra/1.ans>`_
 
 
-            `Sample input 2 <graphs-maze/2.in>`_
+            `Sample input 2 <graphs-dijkstra/2.in>`_
 
-            `Sample output 2 <graphs-maze/2.ans>`_
+            `Sample output 2 <graphs-dijkstra/2.ans>`_
         type: file
 stored_submissions: 0
 submission_limit:
