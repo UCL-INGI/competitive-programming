@@ -1,0 +1,24 @@
+accessible: true
+author: ''
+context: ''
+environment: dafny
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    output: '2'
+    memory: '100'
+    time: '30'
+name: Binary search - Introduction
+network_grading: false
+problems:
+    file:
+        name: ''
+        header: ''
+        type: file
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0
