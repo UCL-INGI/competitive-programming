@@ -56,7 +56,7 @@ context: |-
 
     A more efficient alternative is to use a *priority queue*. A priority queue enables to maintain a queue of ordered elements and retrieve the minimal element in the order efficiently. In our context, the elements will be the edges sorted by their value of :math:`dist[u] + w(u, v)`.
 
-    The Java code doing this is given below.
+    The Java code doing this is given below. Note that we do not need to explicitly keep track of the set :math:`S`. In the way the code is written this set is always equal to the set of nodes such that :math:`dist[u] \neq \infty`.
 
     .. code:: java
 
