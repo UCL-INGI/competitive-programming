@@ -71,10 +71,6 @@ context: |-
                 this.cost = cost;
             }
 
-            public String toString() {
-                return String.format("(%d, %d, %d)", orig, dest, cost);
-            }
-
         }
 
         // class used to compare edges in the priority queue
@@ -132,11 +128,6 @@ network_grading: false
 order: 15
 problems:
     file:
-        name: Single source shortest path
-        allowed_exts:
-        - .java
-        - .cpp
-        - .py
         header: |
             Put the pieces together in order to be able to compute shortest paths in an *undirected* graph with non negative edge weights.
 
@@ -169,7 +160,12 @@ problems:
             `Sample input 2 <graphs-dijkstra/2.in>`_
 
             `Sample output 2 <graphs-dijkstra/2.ans>`_
+        name: Single source shortest path
         type: file
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
 stored_submissions: 0
 submission_limit:
     amount: -1
