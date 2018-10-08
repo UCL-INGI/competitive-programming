@@ -1,4 +1,4 @@
-accessible: false
+accessible: true
 author: ''
 context: |-
     Binary search is a fundamental technique in the development of algorithms and an essential tool in your algorithmist toolkit.
@@ -9,11 +9,9 @@ context: |-
 
         Given a sorted array :math:`a` of :math:`n` integers, how can we efficiently determine whether it contains a given target element :math:`t`?
 
-    Denote by :math:`a[i:j]` the sub array of :math:`a` from indexes :math:`i` to :math:`j` (inclusive), that is, :math:`a[i], a[i + 1], \ldots, a[j]`.
-
     Let's say we check element at position :math:`i`. If :math:`a[i] = t` then we can report that :math:`a` contains :math:`t` at position :math:`i`. Otherwise, we either have :math:`a[i] < t` or :math:`a[i] > t`.
 
-    Since :math:`a` is sorted, if :math:`a[i] < t` then we know that all elements before index :math:`i`, that is, :math:`a[0], a[1], \ldots, a[i - 1]` are also smaller than :math:`t`. Hence we can discard them and save us the trouble of comparing all of the against :math:`t`. In other words, we reduced the problem of finding :math:`t` in :math:`a` to the problem of finding :math:`t` in :math:`a[i+1:n-1]`.
+    Since :math:`a` is sorted, if :math:`a[i] < t` then we know that all elements before index :math:`i`, that is, :math:`a[0], a[1], \ldots, a[i - 1]` are also smaller than :math:`t`. Hence we can discard them and save us the trouble of comparing all of the against :math:`t`. In other words, we reduced the problem of finding :math:`t` in :math:`a` to the problem of finding :math:`t` in :math:`a[i + 1], \ldots, a[n - 1]`.
 
     On the other case, when :math:`a[i] > t` we can apply an analogous reasoning to discard all elements after index :math:`i`.
 
@@ -128,3 +126,4 @@ submission_limit:
     period: -1
 tags: {}
 weight: 1.0
+order: 30
