@@ -67,6 +67,8 @@ context: |-
 
     Whichever you use, should not really matter except that maybe the recursive implementation may have some little overheard because of the recursion stack. In most problems that should not have any impact and you should use the one you feel more comfortable with.
 
+    This code runs in :math:`O(\log(n))` because at each iteration the size of the interval is roughly cut in half and :math:`log(n)` basically describes the number of times :math:`n` needs to be halved to reach :math:`1`.
+
     In most programming languages, this function is already implemented. For instance, in Java, you can use :code:`Arrays.binarySearch()`.
 environment: pyjavacpp
 evaluate: best
@@ -78,6 +80,7 @@ limits:
     time: '1000'
 name: Binary search - Introduction
 network_grading: false
+order: 30
 problems:
     file:
         header: |-
@@ -126,4 +129,3 @@ submission_limit:
     period: -1
 tags: {}
 weight: 1.0
-order: 30
