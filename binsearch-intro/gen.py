@@ -1,3 +1,5 @@
+import random
+
 def gen_range_repreat(min, max, rep):
   a = [ ]
   for i in range(min, max + 1):
@@ -32,6 +34,20 @@ def gen_range_even(min, max):
     f.write('\n')
   f.close()
 
-gen_range_even(0, 100000)
-gen_range_even(0, 500000)
+def gen_random(n, q):
+  a = [ ]
+  for i in range(n):
+    a.append(random.randint(0, 50))
+  f = open('tests/rnd_{0}_{1}.in'.format(n, q), 'w')
+  f.write('{0} {1}\n'.format(len(a), q))
+  for i in range(len(a)):
+    f.write(str(a[i]))
+    if i < len(a) - 1:
+      f.write(' ')
+  f.write('\n')
+  for i in range(q):
+    f.write(str(random.randint(0, 50)))
+    f.write('\n')
+  f.close()  
 
+gen_random(10, 100)
