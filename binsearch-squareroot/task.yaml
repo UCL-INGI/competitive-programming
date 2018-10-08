@@ -1,6 +1,11 @@
 accessible: true
 author: ''
-context: ''
+context: |-
+    In this task we are going to see two simple applications of binary search related to square root computations.
+
+    The first problem that we are going to solve is the following:
+
+        Given a positive integer :math:`n` find the largest integer :math:`x` such that :math:`x^2 \leq n`.
 environment: pyjavacpp
 evaluate: best
 groups: false
