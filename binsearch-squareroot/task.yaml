@@ -9,13 +9,13 @@ context: |+
 
     We are going to reason in the same way as we did to find an element in a sorted array.
 
-    Suppose that we pick some value :math:`y` and compare :math:`y^2` to :math:`n`. What can we deduce?
+    Suppose that we pick some value :math:`m` and compare :math:`m^2` to :math:`n`. What can we deduce?
 
     Since the function :math:`x \mapsto x^2` in *non-decresing*, we have the same kind of properties that we had with our sorted array:
 
-    - if :math:`y^2 < n` then we can dismiss all values :math:`x < y`
-    - if :math:`y^2 > n` then we can dismiss all values :math:`x > y`
-    - if :math:`y^2 = n` then the answer must be :math:`y`
+    - if :math:`m^2 < n` then we can dismiss all values :math:`x < m`
+    - if :math:`m^2 > n` then we can dismiss all values :math:`x > m`
+
 
 environment: pyjavacpp
 evaluate: best
