@@ -7,6 +7,8 @@ context: |-
 
         Given a positive integer :math:`n` find the largest integer :math:`x` such that :math:`x^2 \leq n`. This value is called the *integer square root* of :math:`n`.
 
+    We will solve this problem using binary search. Note all that we are doing here can be done using the :code:`sqrt` function present in most languages. But using it would be pointless since the one of the goals of this tasks is precisely to teach you how to write an algorithm for computing square roots.
+
     We are going to reason in the same way as we did to find an element in a sorted array.
 
     Suppose that we pick some value :math:`m` and compare :math:`m^2` to :math:`n`. What can we deduce?
