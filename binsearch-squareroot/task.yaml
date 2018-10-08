@@ -68,9 +68,41 @@ name: Binary search - Square root
 network_grading: false
 problems:
     file:
-        header: ''
-        name: ''
+        header: |-
+            We say that an integer :math:`n` is a perfect square if there exists an integer :math:`x` such that :math:`x^2 = n`.
+
+            For instance, :math:`9 = 3^2` is a perfect square but :math:`12` is not.
+
+            Write an algorithm for checking whether a given integer is a perfect square.
+
+            **Input**
+
+            - A single line with an integer :math:`n`.
+
+            **Output**
+
+            The word *yes* if :math:`n` is a perfect square and *no* otherwise.
+
+            **Constraints**
+
+            * :math:`1 \leq n < 2^31`
+
+            **Sample Test Cases**
+
+            `Sample input 1 <binsearch-squareroot/1.in>`_
+
+            `Sample output 1 <binsearch-squareroot/1.ans>`_
+
+
+            `Sample input 2 <binsearch-squareroot/2.in>`_
+
+            `Sample output 2 <binsearch-squareroot/2.ans>`_
+        name: Perfect square
         type: file
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
 stored_submissions: 0
 submission_limit:
     amount: -1

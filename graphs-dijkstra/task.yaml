@@ -141,7 +141,7 @@ problems:
 
             **Output**
 
-            A single integer with the cost of the shortest path from node :math:`s` to node :math:`t` or the word :code:`unreachable`.
+            A single integer with the cost of the shortest path from node :math:`s` to node :math:`t` or the word *unreachable*.
 
             **Constraints**
 
