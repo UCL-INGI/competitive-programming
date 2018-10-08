@@ -50,4 +50,7 @@ def gen_random(n, q):
     f.write('\n')
   f.close()  
 
-gen_random(10, 100)
+gen_random(100000, 10000)
+gen_random(100000, 1000)
+
+
