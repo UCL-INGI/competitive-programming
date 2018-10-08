@@ -1,6 +1,6 @@
 accessible: false
 author: ''
-context: |+
+context: |-
     In this task we are going to see two simple applications of binary search related to square root computations.
 
     The first problem that we are going to solve is the following:
@@ -58,6 +58,24 @@ context: |+
             return L;
         }
 
+    Another (probably better) criteria that people often use for continuous binary search is to simply run the code for a fixed number of iterations. At each iteration the size of the interval is halved so after :math:`k` iterations its size is :math:`n / 2^k`. Therefore, for any reasonable input, if we run for, say :math:`k = 80`, iterations, the size of the interval will be sufficiently small to be close the the actual answer.
+
+    The following code shows this.
+
+    .. code:: java
+
+        static double sqrt(double n) {
+            double L = 0;
+            double R = n;
+            for(int i = 0; i < 80; i++) {
+                double M = (L + R) / 2.0;
+                if(M <= n / M) L = M;
+                else R = M;
+            }
+            return L;
+        }
+
+    **Note:** We are do not recomment you, in any way, to compute square roots using this algorithm. You should use the built-in function of your language. The goal is to illustrate how you would do a binary search on a continuous interval.
 environment: pyjavacpp
 evaluate: best
 groups: false
