@@ -1,11 +1,22 @@
 accessible: true
 author: ''
-context: |-
+context: |+
     In this task we are going to see two simple applications of binary search related to square root computations.
 
     The first problem that we are going to solve is the following:
 
         Given a positive integer :math:`n` find the largest integer :math:`x` such that :math:`x^2 \leq n`.
+
+    We are going to reason in the same way as we did to find an element in a sorted array.
+
+    Suppose that we pick some value :math:`y` and compare :math:`y^2` to :math:`n`. What can we deduce?
+
+    Since the function :math:`x \mapsto x^2` in *non-decresing*, we have the same kind of properties that we had with our sorted array:
+
+    - if :math:`y^2 < n` then we can dismiss all values :math:`x < y`
+    - if :math:`y^2 > n` then we can dismiss all values :math:`x > y`
+    - if :math:`y^2 = n` then the answer must be :math:`y`
+
 environment: pyjavacpp
 evaluate: best
 groups: false
