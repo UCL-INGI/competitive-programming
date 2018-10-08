@@ -1,11 +1,11 @@
 accessible: false
 author: ''
-context: |+
+context: |
     In this task we are going to see two simple applications of binary search related to square root computations.
 
     The first problem that we are going to solve is the following:
 
-        Given a positive integer :math:`n` find the largest integer :math:`x` such that :math:`x^2 \leq n`.
+        Given a positive integer :math:`n` find the largest integer :math:`x` such that :math:`x^2 \leq n`. This value is called the *integer square root* of :math:`n`.
 
     We are going to reason in the same way as we did to find an element in a sorted array.
 
@@ -16,7 +16,20 @@ context: |+
     - if :math:`m^2 < n` then we can dismiss all values :math:`x < m`
     - if :math:`m^2 > n` then we can dismiss all values :math:`x > m`
 
+    We can then write the following code:
 
+    .. code:: java
+
+        static int integerSqrt(int n) {
+            long L = 0;
+            long R = n + 1;
+            while(R - L >= 2) {
+                long M = (L + R) / 2;
+                if(M * M <= n) L = M; // dismiss all values < M
+                else R = M; // dismiss all values > M
+            }
+            return (int)L;
+        }
 environment: pyjavacpp
 evaluate: best
 groups: false
