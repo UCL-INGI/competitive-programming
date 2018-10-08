@@ -82,12 +82,15 @@ name: Binary search - Introduction
 network_grading: false
 problems:
     file:
-        name: ''
+        name: Find first occurence in sorted array
         allowed_exts:
         - .java
         - .cpp
         - .py
-        header: ''
+        header: |-
+            Given a sorted array :math:`a` and an integer :math:`t` find, if one exists, the minimum index :math:`i` such that :math:`a[i] = t`.
+
+            Note that the code above does not necessarily find the minimum index.
         type: file
 stored_submissions: 0
 submission_limit:
