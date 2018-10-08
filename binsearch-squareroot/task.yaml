@@ -37,6 +37,8 @@ context: |+
 
     In the code, we use :code:`long` variables because the multiplication :code:`M * M` can overflow otherwise. The cast to :math:`int` in the end is safe since we know that the answer is at most :math:`n`.
 
+    This code runs in :math:`O(\log(n))` for the same reason as before.
+
     That is it for integer square roots. How about real square root?
 
         Given a positive real number :math:`n` find a real number :math:`x` such that :math:`x^2 = n`.
