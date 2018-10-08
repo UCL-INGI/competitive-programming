@@ -1,6 +1,6 @@
 accessible: false
 author: ''
-context: |-
+context: |
     In this task we are going to see two simple applications of binary search related to square root computations.
 
     The first problem that we are going to solve is the following:
@@ -36,6 +36,12 @@ context: |-
         }
 
     In the code, we use :code:`long` variables because the multiplication :code:`M * M` can overflow otherwise. The cast to :math:`int` in the end is safe since we know that the answer is at most :math:`n`.
+
+    That is it for integer square roots.
+
+    How about real square root?
+
+    Performing binary search on a continuous range is similar. The biggest change
 environment: pyjavacpp
 evaluate: best
 groups: false
