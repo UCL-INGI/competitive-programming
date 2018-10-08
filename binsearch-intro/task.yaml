@@ -82,16 +82,46 @@ name: Binary search - Introduction
 network_grading: false
 problems:
     file:
+        header: |-
+            Given a sorted array :math:`a` you will be given :math:`q` queries each with an integer :math:`t`. For each query you need to find, if one exists, the minimum index :math:`i` such that :math:`a[i] = t`.
+
+            Note that the code above does not necessarily find the minimum index. You will need to modify the code in order to achieve this.
+
+            **Input**
+
+            - One line with two integers :math:`n` and :math:`q` giving the size of the array and the number of queries.
+
+            - :math:`n` integers separated giving the values :math:`a_i` of :math:`a`.
+
+            - :math:`q` lines each with one integer :math:`t` giving the query target.
+
+            **Constraints**
+
+            * :math:`1 \leq n \leq 10^5`
+            * :math:`-2^{30} \leq a_i \leq 2^{30}`
+            * :math:`1 \leq q \leq 10^5`
+            * :math:`-2^{30} \leq t \leq 2^{30}`
+
+            **Output**
+
+            :math:`q` lines, each with a single integers giving the *minimum index* of :math:`t` in :math:`a` or :math:`-1` if no such index exists.
+
+            **Sample Test Cases**
+
+            `Sample input 1 <binsearch-intro/1.in>`_
+
+            `Sample output 1 <binsearch-intro/1.ans>`_
+
+
+            `Sample input 2 <binsearch-intro/2.in>`_
+
+            `Sample output 2 <binsearch-intro/2.ans>`_
         name: Find first occurence in sorted array
+        type: file
         allowed_exts:
         - .java
         - .cpp
         - .py
-        header: |-
-            Given a sorted array :math:`a` and an integer :math:`t` find, if one exists, the minimum index :math:`i` such that :math:`a[i] = t`.
-
-            Note that the code above does not necessarily find the minimum index.
-        type: file
 stored_submissions: 0
 submission_limit:
     amount: -1
