@@ -1,6 +1,6 @@
 accessible: false
 author: ''
-context: |
+context: |-
     In this task we are going to see two simple applications of binary search related to square root computations.
 
     The first problem that we are going to solve is the following:
@@ -16,6 +16,8 @@ context: |
     - if :math:`m^2 < n` then we can dismiss all values :math:`x < m`
     - if :math:`m^2 > n` then we can dismiss all values :math:`x > m`
 
+    In the same was as before, we will keep track of the current interval that we are considering. You can select that interval by selecting :math:`L` and :math:`R` so that the answer is in the interval :math:`[L, R[`. In this case we can choose :math:`L = 0` and :math:`R = n + 1`.
+
     We can then write the following code:
 
     .. code:: java
@@ -30,6 +32,8 @@ context: |
             }
             return (int)L;
         }
+
+    In the code, we use :code:`long` variables because the multiplication :code:`M * M` can overflow otherwise.
 environment: pyjavacpp
 evaluate: best
 groups: false
