@@ -75,7 +75,7 @@ context: |-
             return L;
         }
 
-    **Note:** We are do not recomment you, in any way, to compute square roots using this algorithm. You should use the built-in function of your language. The goal is to illustrate how you would do a binary search on a continuous interval.
+    **Note:** We are do not recomment you, in any way, to compute square roots using this algorithm. You should use the built-in function of your language. The goal was just to illustrate how you would do a binary search on a continuous interval.
 environment: pyjavacpp
 evaluate: best
 groups: false
@@ -105,7 +105,7 @@ problems:
 
             **Constraints**
 
-            * :math:`1 \leq n < 2^31`
+            * :math:`1 \leq n < 2^{31}`
 
             **Sample Test Cases**
 
