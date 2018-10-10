@@ -3,7 +3,24 @@ author: ''
 context: |-
     Now that we have seen two basic examples of binary search we are going to generalize it and see how it can be applied to solve more complicated problems.
 
-    Let's start by rewriting the :code:`integerSqrt`
+    Let's start by rewriting the :code:`integerSqrt` as follows:
+
+    .. code:: java
+
+        static int integerSqrt(int n) {
+            long L = 0;
+            long R = n + 1;
+            while(R - L >= 2) {
+                long M = (L + R) / 2;
+                if(check(M, n)) L = M; // dismiss all values < M
+                else R = M; // dismiss all values > M
+            }
+            return (int)L;
+        }
+
+        static boolean check(long x, int n) {
+            return x * x <= n;
+        }
 environment: dafny
 evaluate: best
 groups: false
