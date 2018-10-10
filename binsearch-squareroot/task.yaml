@@ -1,4 +1,4 @@
-accessible: false
+accessible: true
 author: ''
 context: |-
     In this task we are going to see two simple applications of binary search related to square root computations.
@@ -86,6 +86,7 @@ limits:
     time: '1000'
 name: Binary search - Square root
 network_grading: false
+order: 31
 problems:
     file:
         header: |-
@@ -101,7 +102,7 @@ problems:
 
             **Output**
 
-            The word *yes* if :math:`n` is a perfect square and *no* otherwise.
+            A single line with the word *yes* if :math:`n` is a perfect square and *no* otherwise.
 
             **Constraints**
 
