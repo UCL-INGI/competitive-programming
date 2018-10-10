@@ -7,5 +7,13 @@ def write(n):
 
 
 for i in range(50):
-  n = random.randint(1, 1 << 31 - 1)
+  n = random.randint(1, 1 << 31)
   write(n)
+
+write(1 << 31 - 1)
+
+for i in range(25):
+  n = random.randint(1, 1 << 15)
+  write(n * n)
+
+write(1)
