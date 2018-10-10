@@ -1,6 +1,9 @@
 accessible: false
 author: ''
-context: ''
+context: |-
+    Now that we have seen two basic examples of binary search we are going to generalize it and see how it can be applied to solve more complicated problems.
+
+    Let's start by rewriting the :code:`integerSqrt`
 environment: dafny
 evaluate: best
 groups: false
@@ -9,7 +12,7 @@ limits:
     output: '2'
     memory: '100'
     time: '30'
-name: ''
+name: Binary search - Search on the answer
 network_grading: false
 problems: {}
 stored_submissions: 0
