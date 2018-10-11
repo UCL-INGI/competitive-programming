@@ -26,10 +26,13 @@ context: |-
 
         When we vary :math:`x`, it is always *true* util some point and then always *false* after that point.
 
-        .. image:: binsearch-bsanswer/binsearch.png
+    The following image illustrrates this:
 
+    .. image:: binsearch-bsanswer/binsearch.png
 
-    This means that we can actually use binary search to solve any problem in which we seek the largest value that satisfies some given property as long as that property
+    |
+
+    This means that we can actually use binary search to solve **any problem** in which we seek the largest value that satisfies some given property as long as that truth value of that property is
 environment: dafny
 evaluate: best
 groups: false
