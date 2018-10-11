@@ -24,15 +24,17 @@ context: |-
 
     It is essentially the same code, except that we extracted the check condition. When we read it like that we can see that what the code is doing is finding the maximum value such that the condition :code:`check` is true. And it will work because :code:`check` has the following property:
 
-        When we vary :math:`x`, it is always *true* util some point and then always *false* after that point.
+        When we vary :math:`x`, it is always *true* util some point and then always *false* after that point. We call such a property a **monotone property**.
 
     The following image illustrrates this:
+
+    |
 
     .. image:: binsearch-bsanswer/binsearch.png
 
     |
 
-    This means that we can actually use binary search to solve **any problem** in which we seek the largest value that satisfies some given property as long as that truth value of that property is
+    This means that we can actually use binary search to solve **any problem** in which we seek the largest value that satisfies some given property as long as that truth value of that property is **monotone**.
 environment: dafny
 evaluate: best
 groups: false
