@@ -1,6 +1,6 @@
 accessible: false
 author: ''
-context: |-
+context: |+
     Now that we have seen two basic examples of binary search we are going to generalize it and see how it can be applied to solve more complicated problems.
 
     Let's start by rewriting the :code:`integerSqrt` as follows:
@@ -35,6 +35,13 @@ context: |-
     |
 
     This means that we can actually use binary search to solve **any problem** in which we seek the largest value that satisfies some given property as long as that truth value of that property is **monotone**.
+
+    Let's illustrate this on a real problem.
+
+        **Plane purchase problem:**
+
+        You want to purchase a plane to travel arround the world. You know the positions :math:`(x_i, y_i)` of all :math:`n` airports where you are allowed to land. The cost of the planes is proportional to the maximum distance that it can travel. Therefore, you would like to know what is the minimum travel distance that a plane needs to be able to travel so that you can travel between any two airports. Note that by travel we do not mean a direct flight, you don't mind to have to stop in some airport to refuel your plane.
+
 environment: dafny
 evaluate: best
 groups: false
