@@ -26,6 +26,9 @@ context: |-
 
         When we vary :math:`x`, it is always *true* util some point and then always *false* after that point. In other words, the
 
+    .. image:: binsearch-bsanswer/binsearch.png
+
+
     This means that we can actually use binary search to solve any problem in which we seek the largest value that satisfies some given property as long as that property
 environment: dafny
 evaluate: best
