@@ -22,7 +22,7 @@ context: |-
             return x * x <= n;
         }
 
-    It is essentially the same code, except that we extrected the check condition. When we read it like that we can see that what the code is doing is finding the maximum value such that the condition :code:`check` is true. And it will work because :code:`check` has the following property:
+    It is essentially the same code, except that we extracted the check condition. When we read it like that we can see that what the code is doing is finding the maximum value such that the condition :code:`check` is true. And it will work because :code:`check` has the following property:
 
         When we vary :math:`x`, it is always *true* util some point and then always *false* after that point. In other words, the
 
