@@ -101,7 +101,42 @@ limits:
     memory: '100'
 name: Binary search - Search on the answer
 network_grading: false
-problems: {}
+problems:
+    file:
+        type: file
+        name: Plane purchase problem
+        header: |
+            Write an algorithm as described above for solving the plane purchase problem.
+
+            **Input**
+
+            - One line with one integer :math:`n` giving the number of airports.
+
+            - :math:`n` lines each with two integers :math:`x` and :math:`y` giving the coordinates of the airports. No two airports are located in the same position.
+
+            **Output**
+
+            - One line with one integer :math:`d` giving the minimum distance that a plane needs to be able to travel in order to be able to go (directly or not) from any airport to any other airport.
+
+            **Constraints**
+
+            * :math:`1 \leq n \leq 1000`
+            * :math:`0 \leq x, y \leq 10^5`
+
+            **Sample Test Cases**
+
+            `Sample input 1 <binsearch-bsanswer/1.in>`_
+
+            `Sample output 1 <binsearch-bsanswer/1.ans>`_
+
+
+            `Sample input 2 <binsearch-bsanswer/2.in>`_
+
+            `Sample output 2 <binsearch-bsanswer/2.ans>`_
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
 stored_submissions: 0
 submission_limit:
     amount: -1
