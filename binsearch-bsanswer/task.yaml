@@ -121,7 +121,7 @@ problems:
             **Constraints**
 
             * :math:`2 \leq n \leq 1000`
-            * :math:`0 \leq x, y \leq 10^5`
+            * :math:`0 \leq x, y \leq 10000`
 
             **Sample Test Cases**
 
