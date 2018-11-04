@@ -38,19 +38,27 @@ context: |
 
     Let's illustrate this on a real problem.
 
-        **Plane purchase problem:**
+    |
 
-        You want to purchase a plane to travel arround the world.
+    **Plane purchase problem:**
 
-        You know the positions :math:`(x_i, y_i)` of all :math:`n` airports on which you are allowed to land. The cost of the planes is proportional to the maximum distance that it can travel. Therefore, you would like to know what is the minimum travel distance that a plane needs to be able to trabel so that you can travel between any two airports.
+    You want to purchase a plane to travel arround the world.
 
-        Note that by travel we do not mean a direct flight, you don't mind to have to stop in some airports on the way to refuel your plane.
+    You know the positions :math:`(x_i, y_i)` of all :math:`n` airports on which you are allowed to land. The cost of the planes is proportional to the maximum distance that it can travel. Therefore, you would like to know what is the minimum travel distance that a plane needs to be able to trabel so that you can travel between any two airports.
 
-        For example, imagine that the airporst are located at the black dots shown in the figure.
+    Note that by travel we do not mean a direct flight, you don't mind to have to stop in some airports on the way to refuel your plane.
+
+    For example, imagine that the airporst are located at the black dots shown in the figure.
+
+    |
 
     .. image:: binsearch-bsanswer/planepurchase1.png
 
-        With a place capable of traveling distance :math:`3` it is possible to travel between the airports that are connected by a thick line in the following figure:
+    |
+
+    With a place capable of traveling distance :math:`3` it is possible to travel between the airports that are connected by a thick line in the following figure:
+
+    |
 
     .. image:: binsearch-bsanswer/planepurchase.png
 environment: dafny
