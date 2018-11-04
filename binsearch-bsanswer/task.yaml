@@ -1,6 +1,6 @@
 accessible: false
 author: ''
-context: |
+context: |+
     Now that we have seen two basic examples of binary search we are going to generalize it and see how it can be applied to solve more complicated problems.
 
     Let's start by rewriting the :code:`integerSqrt` as follows:
@@ -46,9 +46,13 @@ context: |
 
     You know the positions :math:`(x_i, y_i)` of all :math:`n` airports on which you are allowed to land. The cost of the planes is proportional to the maximum distance that it can travel. Therefore, you would like to know what is the minimum travel distance that a plane needs to be able to trabel so that you can travel between any two airports.
 
+    The are only planes for sale that travel integral distances. That is, you can purchase a plane able to travel any positive integer distance but only those. For instance, you cannot but a plane with maximum travel distance, say, :math:`1.5` or :math:`\sqrt{2}`.
+
     Note that by travel we do not mean a direct flight, you don't mind to have to stop in some airports on the way to refuel your plane.
 
-    For example, imagine that the airporst are located at the black dots shown in the figure.
+    At first sight, this problem might seem like an intimidating geometry problem but when you think about it, but it turns out that it can easily be solved using *binary search on the answer*.
+
+    For example, imagine that the airports are located at the black dots shown in the figure.
 
     |
 
@@ -71,6 +75,7 @@ context: |
     .. image:: binsearch-bsanswer/planepurchase3.png
 
     |
+
 environment: dafny
 evaluate: best
 groups: false
