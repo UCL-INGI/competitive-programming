@@ -46,6 +46,10 @@ context: |
 
         Note that by travel we do not mean a direct flight, you don't mind to have to stop in some airports on the way to refuel your plane.
 
+        For example, imagine that the airporst are located at the black dots shown in the figure.
+
+    .. image:: binsearch-bsanswer/planepurchase1.png
+
 
     .. image:: binsearch-bsanswer/planepurchase.png
 environment: dafny
