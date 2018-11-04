@@ -50,6 +50,7 @@ context: |
 
     .. image:: binsearch-bsanswer/planepurchase1.png
 
+        With a place capable of traveling distance :math:`3` it is possible to travel between the airports that are connected by a thick line in the following figure:
 
     .. image:: binsearch-bsanswer/planepurchase.png
 environment: dafny
