@@ -60,7 +60,17 @@ context: |
 
     |
 
-    .. image:: binsearch-bsanswer/planepurchase.png
+    .. image:: binsearch-bsanswer/planepurchase2.png
+
+    |
+
+    As we can see, distance :math:`3` is still not enough to reach the top airport. With a plane capable of traveling distance :math:`4` it becomes possible to reach the top airport:
+
+    |
+
+    .. image:: binsearch-bsanswer/planepurchase3.png
+
+    |
 environment: dafny
 evaluate: best
 groups: false
