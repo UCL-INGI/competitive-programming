@@ -91,14 +91,14 @@ context: |-
 
     Since :math:`n \leq 1000`, a :math:`O(n^2)` algorithm is fast enough.
     We can thus check the condition by building the graph corresponding to the given :math:`d` and using a graph traversal algorithm to check whether the graph is connected.
-environment: dafny
+environment: pyjavacpp
 evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '30'
-    output: '2'
-    memory: '100'
+    time: '1000'
+    output: '100'
+    memory: '1000'
 name: Binary search - Search on the answer
 network_grading: false
 problems:
