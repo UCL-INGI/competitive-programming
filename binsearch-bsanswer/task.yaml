@@ -42,7 +42,9 @@ context: |
 
         You want to purchase a plane to travel arround the world.
 
-        You know the positions :math:`(x_i, y_i)` of all :math:`n` airports on which you are allowed to land. The cost of the planes is proportional to the maximum distance that it can travel. Therefore, you would like to know what is the minimum travel distance that a plane needs to have so that you can travel between any two airports. Note that by travel we do not mean a direct flight, you don't mind to have to stop in some airports on the way to refuel your plane.
+        You know the positions :math:`(x_i, y_i)` of all :math:`n` airports on which you are allowed to land. The cost of the planes is proportional to the maximum distance that it can travel. Therefore, you would like to know what is the minimum travel distance that a plane needs to be able to trabel so that you can travel between any two airports.
+
+        Note that by travel we do not mean a direct flight, you don't mind to have to stop in some airports on the way to refuel your plane.
 
 
     .. image:: binsearch-bsanswer/planepurchase.png
