@@ -133,6 +133,11 @@ problems:
             `Sample input 2 <binsearch-bsanswer/2.in>`_
 
             `Sample output 2 <binsearch-bsanswer/2.ans>`_
+
+
+            `Sample input 3 <binsearch-bsanswer/3.in>`_
+
+            `Sample output 3 <binsearch-bsanswer/3.ans>`_
         allowed_exts:
         - .java
         - .cpp
