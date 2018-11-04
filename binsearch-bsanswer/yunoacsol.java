@@ -1,4 +1,3 @@
-package binSearch;
 
 import java.util.BitSet;
 import java.util.LinkedList;
