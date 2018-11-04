@@ -5,21 +5,31 @@ def gen_random(n):
   while len(pos) < n:
     x = random.randint(0, 10001)
     y = random.randint(0, 10001)
-
-    a.append(random.randint(0, 50))
-  f = open('tests/rnd_{0}_{1}.in'.format(n, q), 'w')
-  f.write('{0} {1}\n'.format(len(a), q))
-  for i in range(len(a)):
-    f.write(str(a[i]))
-    if i < len(a) - 1:
-      f.write(' ')
-  f.write('\n')
-  for i in range(q):
-    f.write(str(random.randint(0, 50)))
-    f.write('\n')
+    pos.add((x, y))
+  f = open('tests/rnd_{0}.in'.format(n), 'w')
+  f.write('{0}\n'.format(n))
+  for x, y in pos:
+    f.write('{0} {1}\n'.format(x, y))
   f.close()  
 
-gen_random(100000, 10000)
-gen_random(100000, 1000)
 
+gen_random(10)
+gen_random(20)
+gen_random(30)
+gen_random(40)
+gen_random(50)
+gen_random(60)
+gen_random(70)
+gen_random(80)
+gen_random(90)
+gen_random(100)
+gen_random(200)
+gen_random(300)
+gen_random(400)
+gen_random(500)
+gen_random(600)
+gen_random(700)
+gen_random(800)
+gen_random(900)
+gen_random(1000)
 
