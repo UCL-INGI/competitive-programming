@@ -64,6 +64,10 @@ context: |-
     Notice that with positive edge weights, any shortest path uses at most :math:`|V| - 1` edges (such a shortest path cannot have cycles). This means that we only need to compute the answer for states until :math:`i = |V| - 1`. The answer to the shortest path problem from :math:`s` to :math:`v` will therefore be :math:`dp(v, |V| - 1)`.
 
     What did we lose by extending the space state? We lost efficiency, now there are :math:`O(|V|^2)` states.
+
+    It should be easy now to implement this ideas. Simply create a matrix to store the values of :math:`dp(v, i)` and compute them in increasing order of :math:`i` using the above relation.
+
+    Since for each :math:`i = 0, \ldots, |V| - 1` we need to iterate over the graph, the total runtime will be :math:`O(|V| (|V| + |E|))`. This is equal to :math:`O(|V| |E|)` for any connected graph.
 environment: pyjavacpp
 evaluate: best
 groups: false
