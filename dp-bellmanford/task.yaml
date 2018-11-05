@@ -1,6 +1,6 @@
 accessible: false
 author: ''
-context: |-
+context: |+
     In the previous task, we say a DP formulation for the shortest path problem with positive edge weights from a given source node :math:`s`:
 
     .. math::
@@ -14,6 +14,7 @@ context: |-
         dp(v) = \min_{u \ \textrm{in-neighbor of} \ v} dp(u) + w(u, v)
 
     The state graph is the same as the input graph and so this formulation will work if and only if the input graph is acyclic.
+
 environment: dafny
 evaluate: best
 groups: false
@@ -22,7 +23,7 @@ limits:
     time: '30'
     output: '2'
     memory: '100'
-name: DP - Bellman-Ford
+name: DP - Making a cyclic state graph acyclic
 network_grading: false
 problems: {}
 stored_submissions: 0
