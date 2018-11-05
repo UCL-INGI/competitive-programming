@@ -3,13 +3,13 @@ author: ''
 context: |-
     In this task you will have to solve problem G from NWERC 2017.
 
-    You can use the following class that represents a regular polygon with :math:`n` vertices and radius :math:`r`.
+    Since the goal of this task is not to teach you geometry, you can use the following class that represents a regular polygon with :math:`n` vertices and radius :math:`r`.
 
     .. code:: java
 
-        class RegularPolygon {
+        static double eps = 1e-8;
 
-            static double eps = 1e-8;
+        static class RegularPolygon {
 
             Point[] vertices;
             int n;
@@ -46,7 +46,7 @@ context: |-
                 return true;
             }
 
-            // useful geometric function
+            // compute the orientation of 3 points
             private int orient(Point p, Point q, Point r) {
                 double value = q.x * r.y - r.x * q.y - p.x * (r.y - q.y) + p.y * (r.x - q.x);
                 return sgn(value);
@@ -57,6 +57,21 @@ context: |-
                 if(x < -eps) return -1;
                 if(x > eps) return 1;
                 return 0;
+            }
+
+        }
+
+    Points are represented by a simple class with the two coordinates.
+
+    .. code:: java
+
+        static class Point {
+
+            double x, y;
+
+            public Point(double x, double y) {
+                this.x = x;
+                this.y = y;
             }
 
         }
