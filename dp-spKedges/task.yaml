@@ -104,7 +104,7 @@ problems:
             * :math:`2 \leq n \leq 1000`
             * :math:`1 \leq m \leq 10000`
             * :math:`0 \leq A, B < n`
-            * :math:`1 \leq k \leq n`
+            * :math:`1 \leq k < n`
             * :math:`0 \leq p \leq 1000`
 
             **Sample Test Cases**
