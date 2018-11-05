@@ -11,7 +11,7 @@ context: |-
 
     .. math::
 
-        dp(v) = \min_{u \ \textrm{in-neighbor of} \ v} dp(u) + w(u, v)
+        dp(v) = \min_{(u, v) \in E} dp(u) + w(u, v)
 
     The state graph is the same as the input graph and so this formulation will work if and only if the input graph is acyclic.
 
@@ -50,7 +50,7 @@ context: |-
 
       dp(v, i) = \min
       \begin{cases}
-        \min \left\{ dp(u, i - 1) + w(u, v) \mid \textit{$u$ neighbor $v$} \right\} \\
+        \min \left\{ dp(u, i - 1) + w(u, v) \mid (u, v) \in E \right\} \\
         dp(v, i - 1)
       \end{cases}
 
@@ -63,7 +63,7 @@ context: |-
 
     Notice that with positive edge weights, any shortest path uses at most :math:`|V| - 1` edges (such a shortest path cannot have cycles). This means that we only need to compute the answer for states until :math:`i = |V| - 1`. The answer to the shortest path problem from :math:`s` to :math:`v` will therefore be :math:`dp(v, |V| - 1)`.
 
-    What did we lose by extending the space state? We lost efficiency, now there are :math:`O(|V|^2)` states
+    What did we lose by extending the space state? We lost efficiency, now there are :math:`O(|V|^2)` states.
 environment: pyjavacpp
 evaluate: best
 groups: false
