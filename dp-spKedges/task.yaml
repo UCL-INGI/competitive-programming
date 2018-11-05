@@ -1,4 +1,4 @@
-accessible: false
+accessible: true
 author: ''
 context: |-
     In the previous task, we say a DP formulation for the shortest path problem with positive edge weights :math:`w` from a given source node :math:`s`:
@@ -19,14 +19,14 @@ context: |-
 
     Doing so requires some imagination and is problem dependent. However there are some general tricks.
 
-    Suppose that you have a fomrulation with states :math:`s \in S`.
+    Suppose that you have a formulation with states :math:`s \in S`.
     Imagine that you add a parameter :math:`i` to the formulation and manage to make sure that each state :math:`(s, i)` **only depends** on states :math:`(s, j)` with :math:`j < i`. Then your new state graph is clearly acyclic since any path on it
 
     .. math::
 
         (s_1, i_1), (s_2, i_2), \ldots, (s_k, i_k)
 
-    must has have a strincly increasing :math:`i` coordinates
+    must has have a strictly increasing :math:`i` coordinates
 
     .. math::
 
@@ -78,11 +78,12 @@ limits:
     memory: '1000'
 name: 'DP - Shortest paths: Acyclic formulation'
 network_grading: false
+order: 22
 problems:
     file:
         type: file
         name: Alice is afraid of flying
-        header: |
+        header: |-
             Alice wants to travel from her home country :math:`A` to her dream destination :math:`B`. There are several flights available connecting the cities in the world each with a certain price :math:`p`. She does not really like to fly, she particularly really hates the takeoff. Therefore, so she would like to go travel without having to fly more than :math:`k` times.
 
             Can you help her find the cheapest way to fly from :math:`A` to :math:`B` without flying more than :math:`k` times?
@@ -93,7 +94,7 @@ problems:
 
             - :math:`m` lines each with with three integers :math:`a, b` and :math:`p` giving that she can fly betweens cities :math:`a` and :math:`b` at cost :math:`p`. Note that flights are bidirectional.
 
-            The cities are represented by numbers from 0 to :math:`n - 1`. You can assume that it is possible to travel (possbily indirectly) between any to pairs of cities.
+            The cities are represented by numbers from 0 to :math:`n - 1`. You can assume that it is possible to travel (possibly indirectly) between any to pairs of cities.
 
             **Output**
 

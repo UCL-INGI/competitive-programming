@@ -85,7 +85,7 @@ limits:
     memory: '1000'
 name: 'Binary Search - Problem: Glyph Recognition'
 network_grading: false
-order: 33
+order: 34
 problems:
     file:
         type: file

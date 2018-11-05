@@ -57,7 +57,7 @@ limits:
     memory: '1000'
 name: DP - Maximum sum subarray
 network_grading: false
-order: 26
+order: 27
 problems:
     dp1-maxarraysum-1:
         name: Maximum sum subarray

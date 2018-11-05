@@ -98,7 +98,7 @@ limits:
     memory: '400'
 name: DP - Memory reduction
 network_grading: false
-order: 23
+order: 24
 problems:
     file:
         name: Knapsack low memory
