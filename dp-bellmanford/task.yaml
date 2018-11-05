@@ -1,6 +1,6 @@
 accessible: false
 author: ''
-context: |+
+context: |-
     In the previous task, we say a DP formulation for the shortest path problem with positive edge weights from a given source node :math:`s`:
 
     .. math::
@@ -32,6 +32,11 @@ context: |+
 
         i_1 < i_2 < \ldots < i_k
 
+    This might seem a bit abstract so let's see a concrete example with the shortest path problem.
+
+    Define a new state :math:`(v, i)` with the following subproblem definition
+
+        :math:`dp(v, i)` equals the length of the shortest path from :math:`s` to :math:`v` that traverses at most :math:`i` edges.
 environment: dafny
 evaluate: best
 groups: false
