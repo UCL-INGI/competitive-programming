@@ -1,9 +1,13 @@
 accessible: true
 author: ''
 context: |-
-    In this task you will have to solve problem G from NWERC 2017.
+    In this task you will have to solve problem G from NWERC 2017. Read the problem statement below.
 
     Since the goal of this task is not to teach you geometry, you can use the following class that represents a regular polygon with :math:`n` vertices and radius :math:`r`.
+
+    For any given :math:`n \in {3, \ldots, 8}` you can perform one binary search to find the largest regular polygon that contains no input points and another binary search to find the smallest regular polygon that contain all the points. Then you compute the ratio of the two areas to know the score.
+
+    The answer will be the :math:`n` that gives the best score.
 
     .. code:: java
 
