@@ -64,14 +64,14 @@ context: |-
     Notice that with positive edge weights, any shortest path uses at most :math:`|V| - 1` edges (such a shortest path cannot have cycles). This means that we only need to compute the answer for states until :math:`i = |V| - 1`. The answer to the shortest path problem from :math:`s` to :math:`v` will therefore be :math:`dp(v, |V| - 1)`.
 
     What did we lose by extending the space state? We lost efficiency, now there are :math:`O(|V|^2)` states
-environment: dafny
+environment: pyjavacpp
 evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '30'
-    output: '2'
-    memory: '100'
+    time: '1000'
+    output: '100'
+    memory: '1000'
 name: 'DP - Shortest paths: Acyclic formulation'
 network_grading: false
 problems: {}
