@@ -59,6 +59,10 @@ context: |-
     With this formulation we can now solve the followin problem:
 
         Given a weighted graph :math:`G` and a source :math:`s`, what is the shortest path from :math:`s` to :math:`v` using at most :math:`i` edges?
+
+    Notice that with positive edge weights, any shortest path uses at most :math:`|V|` edges (such a shortest path cannot have cycles). This means that we only need to compute the answer for states until :math:`i = |V|`.
+
+    What did we lose by extending the space state? We lost efficiency, now there are :math:`O(|V|^2)` states
 environment: dafny
 evaluate: best
 groups: false
@@ -67,7 +71,7 @@ limits:
     time: '30'
     output: '2'
     memory: '100'
-name: DP - Making a cyclic state graph acyclic (Bellman-Ford)
+name: 'DP - Shortest paths: Acyclic formulation'
 network_grading: false
 problems: {}
 stored_submissions: 0
