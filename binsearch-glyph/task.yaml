@@ -1,6 +1,27 @@
 accessible: true
 author: ''
-context: ''
+context: |-
+    In this task you will have to solve problem G from NWERC 2017.
+
+    The following functions might be useful:
+
+    **Compute the vertices of a regular polygon**
+
+    .. code:: java
+
+        public RegularPolygon(int n, double r) {
+                this.n = n;
+                this.r = r;
+                vertices = new Point[n];
+                double alpha = 2 * Math.PI / n;
+                double cur = 0;
+                for(int i = 0; i < n; i++) {
+                    double x = r * Math.cos(cur);
+                    double y = r * Math.sin(cur);
+                    vertices[i] = new Point(x, y);
+                    cur += alpha;
+                }
+            }
 environment: pyjavacpp
 evaluate: best
 groups: false
