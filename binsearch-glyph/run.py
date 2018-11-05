@@ -34,7 +34,7 @@ files_before = set()
 if local:
   for fn in os.listdir('./'):
     files_before.add(fn)
-  os.system('cp ./private/{0} ./{0}'.format(filename))
+  os.system('cp ./{0} ./{0}'.format(filename))
 else:
   os.system('getinput {0}:filename > tmp'.format(TASKNAME))
   f = open('tmp', 'r')
