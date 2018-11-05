@@ -17,6 +17,21 @@ context: |+
 
     So what can we do if the input graph contains cycles, is it still possible to solve it with dynamic programming? *YES*. But we need to change the formulation so that the resulting state graph is acyclic.
 
+    Doing so requires some imagination and is problem dependent. However there are some general tricks.
+
+    Suppose that you have a fomrulation with states :math:`s \in S`.
+    Imagine that you add a parameter :math:`i` to the formulation and manage to make sure that each state :math:`(s, i)` **only depends** on states :math:`(s, j)` with :math:`j < i`. Then your new state graph is clearly acyclic since any path on it
+
+    .. math::
+
+        (s_1, i_1), (s_2, i_2), \ldots, (s_k, i_k)
+
+    must has have a strincly increasing :math:`i` coordinates
+
+    .. math::
+
+        i_1 < i_2 < \ldots < i_k
+
 environment: dafny
 evaluate: best
 groups: false
