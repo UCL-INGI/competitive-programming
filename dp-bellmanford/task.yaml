@@ -56,11 +56,12 @@ context: |-
 
     The base case is when :math:`i = 0`. In this case we only use paths with :math:`0` edges the only node that is reachable from the source :math:`s` is itself. If :math:`d(v, i)` is not defined, that is, the path of at most :math:`i` edges from :math:`s` to :math:`v` exists, we define :math:`d(v, i) = \infty`. In particular, it means that we initialize :math:`d(v, 0) = \infty` for each :math:`v \neq s`.
 
-    With this formulation we can now solve the followin problem:
+
+    With this formulation we can now solve the following problem:
 
         Given a weighted graph :math:`G` and a source :math:`s`, what is the shortest path from :math:`s` to :math:`v` using at most :math:`i` edges?
 
-    Notice that with positive edge weights, any shortest path uses at most :math:`|V|` edges (such a shortest path cannot have cycles). This means that we only need to compute the answer for states until :math:`i = |V|`.
+    Notice that with positive edge weights, any shortest path uses at most :math:`|V| - 1` edges (such a shortest path cannot have cycles). This means that we only need to compute the answer for states until :math:`i = |V| - 1`. The answer to the shortest path problem from :math:`s` to :math:`v` will therefore be :math:`dp(v, |V| - 1)`.
 
     What did we lose by extending the space state? We lost efficiency, now there are :math:`O(|V|^2)` states
 environment: dafny
