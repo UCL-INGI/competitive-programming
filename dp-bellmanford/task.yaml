@@ -1,6 +1,6 @@
 accessible: false
 author: ''
-context: |-
+context: |
     In the previous task, we say a DP formulation for the shortest path problem with positive edge weights from a given source node :math:`s`:
 
     .. math::
@@ -34,9 +34,25 @@ context: |-
 
     This might seem a bit abstract so let's see a concrete example with the shortest path problem.
 
-    Define a new state :math:`(v, i)` with the following subproblem definition
+    Define a new state :math:`(v, i)` with the following subproblem definition:
 
         :math:`dp(v, i)` equals the length of the shortest path from :math:`s` to :math:`v` that traverses at most :math:`i` edges.
+
+    How to the subproblems relate to each other? To reach node :math:`i` using at most :math:`i` edges, we have two possibilities:
+
+    1. We reach some neighbor :math:`u` of :math:`v` using at most :math:`i - 1` edges and then traverse edge :math:`(u, v)`
+
+    2. We reach :math:`v` using at most :math:`i - 1` edges.
+
+    Mathematically, this means that
+
+    .. math::
+
+      dp(v, i) = \max
+      \begin{cases}
+        \max \left\{ dp(u, i - 1) \mid u \ \textit{neighbor} \ of v \right\} \\
+        dp(v, i - 1)
+      \end{cases}
 environment: dafny
 evaluate: best
 groups: false
