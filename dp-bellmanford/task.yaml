@@ -1,0 +1,33 @@
+accessible: false
+author: ''
+context: |-
+    In the previous task, we say a DP formulation for the shortest path problem with positive edge weights from a given source node :math:`s`:
+
+    .. math::
+
+        dp(s) = 0
+
+    and for :math:`v \neq s`
+
+    .. math::
+
+        dp(v) = \min_{u \ \textrm{in-neighbor of} \ v} dp(u) + w(u, v)
+
+    The state graph is the same as the input graph and so this formulation will work if and only if the input graph is acyclic.
+environment: dafny
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    time: '30'
+    output: '2'
+    memory: '100'
+name: DP - Bellman-Ford
+network_grading: false
+problems: {}
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0

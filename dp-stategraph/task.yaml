@@ -28,7 +28,9 @@ context: |-
 
     The reason why this graph is acyclic is that the first coordinate of each node, the object index, is strictly increasing in any path of the graph.
 
-    This is a **crucial** property that our DP formulation must satisfy. If we happend to have cycles in the DP state graph then the order of the subproblems is not well defined and the algorithm will loop forever because the answer to some subproblems will depend on itself.
+    This is a **crucial** property that our DP formulation must satisfy. If we happend to have cycles in the DP state graph, then the order of the subproblems is not well defined and the algorithm will loop forever because the answer to some subproblems will depend on itself.
+
+        The state graph of a DP formulation **MUST** be acyclic!
 
     To better illustrate this consider the shortest path problem. Given a graph :math:`G` with positive edge weights and a node :math:`s` we want to compute the shortest path length from :math:`s` to each other node. Let's have a state for each node :math:`v` of the input graph and define DP subproblems as follows:
 
@@ -62,21 +64,21 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    output: '2'
     time: '30'
+    output: '2'
     memory: '100'
 name: DP - State graph
 network_grading: false
 order: 21
 problems:
     read:
-        header: ''
+        type: multiple_choice
         choices:
         -   valid: true
             text: 'Yes'
-        limit: 0
-        type: multiple_choice
         name: Mark this sections as read?
+        limit: 0
+        header: ''
 stored_submissions: 0
 submission_limit:
     amount: -1
