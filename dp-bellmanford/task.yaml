@@ -48,13 +48,17 @@ context: |-
 
     .. math::
 
-      dp(v, i) = \max
+      dp(v, i) = \min
       \begin{cases}
-        \max \left\{ dp(u, i - 1) + w(u, v) \mid \textit{$u$ neighbor $v$} \right\} \\
+        \min \left\{ dp(u, i - 1) + w(u, v) \mid \textit{$u$ neighbor $v$} \right\} \\
         dp(v, i - 1)
       \end{cases}
 
-    The base case is when :math:`i = 0`. In this case we only use paths with :math:`0` edges the only node that is reachable from the source :math:`s` is itself.
+    The base case is when :math:`i = 0`. In this case we only use paths with :math:`0` edges the only node that is reachable from the source :math:`s` is itself. If :math:`d(v, i)` is not defined, that is, the path of at most :math:`i` edges from :math:`s` to :math:`v` exists, we define :math:`d(v, i) = \infty`. In particular, it means that we initialize :math:`d(v, 0) = \infty` for each :math:`v \neq s`.
+
+    With this formulation we can now solve the followin problem:
+
+        Given a weighted graph :math:`G` and a source :math:`s`, what is the shortest path from :math:`s` to :math:`v` using at most :math:`i` edges?
 environment: dafny
 evaluate: best
 groups: false
