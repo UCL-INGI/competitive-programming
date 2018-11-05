@@ -79,23 +79,21 @@ problems:
         type: file
         name: Alice is afraid of flying
         header: |
-            Alice wants to travel from her home country :math:`A` to her dream destination :math:`B`. There are several flights available connecting the cities in the world each with a certain parice :math:`p`. She does not really like to fly, she particularly really hates the takeoff. Therefore, so she would like to go travel without having to takeoff more than :math:`k` times.
+            Alice wants to travel from her home country :math:`A` to her dream destination :math:`B`. There are several flights available connecting the cities in the world each with a certain price :math:`p`. She does not really like to fly, she particularly really hates the takeoff. Therefore, so she would like to go travel without having to fly more than :math:`k` times.
 
-            Can you help her find the cheapest way to fly from :math:`A` to :math:`B` without taking off more than :math:`k` times?
-
-            Put the pieces together in order to be able to compute shortest paths in an *undirected* graph with non negative edge weights.
+            Can you help her find the cheapest way to fly from :math:`A` to :math:`B` without flying more than :math:`k` times?
 
             **Input**
 
-            - One line with fours integers :math:`n`, :math:`m`, :math:`A`, :math:`B` and :math:`k` giving the number of cities, the number of flights connecting pairs of cities, her home city, her dream destination and the maximum number of takeoffs that she can bear.
+            - One line with four integers :math:`n`, :math:`m`, :math:`A`, :math:`B` and :math:`k` giving the number of cities, the number of flights connecting pairs of cities, her home city, her dream destination and the maximum number of flights that she can bear.
 
-            - :math:`m` lines each with with three integers :math:`a, b` and :math:`p` giving that cities you can fly betweens cities :math:`a` to :math:`b` at cost :math:`p`. Note that flights are bidirectional.
+            - :math:`m` lines each with with three integers :math:`a, b` and :math:`p` giving that she can fly betweens cities :math:`a` and :math:`b` at cost :math:`p`. Note that flights are bidirectional.
 
-            The cities are numbered starting from 0. You can assume that it is possible to travel (possbily indirectly) between any to pairs of cities.
+            The cities are represented by numbers from 0 to :math:`n - 1`. You can assume that it is possible to travel (possbily indirectly) between any to pairs of cities.
 
             **Output**
 
-            A single integer with the minimum cost from traveling from :math:`A` to :math:`B` with at most :math:`d` flights.
+            A single integer with the minimum cost for traveling from :math:`A` to :math:`B` with at most :math:`d` flights.
 
             **Constraints**
 
