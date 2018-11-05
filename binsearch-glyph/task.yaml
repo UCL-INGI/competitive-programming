@@ -15,7 +15,7 @@ problems:
     file:
         type: file
         name: Glyph Recognition
-        header: |-
+        header: |
             *Adapted from problem G from NWERC 2017*
 
             You are an archaeologist working at an excavation site where your team has found hundreds of clay tablets containing glyphs written in some ancient language. Not much is known about the language yet, but you know that there are only six different glyphs, each of them in the shape of a regular polygon with one vertex pointing to the right (see the figure below). Only the
@@ -41,6 +41,38 @@ problems:
             An example can be seen in figure (c). The score for this value of :math:`k` is :math:`A_{inner} \ / \ A_{outer}`, where :math:`A_{inner}` and :math:`A_{outer}` are the areas of the inner and outer polygon, respectively.
 
             Given a set of sample points, find the glyph with the highest score.
+
+            **Input**
+
+            - One line with one integer :math:`n`, the number of sample points.
+
+            - :math:`n` lines, each with two integers :math:`x, y`, specifying a point at coordinates :math:`(x, y)`.
+
+            No sample point is at the origin and all points are distinct.
+
+            **Output**
+
+            Output the optimal number of corners :math:`k (3 \leq k \leq 8)`, followed by the score obtained for that value of :math:`k`. Your answer will be accepted if the absolute error does not exceed :math:`10^{−6}` . If several values of :math:`k` result in a score that is within :math:`10^{−6}` of the optimal score, any one of them will be accepted.
+
+            **Constraints**
+
+            * :math:`1 \leq n \leq 1000`
+            * :math:`−10^6 \leq x, y \leq 10^6 `
+
+            **Sample Test Cases**
+
+            `Sample input 1 <binsearch-glyph/1.in>`_
+
+            `Sample output 1 <binsearch-glyph/1.ans>`_
+
+
+            `Sample input 2 <binsearch-glyph/2.in>`_
+
+            `Sample output 2 <binsearch-glyph/2.ans>`_
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
 stored_submissions: 0
 submission_limit:
     amount: -1
