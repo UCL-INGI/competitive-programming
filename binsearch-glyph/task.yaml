@@ -15,14 +15,19 @@ problems:
     file:
         type: file
         name: Glyph Recognition
-        header: |-
-            Problem G from NWERC 2017
+        header: |
+            *Adapted from problem G from NWERC 2017*
 
-            You are an archaeologist working at an excavation site where your team has found hundreds of
-            clay tablets containing glyphs written in some ancient language. Not much is known about the
-            language yet, but you know that there are only six different glyphs, each of them in the shape
-            of a regular polygon with one vertex pointing to the right (see Figure G.1(a) below). Only the
+            You are an archaeologist working at an excavation site where your team has found hundreds of clay tablets containing glyphs written in some ancient language. Not much is known about the language yet, but you know that there are only six different glyphs, each of them in the shape of a regular polygon with one vertex pointing to the right (see the figure below). Only the
             boundary of each polygon is carved out of the clay.
+
+            .. image:: binsearch-glyph/alphabet.png
+
+            .. image:: binsearch-glyph/1.png
+
+            .. image:: binsearch-glyph/1-triangle.png
+
+            .. image:: binsearch-glyph/1-hexagon.png
 stored_submissions: 0
 submission_limit:
     amount: -1
