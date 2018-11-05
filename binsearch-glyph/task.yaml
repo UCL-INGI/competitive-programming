@@ -3,13 +3,20 @@ author: ''
 context: |-
     In this task you will have to solve problem G from NWERC 2017.
 
-    The following functions might be useful:
-
-    **Compute the vertices of a regular polygon**
+    You can use the following class that represents a regular polygon with :math:`n` vertices and radius :math:`r`.
 
     .. code:: java
 
-        public RegularPolygon(int n, double r) {
+        class RegularPolygon {
+
+            static double eps = 1e-8;
+
+            Point[] vertices;
+            int n;
+            double r;
+
+            // create a regular polygon with n vertices and radius r
+            public RegularPolygon(int n, double r) {
                 this.n = n;
                 this.r = r;
                 vertices = new Point[n];
@@ -22,6 +29,37 @@ context: |-
                     cur += alpha;
                 }
             }
+
+            // compute the area of the regular polygon
+            public double area() {
+                return 0.5 * n * r * r * Math.sin(2.0 * Math.PI / n);
+            }
+
+            // check whether the polygon contains point p
+            public boolean contains(Point p) {
+                int target = orient(vertices[0], vertices[1], vertices[2]);
+                for(int i = 0; i < n; i++) {
+                    int j = (i + 1) % n;
+                    int o = orient(p, vertices[i], vertices[j]);
+                    if(o != 0 && o != target) return false;
+                }
+                return true;
+            }
+
+            // useful geometric function
+            private int orient(Point p, Point q, Point r) {
+                double value = q.x * r.y - r.x * q.y - p.x * (r.y - q.y) + p.y * (r.x - q.x);
+                return sgn(value);
+            }
+
+            // compute the sign of a double
+            private int sgn(double x) {
+                if(x < -eps) return -1;
+                if(x > eps) return 1;
+                return 0;
+            }
+
+        }
 environment: pyjavacpp
 evaluate: best
 groups: false
