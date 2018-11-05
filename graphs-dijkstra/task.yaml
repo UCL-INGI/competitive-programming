@@ -24,13 +24,13 @@ context: |-
 
     .. math::
 
-        dist[x] + w(x, y) + cost(x, y)
+        dist[x] + w(x, y) + cost(y, v)
 
     where
 
     - :math:`dist[x]` is the cost of reaching :math:`x` from :math:`s`
     - :math:`w(x, y)` is the cost of edge :math:`(x, y)`
-    - :math:`cost(x, y)` is the cost of the path from :math:`x` to :math:`y`
+    - :math:`cost(y, v)` is the cost of the path from :math:`y` to :math:`v`
 
     On the other hand, the blue path has cost:
 
@@ -42,7 +42,7 @@ context: |-
 
     .. math::
 
-        dist[u] + w(u, v) \leq dist[x] + w(x, y) + cost(x, y)
+        dist[u] + w(u, v) \leq dist[x] + w(x, y) + cost(y, v)
 
     because we selected :math:`u` such that :math:`dist[u] + w(u, v) \leq dist[x] + w(x, y)` and we know that, since the edge weights are non-negative, :math:`cost(x, y) \geq 0`.
 
@@ -120,14 +120,16 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
+    time: '1000'
     output: '100'
     memory: '1000'
-    time: '1000'
 name: Graphs - Dijkstra
 network_grading: false
 order: 15
 problems:
     file:
+        type: file
+        name: Single source shortest path
         header: |
             Put the pieces together in order to be able to compute shortest paths in an *undirected* graph with non negative edge weights.
 
@@ -160,8 +162,6 @@ problems:
             `Sample input 2 <graphs-dijkstra/2.in>`_
 
             `Sample output 2 <graphs-dijkstra/2.ans>`_
-        name: Single source shortest path
-        type: file
         allowed_exts:
         - .java
         - .cpp

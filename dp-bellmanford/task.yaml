@@ -1,7 +1,7 @@
 accessible: false
 author: ''
 context: |
-    In the previous task, we say a DP formulation for the shortest path problem with positive edge weights from a given source node :math:`s`:
+    In the previous task, we say a DP formulation for the shortest path problem with positive edge weights :math:`w` from a given source node :math:`s`:
 
     .. math::
 
@@ -50,7 +50,7 @@ context: |
 
       dp(v, i) = \max
       \begin{cases}
-        \max \left\{ dp(u, i - 1) \mid u \ \textit{neighbor} \ of v \right\} \\
+        \max \left\{ dp(u, i - 1) + w(u, v) \mid \textit{$u$ neighbor $v$} \right\} \\
         dp(v, i - 1)
       \end{cases}
 environment: dafny
