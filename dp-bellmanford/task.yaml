@@ -63,7 +63,7 @@ limits:
     time: '30'
     output: '2'
     memory: '100'
-name: DP - Making a cyclic state graph acyclic
+name: DP - Making a cyclic state graph acyclic (Bellman-Ford)
 network_grading: false
 problems: {}
 stored_submissions: 0
