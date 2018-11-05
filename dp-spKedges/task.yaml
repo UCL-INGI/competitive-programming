@@ -109,14 +109,14 @@ problems:
 
             **Sample Test Cases**
 
-            `Sample input 1 <dp-bellmanford/1.in>`_
+            `Sample input 1 <dp-spKedges/1.in>`_
 
-            `Sample output 1 <dp-bellmanford/1.ans>`_
+            `Sample output 1 <dp-spKedges/1.ans>`_
 
 
-            `Sample input 2 <dp-bellmanford/2.in>`_
+            `Sample input 2 <dp-spKedges/2.in>`_
 
-            `Sample output 2 <dp-bellmanford/2.ans>`_
+            `Sample output 2 <dp-spKedges/2.ans>`_
         allowed_exts:
         - .java
         - .cpp
