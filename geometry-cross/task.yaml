@@ -10,6 +10,18 @@ context: |-
         \vec{v} \times \vec{w} = \|\vec{v}\| \|\vec{w}\| \sin \theta
 
     where :math:`\|\vec{v}\|` and :math:`\|\vec{w}\|` are the lengths of the vectors and :math:`\theta` is the amplitude of the oriented angle from :math:`\vec{v}` to :math:`\vec{w}`.
+
+    The cross product has a very simple expression in cartesian coordiantes. If :math:`\vec{v} = (v_x, v_y)` and :math:`\vec{w} = (w_x, w_y)` then
+
+    .. math::
+
+         \vec{v} \times \vec{w} = v_x w_y - v_y w_x
+
+    .. code:: java
+
+        static double cross(Point v, Point w) {
+            return v.x * w.y - v.y * w.x;
+        }
 environment: dafny
 evaluate: best
 groups: false
