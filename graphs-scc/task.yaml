@@ -195,7 +195,7 @@ limits:
     memory: '1000'
 name: Graphs - Strongly connected components
 network_grading: false
-order: 15
+order: 13
 problems:
     file:
         name: Strongly connected components

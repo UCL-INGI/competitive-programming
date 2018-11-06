@@ -9,7 +9,7 @@ context: |-
 
     |
 
-    .. image:: geometry-orient/orient.png
+    .. image:: geometry-orient/product5.png
 
     |
 
@@ -22,8 +22,9 @@ limits:
     time: '30'
     output: '2'
     memory: '100'
-name: Geometry 2D - Point orientation
+name: Geometry - Point orientation
 network_grading: false
+order: 38
 problems: {}
 stored_submissions: 0
 submission_limit:
@@ -31,4 +32,3 @@ submission_limit:
     period: -1
 tags: {}
 weight: 1.0
-order: 1

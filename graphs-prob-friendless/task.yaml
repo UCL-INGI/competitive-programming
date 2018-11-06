@@ -48,7 +48,7 @@ limits:
     memory: '1000'
 name: Graphs - Bipartite
 network_grading: false
-order: 11
+order: 9
 problems:
     file:
         name: Friendless - BAC Round 3 2017

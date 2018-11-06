@@ -22,7 +22,7 @@ limits:
     memory: '100'
 name: DP - Introduction
 network_grading: false
-order: 20
+order: 18
 problems:
     read:
         header: ''

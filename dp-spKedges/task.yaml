@@ -78,7 +78,7 @@ limits:
     memory: '1000'
 name: 'DP - Shortest paths: Acyclic formulation'
 network_grading: false
-order: 24
+order: 22
 problems:
     file:
         type: file

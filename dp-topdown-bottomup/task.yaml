@@ -80,7 +80,7 @@ limits:
     memory: '1000'
 name: DP - Top down VS Bottom up
 network_grading: false
-order: 22
+order: 20
 problems:
     file:
         name: Knapsack (same problem as before)

@@ -138,7 +138,7 @@ limits:
     time: '30'
 name: Graphs - Maximum flow runtime
 network_grading: false
-order: 19
+order: 17
 problems:
     read:
         choices:

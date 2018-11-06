@@ -98,7 +98,7 @@ limits:
     memory: '100'
 name: Graphs - Representation
 network_grading: false
-order: 4
+order: 2
 problems:
     read:
         type: multiple_choice
