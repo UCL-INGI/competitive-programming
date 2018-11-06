@@ -1,0 +1,21 @@
+accessible: true
+author: ''
+context: 'The cross product :math:`\crossv{v}{w}` of two vectors :math:`\vv{v}` and
+    :math:`\vv{w}` can be seen as a measure of how perpendicular they are. '
+environment: dafny
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    time: '30'
+    output: '2'
+    memory: '100'
+name: Geometry - Cross product
+network_grading: false
+problems: {}
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0
