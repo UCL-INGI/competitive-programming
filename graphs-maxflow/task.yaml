@@ -305,7 +305,7 @@ limits:
     memory: '1000'
 name: Graphs - Maximum flow (Edmonds-Karp)
 network_grading: false
-order: 16
+order: 18
 problems:
     file:
         name: Maximum flow

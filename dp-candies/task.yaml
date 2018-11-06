@@ -95,7 +95,7 @@ limits:
     memory: '1000'
 name: DP - Candy problem, parameter decution
 network_grading: false
-order: 26
+order: 28
 problems:
     file:
         name: Candies for 3 kids

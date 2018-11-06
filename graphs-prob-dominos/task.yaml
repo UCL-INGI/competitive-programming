@@ -11,7 +11,7 @@ limits:
     memory: '1000'
 name: 'Graphs - Problem: Dominos'
 network_grading: false
-order: 14
+order: 16
 problems:
     file:
         name: Dominoes

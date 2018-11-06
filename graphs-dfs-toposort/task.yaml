@@ -105,7 +105,7 @@ limits:
     memory: '100'
 name: 'Graphs - DFS: topological order'
 network_grading: false
-order: 12
+order: 14
 problems:
     read:
         header: ''

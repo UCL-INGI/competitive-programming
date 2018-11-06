@@ -125,7 +125,7 @@ limits:
     memory: '1000'
 name: Graphs - Dijkstra
 network_grading: false
-order: 15
+order: 17
 problems:
     file:
         type: file

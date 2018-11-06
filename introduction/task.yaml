@@ -116,7 +116,7 @@ limits:
     output: '2'
 name: Introduction
 network_grading: false
-order: 0
+order: 2
 problems:
     read:
         choices:
