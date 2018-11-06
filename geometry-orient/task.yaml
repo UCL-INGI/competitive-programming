@@ -1,6 +1,19 @@
-accessible: true
+accessible: false
 author: ''
-context: ''
+context: |-
+    One of the most important computational geometry primitives is the orientation of :math:`3` points.
+
+    Let :math:`A, B, C` be :math:`3` points on the plane that form a triangle. Imagine that we travel on the triangle formed by them going from :math:`A` to :math:`B`, then to :math:`C` and finaly back to :math:`A`.
+
+    We would like to know whether we are traveling in a clockwise fashon of counter-clockwise. The following figure illustrates these two cases:
+
+    |
+
+    .. image:: geometry-orient/orient.png
+
+    |
+
+    It turns out that there is a very simple way to compute this.
 environment: dafny
 evaluate: best
 groups: false
