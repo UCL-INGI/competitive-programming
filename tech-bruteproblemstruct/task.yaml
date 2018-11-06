@@ -1,6 +1,6 @@
 accessible: false
 author: ''
-context: |-
+context: |
     In some problems it is possible to identify some structure in the solution.
 
     To illustrate this we are going to solve problem E from BAC 2014.
@@ -17,7 +17,7 @@ context: |-
 
     Note that this means that there can only be one portal at a given time. Both these actions are instantaneous and take no time to execute.
 
-    Given a map, the location of the company headquarters H, the pickup location P and the delivery location D, they would like to know what is the minimum time it takes to go from H to P and then to D knowing that you have a translocator available.
+    Given a graph with up to :math:`50000` nodes representing road network, the location of the company headquarters H, the pickup location P and the delivery location D, they would like to know what is the minimum time it takes to go from H to P and then to D knowing that you have a translocator available.
 
     Note that you can use the translocator any number of times.
 
@@ -33,7 +33,13 @@ context: |-
 
     **Solving the problem**
 
-    qsdsq
+    Since the number of nodes can be up to :math:`50000`, it seems to indicate that there should be a linear time solution for this problem.
+
+    We need to reason about the structure of the solution. What can we say about the usage of the translocator?
+
+    Consider the following figure. It represents the structure of a path with one teleportation. Going from the headquarters :math:`H` to some node :math:`T` where we drop the teleporter then to some other node :math:`X` and from there, teleport back to :math:`T`.
+
+    .. image:: tech-bruteproblemstruct/teleport1.png
 environment: pyjavacpp
 evaluate: best
 groups: false
