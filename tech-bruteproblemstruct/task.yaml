@@ -51,7 +51,17 @@ context: |-
 
     .. image:: tech-bruteproblemstruct/teleport2.png
 
-    Here again, we can see a useless path: :math:`(P, \ldots, X, T)` is useless since if we wanted to go back to :math:`T`, we could have just teleported from :math:`P` to :math:`T` directly.
+    |
+
+    Here again, we can see a useless path: :math:`(P, \ldots, X, T)` is useless since if we wanted to go back to :math:`T`, we could have just teleported from :math:`P` to :math:`T` directly. Thus, so far, the optimal path will look like this:
+
+    |
+
+    .. image:: tech-bruteproblemstruct/teleport3.png
+
+    |
+
+    The only thing that remains is to go deliver the goods to :math:`D`.
 environment: pyjavacpp
 evaluate: best
 groups: false
