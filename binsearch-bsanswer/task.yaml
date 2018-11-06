@@ -8,10 +8,10 @@ context: |-
     .. code:: java
 
         static int integerSqrt(int n) {
-            long L = 0;
-            long R = n + 1;
+            int L = 0;
+            int R = n + 1;
             while(R - L >= 2) {
-                long M = (L + R) / 2;
+                int M = (L + R) / 2;
                 if(check(M, n)) L = M; // dismiss all values < M
                 else R = M; // dismiss all values > M
             }
@@ -35,6 +35,25 @@ context: |-
     |
 
     This means that we can actually use binary search to solve **any problem** in which we seek the largest value that satisfies some given property as long as that truth value of that property is **monotone**.
+
+    We can thus generalize the code as follows:
+
+    .. code:: java
+
+        static int binarySearch(int n) {
+            int L = 0;
+            int R = n + 1;
+            while(R - L >= 2) {
+                long M = (L + R) / 2;
+                if(check(M)) L = M; // dismiss all values < M
+                else R = M; // dismiss all values > M
+            }
+            return (int)L;
+        }
+
+        static boolean check(int M) {
+            // TODO: the condition you need to check
+        }
 
     Let's illustrate this on a real problem.
 
@@ -92,7 +111,7 @@ context: |-
     Since :math:`n \leq 1000`, a :math:`O(n^2)` algorithm is fast enough.
     We can thus check the condition by building the graph corresponding to the given :math:`d` and using a graph traversal algorithm to check whether the graph is connected.
 
-    **Note:** In this problem we seek the *smallest* :math:`d` such that some condition holds whereas the above code finds the *largest* value such that some condition holds. The easiest way to adapt the code is to negate your check conditions so that it returns :code:`true` if :math:`d` is not enought and :code:`false` otherwise. Then the answer will be the output of the binary search plus :math:`1`.
+    **Note:** In this problem we seek the *smallest* :math:`d` such that some condition holds whereas the above code finds the *largest* value such that some condition holds. The easiest way to adapt the code is to negate your check condition so that it returns :code:`true` if :math:`d` is not enought and :code:`false` otherwise. Then the answer will be the output of the binary search plus :math:`1`.
 environment: pyjavacpp
 evaluate: best
 groups: false
