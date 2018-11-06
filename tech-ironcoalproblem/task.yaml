@@ -68,18 +68,19 @@ problems:
 
             **Output**
 
-            A single line with a non-negative integer giving the minimum number of cross sections that must be added in order to make the structure rigid.
+            Output the minimum number of settlers needed to claim at least one cell with coal and at least one cell with iron ore. Output :code:`impossible` if it is impossible to own both, coal and iron
+            ore.
 
             **Sample Test Cases**
 
-            `Sample input 1 <graphs-problem-xbracing/1.in>`_
+            `Sample input 1 <tech-ironcoalproblem/1.in>`_
 
-            `Sample output 1 <graphs-problem-xbracing/1.ans>`_
+            `Sample output 1 <tech-ironcoalproblem/1.ans>`_
 
 
-            `Sample input 2 <graphs-problem-xbracing/2.in>`_
+            `Sample input 2 <tech-ironcoalproblem/2.in>`_
 
-            `Sample output 2 <graphs-problem-xbracing/2.ans>`_
+            `Sample output 2 <tech-ironcoalproblem/2.ans>`_
         allowed_exts:
         - .java
         - .cpp
