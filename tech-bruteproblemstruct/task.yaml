@@ -1,0 +1,45 @@
+accessible: false
+author: ''
+context: |-
+    In some problems it is possible to identify some structure in the solution.
+
+    To illustrate this we are going to solve problem E from BAC 2014.
+
+    **Pickup and Delivery**
+
+    A futuristic pickup and delivery company is considering the use of translocators in their buisness. A translocator is a device that allows the user to teleport himself. It has the two following functions:
+
+    - Destroy the current portal if one exists and create one at you current location.
+
+    - Teleport yourselft to the portal. The portal is destroyed.
+
+    Note that this means that there can only be one portal at a given time. Both these actions are instantaneous and take no time to execute.
+
+    Given a map, the location of the company headquarters H, the pickup location P and the delivery location D, they would like to know what is the minimum time it takes to go from H to P and then to D knowing that you have a translocator available.
+
+    Note that you can use the translocator any number of times.
+
+    **Example:**
+
+    Suppose the map is given by the following graph.
+
+    .. image:: tech-bruteproblemstruct/image.png
+
+    The best solution is to go from :math:`H` to :math:`D` and drop the translocator. Then go to the pickup location :math:`P`, pickup the goods and then teleport yourself back to :math:`D`. The total time will be :math:`4`.
+environment: dafny
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    time: '30'
+    output: '2'
+    memory: '100'
+name: Techniques - Brute force on solution structure
+network_grading: false
+problems: {}
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0
