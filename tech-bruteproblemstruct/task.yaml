@@ -1,6 +1,6 @@
 accessible: false
 author: ''
-context: |
+context: |-
     In some problems it is possible to identify some structure in the solution.
 
     To illustrate this we are going to solve problem E from BAC 2014.
@@ -40,6 +40,8 @@ context: |
     Consider the following figure. It represents the structure of a path with one teleportation. Going from the headquarters :math:`H` to some node :math:`T` where we drop the teleporter then to some other node :math:`X` and from there, teleport back to :math:`T`.
 
     .. image:: tech-bruteproblemstruct/teleport1.png
+
+    Clearly, the cycle :math:`(T, \ldots, X, T)` a waste of time if we did not pass by the pickup location :math:`P`.
 environment: pyjavacpp
 evaluate: best
 groups: false
