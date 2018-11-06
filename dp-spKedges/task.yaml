@@ -100,7 +100,7 @@ problems:
 
             A single integer with the minimum cost for traveling from :math:`A` to :math:`B` with at most :math:`k` flights.
 
-            If it is impossible for Alice to reach her destination in at most :math:`k` flights, print *impossible*.
+            If it is impossible for Alice to reach her destination in at most :math:`k` flights, print :code:`impossible`.
 
             **Constraints**
 

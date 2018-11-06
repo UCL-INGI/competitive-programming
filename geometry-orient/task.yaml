@@ -1,4 +1,4 @@
-accessible: false
+accessible: true
 author: ''
 context: |
     One of the main uses of cross product is in determining the relative position of points and other objects. For this, we define the function :math:`orient(A, B, C) = \vec{AB} \times \vec{AC}`. It is positive if :math:`C` is on the left side of :math:`\vec{AB}`, negative on the right side, and zero if :math:`C` is on the line containing :math:`\vec{AB}`.
@@ -37,7 +37,7 @@ problems:
         type: file
         name: Point in angle
         header: |
-            As an example of use, suppose we want to check whether a point :math:`P` lies **strictly** inside the angle formed by two semi-lines :math:`AB` and :math:`AC`.
+            As an example of use of :code:`orient`, write an function to check whether a point :math:`P` lies **strictly** inside the angle formed by two semi-lines :math:`AB` and :math:`AC`.
 
             For instance, in the following figure, in the first two cases the point :math:`P` does not lie inside the angle and in the last case it does.
 
