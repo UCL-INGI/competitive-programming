@@ -1,7 +1,7 @@
 accessible: false
 author: ''
 context: |-
-    In some problems it is possible to identify some structure in the solution.
+    In some problems it is possible to identify some structure in the optimal solution and then we can brute-force on the unknown parts of that that structure for find the optimal solution.
 
     To illustrate this we are going to solve problem E from BAC 2014.
 
@@ -17,7 +17,7 @@ context: |-
 
     Note that this means that there can only be one portal at a given time. Both these actions are instantaneous and take no time to execute.
 
-    Given a graph with up to :math:`50000` nodes representing road network, the location of the company headquarters H, the pickup location P and the delivery location D, they would like to know what is the minimum time it takes to go from H to P and then to D knowing that you have a translocator available.
+    Given an **undirected** graph with up to :math:`50000` nodes representing road network, the location of the company headquarters H, the pickup location P and the delivery location D, they would like to know what is the minimum time it takes to go from H to P and then to D knowing that you have a translocator available.
 
     Note that you can use the translocator any number of times.
 
@@ -81,6 +81,8 @@ context: |-
     |
 
     In words, we go from the headquarter :math:`H` to some node :math:`T` where we drop the translocator. Then we go to pickup at :math:`P`, teleport back to :math:`T` and go to :math:`D` without teleporting.
+
+    So we have the structure of the optimal and the only unknown is node :math:`T`. Thus one solution is to simply brute force over all possible values of :math:`T`, evaluate the cost of that solution and find the minimal one.
 environment: pyjavacpp
 evaluate: best
 groups: false
