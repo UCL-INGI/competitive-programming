@@ -36,8 +36,8 @@ problems:
     file:
         type: file
         name: Point in angle
-        header: |-
-            As an example of use, suppose we want to check whether a point :math:`P` lies in the angle formed by two semi-lines AB and AC.
+        header: |
+            As an example of use, suppose we want to check whether a point :math:`P` lies in the angle formed by two semi-lines :math:`AB` and :math:`AC`.
 
             For instance, in the following figure, in the first two cases the point :math:`P` does not lie inside the angle and in the last case it does.
 
@@ -46,6 +46,34 @@ problems:
             |
 
             **Note:** Do not make any assumptions on the orientation of the input points :math:`A`, :math:`B` and :math:`C`. However you can assume that they are not collinear.
+
+            **Input**
+
+            - One line with two integers :math:`A_x, A_y` giving the coordiantes of point :math:`A`.
+            - One line with two integers :math:`B_x, B_y` giving the coordiantes of point :math:`B`.
+            - One line with two integers :math:`C_x, C_y` giving the coordiantes of point :math:`C`.
+            - One line with two integers :math:`P_x, P_y` giving the coordiantes of point :math:`P`.
+
+
+            **Constraints**
+
+            * :math:`-10^5 \leq A_x, A_y, B_x B_y, C_x, C_y, P_x, P_y \leq 10^5`
+
+            **Output**
+
+            A single line with :code:`yes` if :math:`P` lies in the angle formed by two semi-lines :math:`AB` and :math:`AC` and :code:`no` otherwise.
+
+
+            **Sample Test Cases**
+
+            `Sample input 1 <geometry-orient/1.in>`_
+
+            `Sample output 1 <geometry-orient/1.ans>`_
+
+
+            `Sample input 2 <geometry-orient/2.in>`_
+
+            `Sample output 2 <geometry-orient/2.ans>`_
         allowed_exts:
         - .java
         - .cpp
