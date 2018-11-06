@@ -74,6 +74,11 @@ problems:
             `Sample input 2 <geometry-orient/2.in>`_
 
             `Sample output 2 <geometry-orient/2.ans>`_
+
+
+            `Sample input 3 <geometry-orient/3.in>`_
+
+            `Sample output 3 <geometry-orient/3.ans>`_
         allowed_exts:
         - .java
         - .cpp
