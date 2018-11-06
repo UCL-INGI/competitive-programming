@@ -1,4 +1,4 @@
-accessible: false
+accessible: true
 author: ''
 context: This problem I from the NWERC 2017.
 environment: pyjavacpp
@@ -91,3 +91,4 @@ submission_limit:
     period: -1
 tags: {}
 weight: 1.0
+order: 36
