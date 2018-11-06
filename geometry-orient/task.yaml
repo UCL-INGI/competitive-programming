@@ -1,11 +1,7 @@
 accessible: false
 author: ''
-context: |-
-    One of the most important computational geometry primitives is the orientation of :math:`3` points.
-
-    Let :math:`A, B, C` be :math:`3` points on the plane that form a triangle. Imagine that we travel on the triangle formed by them going from :math:`A` to :math:`B`, then to :math:`C` and finaly back to :math:`A`.
-
-    We would like to know whether we are traveling in a clockwise fashon of counter-clockwise. The following figure illustrates these two cases:
+context: |
+    One of the main uses of cross product is in determining the relative position of points and other objects. For this, we define the function :math:`orient(A, B, C) = \vec{AB} \times \vec{AC}`. It is positive if :math:`C` is on the left side of :math:`\vec{AB}`, negative on the right side, and zero if :math:`C` is on the line containing :math:`\vec{AB}`.
 
     |
 
@@ -13,7 +9,18 @@ context: |-
 
     |
 
-    It turns out that there is a very simple way to compute this.
+    It is straightforward to implement:
+
+    .. code:: java
+
+        // create the vector from point a to point b
+        static Point vec(Point a, Point b) {
+            return new Point(b.x - a.x, b.y - a.y);
+        }
+
+         static double orient(Point a, Point b, Point c) {
+            return cross(vec(a, b), vec(a, c);
+        }
 environment: dafny
 evaluate: best
 groups: false
