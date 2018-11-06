@@ -25,9 +25,19 @@ context: |
 
     **Geometric interpretation**
 
-    The cross product :math:`\vec{v} \times \vec{w}` can be seen as a measure of how perpendicular the two vectors are. The closer it is to :math:`0` the less they are perpendicular and they are perpendicular
+    The sign of the cross product indicates whether :math:`\vec{w}` is to the left or to the right of :math:`\vec{v}`.
+
+    -  :math:`\vec{v} \times \vec{w} > 0`: :math:`\vec{w}` is to the **left** of :math:`\vec{v}`
+
+    -  :math:`\vec{v} \times \vec{w} < 0`: :math:`\vec{w}` is to the **right** of :math:`\vec{v}`
+
+    -  :math:`\vec{v} \times \vec{w} = 0`: :math:`\vec{w}` and :math:`\vec{v}` are **aligned**
+
 
     .. image:: geometry-cross/products2.png
+
+
+    The cross product :math:`\vec{v} \times \vec{w}` can be seen as a measure of how perpendicular the two vectors are. The closer it is to :math:`0` the less they are perpendicular and they are perpendicular
 environment: dafny
 evaluate: best
 groups: false
