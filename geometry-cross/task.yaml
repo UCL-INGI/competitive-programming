@@ -27,7 +27,7 @@ context: |
 
     The cross product :math:`\vec{v} \times \vec{w}` can be seen as a measure of how perpendicular the two vectors are. The closer it is to :math:`0` the less they are perpendicular and they are perpendicular
 
-      .. image:: graphs-representation/products2.pdf
+    .. image:: geometry-cross/products2.png
 environment: dafny
 evaluate: best
 groups: false
