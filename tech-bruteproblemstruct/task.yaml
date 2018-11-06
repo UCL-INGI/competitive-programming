@@ -1,4 +1,4 @@
-accessible: false
+accessible: true
 author: ''
 context: |-
     In some problems it is possible to identify some structure in the optimal solution and then we can brute-force on the unknown parts of that that structure for find the optimal solution.
