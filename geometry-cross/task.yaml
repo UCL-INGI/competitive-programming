@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: |-
+context: |
     The cross product :math:`\vec{v} \times \vec{w}` of two vectors :math:`\vec{v}` and :math:`\vec{w}` can be seen as a measure of how perpendicular they are.
 
     It is defined in 2D as:
@@ -22,6 +22,12 @@ context: |-
         static double cross(Point v, Point w) {
             return v.x * w.y - v.y * w.x;
         }
+
+    **Geometric interpretation**
+
+    The cross product :math:`\vec{v} \times \vec{w}` can be seen as a measure of how perpendicular the two vectors are. The closer it is to :math:`0` the less they are perpendicular and they are perpendicular
+
+      .. image:: graphs-representation/products2.pdf
 environment: dafny
 evaluate: best
 groups: false
