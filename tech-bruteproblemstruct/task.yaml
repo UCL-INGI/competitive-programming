@@ -9,11 +9,11 @@ context: |-
 
     **Pickup and Delivery**
 
-    A futuristic pickup and delivery company is considering the use of translocators in their buisness. A translocator is a device that allows the user to teleport himself. It has the two following functions:
+    A futuristic pickup and delivery company is considering the use of translocators in their business. A translocator is a device that allows the user to teleport himself. It has the two following functions:
 
     - Destroy the current portal if one exists and create one at you current location.
 
-    - Teleport yourselft to the portal. The portal is destroyed.
+    - Teleport yourself to the portal. The portal is destroyed.
 
     Note that this means that there can only be one portal at a given time. Both these actions are instantaneous and take no time to execute.
 
@@ -35,7 +35,7 @@ context: |-
 
     Since the number of nodes can be up to :math:`50000`, it seems to indicate that there should be a linear time solution for this problem.
 
-    We need to reason about the structure of the solution. What can we say about the usage of the translocator? Let's analyse the structure of an optimal solution when the translocator is used.
+    We need to reason about the structure of the solution. What can we say about the usage of the translocator? Let's analyze the structure of an optimal solution when the translocator is used.
 
     Consider the following figure. It represents the structure of a path with one teleportation. Going from the headquarters :math:`H` to some node :math:`T` where we drop the teleporter then to some other node :math:`X` and from there, teleport back to :math:`T`.
 
@@ -62,7 +62,7 @@ context: |-
     |
 
     The only thing that remains is to go deliver the goods to :math:`D`.
-    For the same reason as above, this path will never use a teleport as it would juste create a cylce where no progress towards reaching :math:`D` is achieved:
+    For the same reason as above, this path will never use a teleport as it would just create a cylce where no progress towards reaching :math:`D` is achieved:
 
     |
 
