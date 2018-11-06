@@ -1,6 +1,6 @@
 accessible: false
 author: ''
-context: |-
+context: |+
     In some problems it is possible to identify some structure in the solution.
 
     To illustrate this we are going to solve problem E from BAC 2014.
@@ -41,7 +41,17 @@ context: |-
 
     .. image:: tech-bruteproblemstruct/teleport1.png
 
-    Clearly, the cycle :math:`(T, \ldots, X, T)` a waste of time if we did not pass by the pickup location :math:`P`.
+    |
+
+    (The wiggly arrows represent arbitrary paths)
+
+    Clearly, the cycle :math:`(T, \ldots, X, T)` a waste of time if we did not pass by the pickup location :math:`P` because it achieved nothing, we just spent some more time to get back to :math:`P`.
+
+    Therefore the path must have the form:
+
+    .. image:: tech-bruteproblemstruct/teleport2.png
+
+
 environment: pyjavacpp
 evaluate: best
 groups: false
