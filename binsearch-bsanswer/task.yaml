@@ -91,6 +91,8 @@ context: |-
 
     Since :math:`n \leq 1000`, a :math:`O(n^2)` algorithm is fast enough.
     We can thus check the condition by building the graph corresponding to the given :math:`d` and using a graph traversal algorithm to check whether the graph is connected.
+
+    **Note:** In this problem we seek the *smallest* :math:`d` such that some condition holds whereas the above code finds the *largest* value such that some condition holds. The easiest way to adapt the code is to negate your check conditions so that it returns :code:`true` if :math:`d` is not enought and :code:`false` otherwise. Then the answer will be the output of the binary search plus :math:`1`.
 environment: pyjavacpp
 evaluate: best
 groups: false
@@ -101,6 +103,7 @@ limits:
     memory: '1000'
 name: Binary search - Search on the answer
 network_grading: false
+order: 33
 problems:
     file:
         type: file
@@ -148,4 +151,3 @@ submission_limit:
     period: -1
 tags: {}
 weight: 1.0
-order: 33
