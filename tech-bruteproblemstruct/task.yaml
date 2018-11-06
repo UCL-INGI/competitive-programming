@@ -62,6 +62,25 @@ context: |-
     |
 
     The only thing that remains is to go deliver the goods to :math:`D`.
+    For the same reason as above, this path will never use a teleport as it would juste create a cylce where no progress towards reaching :math:`D` is achieved:
+
+    |
+
+    .. image:: tech-bruteproblemstruct/teleport4.png
+
+    |
+
+    (We put in gray the parts of the solution that we already know are optimal)
+
+    Therefore, we can conclude that an optimal solution that uses the teleporter will look as follows:
+
+    |
+
+    .. image:: tech-bruteproblemstruct/teleport5.png
+
+    |
+
+    In words, we go from the headquarter :math:`H` to some node :math:`T` where we drop the translocator. Then we go to pickup at :math:`P`, teleport back to :math:`T` and go to :math:`D` without teleporting.
 environment: pyjavacpp
 evaluate: best
 groups: false
