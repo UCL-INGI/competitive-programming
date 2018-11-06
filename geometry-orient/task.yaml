@@ -37,7 +37,7 @@ problems:
         type: file
         name: Point in angle
         header: |
-            As an example of use, suppose we want to check whether a point :math:`P` lies in the angle formed by two semi-lines :math:`AB` and :math:`AC`.
+            As an example of use, suppose we want to check whether a point :math:`P` lies **strictly** inside the angle formed by two semi-lines :math:`AB` and :math:`AC`.
 
             For instance, in the following figure, in the first two cases the point :math:`P` does not lie inside the angle and in the last case it does.
 
@@ -57,7 +57,7 @@ problems:
 
             **Constraints**
 
-            * :math:`-10^5 \leq A_x, A_y, B_x B_y, C_x, C_y, P_x, P_y \leq 10^5`
+            * :math:`-10^5 \leq A_x, A_y, B_x, B_y, C_x, C_y, P_x, P_y \leq 10^5`
 
             **Output**
 
