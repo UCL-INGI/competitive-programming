@@ -1,17 +1,89 @@
 accessible: false
 author: ''
-context: ''
-environment: dafny
+context: This problem I from the NWERC 2017.
+environment: pyjavacpp
 evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '30'
-    output: '2'
-    memory: '100'
-name: ''
+    time: '1000'
+    output: '100'
+    memory: '1000'
+name: 'Techniques - Problem: Iron and Coal'
 network_grading: false
-problems: {}
+problems:
+    file:
+        type: file
+        name: Iron and Coal
+        header: |
+            There are many excellent strategy board games, and
+            your favourite among them is called “Steel Age”. It
+            offers many different paths to victory but you prefer
+            the blood-and-fire-strategy: build as many soldiers as
+            possible and club your opposition into submission. To
+            be able to build soldiers you need two resources: iron
+            ore and coal.
+
+            The board consists of different cells numbered from 1
+            to n which can contain resources. The rules for moving
+            from one cell to another are rather complicated: if you
+            can move from cell A to cell B, it does not always mean
+            that you can also move from B to A. For example, if
+            two cells are connected by a river, then you may be able
+            to move downstream, but not upstream, so long as you
+            didn’t invent a steam engine; however, it still could be
+            possible to reach the upstream cell by using roads and taking a detour over other cells.
+
+            At the beginning of the game you own only one such cell, where all your settlers are located.
+            At every move you are allowed to move an arbitrary number of settlers from a cell to one of
+            its accessible neighbours. By moving your settlers into a cell for the first time, you “claim” it.
+            Every claimed cell will bind one settler, which has to stay in this cell until the end of the game.
+            However, there is no need to leave a settler in your initial cell because it is where your palace is
+            located and thus the cell stays claimed for all time.
+            Your goal is to claim at least one cell containing the resource “iron ore” and at least one cell
+            with resource “coal” in order to be able to build soldiers. What is the minimal number of settlers
+            you need to reach this goal?
+
+            **Input**
+
+            - One line with three integers :math:`n (2 \leq n \leq 10^5)`, the number of cells on the playing field, :math:`m (1 \leq m < n)`, the number of cells containing iron ore, and :math:`k (1 \leq k < n)`, the number of cells containing coal.
+
+            - One line with m distinct integers :math:`o_1 , \ldots , o_m (1 \leq o_i \leq n for all 1 \leq i \leq m)`, where
+            :math:`o_1 , \leq , o_m` are the IDs of cells with iron ore.
+
+            - One line with k distinct integers :math:`c_1 , \ldots , c_k (1 \leq  c_i \leq n` for all :math:`1 \leq i \leq k`), where
+            :math:`c_1 , \ldots , c_k` are the IDs of cells with coal.
+
+            - :math:`n` lines describing the topology of the board. The :math:`j`-th line of this block specifies the accessible neighbours of the :math:`j`-th cell and consists of the following integers:
+
+            – One integer :math:`0 \leq a \leq 10`, the number of cells accessible from cell :math:`j`.
+
+            – :math:`a` distinct integers :math:`b_1 , \ldots , b_a (1 \leq b_i \leq n, b_i \neq j` for all :math:`1 \leq i \leq a`), the IDs of the cells accessible from cell :math:`j`.
+
+            It is guaranteed, that no cell contains both resources, iron ore and coal. At the beginning of the game you own only the cell with ID 1.
+
+            **Constraints**
+
+            * :math:`1 \leq r, c \leq 1000`.
+
+            **Output**
+
+            A single line with a non-negative integer giving the minimum number of cross sections that must be added in order to make the structure rigid.
+
+            **Sample Test Cases**
+
+            `Sample input 1 <graphs-problem-xbracing/1.in>`_
+
+            `Sample output 1 <graphs-problem-xbracing/1.ans>`_
+
+
+            `Sample input 2 <graphs-problem-xbracing/2.in>`_
+
+            `Sample output 2 <graphs-problem-xbracing/2.ans>`_
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
 stored_submissions: 0
 submission_limit:
     amount: -1
