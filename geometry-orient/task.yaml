@@ -33,17 +33,23 @@ name: Geometry - Point orientation
 network_grading: false
 order: 38
 problems:
-    read:
-        type: multiple_choice
-        choices:
-        -   valid: true
-            text: 'Yes'
-        name: In angle
-        limit: 0
-        header: |
+    file:
+        type: file
+        name: Point in angle
+        header: |-
             As an example of use, suppose we want to check whether a point :math:`P` lies in the angle formed by two semi-lines AB and AC.
 
+            For instance, in the following figure, in the first two cases the point :math:`P` does not lie inside the angle and in the last case it does.
+
             .. image:: geometry-orient/products7.png
+
+            |
+
+            **Note:** Do not make any assumptions on the orientation of the input points :math:`A`, :math:`B` and :math:`C`. However you can assume that they are not collinear.
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
 stored_submissions: 0
 submission_limit:
     amount: -1
