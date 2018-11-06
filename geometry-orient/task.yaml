@@ -32,7 +32,15 @@ limits:
 name: Geometry - Point orientation
 network_grading: false
 order: 38
-problems: {}
+problems:
+    read:
+        type: multiple_choice
+        choices:
+        -   valid: true
+            text: 'Yes'
+        name: Mark this section as read?
+        limit: 0
+        header: ''
 stored_submissions: 0
 submission_limit:
     amount: -1
