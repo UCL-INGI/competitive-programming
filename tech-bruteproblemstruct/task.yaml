@@ -5,6 +5,8 @@ context: |-
 
     To illustrate this we are going to solve problem E from BAC 2014.
 
+    ----
+
     **Pickup and Delivery**
 
     A futuristic pickup and delivery company is considering the use of translocators in their buisness. A translocator is a device that allows the user to teleport himself. It has the two following functions:
@@ -26,17 +28,68 @@ context: |-
     .. image:: tech-bruteproblemstruct/image.png
 
     The best solution is to go from :math:`H` to :math:`D` and drop the translocator. Then go to the pickup location :math:`P`, pickup the goods and then teleport yourself back to :math:`D`. The total time will be :math:`4`.
-environment: dafny
+
+    ----
+
+    **Solving the problem**
+
+    qsdsq
+environment: pyjavacpp
 evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '30'
-    output: '2'
-    memory: '100'
+    time: '1000'
+    output: '100'
+    memory: '1000'
 name: Techniques - Brute force on solution structure
 network_grading: false
-problems: {}
+problems:
+    file:
+        type: file
+        name: Pickup and Delivery
+        header: |-
+            Write a solution for the pickup an delivery problem described above.
+
+            **Input**
+
+            - One line with two integers n and m separated by a single space. The first one represents the number of locations and the second one the number of connections between them.
+
+            - :math:`m` lines each with two integers :math:`u_i` and :math:`u_j` separated by a single space, indicating that there is a bidirectional road between locations :math:`u_i` and :math:`u_j`. You may assume that you will never be given the same road twice and that there exists at most one road between any two locations.
+
+            - One line with three itegers :math:`H`, :math:`P` and :math:`D` giving the headquarters location, the pickup location and the delivery location, respectivey.
+
+
+            All roads have the same length and take :math:`1` unit of time to traverse.
+
+
+            **Constraints**
+
+            * :math:`1 \leq n \leq 50000`
+            * :math:`0 \leq m \leq (n^2 − n) / 2`
+            * :math:`0 \leq H, P, D < n`
+            * :math:`S \neq H, S \neq D, P \neq D`
+            * :math:`0 \leq u_i < n`
+            * The graph is connected.
+
+            **Output**
+
+            A single line with the minimum travel time.
+
+            **Sample Test Cases**
+
+            `Sample input 1 <tech-bruteproblemstruct/1.in>`_
+
+            `Sample output 1 <tech-bruteproblemstruct/1.ans>`_
+
+
+            `Sample input 2 <tech-bruteproblemstruct/2.in>`_
+
+            `Sample output 2 <tech-bruteproblemstruct/2.ans>`_
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
 stored_submissions: 0
 submission_limit:
     amount: -1
