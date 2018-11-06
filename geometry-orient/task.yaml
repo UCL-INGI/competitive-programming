@@ -21,14 +21,14 @@ context: |
          static double orient(Point a, Point b, Point c) {
             return cross(vec(a, b), vec(a, c);
         }
-environment: dafny
+environment: pyjavacpp
 evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '30'
-    output: '2'
-    memory: '100'
+    time: '1000'
+    output: '100'
+    memory: '1000'
 name: Geometry - Point orientation
 network_grading: false
 order: 38
