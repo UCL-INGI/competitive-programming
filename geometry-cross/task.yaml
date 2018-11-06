@@ -1,7 +1,15 @@
 accessible: true
 author: ''
-context: 'The cross product :math:`\vec{v} \times \vec{w}` of two vectors :math:`\vec{v}`
-    and :math:`\vec{w}` can be seen as a measure of how perpendicular they are. '
+context: |-
+    The cross product :math:`\vec{v} \times \vec{w}` of two vectors :math:`\vec{v}` and :math:`\vec{w}` can be seen as a measure of how perpendicular they are.
+
+    It is defined in 2D as:
+
+    .. math::
+
+        \vec{v} \times \vec{w} = \|\vec{v}\| \|\vec{w}\| \sin \theta
+
+    where :math:`\|\vec{v}\|` and :math:`\|\vec{w}\|` are the lengths of the vectors and :math:`\theta` is the amplitude of the oriented angle from :math:`\vec{v}` to :math:`\vec{w}`.
 environment: dafny
 evaluate: best
 groups: false
