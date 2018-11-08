@@ -1,7 +1,7 @@
 accessible: false
 author: ''
-context: |-
-    Another nice application of :code:`orient` is to check whether a point lies inside a convex polygon.
+context: |
+    Another nice application of :code:`orient` is to check whether a point :math:`p` lies inside a convex polygon.
 
     A **convex polygon** is a simple polygon (with no self intersections) such that any line segment between two points inside of the polygon lies completly inside of it.
 
@@ -11,7 +11,15 @@ context: |-
 
     |
 
-    sdqsd
+    The point will be inside a convex polygon if and only if it lies on the same side of the support line of each of the segments. That is, either it lies on the left of every line or it lines on the right of every line.
+
+    |
+
+    .. image:: geometry-pointinconvex/convex2.png
+
+    |
+
+    But we already know how to check whether a point lies on the right of left of a line. For each polygon segment :math:`\overline{ab}` we simply need to compute :code:`orient(a, b, p)`.
 environment: dafny
 evaluate: best
 groups: false
