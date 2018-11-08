@@ -18,9 +18,47 @@ problems:
     file:
         type: file
         name: Copying books
-        header: |-
+        header: |+
             Before the invention of book-printing, it was very hard to make a copy of a book. All the contents had to be re-written by hand by so called scribers. The scriber had been given a book and after several months he finished its copy. One of the most famous scribers lived in the 15th century and his name
             was Xaverius Endricus Remius Ontius Xendrianus (Xerox). Anyway, the work was very annoying and boring. And the only way to speed it up was to hire more scribers.
+
+            Once upon a time, there was a theater ensemble that wanted to play famous Antique Tragedies. The scripts of these plays were divided into many books and actors needed more copies of them, of course. So they hired many scribers to make copies of these books. Imagine you have :math:`m` books (numbered :math:`1,2, \ldots, m`) that may have different number of pages (:math:`p_1, p_2, \ldots, p_m`) and you want to make one copy of each of them. Your task is to divide these books among :math:`k` scribes, :math:`k \leq m`. Each book can be assigned to a single scriber only, and every scriber must get a continuous sequence of books. That means, there
+            exists an increasing succession of numbers :math:`0 = b_0 < b_1 < b_2, \ldots, \leq b_k = m` such that the :math:`i`-th scriber
+            gets a sequence of books with numbers between :math:`b_{i - 1} + 1` and :math:`b_i`.
+
+            The time needed to make a copy of all the books is determined by the scriber who was assigned the most work. Therefore, our goal is to minimize the maximum number of pages assigned to a single scriber. Your task is to find the optimal assignment.
+
+            **Input**
+
+            - One line with two integers :math:`m` and :math:`k` giving the number of books and the number of scribes.
+
+            - :math:`n` integers :math:`p_1, \ldots, p_m` giving the number of pages in each book.
+
+            **Output**
+
+            Output a sequence of lines each with two integers giving the position of path from S to T. The first integer represents the row and the second the column.
+
+            There is always a path in the mazes provided.
+
+            **Constraints**
+
+            * :math:`1 \leq k \leq m \leq 500`
+            * :math:`1 \leq p_i \leq 10000000`
+
+            *Be aware of overflows, the sums can get quite large!*
+
+            **Sample Test Cases**
+
+            `Sample input 1 <dp-copyingbooks/1.in>`_
+
+            `Sample output 1 <dp-copyingbooks/1.ans>`_
+
+
+            `Sample input 2 <dp-copyingbooks/2.in>`_
+
+            `Sample output 2 <dp-copyingbooks/2.ans>`_
+
+
 stored_submissions: 0
 submission_limit:
     amount: -1
