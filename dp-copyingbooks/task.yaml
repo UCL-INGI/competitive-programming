@@ -1,0 +1,27 @@
+accessible: true
+author: ''
+context: |-
+    In this task you will have to solve problem *Copying books* from the Central European Regional Contest - 1998.
+
+    The problem was adapted to simplify the output by requiring only the optimal value and not the solution.
+environment: dafny
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    output: '2'
+    memory: '100'
+    time: '30'
+name: 'Dynamic Programming - Problem: Copying books'
+network_grading: false
+problems:
+    file:
+        type: file
+        name: ''
+        header: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0
