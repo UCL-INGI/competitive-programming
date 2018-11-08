@@ -1,6 +1,17 @@
 accessible: false
 author: ''
-context: ''
+context: |-
+    Another nice application of :code:`orient` is to check whether a point lies inside a convex polygon.
+
+    A **convex polygon** is a simple polygon (with no self intersections) such that any line segment between two points inside of the polygon lies completly inside of it.
+
+    |
+
+    .. image:: geometry-pointinconvex/convex.png
+
+    |
+
+    sdqsd
 environment: dafny
 evaluate: best
 groups: false
