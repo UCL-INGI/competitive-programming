@@ -1,24 +1,26 @@
-accessible: true
+accessible: false
 author: ''
 context: |-
-    In this task you will have to solve problem *Copying books* from the Central European Regional Contest - 1998.
+    Adapted from: `UVa 714 <https://uva.onlinejudge.org/external/7/714.pdf>`_
 
     The problem was adapted to simplify the output by requiring only the optimal value and not the solution.
-environment: dafny
+environment: pyjavacpp
 evaluate: best
 groups: false
 input_random: '0'
 limits:
-    output: '2'
-    memory: '100'
-    time: '30'
+    output: '100'
+    memory: '1000'
+    time: '1000'
 name: 'Dynamic Programming - Problem: Copying books'
 network_grading: false
 problems:
     file:
         type: file
-        name: ''
-        header: ''
+        name: Copying books
+        header: |-
+            Before the invention of book-printing, it was very hard to make a copy of a book. All the contents had to be re-written by hand by so called scribers. The scriber had been given a book and after several months he finished its copy. One of the most famous scribers lived in the 15th century and his name
+            was Xaverius Endricus Remius Ontius Xendrianus (Xerox). Anyway, the work was very annoying and boring. And the only way to speed it up was to hire more scribers.
 stored_submissions: 0
 submission_limit:
     amount: -1
