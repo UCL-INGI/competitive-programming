@@ -135,8 +135,8 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    memory: '1000'
     output: '100'
+    memory: '1000'
     time: '1000'
 name: Graphs - Solving a maze
 network_grading: false
@@ -148,6 +148,7 @@ problems:
         - .java
         - .cpp
         - .py
+        name: Finding a path in a maze
         header: |+
             Put the pieces together in order to be able to find a path in a maze.
 
@@ -155,7 +156,7 @@ problems:
 
             - One line with two integers :math:`n` and :math:`m` giving the number of rows and columns in the maze, respectively.
 
-            - :math:`n` each with a string of length :math:`m` giving the rows of the maze. A '#' represents a wall, a '.' represents a white space, 'S' and 'T' represent the origin and destination, respectively.
+            - :math:`n` lines each with a string of length :math:`m` giving the rows of the maze. A '#' represents a wall, a '.' represents a white space, 'S' and 'T' represent the origin and destination, respectively.
 
             The positions are numbered starting from 0. There is a wall surrounding the maze as in the examples above.
 
@@ -182,7 +183,6 @@ problems:
 
             `Sample output 2 <graphs-maze/2.ans>`_
 
-        name: Finding a path in a maze
 stored_submissions: 0
 submission_limit:
     amount: -1
