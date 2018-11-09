@@ -39,7 +39,7 @@ context: |-
 
     .. math::
 
-        orient(P, p_1, p_2) = orient(P, p_2, p_3) = \ldots = orient(P, p_{n - 1}, p_n) = orient(P, p_n, p_1)
+        sorient(P, p_1, p_2) = sorient(P, p_2, p_3) = \ldots = sorient(P, p_{n - 1}, p_n) = sorient(P, p_n, p_1)
 environment: dafny
 evaluate: best
 groups: false
