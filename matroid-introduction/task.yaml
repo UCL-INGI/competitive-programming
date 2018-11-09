@@ -1,6 +1,6 @@
 accessible: false
 author: ''
-context: |-
+context: |+
     A matroid :math:`M` is a pair :math:`(X, I)` where :math:`X` is a finite set (call **ground set**) and :math:`I` is a family of subsets of :math:`E` (called **independent sets**) with the following properties:
 
     1. The empty set is independent:
@@ -82,6 +82,9 @@ context: |-
             \sum_{y \in Y} w(y)
 
         is minimal.
+
+    We will see that the following generic algorithm is guaranteed to find an optimal solution to this problem.
+
 environment: dafny
 evaluate: best
 groups: false
