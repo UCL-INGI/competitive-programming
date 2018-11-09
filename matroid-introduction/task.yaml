@@ -1,6 +1,19 @@
 accessible: false
 author: ''
-context: 'Matroids are an advanced topic. We encourage you to first focus on the '
+context: |-
+    A matroid :math:`M` is a pair :math:`(E, I)` where :math:`E` is a finite set (call **ground set**) and :math:`I` is a family of subsets of :math:`E` (called **independent sets**) with the following properties:
+
+    1. The empty set is independent:
+
+    .. math::
+
+        \emptyset \in I
+
+    2. A subset of an independent set is independent:
+
+    .. math::
+
+        \textrm{if B \in I and A \subseteq B \Rightarrow A \in I}
 environment: dafny
 evaluate: best
 groups: false
@@ -9,7 +22,7 @@ limits:
     output: '2'
     memory: '100'
     time: '30'
-name: '* Matroid - Introduction'
+name: Matroid - Introduction
 network_grading: false
 problems: {}
 stored_submissions: 0
