@@ -19,7 +19,7 @@ context: |
         }
 
         static double orient(Point a, Point b, Point c) {
-            return cross(vec(a, b), vec(a, c);
+            return cross(vec(a, b), vec(a, c));
         }
 
     In most situations we only care about the sign of :math:`orient(a, b, c)`. Therefore we define a function :math:`sorient(a, b, c)` which returns the sign of :math:`orient(a, b, c)`
