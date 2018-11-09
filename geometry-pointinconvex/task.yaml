@@ -73,6 +73,7 @@ problems:
 
             - :math:`q` lines each with two integers :math:`X_i` and :math:`Y_i` giving the coordinates of the query points.
 
+            We guarantee that the input polygon is simple and convex.
 
             **Output**
 
