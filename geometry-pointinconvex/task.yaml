@@ -40,17 +40,61 @@ context: |-
     .. math::
 
         sorient(P, p_1, p_2) = sorient(P, p_2, p_3) = \ldots = sorient(P, p_{n - 1}, p_n) = sorient(P, p_n, p_1)
-environment: dafny
+environment: pyjavacpp
 evaluate: best
 groups: false
 input_random: '0'
 limits:
-    output: '2'
-    memory: '100'
-    time: '30'
+    output: '100'
+    memory: '1000'
+    time: '1000'
 name: Geometry - Point in convex polygon
 network_grading: false
-problems: {}
+problems:
+    file:
+        type: file
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
+        name: Point in convex polygon
+        header: |+
+            You are given a convex polygon and a set of points. For each given point, check whether it lies inside the polygon, outside of it or on its the boundary.
+
+            **Note:** This problem is not about making a smart data stucture to efficiently answer the queries. Checking the above condition in linear time is sufficient.
+
+            **Input**
+
+            - One line with one integer :math:`n` giving the number of vertices of the polygon.
+
+            - :math:`n` lines each with two integers :math:`x_i` and :math:`y_i` giving the coordinates of the polygon vertices.
+
+            - One line with one integer :math:`q` giving the number of query points.
+
+            - :math:`q` lines each with two integers :math:`X_i` and :math:`Y_i` giving the coordinates of the query points.
+
+
+            **Output**
+
+            - :math:`q` lines, one for each query. If point :math:`(X_i, Y_i)` lines inside the polygon, the :math:`i`-th line should contain the word :code:`inside`. If it lies outside, it should contain :code:`outside`. Otherwise print :code:`boundary`.
+
+            **Constraints**
+
+            * :math:`3 \leq n \leq 1000`
+            * :math:`1 \leq q \leq 1000`
+            * :math:`0 \leq x_i, y_i, X_i, Y_i \leq 10000`
+
+            **Sample Test Cases**
+
+            `Sample input 1 <geometry-pointinconvex/1.in>`_
+
+            `Sample output 1 <geometry-pointinconvex/1.ans>`_
+
+
+            `Sample input 2 <geometry-pointinconvex/2.in>`_
+
+            `Sample output 2 <geometry-pointinconvex/2.ans>`_
+
 stored_submissions: 0
 submission_limit:
     amount: -1
