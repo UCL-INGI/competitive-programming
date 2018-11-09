@@ -26,6 +26,14 @@ context: |-
     .. image:: geometry-pointinconvex/convex3.png
 
     |
+
+    **Note:** the solution is not to whether the point lies to the **right** of each line but to check whether the point lies on **the same side** of each line. In the above example it will indeed be always on the right by this is because the polygon is oriented in a clockwise fashion. If it had been oriented in a counter-clockwise fashion, the point would have been on the left of each line as show in the following figure.
+
+    |
+
+    .. image:: geometry-pointinconvex/convex4.png
+
+    |
 environment: dafny
 evaluate: best
 groups: false
