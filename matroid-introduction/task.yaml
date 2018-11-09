@@ -13,7 +13,7 @@ context: |-
 
     .. math::
 
-        \textrm{if B \in I and A \subseteq B \Rightarrow A \in I}
+        \textrm{if } B \in I \textrm{ and } A \subseteq B \textrm{ then } A \in I
 environment: dafny
 evaluate: best
 groups: false
