@@ -50,7 +50,7 @@ limits:
     time: '1000'
 name: Geometry - Point orientation
 network_grading: false
-order: 38
+order: 39
 problems:
     file:
         type: file

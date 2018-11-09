@@ -147,7 +147,7 @@ limits:
     memory: '1000'
 name: 'Graphs - Depth-first search: cycle finding'
 network_grading: false
-order: 11
+order: 12
 problems:
     file:
         name: Cycle finding in directed graphs

@@ -149,7 +149,7 @@ limits:
     memory: '1000'
 name: Binary search - Search on the answer
 network_grading: false
-order: 33
+order: 34
 problems:
     file:
         type: file

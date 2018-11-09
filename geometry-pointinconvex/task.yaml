@@ -1,9 +1,9 @@
-accessible: false
+accessible: true
 author: ''
 context: |-
     Another nice application of orientation is to check whether a point :math:`p` lies inside a convex polygon.
 
-    A **convex polygon** is a simple polygon (with no self intersections) such that any line segment between two points inside of the polygon lies completly inside of it.
+    A **convex polygon** is a simple polygon (with no self intersections) such that any line segment between two points inside of the polygon lies completely inside of it.
 
     |
 
@@ -58,10 +58,10 @@ problems:
         - .cpp
         - .py
         name: Point in convex polygon
-        header: |+
+        header: |
             You are given a convex polygon and a set of points. For each given point, check whether it lies inside the polygon, outside of it or on its the boundary.
 
-            **Note:** This problem is not about making a smart data stucture to efficiently answer the queries. Checking the above condition in linear time is sufficient.
+            **Note:** This problem is not about making a smart data structure to efficiently answer the queries. Checking the above condition in linear time is sufficient.
 
             **Input**
 
@@ -95,10 +95,10 @@ problems:
             `Sample input 2 <geometry-pointinconvex/2.in>`_
 
             `Sample output 2 <geometry-pointinconvex/2.ans>`_
-
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
 tags: {}
 weight: 1.0
+order: 40
