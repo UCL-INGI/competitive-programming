@@ -43,7 +43,7 @@ context: |
 
         **Lemma:**
 
-        The number of connected components :math:`c` in a forest with :math:`n` nodes and :math:`m` edges is :math:`n - m`.
+        The number of connected components in a forest with :math:`n` nodes and :math:`m` edges is :math:`n - m`.
 
     **Proof**
 
@@ -51,7 +51,7 @@ context: |
 
     .. math::
 
-        m = \sum_{i = 1}^c e_i = \sum_{i = 1}^c v_i - 1 = n - c
+        m = \sum_{i = 1}^c e_i = \sum_{i = 1}^c v_i - 1 = n - c \Rightarrow c = n - m
 environment: dafny
 evaluate: best
 groups: false
