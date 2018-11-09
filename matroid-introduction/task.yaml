@@ -1,6 +1,6 @@
 accessible: false
 author: ''
-context: |-
+context: |+
     A matroid :math:`M` is a pair :math:`(X, I)` where :math:`X` is a finite set (call **ground set**) and :math:`I` is a family of subsets of :math:`E` (called **independent sets**) with the following properties:
 
     1. The empty set is independent:
@@ -29,7 +29,7 @@ context: |-
 
     Let :math:`G` be a graph with edge set :math:`E`.
 
-    Let's say that a subset of edges of :math:`G` is independent if it forms a sub-forest of :math:`G`. In other words, if it contains no cycles.
+    Let's say that a subset of edges of :math:`G` is independent if it contains no cycles (i.e. the subset forms a forest).
 
     We are going to see that this forms a matroid over :math:`E`. For this we need to check that properties :math:`1, 2` and :math:`3` above hold.
 
@@ -37,7 +37,14 @@ context: |-
 
     2. Let :math:`F \subseteq E` be a subset of edges that has no cycles. Then, it is also clear that any subset of :math:`F` also contains no cycles.
 
-    3. Let :math:`F_1, F_2` be two forests (acyclic subgraphs) such that :math:`|F_1| = |F_2| + 1`. We need to prove that there exists an edge :math:`e` that is in :math:`F_1` but not in :math:`F_2` such that if we add it to :math:`F_2` it remains acyclic.
+    3. Let :math:`F_1, F_2` be acyclic subgraphs (forests) such that :math:`|F_1| = |F_2| + 1`. We need to prove that there exists an edge :math:`e` that is in :math:`F_1` but not in :math:`F_2` such that if we add it to :math:`F_2` it remains acyclic.
+
+    This one requires some insight to prove. Let's start by showing the following.
+
+        **Lemma:**
+
+        The number of connected components in a forest with :math:`n` nodes and :math:`m` edges is :math:`n - m`.
+
 environment: dafny
 evaluate: best
 groups: false
