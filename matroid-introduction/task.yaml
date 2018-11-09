@@ -1,6 +1,6 @@
 accessible: false
 author: ''
-context: |-
+context: |+
     A matroid :math:`M` is a pair :math:`(E, I)` where :math:`E` is a finite set (call **ground set**) and :math:`I` is a family of subsets of :math:`E` (called **independent sets**) with the following properties:
 
     1. The empty set is independent:
@@ -20,6 +20,13 @@ context: |-
     .. math::
 
         \textrm{if } A, B \in I \textrm{ and } |B| \subseteq |A| + 1 \textrm{ then there exists } x \in B \setminus A \textrm{ such that } A \cup \{x\} \in I
+
+    All of this might seem very abstract so lets give two examples of well know matroids.
+
+    |
+
+    **Spanning trees**
+
 environment: dafny
 evaluate: best
 groups: false
