@@ -50,7 +50,7 @@ gen_random(500, 1000, 1000, 1000)
 gen_random(1000, 1000, 1000, 1000)
 
 gen_random_all_q(5, 5, 5)
-gen_random_all_q(5, 5, 5)
+gen_random_all_q_rev(5, 5, 5)
 gen_random_all_q(10, 10, 10)
-gen_random_all_q(10, 10, 10)
+gen_random_all_q_rev(10, 10, 10)
 
