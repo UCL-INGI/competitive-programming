@@ -1,6 +1,6 @@
 accessible: false
 author: ''
-context: ''
+context: 'Matroids are an advanced topic. We encourage you to first focus on the '
 environment: dafny
 evaluate: best
 groups: false
@@ -9,7 +9,7 @@ limits:
     output: '2'
     memory: '100'
     time: '30'
-name: Matroid - Introduction
+name: '* Matroid - Introduction'
 network_grading: false
 problems: {}
 stored_submissions: 0
