@@ -14,6 +14,12 @@ context: |-
     .. math::
 
         \textrm{if } B \in I \textrm{ and } A \subseteq B \textrm{ then } A \in I
+
+    3. If :math:`A, B` are independent and :math:`|B| = |A| + 1`, then there is an element :math:`x \in B \setminus A` such that :math:`A \cup \{x\}` is independent:
+
+    .. math::
+
+        \textrm{if } A, B \in I \textrm{ and } |B| \subseteq |A| + 1 \textrm{ then there exists } x \in B \setminus A \textrm{ such that } A \cup \{x\} \in I
 environment: dafny
 evaluate: best
 groups: false
