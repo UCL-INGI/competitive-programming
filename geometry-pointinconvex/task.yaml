@@ -19,7 +19,7 @@ context: |-
 
     |
 
-    But we already know how to check whether a point lies on the right of left of a line. For each polygon segment :math:`\overline{AB}` we simply need to compute :math:`orient(A, B, P) = \vec{AB} \times \vec{AP}` and check that they all have the same sign (which indicates the side).
+    But we already know how to check whether a point lies on the right of left of a line defined by two points :math:`A` and :math:`B`. For each polygon segment :math:`\overline{AB}` we simply need to compute :math:`orient(A, B, P) = \vec{AB} \times \vec{AP}` and check that they all have the same sign (which indicates the side).
 
     |
 
