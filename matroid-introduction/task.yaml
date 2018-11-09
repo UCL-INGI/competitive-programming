@@ -1,6 +1,6 @@
 accessible: false
 author: ''
-context: |-
+context: |+
     A matroid :math:`M` is a pair :math:`(E, I)` where :math:`E` is a finite set (call **ground set**) and :math:`I` is a family of subsets of :math:`E` (called **independent sets**) with the following properties:
 
     1. The empty set is independent:
@@ -35,7 +35,8 @@ context: |-
 
     1. Clearly, if we select :math:`0` edges, we get a subgraph that contains no cycles.
 
-    2.
+    2. Let :math:`F \subseteq E` be a subset of edges that has no cycles. Then, it is also clear that any subset of :math:`F` also contains no cycles.
+
 environment: dafny
 evaluate: best
 groups: false
