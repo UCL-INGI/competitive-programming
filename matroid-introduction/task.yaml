@@ -1,6 +1,6 @@
 accessible: false
 author: ''
-context: |+
+context: |-
     A matroid :math:`M` is a pair :math:`(E, I)` where :math:`E` is a finite set (call **ground set**) and :math:`I` is a family of subsets of :math:`E` (called **independent sets**) with the following properties:
 
     1. The empty set is independent:
@@ -27,6 +27,15 @@ context: |+
 
     **Spanning trees**
 
+    Let :math:`G` be a graph with edge set :math:`E`.
+
+    Let's say that a subset of edges of :math:`G` is independent if it form a sub-forest of :math:`G`. In other words, if it contains no cycles.
+
+    We are going to see that this forms a matroid over :math:`E`. For this we need to check that properties :math:`1, 2` and :math:`3` above hold.
+
+    1. Clearly, if we select :math:`0` edges, we get a subgraph that contains no cycles.
+
+    2.
 environment: dafny
 evaluate: best
 groups: false
