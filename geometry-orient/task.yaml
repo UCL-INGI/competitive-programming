@@ -18,26 +18,49 @@ context: |
             return new Point(b.x - a.x, b.y - a.y);
         }
 
-         static double orient(Point a, Point b, Point c) {
+        static double orient(Point a, Point b, Point c) {
             return cross(vec(a, b), vec(a, c);
+        }
+
+    In most situations we only care about the sign of :math:`orient(a, b, c)`. Therefore we define a function :math:`sorient(a, b, c)` which returns the sign of :math:`orient(a, b, c)`
+
+    .. math::
+
+      sorient(a, b, c) =
+      \begin{cases}
+        1      & \quad orient(a, b, c) > 0 \\
+        0      & \quad orient(a, b, c) = 0 \\
+        -1     & \quad orient(a, b, c) < 0
+      \end{cases}
+
+
+    .. code:: java
+
+        static double sorient(Point a, Point b, Point c) {
+            double o = orient(a, b, c);
+            return o < 0 ? -1 : o > 0 ? 1 : 0;
         }
 environment: pyjavacpp
 evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '1000'
     output: '100'
     memory: '1000'
+    time: '1000'
 name: Geometry - Point orientation
 network_grading: false
 order: 38
 problems:
     file:
         type: file
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
         name: Point in angle
         header: |
-            As an example of use of :code:`orient`, write an function to check whether a point :math:`P` lies **strictly** inside the angle formed by two semi-lines :math:`AB` and :math:`AC`.
+            As an example of use of the orientation of three points, write an function to check whether a point :math:`P` lies **strictly** inside the angle formed by two semi-lines :math:`AB` and :math:`AC`.
 
             For instance, in the following figure, in the first two cases the point :math:`P` does not lie inside the angle and in the last case it does.
 
@@ -79,10 +102,6 @@ problems:
             `Sample input 3 <geometry-orient/3.in>`_
 
             `Sample output 3 <geometry-orient/3.ans>`_
-        allowed_exts:
-        - .java
-        - .cpp
-        - .py
 stored_submissions: 0
 submission_limit:
     amount: -1
