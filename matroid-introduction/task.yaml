@@ -1,6 +1,6 @@
 accessible: false
 author: ''
-context: |
+context: |-
     A matroid :math:`M` is a pair :math:`(X, I)` where :math:`X` is a finite set (call **ground set**) and :math:`I` is a family of subsets of :math:`E` (called **independent sets**) with the following properties:
 
     1. The empty set is independent:
@@ -21,11 +21,11 @@ context: |
 
         \textrm{if } A, B \in I \textrm{ and } |A| \subseteq |B| + 1 \textrm{ then there exists } x \in A \setminus B \textrm{ such that } B \cup \{x\} \in I
 
-    All of this might seem very abstract so lets give two examples of well know matroids.
+    All of this might seem very abstract so lets give an example a matroid.
 
     |
 
-    **Spanning trees**
+    **Spanning trees (Graphic matroid)**
 
     Let :math:`G` be a graph with edge set :math:`E`.
 
@@ -61,7 +61,11 @@ context: |
 
             m = \sum_{i = 1}^c e_i = \sum_{i = 1}^c (v_i - 1) = n - c \Rightarrow c = n - m
 
-    This lemma shows that, :math:`|F_1| = |F_2| + 1`, :math:`F_1` must have one less connected component then :math:`F_2`. Therefore, :math:`F_1` must contain an edge :math:`(u, v)` connecting two nodes that do not belong to the same connected component of :math:`F_2`: If this was not the case the all edges of :math:`F_1` would connect only nodes that are in the same connected component of :math:`F_2`. This would means that :math:`F_1` would have as least as many connected components than :math:`F_2`, contradicting the fact that it has stictly less.
+    This lemma shows that, since :math:`|F_1| = |F_2| + 1`, :math:`F_1` must have one less connected component then :math:`F_2`. Therefore, :math:`F_1` must contain an edge :math:`(u, v)` connecting two nodes that do not belong to the same connected component of :math:`F_2`. If this was not the case, the all edges of :math:`F_1` would connect only nodes that are in the same connected component of :math:`F_2`. This would mean that :math:`F_1` would have as least as many connected components than :math:`F_2`, contradicting the fact that it has stictly less.
+
+    This proves property 3. If we select edge :math:`(u, v) \in F_1 \setminus F_2`, since :math:`u` and :math:`v` belong to two different connected components of :math:`F_2`, if we add it to :math:`F_2`, it will remain acyclic (and thus independent).
+
+    This matroid is known as the *graphic matroid*.
 environment: dafny
 evaluate: best
 groups: false
