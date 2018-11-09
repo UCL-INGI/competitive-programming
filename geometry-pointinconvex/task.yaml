@@ -27,13 +27,19 @@ context: |-
 
     |
 
-    **Note:** the solution is not to whether the point lies to the **right** of each line but to check whether the point lies on **the same side** of each line. In the above example it will indeed be always on the right by this is because the polygon is oriented in a clockwise fashion. If it had been oriented in a counter-clockwise fashion, the point would have been on the left of each line as show in the following figure.
+    Note that the solution is not to whether the point lies to the **right** of each line but to check whether the point lies on **the same side** of each line. In the above example it will indeed be always on the right by this is because the polygon is oriented in a clockwise fashion. If it had been oriented in a counter-clockwise fashion, the point would have been on the left of each line as show in the following figure.
 
     |
 
     .. image:: geometry-pointinconvex/convex4.png
 
     |
+
+    If the polygon vertices are :math:`p_1, p_2, \ldots, p_n` then we need to check that
+
+    .. math::
+
+        orient(P, p_1, p_2) = orient(P, p_2, p_3) = \ldots = orient(P, p_{n - 1}, p_n) = orient(P, p_n, p_1)
 environment: dafny
 evaluate: best
 groups: false
