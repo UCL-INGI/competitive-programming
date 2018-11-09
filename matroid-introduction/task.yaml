@@ -23,7 +23,7 @@ context: |-
 
     All of this might seem very abstract so lets give an example a matroid.
 
-    |
+    ----
 
     **Spanning trees (Graphic matroid)**
 
@@ -66,6 +66,22 @@ context: |-
     This proves property 3. If we select edge :math:`(u, v) \in F_1 \setminus F_2`, since :math:`u` and :math:`v` belong to two different connected components of :math:`F_2`, if we add it to :math:`F_2`, it will remain acyclic (and thus independent).
 
     This matroid is known as the *graphic matroid*.
+
+    ----
+
+    Ok so we have just seen an example of a matroid. So what?
+
+    Well it turns out that several problem related to matroids are somewhat generic algorithms for solving them. We will start with the following simple problem.
+
+        **Problem: TODO**
+
+        Let :math:`(X, I)` be a matroid and :math:`w : X \rightarrow \mathbb{R}` a weight function on :math:`X`. Find a set :math:`Y \in I` such that
+
+        .. math::
+
+            \sum_{y \in Y} w(y)
+
+        is minimal.
 environment: dafny
 evaluate: best
 groups: false
