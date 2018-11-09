@@ -1,6 +1,6 @@
 accessible: false
 author: ''
-context: |+
+context: |
     A matroid :math:`M` is a pair :math:`(X, I)` where :math:`X` is a finite set (call **ground set**) and :math:`I` is a family of subsets of :math:`E` (called **independent sets**) with the following properties:
 
     1. The empty set is independent:
@@ -43,8 +43,15 @@ context: |+
 
         **Lemma:**
 
-        The number of connected components in a forest with :math:`n` nodes and :math:`m` edges is :math:`n - m`.
+        The number of connected components :math:`c` in a forest with :math:`n` nodes and :math:`m` edges is :math:`n - m`.
 
+    **Proof**
+
+    Let :math:`c` be the number of connected components. Let :math:`v_i` be the number of nodes in the :math:`i`-th connected component and :math:`e_i` the number of edges. Since each connected component is a tree (acyclic), we have :math:`e_i = v_i - 1`. Therefore
+
+    .. math::
+
+        m = \sum_{i = 1}^c e_i = \sum_{i = 1}^c v_i - 1 = n - c
 environment: dafny
 evaluate: best
 groups: false
