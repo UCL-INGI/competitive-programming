@@ -1,6 +1,6 @@
 accessible: false
 author: ''
-context: |+
+context: |-
     A matroid :math:`M` is a pair :math:`(X, I)` where :math:`X` is a finite set (call **ground set**) and :math:`I` is a family of subsets of :math:`E` (called **independent sets**) with the following properties:
 
     1. The empty set is independent:
@@ -82,8 +82,15 @@ context: |+
 
             \sum_{y \in Y} w(y)
 
-    We will see that the following generic algorithm is *guaranteed* to find an optimal solution to this problem for *any* matroid :math:`(X, I)`.
+    We will see that the following generic algorithm is *guaranteed* to find an optimal solution to this problem for *any* matroid :math:`(X, I)` and weight function :math:`w`.
 
+    1. Sort :math:`X` by :math:`w` so that :math:`w(x_1) \leq w(x_2) \leq \ldots \leq w_{|X|}`
+
+    2. Initialize :math:`A = \emptyset`
+
+    3. For :math:`i = 1, \ldots, |X|`, if :math:`A \cup \{x_i\}` is independent, add :math:`x_i` to :math:`A`
+
+    4. Output :math:`A`
 environment: dafny
 evaluate: best
 groups: false
