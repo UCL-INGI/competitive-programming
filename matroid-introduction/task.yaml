@@ -65,9 +65,10 @@ context: |+
 
     We are now going to prove that this means that :math:`F_1` must contain an edge :math:`(u, v)` connecting two nodes that do not belong to the same connected component of :math:`F_2`.
 
-    If this was not the case, the all edges of :math:`F_1` would connect only nodes that are in the same connected component of :math:`F_2`.
+    If this was not the case, the all edges of :math:`F_1` would connect only nodes that are in the same connected component of :math:`F_2`. But imagine yourself trying to fit :math:`|F_2| + 1` edges into the
+    connected components of :math:`F_2`. Since each component must remain a tree, the number of edges of :math:`F_1` that you can in the first into each of the remains the same. That is, you can only fit at most :math:`e_1` edges in the frist, :math:`e_2` in the seconds and so on. Thus by the end of the last component you have put :math:`e_1 + e_2 + \ldots + e_c = |F_2|` edges. This means that you have one remaining edge to add but there is not more space. Therefore, it must connect two nodes from distinct components.
 
-    .. image:: graphs-representation/matroid1.png
+    .. image:: matroid-introduction/matroid1.png
 
 
     This would mean that :math:`F_1` would have as least as many connected components than :math:`F_2`, contradicting the fact that it has stictly less.
