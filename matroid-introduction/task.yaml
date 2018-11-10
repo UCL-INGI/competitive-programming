@@ -1,6 +1,6 @@
 accessible: false
 author: ''
-context: |+
+context: |-
     A matroid :math:`M` is a pair :math:`(X, I)` where :math:`X` is a finite set (call **ground set**) and :math:`I` is a family of subsets of :math:`E` (called **independent sets**) with the following properties:
 
     1. The empty set is independent:
@@ -124,6 +124,9 @@ context: |+
 
         4. Output :math:`T`
 
+    ----
+
+    So far all of this might see a bit pointless. After all, we already knew how to solve the minimum spanning tree problem. But you will see that matroids will allow us to solve a lot of new (very hard) problems.
 environment: dafny
 evaluate: best
 groups: false
