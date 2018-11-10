@@ -1,6 +1,6 @@
 accessible: false
 author: ''
-context: |
+context: |+
     A matroid :math:`M` is a pair :math:`(X, I)` where :math:`X` is a finite set (call **ground set**) and :math:`I` is a family of subsets of :math:`E` (called **independent sets**) with the following properties:
 
     1. The empty set is independent:
@@ -25,7 +25,7 @@ context: |
 
     ----
 
-    **Spanning trees (Graphic matroid)**
+    **Graphic matroid**
 
     Let :math:`G` be a graph with edge set :math:`E`.
 
@@ -101,6 +101,19 @@ context: |
     ----
 
     **Min-weight independent set on the graphic matroid**
+
+    The first step is to identify what are the maximal independent sets on matroids.
+
+    Independent sets on the graphic matroid correspond to acyclic subgraphs. Therefore maximal independent sets correspond to acyclic subgraphs of maximum size, also know as, *spanning trees*.
+
+    Thus the problem:
+
+        Find a maximum independent set of minimum weight
+
+    Translates to:
+
+        Find a spanning tree of minimum weight
+
 environment: dafny
 evaluate: best
 groups: false
