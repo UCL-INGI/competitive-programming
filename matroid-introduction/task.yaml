@@ -114,6 +114,16 @@ context: |+
 
         Find a spanning tree of minimum weight
 
+    So in the end all this abstract concepts translated into a well know problem that we already solved. Furthermore, we are going to see that the algorithm translates into **Kruskal's algorithm**:
+
+        1. Sort :math:`E` by :math:`w` so that :math:`w(e_1) \leq w(x_2) \leq \ldots \leq w_{|E|}`
+
+        2. Initialize :math:`T = \emptyset`
+
+        3. For :math:`i = 1, \ldots, |E|`, if :math:`T \cup \{e_i\}` is acyclic, add :math:`e_i` to :math:`T`
+
+        4. Output :math:`T`
+
 environment: dafny
 evaluate: best
 groups: false
