@@ -61,7 +61,16 @@ context: |+
 
             m = \sum_{i = 1}^c e_i = \sum_{i = 1}^c (v_i - 1) = n - c \Rightarrow c = n - m
 
-    This lemma shows that, since :math:`|F_1| = |F_2| + 1`, :math:`F_1` must have one less connected component then :math:`F_2`. Therefore, :math:`F_1` must contain an edge :math:`(u, v)` connecting two nodes that do not belong to the same connected component of :math:`F_2`. If this was not the case, the all edges of :math:`F_1` would connect only nodes that are in the same connected component of :math:`F_2`. This would mean that :math:`F_1` would have as least as many connected components than :math:`F_2`, contradicting the fact that it has stictly less.
+    This lemma shows that, since :math:`|F_1| = |F_2| + 1`, :math:`F_1` must have one less connected component then :math:`F_2`.
+
+    We are now going to prove that this means that :math:`F_1` must contain an edge :math:`(u, v)` connecting two nodes that do not belong to the same connected component of :math:`F_2`.
+
+    If this was not the case, the all edges of :math:`F_1` would connect only nodes that are in the same connected component of :math:`F_2`.
+
+    .. image:: graphs-representation/matroid1.png
+
+
+    This would mean that :math:`F_1` would have as least as many connected components than :math:`F_2`, contradicting the fact that it has stictly less.
 
     This proves property 3. If we select edge :math:`(u, v) \in F_1 \setminus F_2`, since :math:`u` and :math:`v` belong to two different connected components of :math:`F_2`, if we add it to :math:`F_2`, it will remain acyclic (and thus independent).
 
