@@ -1,6 +1,6 @@
 accessible: false
 author: ''
-context: |-
+context: |
     A matroid :math:`M` is a pair :math:`(X, I)` where :math:`X` is a finite set (call **ground set**) and :math:`I` is a family of subsets of :math:`E` (called **independent sets**) with the following properties:
 
     1. The empty set is independent:
@@ -92,7 +92,15 @@ context: |-
 
         3. For :math:`i = 1, \ldots, |X|`, if :math:`A \cup \{x_i\}` is independent, add :math:`x_i` to :math:`A`
 
-    4. Output :math:`A`
+        4. Output :math:`A`
+
+    Notice that the only hard part in the above algorithms might be checking the independence in line 3. Clearly this is problem dependent and will change from one matroid to another.
+
+    Let's see what the minimum weight independent set problem translates to for the graphic matroid and also what how to implement the independence check.
+
+    ----
+
+    **Min-weight independent set on the graphic matroid**
 environment: dafny
 evaluate: best
 groups: false
