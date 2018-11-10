@@ -74,7 +74,7 @@ context: |-
 
     If :math:`A, B` are both maximal but :math:`|A| > |B|` then we can find :math:`x \in A \setminus B` such that :math:`B' = B \cup \{x\}` is independent. Therefore :math:`B` is not maximal since it is properly containend in :math:`B'`.
 
-        **Problem: Minimum weight independent set**
+        **Minimum weight independent set on a matroid**
 
         Let :math:`(X, I)` be a matroid and :math:`w : X \rightarrow \mathbb{R}` a weight function on :math:`X`. Find a maximal independent set :math:`Y \in I` of minimum weight, that is, minimizing
 
@@ -84,11 +84,13 @@ context: |-
 
     We will see that the following generic algorithm is *guaranteed* to find an optimal solution to this problem for *any* matroid :math:`(X, I)` and weight function :math:`w`.
 
-    1. Sort :math:`X` by :math:`w` so that :math:`w(x_1) \leq w(x_2) \leq \ldots \leq w_{|X|}`
+        **Greedy algorithm for matroids**
 
-    2. Initialize :math:`A = \emptyset`
+        1. Sort :math:`X` by :math:`w` so that :math:`w(x_1) \leq w(x_2) \leq \ldots \leq w_{|X|}`
 
-    3. For :math:`i = 1, \ldots, |X|`, if :math:`A \cup \{x_i\}` is independent, add :math:`x_i` to :math:`A`
+        2. Initialize :math:`A = \emptyset`
+
+        3. For :math:`i = 1, \ldots, |X|`, if :math:`A \cup \{x_i\}` is independent, add :math:`x_i` to :math:`A`
 
     4. Output :math:`A`
 environment: dafny
