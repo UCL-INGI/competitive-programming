@@ -70,7 +70,11 @@ context: |+
 
     Well it turns out that several problem related to matroids are somewhat generic algorithms for solving them. We will start with the following simple problem.
 
-        **Problem: TODO**
+    An independent set of a matroid is said to be **maximal** it is not properly contained in any other independent set. Clearly, by property 3., all maximal independent sets must have the same size:
+
+    If :math:`A, B` are both maximal but :math:`|A| > |B|` then we can find :matj:`x \in A \setminus B` such that :math:`B' = B \cup \{x\}` is independent. Therefore :math:`B` is not maximal since it is properly containend in :math:`B'`.
+
+        **Problem: Minimum weight independent set**
 
         Let :math:`(X, I)` be a matroid and :math:`w : X \rightarrow \mathbb{R}` a weight function on :math:`X`. Find a set :math:`Y \in I` such that
 
