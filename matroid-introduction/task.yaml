@@ -45,35 +45,22 @@ context: |+
 
     **3:**
 
-    Let :math:`F_1, F_2` be acyclic subgraphs (forests) such that :math:`|F_1| = |F_2| + 1`. We need to prove that there exists an edge :math:`e` that is in :math:`F_1` but not in :math:`F_2` such that if we add it to :math:`F_2` it remains acyclic.
+    Let :math:`F_1, F_2` be acyclic subgraphs (forests) such that :math:`|F_1| = |F_2| + 1`. We need to prove that there exists an edge :math:`(u, v)` that is in :math:`F_1` but not in :math:`F_2` such that if we add it to :math:`F_2` it remains acyclic.
 
-    This one requires some insight to prove. Let's start by showing the following.
+    Suppose that :math:`F_2` has :math:`k` connected components and denote the number of edges in each of them by :math:`e_1, \ldots, e_k`.
 
-        **Lemma:**
+    We need to prove that some edge of :math:`F_1` connects two nodes that are not in the same connected component of :math:`F_2`.
 
-        The number of connected components in a forest with :math:`n` nodes and :math:`m` edges is :math:`n - m`.
+    If this was not the case, the all edges of :math:`F_1` would connect only nodes that are in the same connected components of :math:`F_2`. But imagine yourself trying to fit :math:`|F_2| + 1` edges into the
+    connected components of :math:`F_2`. Since each component must remain a tree, the number of edges of :math:`F_1` that you can in into each component remains the same. That is, you can only fit at most :math:`e_1` edges in the frist, :math:`e_2` in the seconds and so on. Thus by the end, when you filled all components you have put a total of :math:`e_1 + e_2 + \ldots + e_k = |F_2| = |F_1| - 1` edges. This means that you have one edge left to add. But there is no more space within the components. Adding it anywhere within a component would create a cycle. Therefore, it must connect two nodes from distinct components.
 
-        **Proof**
-
-        Let :math:`c` be the number of connected components. Let :math:`v_i` be the number of nodes in the :math:`i`-th connected component and :math:`e_i` the number of edges. Since each connected component is a tree (acyclic), we have :math:`e_i = v_i - 1`. The total number of edges, :math:`m`, is the sum of the number of edges in each connected component. Therefore,
-
-        .. math::
-
-            m = \sum_{i = 1}^c e_i = \sum_{i = 1}^c (v_i - 1) = n - c \Rightarrow c = n - m
-
-    This lemma shows that, since :math:`|F_1| = |F_2| + 1`, :math:`F_1` must have one less connected component then :math:`F_2`.
-
-    We are now going to prove that this means that :math:`F_1` must contain an edge :math:`(u, v)` connecting two nodes that do not belong to the same connected component of :math:`F_2`.
-
-    If this was not the case, the all edges of :math:`F_1` would connect only nodes that are in the same connected component of :math:`F_2`. But imagine yourself trying to fit :math:`|F_2| + 1` edges into the
-    connected components of :math:`F_2`. Since each component must remain a tree, the number of edges of :math:`F_1` that you can in the first into each of the remains the same. That is, you can only fit at most :math:`e_1` edges in the frist, :math:`e_2` in the seconds and so on. Thus by the end of the last component you have put :math:`e_1 + e_2 + \ldots + e_c = |F_2|` edges. This means that you have one remaining edge to add but there is not more space. Therefore, it must connect two nodes from distinct components.
+    |
 
     .. image:: matroid-introduction/matroid1.png
 
+    |
 
-    This would mean that :math:`F_1` would have as least as many connected components than :math:`F_2`, contradicting the fact that it has stictly less.
-
-    This proves property 3. If we select edge :math:`(u, v) \in F_1 \setminus F_2`, since :math:`u` and :math:`v` belong to two different connected components of :math:`F_2`, if we add it to :math:`F_2`, it will remain acyclic (and thus independent).
+    This proves property 3. If we select edge :math:`(u, v) \in F_1 \setminus F_2` such that :math:`u` and :math:`v` belong to two different connected components of :math:`F_2`, whne we add it to :math:`F_2`, it will remain acyclic (and thus independent).
 
     This matroid is known as the *graphic matroid*.
 
