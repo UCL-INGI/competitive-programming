@@ -3,19 +3,19 @@ author: ''
 context: |-
     A matroid :math:`M` is a pair :math:`(X, I)` where :math:`X` is a finite set (call **ground set**) and :math:`I` is a family of subsets of :math:`E` (called **independent sets**) with the following properties:
 
-    1. The empty set is independent:
+    *M1.* The empty set is independent:
 
     .. math::
 
         \emptyset \in I
 
-    2. A subset of an independent set is independent:
+    *M2.* A subset of an independent set is independent:
 
     .. math::
 
         \textrm{if } B \in I \textrm{ and } A \subseteq B \textrm{ then } A \in I
 
-    3. If :math:`A, B` are independent and :math:`|A| = |B| + 1`, then there is an element :math:`x \in A \setminus B` such that :math:`B \cup \{x\}` is independent:
+    *M3.* If :math:`A, B` are independent and :math:`|A| = |B| + 1`, then there is an element :math:`x \in A \setminus B` such that :math:`B \cup \{x\}` is independent:
 
     .. math::
 
@@ -31,7 +31,7 @@ context: |-
 
     Let's say that a subset of edges of :math:`G` is independent if it contains no cycles (i.e. the subset forms a forest).
 
-    We are going to see that this forms a matroid over :math:`E`. For this we need to check that properties :math:`1, 2` and :math:`3` above hold.
+    We are going to see that this forms a matroid over :math:`E`. For this we need to check that properties M1, M2 and M3 above hold.
 
     **1:**
 
@@ -60,7 +60,7 @@ context: |-
 
     |
 
-    This proves property 3. If we select edge :math:`(u, v) \in F_1 \setminus F_2` such that :math:`u` and :math:`v` belong to two different connected components of :math:`F_2`, whne we add it to :math:`F_2`, it will remain acyclic (and thus independent).
+    This proves property (M3) If we select edge :math:`(u, v) \in F_1 \setminus F_2` such that :math:`u` and :math:`v` belong to two different connected components of :math:`F_2`, whne we add it to :math:`F_2`, it will remain acyclic (and thus independent).
 
     This matroid is known as the *graphic matroid*.
 
@@ -86,15 +86,15 @@ context: |-
 
         **Greedy algorithm for matroids**
 
-        G1. Sort :math:`X` by :math:`w` so that :math:`w(x_1) \leq w(x_2) \leq \ldots \leq w_{|X|}`
+        *G1.* Sort :math:`X` by :math:`w` so that :math:`w(x_1) \leq w(x_2) \leq \ldots \leq w_{|X|}`
 
-        G2. Initialize :math:`A = \emptyset`
+        *G2.* Initialize :math:`A = \emptyset`
 
-        G3. For :math:`i = 1, \ldots, |X|`, if :math:`A \cup \{x_i\}` is independent, add :math:`x_i` to :math:`A`
+        *G3.* For :math:`i = 1, \ldots, |X|`, if :math:`A \cup \{x_i\}` is independent, add :math:`x_i` to :math:`A`
 
-        G4. Output :math:`A`
+        *G4.* Output :math:`A`
 
-    Notice that the only hard part in the above algorithms might be checking the independence in line 3. Clearly this is problem dependent and will change from one matroid to another.
+    Notice that the only hard part in the above algorithms might be checking the independence in line (G3). Clearly this is problem dependent and will change from one matroid to another.
 
     Let's see what the minimum weight independent set problem translates to for the graphic matroid and also what how to implement the independence check.
 
@@ -134,7 +134,7 @@ context: |-
 
     Write :math:`X = \{x_1, \ldots x_k\}` with :math:`w(x_1) \leq \ldots \leq w(x_k)`.
 
-    Clearly the algorithm outputs an independent set by construction: :math:`\emptyset` is independent and we only add elements if the result is independent. Assume that the algorithm outputs a non maximal set :math:`A`. Let :math:`B \in I` be any maximal set. By property 3. we have that there exists :math:`x_i \in B \setminus A` such that :math:`A \cup \{x_i\}` is independent. But this is impossible or otherwise :math:`x_i` would have been added to :math:`A` at the :math:`i`-th line :math:`3` of the algorithm.
+    Clearly the algorithm outputs an independent set by construction: :math:`\emptyset` is independent and we only add elements if the result is independent. Assume that the algorithm outputs a non maximal set :math:`A`. Let :math:`B \in I` be any maximal set. By property (M3) we have that there exists :math:`x_i \in B \setminus A` such that :math:`A \cup \{x_i\}` is independent. But this is impossible or otherwise :math:`x_i` would have been added to :math:`A` at the :math:`i`-th line (G3) of the algorithm.
 
 
     **2.**
