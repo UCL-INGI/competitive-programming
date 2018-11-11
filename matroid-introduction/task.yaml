@@ -52,7 +52,7 @@ context: |-
     We need to prove that some edge of :math:`F_1` connects two nodes that are not in the same connected component of :math:`F_2`.
 
     If this was not the case, the all edges of :math:`F_1` would connect only nodes that are in the same connected components of :math:`F_2`. But imagine yourself trying to fit :math:`|F_2| + 1` edges into the
-    connected components of :math:`F_2`. Since each component must remain a tree, the number of edges of :math:`F_1` that you can in into each component remains the same. That is, you can only fit at most :math:`e_1` edges in the frist, :math:`e_2` in the seconds and so on. Thus by the end, when you filled all components you have put a total of :math:`e_1 + e_2 + \ldots + e_k = |F_2| = |F_1| - 1` edges. This means that you have one edge left to add. But there is no more space within the components. Adding it anywhere within a component would create a cycle. Therefore, it must connect two nodes from distinct components.
+    connected components of :math:`F_2`. Since each component must remain a tree, the number of edges of :math:`F_1` that you can in into each component remains the same. That is, you can only fit at most :math:`e_1` edges in the first, :math:`e_2` in the second and so on. Thus by the end, when you filled all components you have put a total of :math:`e_1 + e_2 + \ldots + e_k = |F_2| = |F_1| - 1` edges. This means that you have one edge left to add. But there is no more space within the components. Adding it anywhere within a component would create a cycle. Therefore, it must connect two nodes from distinct components.
 
     |
 
@@ -60,7 +60,7 @@ context: |-
 
     |
 
-    This proves property (M3) If we select edge :math:`(u, v) \in F_1 \setminus F_2` such that :math:`u` and :math:`v` belong to two different connected components of :math:`F_2`, whne we add it to :math:`F_2`, it will remain acyclic (and thus independent).
+    This proves property (M3) If we select edge :math:`(u, v) \in F_1 \setminus F_2` such that :math:`u` and :math:`v` belong to two different connected components of :math:`F_2`, when we add it to :math:`F_2`, it will remain acyclic (and thus independent).
 
     This matroid is known as the *graphic matroid*.
 
@@ -72,7 +72,7 @@ context: |-
 
     An independent set of a matroid is said to be **maximal** it is not properly contained in any other independent set. Clearly, by property 3., all maximal independent sets must have the same size:
 
-    If :math:`A, B` are both maximal but :math:`|A| > |B|` then we can find :math:`x \in A \setminus B` such that :math:`B' = B \cup \{x\}` is independent. Therefore :math:`B` is not maximal since it is properly containend in :math:`B'`.
+    If :math:`A, B` are both maximal but :math:`|A| > |B|` then we can find :math:`x \in A \setminus B` such that :math:`B' = B \cup \{x\}` is independent. Therefore :math:`B` is not maximal since it is properly contained in :math:`B'`.
 
         **Minimum weight independent set on a matroid**
 
@@ -148,7 +148,7 @@ context: |-
 
     Let :math:`A' = \{a_1, \ldots, a_{i - 1} \}` and :math:`B' = \{b_1, \ldots, b_i\}`. By property M2 of matroids, both :math:`A'` and :math:`B'` are independent sets. Therefore, by property M3, since :math:`|B'| = |A'| + 1`, there is some element :math:`b_j \in B' \setminus A'` such that :math:`A' \cup \{b_j\}` is independent.
 
-    But, since :math:`j \leq i` we have :math:`w(b_j) \leq w(b_i) < w(a_i)`. Therefore element :math:`b_j` would have been selected instead of element :math:`a_i` at the :math:`i`-th step of the algorithm.
+    But then, since :math:`j \leq i` we have :math:`w(b_j) \leq w(b_i) < w(a_i)`, element :math:`b_j` would have been selected instead of element :math:`a_i` at the :math:`i`-th step of the algorithm. This prove that :math:`A` was indeed optimal.
 environment: dafny
 evaluate: best
 groups: false
