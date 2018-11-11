@@ -146,7 +146,7 @@ context: |
     Write :math:`X = \{x_1, \ldots x_k\}` with :math:`w(x_1) \leq \ldots \leq w(x_k)`.
 
     Clearly the algorithm outputs an independent set by construction: :math:`\emptyset` is independent and we only add elements if the result is independent. Assume that the algorithm outputs a non maximal set :math:`A`. Let :math:`B \in I` be any maximal set. By property (M3-2) we have that there exists :math:`x_i \in B \setminus A` such that :math:`A \cup \{x_i\}` is independent. But this is impossible or otherwise :math:`x_i` would have been added to :math:`A` at the :math:`i`-th step of line (G3). This is true because by property (M2), if :math:`x_i` is independent with :math:`A` it must also be independent with any subset of :math:`A`.
-
+    Therefore :math:`x_i` was independent with the state of :math:`A` at the :math:`i`-th execution of line (G3).
 
     **2:**
 
