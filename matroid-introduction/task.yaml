@@ -1,6 +1,6 @@
 accessible: false
 author: ''
-context: |+
+context: |-
     A matroid :math:`M` is a pair :math:`(X, I)` where :math:`X` is a finite set (call **ground set**) and :math:`I` is a family of subsets of :math:`E` (called **independent sets**) with the following properties:
 
     1. The empty set is independent:
@@ -130,6 +130,15 @@ context: |+
 
     Just for completeness, we are going to prove that the general greedy algorithm for matroids is optimal.
 
+    **1**
+
+    Write :math:`X = \{x_1, \ldots x_k\}` with :math:`w(x_1) \leq \ldots \leq w(x_k)`.
+
+    Clearly the algorithm outputs an independent set by construction: :math:`\emptyset` is independent and we only add elements if the result is independent. Assume that the algorithm outputs a non maximal set :math:`A`. Let :math:`B \in I` be any maximal set. By property (3) we have that there exists :math:`x \in B \setminus A` such that :math:`A \cup \{x\}` is independent.
+
+    But
+
+    **2**
 environment: dafny
 evaluate: best
 groups: false
