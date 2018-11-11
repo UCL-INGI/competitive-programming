@@ -1,6 +1,6 @@
 accessible: false
 author: ''
-context: |-
+context: |+
     A matroid :math:`M` is a pair :math:`(X, I)` where :math:`X` is a finite set (call **ground set**) and :math:`I` is a family of subsets of :math:`E` (called **independent sets**) with the following properties:
 
     1. The empty set is independent:
@@ -126,7 +126,10 @@ context: |-
 
     ----
 
-    So far all of this might see a bit pointless. After all, we already knew how to solve the minimum spanning tree problem. But you will see that matroids will allow us to solve a lot of new (very hard) problems.
+    So far, all of this might see a bit pointless. After all, we already knew how to solve the minimum spanning tree problem. But you will see that matroids will allow us to solve a lot of new (very hard) problems.
+
+    Just for completeness, we are going to prove that the general greedy algorithm for matroids is optimal.
+
 environment: dafny
 evaluate: best
 groups: false
