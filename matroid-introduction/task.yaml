@@ -128,16 +128,19 @@ context: |-
 
     So far, all of this might see a bit pointless. After all, we already knew how to solve the minimum spanning tree problem. But you will see that matroids will allow us to solve a lot of new (very hard) problems.
 
-    Just for completeness, we are going to prove that the general greedy algorithm for matroids is optimal.
+    Just for completeness, we are going to prove that the general greedy algorithm for matroids is optimal. We need to:
 
-    **1.**
+    1. prove that the output set is maximal
+    2. prove that it has minimal weight
+
+    **1:**
 
     Write :math:`X = \{x_1, \ldots x_k\}` with :math:`w(x_1) \leq \ldots \leq w(x_k)`.
 
     Clearly the algorithm outputs an independent set by construction: :math:`\emptyset` is independent and we only add elements if the result is independent. Assume that the algorithm outputs a non maximal set :math:`A`. Let :math:`B \in I` be any maximal set. By property (M3) we have that there exists :math:`x_i \in B \setminus A` such that :math:`A \cup \{x_i\}` is independent. But this is impossible or otherwise :math:`x_i` would have been added to :math:`A` at the :math:`i`-th line (G3) of the algorithm.
 
 
-    **2.**
+    **2:**
 environment: dafny
 evaluate: best
 groups: false
