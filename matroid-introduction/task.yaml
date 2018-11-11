@@ -145,7 +145,7 @@ context: |-
 
     Write :math:`X = \{x_1, \ldots x_k\}` with :math:`w(x_1) \leq \ldots \leq w(x_k)`.
 
-    Clearly the algorithm outputs an independent set by construction: :math:`\emptyset` is independent and we only add elements if the result is independent. Assume that the algorithm outputs a non maximal set :math:`A`. Let :math:`B \in I` be any maximal set. By property (M3) we have that there exists :math:`x_i \in B \setminus A` such that :math:`A \cup \{x_i\}` is independent. But this is impossible or otherwise :math:`x_i` would have been added to :math:`A` at the :math:`i`-th line (G3) of the algorithm.
+    Clearly the algorithm outputs an independent set by construction: :math:`\emptyset` is independent and we only add elements if the result is independent. Assume that the algorithm outputs a non maximal set :math:`A`. Let :math:`B \in I` be any maximal set. By property (M3-2) we have that there exists :math:`x_i \in B \setminus A` such that :math:`A \cup \{x_i\}` is independent. But this is impossible or otherwise :math:`x_i` would have been added to :math:`A` at the :math:`i`-th step of line (G3).
 
 
     **2:**
@@ -154,7 +154,7 @@ context: |-
 
     Since :math:`w(B) < w(A)`, there must exist some :math:`i` such that :math:`w(b_i) < w(a_i)`.
 
-    Let :math:`A' = \{a_1, \ldots, a_{i - 1} \}` and :math:`B' = \{b_1, \ldots, b_i\}`. By property M2 of matroids, both :math:`A'` and :math:`B'` are independent sets. Therefore, by property M3, since :math:`|B'| = |A'| + 1`, there is some element :math:`b_j \in B' \setminus A'` such that :math:`A' \cup \{b_j\}` is independent.
+    Let :math:`A' = \{a_1, \ldots, a_{i - 1} \}` and :math:`B' = \{b_1, \ldots, b_i\}`. By property (M2) of matroids, both :math:`A'` and :math:`B'` are independent sets. Therefore, by property (M3), since :math:`|B'| = |A'| + 1`, there is some element :math:`b_j \in B' \setminus A'` such that :math:`A' \cup \{b_j\}` is independent.
 
     But then, since :math:`j \leq i` we have :math:`w(b_j) \leq w(b_i) < w(a_i)`, element :math:`b_j` would have been selected instead of element :math:`a_i` at the :math:`i`-th step of the algorithm. This prove that :math:`A` was indeed optimal.
 environment: dafny
