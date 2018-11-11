@@ -86,13 +86,13 @@ context: |-
 
         **Greedy algorithm for matroids**
 
-        1. Sort :math:`X` by :math:`w` so that :math:`w(x_1) \leq w(x_2) \leq \ldots \leq w_{|X|}`
+        G1. Sort :math:`X` by :math:`w` so that :math:`w(x_1) \leq w(x_2) \leq \ldots \leq w_{|X|}`
 
-        2. Initialize :math:`A = \emptyset`
+        G2. Initialize :math:`A = \emptyset`
 
-        3. For :math:`i = 1, \ldots, |X|`, if :math:`A \cup \{x_i\}` is independent, add :math:`x_i` to :math:`A`
+        G3. For :math:`i = 1, \ldots, |X|`, if :math:`A \cup \{x_i\}` is independent, add :math:`x_i` to :math:`A`
 
-        4. Output :math:`A`
+        G4. Output :math:`A`
 
     Notice that the only hard part in the above algorithms might be checking the independence in line 3. Clearly this is problem dependent and will change from one matroid to another.
 
@@ -130,15 +130,14 @@ context: |-
 
     Just for completeness, we are going to prove that the general greedy algorithm for matroids is optimal.
 
-    **1**
+    **1.**
 
     Write :math:`X = \{x_1, \ldots x_k\}` with :math:`w(x_1) \leq \ldots \leq w(x_k)`.
 
-    Clearly the algorithm outputs an independent set by construction: :math:`\emptyset` is independent and we only add elements if the result is independent. Assume that the algorithm outputs a non maximal set :math:`A`. Let :math:`B \in I` be any maximal set. By property (3) we have that there exists :math:`x \in B \setminus A` such that :math:`A \cup \{x\}` is independent.
+    Clearly the algorithm outputs an independent set by construction: :math:`\emptyset` is independent and we only add elements if the result is independent. Assume that the algorithm outputs a non maximal set :math:`A`. Let :math:`B \in I` be any maximal set. By property 3. we have that there exists :math:`x_i \in B \setminus A` such that :math:`A \cup \{x_i\}` is independent. But this is impossible or otherwise :math:`x_i` would have been added to :math:`A` at the :math:`i`-th line :math:`3` of the algorithm.
 
-    But
 
-    **2**
+    **2.**
 environment: dafny
 evaluate: best
 groups: false
