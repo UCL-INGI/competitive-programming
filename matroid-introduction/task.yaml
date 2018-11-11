@@ -19,9 +19,17 @@ context: |-
 
     .. math::
 
-        \textrm{if } A, B \in I \textrm{ and } |A| \subseteq |B| + 1 \textrm{ then there exists } x \in A \setminus B \textrm{ such that } B \cup \{x\} \in I
+        \textrm{if } A, B \in I \textrm{ and } |A| = |B| + 1 \textrm{ then there exists } x \in A \setminus B \textrm{ such that } B \cup \{x\} \in I
 
     All of this might seem very abstract so lets give an example a matroid.
+
+    **Note:** Property M3 is equivalent to the following more general one:
+
+    *M3-2.*
+
+    .. math::
+
+       \textrm{if } A, B \in I \textrm{ and } |A| > |B| \textrm{ then there exists } x \in A \setminus B \textrm{ such that } B \cup \{x\} \in I
 
     ----
 
