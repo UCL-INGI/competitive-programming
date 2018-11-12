@@ -1,26 +1,38 @@
 accessible: false
 author: ''
 context: ''
-environment: dafny
+environment: pyjavacpp
 evaluate: best
 groups: false
 input_random: '0'
 limits:
-    output: '2'
-    memory: '100'
-    time: '30'
+    output: '100'
+    memory: '1000'
+    time: '1000'
 name: 'Ad-hoc - Problem: Tournament adversaries'
 network_grading: false
 problems:
     file:
         type: file
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
         name: Tournament adversaries
         header: |-
             Suppose that you are organizing a tournament with :math:`n = 2^k` players. On the first round, the first player will play againg the second player, the third player against the forth, the fifth against the sixth and so on.
 
             On the second round, this process is repeated again with the winners of the first round. So that the winner of the first match plays against the winner of the second match and so on.
 
-            This process is repeated until only one person is left. The following figure illustrates this process.
+            This process is repeated until only one person is left. The following figure illustrates one possible outcome of this process with :math:`n = 8 = 2^3`.
+
+            |
+
+            .. image:: adhoc-tournament/knockout.png
+
+            |
+
+            The bottom level of the tree shows the first round pairings. The root shows the winner.
 stored_submissions: 0
 submission_limit:
     amount: -1
