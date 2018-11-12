@@ -80,17 +80,21 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '1000'
     output: '100'
     memory: '1000'
+    time: '1000'
 name: 'Binary Search - Problem: Glyph Recognition'
 network_grading: false
 order: 35
 problems:
     file:
         type: file
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
         name: Glyph Recognition
-        header: |
+        header: |-
             *Adapted from problem G from NWERC 2017*
 
             You are an archaeologist working at an excavation site where your team has found hundreds of clay tablets containing glyphs written in some ancient language. Not much is known about the language yet, but you know that there are only six different glyphs, each of them in the shape of a regular polygon with one vertex pointing to the right (see the figure (a) below). Only the
@@ -144,10 +148,6 @@ problems:
             `Sample input 2 <binsearch-glyph/2.in>`_
 
             `Sample output 2 <binsearch-glyph/2.ans>`_
-        allowed_exts:
-        - .java
-        - .cpp
-        - .py
 stored_submissions: 0
 submission_limit:
     amount: -1
