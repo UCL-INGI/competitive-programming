@@ -1,10 +1,21 @@
 accessible: false
 author: ''
-context: Imagine that you have :math:`n` tasks to schedule on a single processor.
-    Each task takes exactly :math:`1` unit of time to complete. However, each task
-    has a positive deadline :math:`d_i` and a positive cost :math:`c_i` that is paid
-    for each task that finishes after its deadline. It does not matter how late the
-    task is finished, you always pay the same cost as long as it is delayed.
+context: |
+    Imagine that you have :math:`n` tasks to schedule on a single processor. Each task takes exactly :math:`1` unit of time to complete. However, each task has a positive deadline :math:`d_i` and a positive cost :math:`c_i` that is paid for each task that finishes after its deadline. It does not matter how late the task is finished, you always pay the same cost as long as it is delayed.
+
+    **Example:**
+
+    Imagine that we have :math:`n = 7` tasks with the following deadlines and costs:
+
+    |
+
+    .. image:: matroid-task-scheduling/matroid3.png
+
+    |
+
+    Consider the following schedule:
+
+    .. image:: matroid-task-scheduling/matroid2.png
 environment: dafny
 evaluate: best
 groups: false
