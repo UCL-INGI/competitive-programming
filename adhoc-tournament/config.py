@@ -3,5 +3,5 @@ import checkers
 READ = False
 TASKNAME = 'file'
 SOLNAME = 'yunoacsol'
-TIMELIMIT = 10
+TIMELIMIT = 12
 CHECKER = checkers.diff_check
