@@ -1,6 +1,10 @@
 accessible: false
 author: ''
-context: ''
+context: Imagine that you have :math:`n` tasks to schedule on a single processor.
+    Each task takes exactly :math:`1` unit of time to complete. However, each task
+    has a positive deadline :math:`d_i` and a positive cost :math:`c_i` that is paid
+    for each task that finishes after its deadline. It does not matter how late the
+    task is finished, you always pay the same cost as long as it is delayed.
 environment: dafny
 evaluate: best
 groups: false
