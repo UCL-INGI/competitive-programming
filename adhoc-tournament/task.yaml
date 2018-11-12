@@ -19,12 +19,12 @@ problems:
         - .cpp
         - .py
         name: Tournament adversaries
-        header: |-
+        header: |+
             Suppose that you are organizing a tournament with :math:`n = 2^k` players. On the first round, the first player will play againg the second player, the third player against the forth, the fifth against the sixth and so on.
 
             On the second round, this process is repeated again with the winners of the first round. So that the winner of the first match plays against the winner of the second match and so on.
 
-            This process is repeated until only one person is left. The following figure illustrates one possible outcome of this process with :math:`n = 8 = 2^3`.
+            This process is repeated :math:`k` times until only one person is left. The following figure illustrates one possible outcome of this process with :math:`n = 8 = 2^3`.
 
             |
 
@@ -33,6 +33,17 @@ problems:
             |
 
             The bottom level of the tree shows the first round pairings. The root shows the winner.
+
+            Given the number of a player :math:`1 \leq p \leq n` and a round :math:`1 \leq r \leq k`, what is the set of possible adversaries of player :math:`p` on round :math:`r`?
+
+            **Examples:**
+
+            1. If :math:`p = 3` and :math:`r = 1` then the set of possible oponents is :math:`\{4\}`.
+
+            2. If :math:`p = 7` and :math:`r = 2` then the set of possible oponents is :math:`\{5, 6\}`.
+
+            3. If :math:`p = 2` and :math:`r = 3` then the set of possible oponents is :math:`\{5, 6, 7, 8\}`.
+
 stored_submissions: 0
 submission_limit:
     amount: -1
