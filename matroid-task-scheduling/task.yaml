@@ -64,6 +64,8 @@ context: |-
     As usual, this step is more involved.
 
     Let :math:`A, B` by an independent sets such that :math:`|A| = |B| + 1`. We need to prove that there exists a task in :math:`x \in A \setminus B` such that it is possible to schedule all taks in :math:`B \cup \{ x \}` without delays.
+
+    Clearly, any schedule without delays can be such that its tasks are scheduled without gaps, that is, at times :math:`1, 2, \ldots, k`.
 environment: dafny
 evaluate: best
 groups: false
