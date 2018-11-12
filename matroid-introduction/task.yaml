@@ -150,7 +150,7 @@ context: |
 
     **2:**
 
-    Assume that there exists an independent set :math:`B \in I` such that :math:`w(B) < w(A)`. Write :math:`A = \{a_1, \ldots, a_n\}` and :math:`B = \{b_1, \ldots, b_n\}` with :math:`w(a_1) < \ldots < w(a_n)` and :math:`w(b_1) < \ldots < w(b_n)`.
+    Assume that there exists an independent set :math:`B \in I` such that :math:`w(B) < w(A)`. Write :math:`A = \{a_1, \ldots, a_n\}` and :math:`B = \{b_1, \ldots, b_n\}` with :math:`w(a_1) \leq \ldots \leq w(a_n)` and :math:`w(b_1) \leq \ldots \leq w(b_n)`.
 
     Since :math:`w(B) < w(A)`, there must exist some :math:`i` such that :math:`w(b_i) < w(a_i)`.
 
