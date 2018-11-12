@@ -61,11 +61,13 @@ context: |-
 
     **3:**
 
-    As usual, this step is more involved.
-
     Let :math:`A, B` by an independent sets such that :math:`|A| = |B| + 1`. We need to prove that there exists a task in :math:`x \in A \setminus B` such that it is possible to schedule all taks in :math:`B \cup \{ x \}` without delays.
 
-    Clearly, any schedule without delays can be such that its tasks are scheduled without gaps, that is, at times :math:`1, 2, \ldots, k`.
+    Clearly, any schedule without delays can be such that its tasks are scheduled without gaps, that is, at times :math:`1, 2, \ldots, k` where :math:`k` is the number of tasks.
+
+    Therefore, the last task :math:`x` in :math:`A` is scheduled at time :math:`|A|` and has delay at most :math:`|A| + 1`. On the other hand, :math:`B` has not tasks scheduled at time :math:`|A|` since its last tasks is schedueld at time :math:`|B| < |A|`. Therefore, we can add it at time :math:`|A| = |B| + 1` on the schedule of the :math:`B` tasks. Therefore :math:`B \cup \{x\}` can be scheduled without delays.
+
+        We still need to make sure that this :math:`x` does not already belong to :math:`A`.
 environment: dafny
 evaluate: best
 groups: false
