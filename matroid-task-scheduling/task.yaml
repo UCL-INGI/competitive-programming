@@ -1,6 +1,6 @@
 accessible: false
 author: ''
-context: |
+context: |-
     Imagine that you have :math:`n` tasks :math:`T` to schedule on a single processor. Each task takes exactly :math:`1` unit of time to complete. However, each task has a positive deadline :math:`d_i` and a positive cost :math:`c_i` that is paid for each task that finishes after its deadline. It does not matter how late the task is finished, you always pay the same cost as long as it is delayed.
 
     ----
@@ -38,6 +38,10 @@ context: |
     We are going to prove that :math:`(T, I)` is a matroid, where :math:`I` is the set of all subsets of independent tasks, as defined above.
 
     Let :math:`A` be a set of tasks. Denote by :math:`N(t, A)` the number of tasks in :math:`A` with deadline at most :math:`t`. For instance, in the above example :math:`N(4, \{2, 4, 7\}) = 2` since tasks :math:`2` and :math:`4` have deadline :math:`\leq 4`.
+
+    We are first going to prove that:
+
+        A set of tasks :math:`A` is independent if and only if :math:`N(t, A) \leq t` for each :math:`t = 1, \ldots, n`.
 environment: dafny
 evaluate: best
 groups: false
