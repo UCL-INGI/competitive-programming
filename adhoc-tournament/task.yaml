@@ -60,7 +60,7 @@ problems:
 
             **Limits**
 
-            * :math:`2 \leq n \leq 2^20`
+            * :math:`2 \leq n \leq 2^{18}`
             * :math:`1 \leq q \leq 10^5`
             * :math:`1 \leq r_i \leq k` where :math:`n = 2^k`
             * :math:`1 \leq p_i \leq n`
