@@ -21,9 +21,9 @@ context: |-
 
     |
 
-    Each box represents a task a the time below represent the time at which it was scheduled. On the top we show the deadlines of the tasks, for instance, tasks :math:`1, 3, 4` and :math:`6` all have dealine :math:`4`.
+    Each box represents a task a the time below represent the time at which it was scheduled. For instance, task :math:`3` was sheduled at time :math:`1` and task :math:`4` at time :math:`4`. On the top we show the deadlines of the tasks, for instance, tasks :math:`1, 3, 4` and :math:`6` all have dealine :math:`4`.
 
-    A task is represented in green if it is scheduled before its deadlien and in red otherwise. The total cost of a schedule is the sum of the costs of the tasks in red. In this case it is:
+    A task is represented in green if it is scheduled before its deadline and in red otherwise. The total cost of a schedule is the sum of the costs of the tasks in red. In this case it is:
 
     .. math::
 
