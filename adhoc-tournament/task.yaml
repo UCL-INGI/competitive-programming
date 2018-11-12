@@ -56,7 +56,7 @@ problems:
 
             **Output**
 
-            - :math:`q` lines, one for each for each query :math:`p_i, r_i` with two integers :math:`l_i` and :math:`r_i` giving the range of possible opponents of player :math:`p_i` at round :math:`r_i` is :math:`[l_i, r_i]`.
+            - :math:`q` lines, one for each for each query :math:`p_i, r_i` with two integers :math:`a_i` and :math:`b_i` giving the range of possible opponents of player :math:`p_i` at round :math:`r_i` is :math:`[a_i, b_i]`.
 
             **Limits**
 
