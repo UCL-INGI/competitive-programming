@@ -1,6 +1,6 @@
 accessible: false
 author: ''
-context: |
+context: |-
     Imagine that you have :math:`n` tasks to schedule on a single processor. Each task takes exactly :math:`1` unit of time to complete. However, each task has a positive deadline :math:`d_i` and a positive cost :math:`c_i` that is paid for each task that finishes after its deadline. It does not matter how late the task is finished, you always pay the same cost as long as it is delayed.
 
     **Example:**
@@ -13,9 +13,21 @@ context: |
 
     |
 
-    Consider the following schedule:
+    Consider the following schedule.
+
+    |
 
     .. image:: matroid-task-scheduling/matroid2.png
+
+    |
+
+    Each box represents a task a the time below represent the time at which it was scheduled. On the top we show the deadlines of the tasks, for instance, tasks :math:`1, 3, 4` and :math:`6` all have dealine :math:`4`.
+
+    A task is represented in green if it is scheduled before its deadlien and in red otherwise. The total cost of a schedule is the sum of the costs of the tasks in red. In this case it is:
+
+    .. math::
+
+        c_5 + c_4 + c_2 + c_6 = 3 + 4 + 6 + 2 = 15
 environment: dafny
 evaluate: best
 groups: false
