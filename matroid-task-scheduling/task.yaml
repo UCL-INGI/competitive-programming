@@ -43,7 +43,9 @@ context: |-
 
         A set of tasks :math:`A` is independent if and only if :math:`N(t, A) \leq t` for each :math:`t = 1, \ldots, n`.
 
-    If there is at most one task with deadline :math:`1` then, it it exists, we schedule that task at time :math:`1`. Then, it reamins at most one task with deadline :math:`2`. If it exsits, we schedule it a time :math:`2`. If we continue the same way, at the :math:`i` step, we have at most one task with deadline at time :math:`i` so we are always able to schedule each one of the tasks before its deadline. Thus :math:`A` must be independent.
+    The idea is the following.
+
+    There is at most one task with deadline :math:`1` then, it it exists, we schedule that task at time :math:`1`. Then, it remains at most one task with deadline :math:`2`. If it exsits, we schedule it a time :math:`2`. If we continue the same way, at the :math:`i` step, we have at most one task with deadline at time :math:`i` so we are always able to schedule each one of the tasks before its deadline. Thus :math:`A` must be independent.
 environment: dafny
 evaluate: best
 groups: false
