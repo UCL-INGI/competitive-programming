@@ -19,8 +19,8 @@ problems:
         - .cpp
         - .py
         name: Tournament adversaries
-        header: |+
-            Suppose that you are organizing a tournament with :math:`n = 2^k` players. On the first round, the first player will play againg the second player, the third player against the forth, the fifth against the sixth and so on.
+        header: |-
+            Suppose that you are organizing a tournament with :math:`n = 2^k` players. On the first round, the first player will play against the second player, the third player against the forth, the fifth against the sixth and so on.
 
             On the second round, this process is repeated again with the winners of the first round. So that the winner of the first match plays against the winner of the second match and so on.
 
@@ -32,7 +32,7 @@ problems:
 
             |
 
-            The bottom level of the tree shows the first round pairings. The root shows the winner.
+            The bottom level of the tree shows the first round pairings. The subsequent levels corresponds to the other rounds of the tournament. The root shows the winner.
 
             Given the number of a player :math:`1 \leq p \leq n` and a round :math:`1 \leq r \leq k`, what is the set of possible adversaries of player :math:`p` on round :math:`r`?
 
@@ -44,6 +44,37 @@ problems:
 
             3. If :math:`p = 2` and :math:`r = 3` then the set of possible oponents is :math:`\{5, 6, 7, 8\}`.
 
+            *Note:* The set of possible opponents is always a continuous range so it is totally identified by its minimum and maximum elements. In the above examples the ranges are :math:`[4, 4]`, :math:`[5, 6]` and :math:`[5, 8]`.
+
+            **Input**
+
+            - A line with an integer :math:`n` giving the number of players.
+
+            - A line with an integer :math:`q` giving the number of queries.
+
+            - :math:`q` lines each with two integers :math:`p_i` and :math:`r_i` giving a player and a round, respectively.
+
+            **Output**
+
+            One line for each query with two integers :math:`l` and :math:`r` giving the range of possible opponents of player :math:`p_i` at round :math:`r_i` if :math:`[l, r]`.
+
+            **Limits**
+
+            * :math:`2 \leq n \leq 2^20`
+            * :math:`1 \leq q \leq 10^5`
+            * :math:`1 \leq r_i \leq k` where :math:`n = 2^k`
+            * :math:`1 \leq p_i \leq n`
+
+            **Sample Test Cases**
+
+            `Sample input 1 <adhoc-tournament/1.in>`_
+
+            `Sample output 1 <adhoc-tournament/1.ans>`_
+
+
+            `Sample input 2 <adhoc-tournament/2.in>`_
+
+            `Sample output 2 <adhoc-tournament/2.ans>`_
 stored_submissions: 0
 submission_limit:
     amount: -1
