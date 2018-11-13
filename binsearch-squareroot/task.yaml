@@ -86,7 +86,7 @@ limits:
     memory: '1000'
 name: Binary search - Square root
 network_grading: false
-order: 33
+order: 36
 problems:
     file:
         type: file

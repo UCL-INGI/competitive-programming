@@ -14,7 +14,7 @@ limits:
     time: '1000'
 name: 'DP - Problem: Copying books'
 network_grading: false
-order: 0
+order: 34
 problems:
     file:
         type: file

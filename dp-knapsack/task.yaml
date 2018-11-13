@@ -135,7 +135,7 @@ limits:
     memory: '1000'
 name: DP - Knapsack
 network_grading: false
-order: 20
+order: 22
 problems:
     file:
         name: Knapsack

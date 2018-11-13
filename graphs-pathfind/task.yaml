@@ -98,7 +98,7 @@ limits:
     time: '1000'
 name: Graphs - Finding a path
 network_grading: false
-order: 4
+order: 6
 problems:
     file:
         type: file

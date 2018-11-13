@@ -86,7 +86,7 @@ limits:
     memory: '1000'
 name: 'DP - Data structures: sparse table for RMQ'
 network_grading: false
-order: 31
+order: 33
 problems:
     file:
         name: ''
