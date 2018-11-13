@@ -1,0 +1,40 @@
+accessible: true
+author: ''
+context: ''
+environment: dafny
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    output: '2'
+    memory: '100'
+    time: '30'
+name: ''
+network_grading: false
+problems:
+    file:
+        type: file
+        name: Knockout Tournament
+        header: |
+            Laura is organising a knockout tournament, in which her friend Dale takes part. Laura would like to maximise the probability of Dale winning the tournament by arranging the games in a
+            favourable way.  She does not know how to do it, so she asked you for help.  Naturally, you refuse to cooperate with such a deplorable act—but then you realise that it is a very nice puzzle!
+
+            When the number of players is a power of two, the tournament setup can be described recursively as follows:  the players are divided into two equal groups that each play their own knockout
+            tournament, after which the winners of both tournaments play each other. Once a player loses, they are out of the tournament.
+            When the number of players is not a power of two, some of the last players in the starting line-up advance from the first round automatically so that in the second round the number of players left is a power of two, as shown the figure below.
+
+            |
+
+            .. image:: dp-knockout/knockout.png
+
+            |
+
+            Every player has a rating indicating their strength. A player with rating :math:`a` wins a game against a player with rating :math:`b` with probability :math:`\frac{a}{a + b}` (independently of any previous matches played).
+
+            Laura as the organiser can order the starting line-up of players in any way she likes. What is the maximum probability of Dale winning the tournament?
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0
