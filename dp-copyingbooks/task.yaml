@@ -1,4 +1,4 @@
-accessible: false
+accessible: true
 author: ''
 context: |-
     Adapted from: `UVa 714 <https://uva.onlinejudge.org/external/7/714.pdf>`_
