@@ -15,7 +15,7 @@ problems:
     file:
         type: file
         name: Knockout Tournament
-        header: |
+        header: |-
             Laura is organising a knockout tournament, in which her friend Dale takes part. Laura would like to maximise the probability of Dale winning the tournament by arranging the games in a
             favourable way.  She does not know how to do it, so she asked you for help.  Naturally, you refuse to cooperate with such a deplorable act—but then you realise that it is a very nice puzzle!
 
@@ -32,6 +32,37 @@ problems:
             Every player has a rating indicating their strength. A player with rating :math:`a` wins a game against a player with rating :math:`b` with probability :math:`\frac{a}{a + b}` (independently of any previous matches played).
 
             Laura as the organiser can order the starting line-up of players in any way she likes. What is the maximum probability of Dale winning the tournament?
+
+
+            **Input**
+
+            - One line with an integer :math:`n`, the total number of players.
+
+            - :math:`n` lines, each with an integer :math:`r`, the rating of a player. The first rating given is Dale's rating.
+
+            **Constraints**
+
+            * :math:`1 \leq n \leq 50000`
+            * :math:`0 \leq m \leq (n^2 − n) / 2`
+            * :math:`0 \leq H, P, D < n`
+            * :math:`S \neq H, S \neq D, P \neq D`
+            * :math:`0 \leq u_i < n`
+            * The graph is connected.
+
+            **Output**
+
+            Output the maximum probability with which Dale can win the tournament given a favourable setup. Your answer should have an absolute or relative error of at most :math:`10^{-6}`.
+
+            **Sample Test Cases**
+
+            `Sample input 1 <dp-knockout/1.in>`_
+
+            `Sample output 1 <dp-knockout/1.ans>`_
+
+
+            `Sample input 2 <dp-knockout/2.in>`_
+
+            `Sample output 2 <dp-knockout/2.ans>`_
 stored_submissions: 0
 submission_limit:
     amount: -1
