@@ -49,7 +49,7 @@ context: |-
                 if(check(M)) L = M; // dismiss all values < M
                 else R = M; // dismiss all values > M
             }
-            return (int)L;
+            return L;
         }
 
         static boolean check(int M) {
@@ -144,15 +144,19 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '1000'
     output: '100'
     memory: '1000'
+    time: '1000'
 name: Binary search - Search on the answer
 network_grading: false
 order: 38
 problems:
     file:
         type: file
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
         name: Plane purchase problem
         header: |
             Write an algorithm as described above for solving the plane purchase problem.
@@ -187,10 +191,6 @@ problems:
             `Sample input 3 <binsearch-bsanswer/3.in>`_
 
             `Sample output 3 <binsearch-bsanswer/3.ans>`_
-        allowed_exts:
-        - .java
-        - .cpp
-        - .py
 stored_submissions: 0
 submission_limit:
     amount: -1
