@@ -11,7 +11,7 @@ limits:
     time: '1000'
 name: 'Techniques - Problem: Iron and Coal'
 network_grading: false
-order: 40
+order: 41
 problems:
     file:
         type: file

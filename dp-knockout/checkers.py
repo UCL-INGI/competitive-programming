@@ -3,7 +3,7 @@ import math
 
 eps = 1e-6
 
-def float(input_fn, output_fn, output_team):
+def check_float(input_fn, output_fn, output_team):
   f = open(output_fn, 'r')
   lines = [ line.strip() for line in f.readlines() ]
   f.close()

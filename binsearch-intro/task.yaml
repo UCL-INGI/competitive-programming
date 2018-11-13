@@ -80,7 +80,7 @@ limits:
     time: '1000'
 name: Binary search - Introduction
 network_grading: false
-order: 35
+order: 36
 problems:
     file:
         header: |-
