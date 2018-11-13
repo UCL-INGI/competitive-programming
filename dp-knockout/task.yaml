@@ -9,7 +9,7 @@ limits:
     output: '100'
     memory: '1000'
     time: '1000'
-name: 'DP - Problem: Iron and Coal'
+name: 'DP - Problem: Knockout Tournament'
 network_grading: false
 problems:
     file:
@@ -46,12 +46,8 @@ problems:
 
             **Constraints**
 
-            * :math:`1 \leq n \leq 50000`
-            * :math:`0 \leq m \leq (n^2 − n) / 2`
-            * :math:`0 \leq H, P, D < n`
-            * :math:`S \neq H, S \neq D, P \neq D`
-            * :math:`0 \leq u_i < n`
-            * The graph is connected.
+            * :math:`2 \leq n \leq 4096`
+            * :math:`1 \leq r \leq 10^5`
 
             **Output**
 
