@@ -1,6 +1,6 @@
 accessible: true
 author: ''
-context: ''
+context: This problem K from the NWERC 2016.
 environment: pyjavacpp
 evaluate: best
 groups: false
@@ -9,7 +9,7 @@ limits:
     output: '100'
     memory: '1000'
     time: '1000'
-name: ''
+name: 'DP - Problem: Iron and Coal'
 network_grading: false
 problems:
     file:
