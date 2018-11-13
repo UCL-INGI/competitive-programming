@@ -6,14 +6,19 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '1000'
     output: '100'
     memory: '1000'
+    time: '1000'
 name: 'Techniques - Problem: Iron and Coal'
 network_grading: false
+order: 40
 problems:
     file:
         type: file
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
         name: Iron and Coal
         header: |
             There are many excellent strategy board games, and
@@ -48,11 +53,11 @@ problems:
 
             - One line with three integers :math:`n`, the number of cells on the playing field, :math:`m`, the number of cells containing iron ore, and :math:`k`, the number of cells containing coal.
 
-            - One line with m distinct integers :math:`o_1 , \ldots , o_m`, where :math:`o_1 , \leq , o_m` are the IDs of cells with iron ore.
+            - One line with m distinct integers :math:`o_1 , \ldots , o_m`, where :math:`o_1 , \ldots , o_m` are the IDs of cells with iron ore.
 
-            - One line with k distinct integers :math:`c_1 , \ldots , c_k`, where :math:`c_1 , \ldots , c_k` are the IDs of cells with coal.
+            - One line with k distinct integers :math:`c_1 , \ldots , c_k`, where :math:`c_1, \ldots ,c_k` are the IDs of cells with coal.
 
-            - :math:`n` lines describing the topology of the board. The :math:`j`-th line of this block specifies the accessible neighbours of the :math:`j`-th cell and consists of the following integers: One integer :math:`a`, the number of cells accessible from cell :math:`j` followed by :math:`a` distinct integers :math:`b_1 , \ldots , b_a`, the IDs of the cells accessible from cell :math:`j`.
+            - :math:`n` lines describing the topology of the board. The :math:`j`-th line of this block specifies the accessible neighbours of the :math:`j`-th cell and consists of the following integers: One integer :math:`a`, the number of cells accessible from cell :math:`j` followed by :math:`a` distinct integers :math:`b_1, \ldots,  b_a`, the IDs of the cells accessible from cell :math:`j`.
 
             It is guaranteed, that no cell contains both resources, iron ore and coal. At the beginning of the game you own only the cell with ID 1.
 
@@ -81,14 +86,9 @@ problems:
             `Sample input 2 <tech-ironcoalproblem/2.in>`_
 
             `Sample output 2 <tech-ironcoalproblem/2.ans>`_
-        allowed_exts:
-        - .java
-        - .cpp
-        - .py
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
 tags: {}
 weight: 1.0
-order: 40
