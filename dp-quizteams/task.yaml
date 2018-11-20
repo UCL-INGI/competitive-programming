@@ -11,7 +11,15 @@ limits:
     time: '1000'
 name: ''
 network_grading: false
-problems: {}
+problems:
+    file:
+        type: file
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
+        name: Forming Quiz Teams
+        header: ''
 stored_submissions: 0
 submission_limit:
     amount: -1
