@@ -6,20 +6,23 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    output: '100'
-    memory: '1000'
     time: '1000'
+    memory: '1000'
+    output: '100'
 name: ''
 network_grading: false
 problems:
     file:
         type: file
+        name: Forming Quiz Teams
         allowed_exts:
         - .java
         - .cpp
         - .py
-        name: Forming Quiz Teams
-        header: ''
+        header: |-
+            You have been given the job of forming the quiz teams for the next `MCA CPCI Quiz Championship'.
+            There are :math:`n = 2 k` students interested to participate and you have to form :math:`k` teams, each team consisting of two members. Since the members have to practice together, all the students want their members house as near as possible. Let :math:`x_1` be the distance between the houses of group 1,
+            :math:`x_2` be the distance between the houses of group 2 and so on. You have to make the groups so that  :math:`x_1 + x_2 + \ldots + x_{k}` is minimized.
 stored_submissions: 0
 submission_limit:
     amount: -1
