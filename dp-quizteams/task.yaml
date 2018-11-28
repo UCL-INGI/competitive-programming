@@ -1,6 +1,7 @@
 accessible: true
 author: ''
-context: ''
+context: |
+    Adapted from: `UVa 10911 <https://uva.onlinejudge.org/external/109/10911.pdf>`_
 environment: pyjavacpp
 evaluate: best
 groups: false
@@ -9,7 +10,7 @@ limits:
     time: '1000'
     memory: '1000'
     output: '100'
-name: ''
+name: 'DP - Problem: Forming Quiz Teams'
 network_grading: false
 problems:
     file:
@@ -57,3 +58,4 @@ submission_limit:
     period: -1
 tags: {}
 weight: 1.0
+order: 36
