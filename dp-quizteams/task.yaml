@@ -12,6 +12,7 @@ limits:
     output: '100'
 name: 'DP - Problem: Forming Quiz Teams'
 network_grading: false
+order: 36
 problems:
     file:
         type: file
@@ -52,10 +53,19 @@ problems:
 
             `Sample output 2 <dp-quizteams/2.ans>`_
 
+
+            `Sample input 3 <dp-quizteams/3.in>`_
+
+            `Sample output 3 <dp-quizteams/3.ans>`_
+
+
+            `Sample input 4 <dp-quizteams/4.in>`_
+
+            `Sample output 4 <dp-quizteams/4.ans>`_
+
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
 tags: {}
 weight: 1.0
-order: 36
