@@ -26,6 +26,14 @@ problems:
             There are :math:`n = 2k` students interested to participate and you have to form :math:`k` teams, each team consisting of two members. Since the members have to practice together, all the students want their members house as near as possible. Let :math:`x_1` be the distance between the houses of group 1,
             :math:`x_2` be the distance between the houses of group 2 and so on. You have to make the groups so that  :math:`x_1 + x_2 + \ldots + x_{k}` is minimized.
 
+            **Example:**
+
+            The following image shows the first sample test case where :math:`n = 4` and having student houses at positions :math:`(1, 1), (1, 3), (6, 8)` and :math:`(8, 6)`. If we pair the students as shown in blue we get the minimum total distance. The orange pairing shows another possible pairing which is not optimal.
+
+            .. image:: dp-quizteams/quizteams.png
+
+            |
+
             **Input**
 
             - One line with one integer :math:`n` giving the number of students.
