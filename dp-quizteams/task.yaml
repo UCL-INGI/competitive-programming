@@ -19,10 +19,38 @@ problems:
         - .java
         - .cpp
         - .py
-        header: |-
-            You have been given the job of forming the quiz teams for the next `MCA CPCI Quiz Championship'.
-            There are :math:`n = 2 k` students interested to participate and you have to form :math:`k` teams, each team consisting of two members. Since the members have to practice together, all the students want their members house as near as possible. Let :math:`x_1` be the distance between the houses of group 1,
+        header: |+
+            You have been given the job of forming the quiz teams for the next *MCA CPCI Quiz Championship*.
+            There are :math:`n = 2k` students interested to participate and you have to form :math:`k` teams, each team consisting of two members. Since the members have to practice together, all the students want their members house as near as possible. Let :math:`x_1` be the distance between the houses of group 1,
             :math:`x_2` be the distance between the houses of group 2 and so on. You have to make the groups so that  :math:`x_1 + x_2 + \ldots + x_{k}` is minimized.
+
+            **Input**
+
+            - One line with one integer :math:`n` giving the number of students.
+
+            - :math:`n` lines each with two integers :math:`x_i, y_i` giving the coordinates of the students houses.
+
+
+            **Output**
+
+            One line with a number giving the minimum total distance if we pair the students in an optimal way.
+
+            **Limits**
+
+            * :math:`n = 2k` where :math:`1 \leq k \leq 8`
+            * :math:`0 \leq x_i, y_i \leq 1000`
+
+            **Sample Test Cases**
+
+            `Sample input 1 <dp-quizteams/1.in>`_
+
+            `Sample output 1 <dp-quizteams/1.ans>`_
+
+
+            `Sample input 2 <dp-quizteams/2.in>`_
+
+            `Sample output 2 <dp-quizteams/2.ans>`_
+
 stored_submissions: 0
 submission_limit:
     amount: -1
