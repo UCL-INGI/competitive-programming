@@ -1,0 +1,76 @@
+accessible: true
+author: ''
+context: ''
+environment: pyjavacpp
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    output: '100'
+    time: '1000'
+    memory: '900'
+name: Contest 1 2019 - A
+network_grading: false
+order: 59
+problems:
+    file:
+        type: file
+        header: |+
+            The List programming language is a language for working with
+            lists of integers. The language has two built-in functions: :code:`R` (reverse) and :code:`D` (drop).
+            The function :code:`R` reverses its input list, and :code:`D` drops the first element of its input and returns the rest, or gives an error in case its input is an empty list.
+
+            To get more advanced behavior, functions can be composed: :code:`AB` is the function that first applies :code:`A` to its input and then :code:`B` to the resulting list. For example, :code:`RDD` is a function that reverses a list and thendrops the first two elements.
+
+            Given a List program and its input, return its output or :code:`error` in case :code:`D` is applied to an empty list.
+
+            **Input**
+
+            The first line contains a string :math:`P` over the alphabet :code:`"RD"` representing a List program.
+
+            The second line contains a string representation of the input list.
+
+            Lists are represented as the character :code:`[` followed by a comma-separated list
+            of integers followed by the character :code:`]`. There are **no spaces** in the list representation.
+
+            **Constraints**
+
+             - :math:`1 \leq |P| \leq 10^5`
+
+             - The number of elements in the input list is at most :math:`10^5`. The input list can be empty.
+
+            **Output**
+
+            A single line with the resulting list or :code:`error` if there was an error.
+
+            The output format of the list needs to be the same as the input format, that is,
+            the character :code:`[` followed by a comma-separated list of integers followed by the character :code:`]`. There are **no spaces** in the list representation.
+
+
+            **Sample Test Cases**
+
+            `Sample input 1 <contest1-2019-A/1.in>`_
+
+            `Sample output 1 <contest1-2019-A/1.ans>`_
+
+
+            `Sample input 2 <contest1-2019-A/2.in>`_
+
+            `Sample output 2 <contest1-2019-A/2.ans>`_
+
+
+            `Sample input 3 <contest1-2019-A/3.in>`_
+
+            `Sample output 3 <contest1-2019-A/3.ans>`_
+
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
+        name: List programmig
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0

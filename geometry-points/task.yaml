@@ -1,0 +1,99 @@
+accessible: false
+author: Alexandre Gobeaux, Victor Lecomte, François Aubry
+context: |-
+    Before solving any geometry problem, you should know how to build a Point. In java, we can easily build it with the following piece of code :
+
+    .. code:: java
+
+        static class Point {
+             double x,y;
+             public Point(double x, double y){
+                  this.x = x;
+                  this.y = y;
+             }
+        }
+
+    From here we can also define some basic operations like the addition, the substraction and the multiplication/division by a scalar as follows :
+
+    .. code:: java
+
+        static class Point {
+             double x,y;
+             public Point(double x, double y){
+                  this.x = x;
+                  this.y = y;
+             }
+             public Point plus(Point p){
+                  return new Point(x+p.x, y+p.y);
+             }
+             public Point minus(Point p){
+                  return new Point(x-p.x, y-p.y);
+             }
+             public Point times(double d){
+                  return new Point(d*x, d*y);
+             }
+             public Point div(double d){
+                  return new Point(x/d, y/d);
+             }
+        }
+
+    Since Point is an object, we have to define a 'equals' function in order to compare two Points (instead of comparing references which isn't what you want to do in most of the cases) :
+
+    .. code:: java
+
+        static class Point {
+             double x,y;
+             public Point(double x, double y){
+                  this.x = x;
+                  this.y = y;
+             }
+             public boolean equals(Point p){
+                  return p.x == x && p.y == y;
+             }
+        }
+
+    Another very important function is the 'abs' function (or 'norm' function if we imagine a vector) :
+
+    .. code:: java
+
+        static class Point {
+             double x,y;
+             public Point(double x, double y){
+                  this.x = x;
+                  this.y = y;
+             }
+             public double square(){
+                  return x*x + y*y;
+             }
+             public double abs(){
+                  return square();
+             }
+        }
+
+    **Important note:** Sometimes, you could define your vector or your point with integers. In this case, instead of using the 'abs' function to compare the distances, you could just use the square function which would return an integer (int or long) if you change it. It could be useful if you want to avoid rounding errors.
+environment: java8scala
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    output: '2'
+    time: '30'
+    memory: '100'
+name: Geometry - Points
+network_grading: false
+order: 51
+problems:
+    read:
+        type: multiple_choice
+        choices:
+        -   text: 'Yes'
+            valid: true
+        name: Mark this section as read?
+        header: ''
+        limit: 0
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0

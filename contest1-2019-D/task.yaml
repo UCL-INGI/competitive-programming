@@ -1,0 +1,83 @@
+accessible: true
+author: ''
+context: ''
+environment: pyjavacpp
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    output: '100'
+    time: '1000'
+    memory: '900'
+name: Contest 1 2019 - D
+network_grading: false
+order: 62
+problems:
+    file:
+        type: file
+        header: |+
+            A store owner wants to install a new security camera inside his store. We treat the store as a two-dimensional convex polygon. The camera has a 90 degree view angle. It is placed on the *middle point* of the wall connecting the first two vertices in a way such that
+            the borders of the view are given by the two lines that intersect the wall at a 45
+            degree angle. Can you help the store owner to know how much of the store is visible to the camera?
+
+            **Example**
+
+            The following example describes the first sample input. The camera is always place in
+            the middle point of the segment connecting the the first two points in the room. The green area shows area of the store that the camera can see. The answer is the ratio between this green area and the total area of the store.
+
+            .. image:: contest1-2019-D/image.png
+
+            |
+
+            **Input**
+
+            The first line contains a single integer :math:`n` giving the number of vertices in the polygon describing the store.
+
+            Then follow :math:`n` lines each with two integers :math:`x, y` giving the coordinates of those vertices. The vertices are given in counterclockwise order. All internal angles are strictly between 0 and 180 degrees.
+
+
+            **Constraints**
+
+             - :math:`3 \leq n \leq 1000`
+
+             - :math:`-10^5 \leq x, y \leq 10^5`
+
+            **Output**
+
+
+            The ratio between the area visible by the camera and the total area of the store.
+
+            **The camera is always placed exactly halfway between the first two corners of the room.**
+
+            The answer should be accurate up to :math:`10^{-6}` relative or absolute precision.
+
+            Do not worry about formating the output with :code:`printf` or others, as long as the precision is ok, your answer will be accepted
+
+
+            **Sample Test Cases**
+
+            `Sample input 1 <contest1-2019-D/1.in>`_
+
+            `Sample output 1 <contest1-2019-D/1.ans>`_
+
+
+            `Sample input 2 <contest1-2019-D/2.in>`_
+
+            `Sample output 2 <contest1-2019-D/2.ans>`_
+
+
+            `Sample input 3 <contest1-2019-D/3.in>`_
+
+            `Sample output 3 <contest1-2019-D/3.ans>`_
+
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
+        name: Security camera
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0

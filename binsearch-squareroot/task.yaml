@@ -81,15 +81,19 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '1000'
+    memory: '900'
     output: '100'
-    memory: '1000'
+    time: '1000'
 name: Binary search - Square root
 network_grading: false
-order: 38
+order: 45
 problems:
     file:
         type: file
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
         name: Perfect square
         header: |-
             We say that an integer :math:`n` is a perfect square if there exists an integer :math:`x` such that :math:`x^2 = n`.
@@ -120,10 +124,6 @@ problems:
             `Sample input 2 <binsearch-squareroot/2.in>`_
 
             `Sample output 2 <binsearch-squareroot/2.ans>`_
-        allowed_exts:
-        - .java
-        - .cpp
-        - .py
 stored_submissions: 0
 submission_limit:
     amount: -1

@@ -1,0 +1,180 @@
+accessible: true
+author: Alexandre Gobeaux, Victor Lecomte, François Aubry
+context: |+
+    Imagine you have a point :math:`p` which you want to rotate at an angle :math:`\theta` around a point :math:`c` as shown in the following figure.
+
+    |
+
+    .. image:: geometry-rotation/rotate.png
+
+    |
+
+
+    The first step is to know how to rotate a point around the origin because when you know how to do that, you will be able to rotate a point :math:`p` around another point :math:`c` in the new coordinate system whose origin is :math:`c`.
+
+    |
+
+    .. image:: geometry-rotation/rotate2.png
+
+    |
+
+
+    In 2D, we can define the point :math:`p'`, the point p rotated around the origin by an angle :math:`\theta` (:math:`\theta` measured counter-clockwise) as follows :
+
+    .. math::
+
+        p'_x = p_x \cdot \cos \theta - p_y \cdot \sin \theta\\
+        p'_y = p_x \cdot \sin \theta + p_y \cdot \cos \theta
+
+    To see why this is the case, we will reason about :math:`p` and :math:`p'` as complex numbers. There is a natural one to one correspondence between the 2D plane and the set of complex numbers. A point :math:`p = (x, y)` corresponds to the complex number :math:`x + i y`.
+
+    |
+
+    .. image:: geometry-rotation/rotate3.png
+
+    |
+
+    We know that complex number can be expressed as :math:`x + i y = \rho e^{i \theta}` where :math:`\rho` is the distance to the origin and :math:`\theta` is the angle between the x-axis and the segment connecting the origin to point :math:`(x, y)`.
+
+    |
+
+    .. image:: geometry-rotation/rotate4.png
+
+    |
+
+    The reason why this expression is useful is that multiplications behaves as expected, that is,
+
+    .. math::
+
+        \rho_1 e^{i \theta_1} \cdot \rho_2 e^{i \theta_2} = \rho_1 \cdot \rho_2 e^{i \cdot (\theta_1 + \theta_2)}
+
+    This means that the result of multiplying two complex numbers is a complex number whose distance to the origin is the product of the distances of the two input numbers and the angle is the addition. This is show in the following figure.
+
+    |
+
+    .. image:: geometry-rotation/rotate5.png
+
+    |
+
+    Therefore, in particular, to rotate a point :math:`(x, y)` of an angle :math:`\theta` around the origin we simply need to multiply the complex number :math:`x + i y` by :math:`e^{i \theta}`. The reason why this works is that if we write  :math:`x + i y = \rho e^{i \alpha}` for some
+    :math:`\rho` and :math:`\alpha` then
+
+    .. math::
+
+       (x + i y) \cdot e^{i\theta} = \rho e^{i \alpha} \cdot e^{i \theta} = \rho e^{i (\alpha + \theta)}
+
+    Which is exacly the same point except that we added :math:`\theta` to the angle. The next figure illustrates this.
+
+    |
+
+    .. image:: geometry-rotation/rotate6.png
+
+    |
+
+    Finally, to deduce the above formulas for the roation we simply need to compute the expression of :math:`x' + iy' = (x + i y) \cdot e^{i\theta}` by remembering that :math:`e^{i\theta} = \cos \theta + i \sin \theta`.
+    and :math:`i^2 = -1`:
+
+    .. math::
+
+        \begin{split}
+        (x + yi)\cdot e^{i\theta} & = (x + yi)\cdot (\cos \theta + i \sin \theta)\\
+        & = x\cdot \cos \theta + x \cdot i \cdot \sin \theta + y \cdot i \cdot \cos \theta - y \cdot \sin \theta \\
+        & = (x\cdot \cos \theta - y\cdot \sin \theta) + i\ (x\cdot \sin \theta + y\cdot \cos \theta)
+        \end{split}
+
+    So that
+
+    .. math::
+
+        x' = x \cdot \cos \theta - y \cdot \sin \theta\\
+        y' = x \cdot \sin \theta + y \cdot \cos \theta
+
+    To rotate a point p around another point c, we need to rotate the point p expressed in the coordinate system whose origin is c (it simply is :math:`p-c`), and then we just need to express the result in the initial coordinate system (whose origin is (0,0)).
+
+    This gives us the following formula (if we define :math:`p' = p'_x + p'_yi`):
+
+    .. math::
+
+        p' = c + e^{i \theta} \cdot (p - c)
+
+    or :
+
+    .. math::
+
+        p'_x = c_x +  (p_x - c_x) \cdot \cos \theta - (p_y - c_y) \cdot \sin \theta\\
+        p'_y = c_y + (p_x - c_x) \cdot \sin \theta + (p_y - c_y) \cdot \cos \theta
+
+    *Note : similar computations (with a different result) could be done for an angle measured clockwise. In fact, we would just have to change* :math:`\theta` *into* :math:`-\theta`.
+
+    In Java, we can easily implement these functions as follows.
+
+    .. code:: Java
+
+        static Point rotate(Point p, double a) {
+            return new Point(p.x * Math.cos(a) - p.y * Math.sin(a), p.x * Math.sin(a) + p.y * Math.cos(a));
+        }
+
+        static Point rotate(Point p, Point c, double a) {
+            return new Point(c.x + (p.x - c.x) * Math.cos(a) - (p.y - c.y) * Math.sin(a),
+                           c.y + (p.x - c.x) * Math.sin(a) + (p.y - c.y) * Math.cos(a));
+        }
+
+environment: pyjavacpp
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    output: '100'
+    time: '1000'
+    memory: '900'
+name: Geometry - 2D Rotation
+network_grading: false
+order: 54
+problems:
+    file:
+        type: file
+        header: |
+            As an exercise, compute the result of rotating an object by a certain angle :math:`\theta` around a center :math:`c`.
+
+            **Input**
+
+            - One line with an integer :math:`n` giving the number of vertices of the object.
+            - One line with an integer :math:`\theta` giving the counter-clockwise angle for the rotation (in degrees).
+            - One line with two integers :math:`c_x` and :math:`c_y` giving the coordinates of the center of rotation.
+            - :math:`n` lines with two integers :math:`x_i` and :math:`y_i` giving the coordinates of the object vertices.
+
+            **Constraints**
+
+            - :math:`1 \leq n \leq 1000`
+            - :math:`0 \leq \theta \leq 1080`
+            - :math:`-1000 \leq c_x, c_y \leq 1000`
+            - :math:`-1000 \leq x_i, y_i \leq 1000`
+
+            **Output**
+
+            - :math:`n` lines, each giving the two coordinates of one of the points of the rotated object. These points must be in the same order as the ones given in the input. The two coordinates must be separated by a single space.
+
+            The will be accepted as long as it is accurate up to $10^{-6}$ relative or absolute precision.
+
+
+            **Sample Test Cases**
+
+            `Sample input 1 <geometry-rotation/1.in>`_
+
+            `Sample output 1 <geometry-rotation/1.ans>`_
+
+
+            `Sample input 2 <geometry-rotation/2.in>`_
+
+            `Sample output 2 <geometry-rotation/2.ans>`_
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
+        name: Object rotating
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0

@@ -9,12 +9,12 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
+    memory: '900'
     output: '100'
-    memory: '1000'
     time: '1000'
 name: 'DP - Problem: Copying books'
 network_grading: false
-order: 34
+order: 41
 problems:
     file:
         type: file

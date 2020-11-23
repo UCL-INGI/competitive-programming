@@ -88,14 +88,19 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '1000'
+    memory: '900'
     output: '100'
-    memory: '1000'
+    time: '1000'
 name: Techniques - Brute force on solution structure
 network_grading: false
+order: 48
 problems:
     file:
         type: file
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
         name: Pickup and Delivery
         header: |-
             Write a solution for the pickup an delivery problem described above.
@@ -135,14 +140,9 @@ problems:
             `Sample input 2 <tech-bruteproblemstruct/2.in>`_
 
             `Sample output 2 <tech-bruteproblemstruct/2.ans>`_
-        allowed_exts:
-        - .java
-        - .cpp
-        - .py
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
 tags: {}
 weight: 1.0
-order: 41

@@ -1,0 +1,33 @@
+accessible: false
+author: ''
+context: |-
+    Whenever you face a problem where the output is very large, **you should always avoid** two things:
+
+    1. Making a lot of calls to :code:`System.out`
+    2. Concatenating a lot of strings
+
+    To illustrate this consider the following simple problem:
+
+    **Input:** A single integer :math:`n`
+
+    **Output:** A string containing :math:`n` times the character 'a'
+
+    For for example, on input :math:`5` you should output the string "aaaaa".
+environment: java8scala
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    output: '2'
+    time: '30'
+    memory: '100'
+name: IO - Dealing with large outputs
+network_grading: false
+order: 0
+problems: {}
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0

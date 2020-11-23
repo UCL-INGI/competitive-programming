@@ -1,0 +1,36 @@
+accessible: true
+author: ''
+context: |+
+    Most of the content of this course related to geometry is take from the "Handbook of geometry for competitive
+    programmers" written by Victor Lecomte, which was, by far, the strongest ICPC participant that our university has ever had.
+
+    In contrast with this course, the code found in the book is in :code:`C++`.
+
+    The source of the book can be found in his `github page <https://github.com/vlecomte/cp-geo>`_. You can download the pdf from `here <https://drive.google.com/file/d/1wmsyxpbeELd9XHP7sdr4y3BgfrYB8KXE/view?usp=sharing>`_. We advise you to download the sources and compile them so that you have the latest content of the book.
+
+environment: pyjavacpp
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    output: '2'
+    time: '30'
+    memory: '100'
+name: Geometry - Introduction
+network_grading: false
+order: 50
+problems:
+    read:
+        type: multiple_choice
+        choices:
+        -   text: 'Yes'
+            valid: true
+        name: ' Mark this section as read?'
+        header: ''
+        limit: 0
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0

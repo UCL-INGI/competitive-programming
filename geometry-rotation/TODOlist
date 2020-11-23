@@ -1,0 +1,24 @@
+NB POINTS > 0
+CENTRE DE ROTATION A DONNER DANS INPUT !!!
+angle appartient aux réels, counter-clockwise, en degré
+x et y, des entiers, bornes = double
+précision 10^(-5)
+
+
+
+FORMAT INPUT : 
+NB POINTS
+ANGLE
+P1.x P1.y
+P2.x P2.y
+P3.x P3.y
+P4.x P4.y
+.
+.
+.
+.
+
+
+
+Problème plus hard : comparer 2 figures : les mettre sur l\'axe des x toutes les deux (droites d\'un côté fait intersection, rotation autour de ce point d\'intersection avec la ligne des x) et puis on compare juste les positions des points
+Avec scaling ? pour section 2.2.4 qui parle de rotation translation et scaling

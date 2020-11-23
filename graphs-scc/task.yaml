@@ -190,20 +190,20 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '1000'
+    memory: '900'
     output: '100'
-    memory: '1000'
+    time: '1000'
 name: Graphs - Strongly connected components
 network_grading: false
-order: 16
+order: 23
 problems:
     file:
-        name: Strongly connected components
+        type: file
         allowed_exts:
         - .java
         - .cpp
         - .py
-        type: file
+        name: Strongly connected components
         header: |-
             You will be given a graph and you have to compute how many strongly connected components it contains and compute the set of nodes in each component.
 

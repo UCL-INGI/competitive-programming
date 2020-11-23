@@ -1,0 +1,71 @@
+accessible: true
+author: ''
+context: In this problem you are going to practice rotations with a problem that appears
+    sometimes a sub-routine of more complex problems.
+environment: pyjavacpp
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    output: '100'
+    time: '1000'
+    memory: '900'
+name: 'Geometry - Problem: Align polygon'
+network_grading: false
+problems:
+    file:
+        type: file
+        header: |
+            Given as input a polygon defined by :math:`n` vertcies :math:`p_1, p_2, \ldots, p_n` your task is to transform it with a translation and a rotation so that:
+
+            1. The point :math:`p_1` becomes the origin :math:`(0, 0)`
+            2. The segment :math:`\overline{p_1 p_2}` becomes thealigned with the x-axis in a way that :math:`p_2` becomes the point :math:`(d, 0)` where :math:`d` is the distance between :math:`p_1` and :math:`p_2`.
+
+            The first sample input is illustrated in the following image.
+
+            |
+
+            .. image:: geometry-alignpolygon/alignPolygon.png
+
+            |
+
+
+            **Input**
+
+            - One line with a single integer :math:`n` giving the number of vertices in the polygon.
+
+            - :math:`n` lines each with two integers :math:`x` and :math:`y` giving the the coordinates of those vertices. The vertices are given in counterclockwise order.
+
+            **Constraints**
+
+            * :math:`3 \leq n \leq 1000`
+            * :math:`-10^5 \leq x, y \leq 10^5`
+
+            **Output**
+
+            - :math:`n` lines each with two integers :math:`x` and :math:`y` giving the the coordinates the resulting polygon.
+
+            The will be accepted as long as it is accurate up to $10^{-6}$ relative or absolute precision.
+
+            **Sample Test Cases**
+
+            `Sample input 1 <geometry-alignpolygon/1.in>`_
+
+            `Sample output 1 <geometry-alignpolygon/1.ans>`_
+
+
+            `Sample input 2 <geometry-alignpolygon/2.in>`_
+
+            `Sample output 2 <geometry-alignpolygon/2.ans>`_
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
+        name: Align Polygon
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0
+order: 58

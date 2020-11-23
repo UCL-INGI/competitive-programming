@@ -52,18 +52,18 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '50'
+    memory: '900'
     output: '40'
-    memory: '1000'
+    time: '50'
 name: DP - Maximum sum subarray
 network_grading: false
-order: 30
+order: 37
 problems:
     dp1-maxarraysum-1:
+        type: file
         name: Maximum sum subarray
         allowed_exts:
         - .java
-        type: file
         header: |-
             Write an :math:`O(n)` algorithm to compute the maximum sum subarray.
 

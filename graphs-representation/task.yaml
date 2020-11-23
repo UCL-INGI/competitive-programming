@@ -88,26 +88,26 @@ context: |-
     The suppress warning is necessary in some contest environments as otherwise the code will give a *compile error*. In modern judging systems it is often not necessary. We put it just to be safe.
 
     *Note:* In a lot of problems the nodes of the input graph are numbered from :math:`1` to :math:`n` rather than :math:`0` to :math:`n - 1`. In this case the easiest solution is to simply subtract :math:`1` while reading the input and add :math:`1` while writing the output. This may seem obvious but I have seen students subtracting :math:`1` in every access to :math:`g` which is very annoying and time consuming.
-environment: dafny
+environment: java8scala
 evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '30'
     output: '2'
+    time: '30'
     memory: '100'
 name: Graphs - Representation
 network_grading: false
-order: 5
+order: 12
 problems:
     read:
         type: multiple_choice
         choices:
-        -   valid: true
-            text: 'Yes'
+        -   text: 'Yes'
+            valid: true
         name: Mark this section as read?
-        limit: 0
         header: ''
+        limit: 0
 stored_submissions: 0
 submission_limit:
     amount: -1

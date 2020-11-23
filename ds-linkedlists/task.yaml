@@ -1,0 +1,142 @@
+accessible: true
+author: Aubry François
+context: |-
+    Linked lists are great data structures if you want to be able to perform the following operations efficiently:
+
+    1. *Add an element to the start or end of the list*
+    Time complexity: :math:`O(1)`.
+
+    2. *Remove the first or the last element of the list*
+    Time complexity: :math:`O(1)`.
+
+    3. *Get the first and last elements on the list*
+    Time complexity: :math:`O(1)`.
+
+    4. *Get the number of elements stored in the list*
+    Time complexity: :math:`O(1)`.
+
+    5. *Iterate over all elements in the list.*
+    Time complexity: :math:`O(n)` where :math:`n` is the number of elements on the list.
+
+    All these operations can be perfomed **optimal time**. This means that operations 1., 2., 3., 4. are perfomed in constant time and operation 5. is performed in linear time. Note that operation 5. could not be faster since we cannot get away without inspecting each element in order to iterate over all elements.
+
+    Download the following
+    `program <ds-linkedlists/ReadStringsToList.java>`_
+    and execute it on this
+    `input <ds-linkedlists/lines.txt>`_
+
+    This program simply reads lines until an end of file is reached. When reading files from the standard input you can signal the end of file by clicking :code:`ctrl + d` on Linux or OS X. On Windows use :code:`ctrl + z`.
+
+    After reading the input, the program will perform the following steps:
+
+    1. Print the number of lines
+    2. Print all the lines
+    3. Print the first and last lines
+    4. Remove the first and last lines
+    5. Print the first and last lines
+
+    Thus, you should get the following output:
+
+    .. code::
+
+        4
+        line1
+        line2
+        line3
+        line4
+        first: line1
+        last: line4
+        new first: line2
+        new last: line3
+
+    The :code:`LinkedList` class offers others methods. But we **strongly recommend** that you stick to these ones and you usually want to use such a linked list only when the above operations are the set of operations that you want to perform on your data. More other kinds of operations there are probably other data structures that are more suited.
+
+    ----
+
+    **NEVER USE LINKED LISTS IF YOU WANT TO ACCESS YOUR ELEMENTS BY INDEX OR VALUE**
+
+    A common example that we often see students do, is to call the method :code:`public E get(int index)`. This method will return the element at position :code:`index` in the list. So, for instance, after reading 4 lines, you can get each of those lines by calling :code:`list.get(0)`, :code:`list.get(1)`, :code:`list.get(2)` and :code:`list.get(3)`. This is a very **bad idea** since in constrast with, for instance, an array, this funtion *does not* run in constant time. Instead it runs in linear time :math:`O(n)` where :math:`n` is the number of elements in the list.
+
+    The same is true for accessing elements by value :code:`int indexOf(Object o)` or checking whether the list contains a given element with :code:`boolean contains(Object o)`. Never use these methods unless efficieny is not a concern for the problem your are solving (which is rarely the case...)
+
+    **Note:** It is possible to actually implement some of these methods efficiently using *position aware linked lists* but this is not really useful as we will see other simples data structures for achieving this.
+
+    ----
+
+    In the next task, we will teach you how to implement linked lists because we believe that it is educational to do so and is a good skill to have when trying to develop more complex data structures.
+
+    However, unless the problem really requires you to be able to access the internal structure of the linked list, in a contest situation you should use the implementation provided by the language that you are using. This will save a good amount of time and help you avoid bugs in you implementation.
+
+    We thus recommender that you linked lists when the operations required on your data are the ones mentioned above. In Java that roughly corresponds to limiting yourself to using the following methods:
+
+
+    1. :code:`addFirst(E e)`, :code:`addLast(E e)`
+    2. :code:`removeFirst()`, :code:`removeLast()`
+    3. :code:`getFirst()`, :code:`getLast()`
+    4. :code:`toString()`, :code:`size()`
+    5. Iterating ovar all elements with :code:`for(E e : myList) { ... }` where :code:`E` is the type of the elements on the list.
+environment: pyjavacpp
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    output: '100'
+    time: '1000'
+    memory: '900'
+name: Data Structures - Linked list
+network_grading: false
+order: 10
+problems:
+    file:
+        type: file
+        header: |
+            You are typing some text on a broken text editor. Usually, when you type a character, that character is appended to the end of the current text that you typed so far. So that, for instance, after typing :code:`abc` when you type :code:`d` you will get :code:`abcd`.
+
+            However, something is wrong with your text editor and sometimes your it starts writting the characters at the beginning of the text instead. And then, sometimes if goes back to normal.
+
+            You will be given a list of events comprising three types of events:
+
+            1. key presses
+            2. the computer changes to writting at the beginning
+            3. the computer back normal, writting at the end
+
+            The events are represented by a string. The key presses are represented by the character from :code:`a` to :code:`z` that was pressed, the bug that makes you start writting at the beginning is represented by the character :code:`<` and when the computer goes back to normal it is represented by :code:`>`.
+
+            **Example**
+
+            The event string :code:`ab<cd>e` represents that the characters :code:`a` and :code:`b` were typed normally giving :code:`ab`, then the bug occured and :code:`c` and :code:`d` were writted at the start yielding :code:`dcab` and finally things got back to normal and character :code:`e` was written at the end. The final result was :code:`dcabe`.
+
+            **Input**
+
+            - One line with a string :math:`x` representing the events.
+
+            **Output**
+
+            - One line with a string :math:`y` representing the string that was written.
+
+            **Constraints**
+
+            * :math:`1 \leq |x|, |y| \leq 50000`, where :math:`|s|` represents the length of string :math:`s`
+            * each character of :math:`x` is either a lower case letter, :code:`<` or :code:`>` indicating the events described above.
+
+            **Sample Test Cases**
+
+            `Sample input 1 <ds-linkedlists/1.in>`_
+
+            `Sample output 1 <ds-linkedlists/1.ans>`_
+
+
+            `Sample input 2 <ds-linkedlists/2.in>`_
+
+            `Sample output 2 <ds-linkedlists/2.ans>`_
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
+        name: Broken editor
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0

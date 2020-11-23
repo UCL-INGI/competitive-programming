@@ -6,20 +6,20 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '1000'
+    memory: '900'
     output: '100'
-    memory: '1000'
+    time: '1000'
 name: 'Graphs - Problem: Dominos'
 network_grading: false
-order: 17
+order: 24
 problems:
     file:
-        name: Dominoes
+        type: file
         allowed_exts:
         - .java
         - .cpp
         - .py
-        type: file
+        name: Dominoes
         header: |-
             Adapted from: `UVa 11504 <https://uva.onlinejudge.org/external/115/11504.pdf>`_
 

@@ -1,0 +1,83 @@
+accessible: true
+author: ''
+context: ''
+environment: pyjavacpp
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    output: '100'
+    time: '1000'
+    memory: '900'
+name: Contest 1 2019 - C
+network_grading: false
+order: 61
+problems:
+    file:
+        type: file
+        header: |+
+            You are on a mission to rescue two persons from debris of a building after an earthquake.
+            The debris are modeled as a grid. Each cell contains a character :code:`.`, :code:`#`,
+            :code:`@` or :code:`P` with the following meaning:
+
+            - :code:`.` represents an free cell where you can move freely
+
+            - :code:`#` represents an unbreakable wall
+
+            - :code:`@` represents a pile of debris
+
+            - :code:`P` represents a person that you need to save
+
+
+            You are currently *outside* of the building (grid). You want to clear debris :code:`@`) so that each person can reach the outside of the building with a clear path (free of debris, containing only free cells). What is the minimum number of debris you need to clear in order to achieve this?
+
+            **Input**
+
+            The first line contains a two integers :math:`n` and :math:`m` giving the number rows and columns of grid representing the building.
+
+            The follow :math:`n` lines each with a string with :math:`m` characters over the alphabet :code:`".#@P"` as described above.
+
+
+            **Constraints**
+
+             - :math:`2 \leq n, m \leq 100`
+
+            **Output**
+
+            One line with a single integer containing the minimum number of debris cells that need to be cleared
+            so that both people have a clear path between their initial positions and the outside of the building.
+
+            We guarantee that it is always possible to clear debris in a way such that there exists a path from each person to exit the building.
+
+            **Sample Test Cases**
+
+            `Sample input 1 <contest1-2019-C/1.in>`_
+
+            `Sample output 1 <contest1-2019-C/1.ans>`_
+
+
+            `Sample input 2 <contest1-2019-C/2.in>`_
+
+            `Sample output 2 <contest1-2019-C/2.ans>`_
+
+
+            `Sample input 3 <contest1-2019-C/3.in>`_
+
+            `Sample output 3 <contest1-2019-C/3.ans>`_
+
+
+            `Sample input 4 <contest1-2019-C/4.in>`_
+
+            `Sample output 4 <contest1-2019-C/4.ans>`_
+
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
+        name: Rescue mission
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0

@@ -49,29 +49,29 @@ context: |
     .. image:: geometry-cross/products3.png
 
     |
-environment: dafny
+environment: pyjavacpp
 evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '30'
     output: '2'
+    time: '30'
     memory: '100'
 name: Geometry - Cross product
 network_grading: false
+order: 55
 problems:
     read:
         type: multiple_choice
         choices:
-        -   valid: true
-            text: 'Yes'
+        -   text: 'Yes'
+            valid: true
         name: Mark this section as read?
-        limit: 0
         header: ''
+        limit: 0
 stored_submissions: 0
 submission_limit:
     amount: -1
     period: -1
 tags: {}
 weight: 1.0
-order: 43

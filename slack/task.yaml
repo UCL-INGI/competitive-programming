@@ -1,0 +1,40 @@
+accessible: true
+author: ''
+context: |-
+    We **strongly** encourage you to join our  `slack <https://cpinginious.slack.com/>`_ !
+
+    Among other things, there you will be able to:
+
+    1. ask questions either related to the contest of the tasks or to INGInious itself
+    2. interact with the other students which will provide a richer learning experience
+    3. provide feedback so that we can improve this course
+    4. report bugs
+    5. meet other people passionate about competitive programming
+
+    Hope to see you there !
+environment: java8scala
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: Slack
+network_grading: false
+problems:
+    read:
+        choices:
+        -   valid: true
+            text: 'Yes'
+        header: ''
+        limit: 0
+        type: multiple_choice
+        name: Mark this section as read?
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0
+order: 7

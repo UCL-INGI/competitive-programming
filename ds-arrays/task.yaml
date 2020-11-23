@@ -1,0 +1,64 @@
+accessible: false
+author: ''
+context: |
+    Arrays are the most basic type of data structures. We are not going to go into details about how an array is stored in memory. Rather we will explain the kind of operations that arrays support well so that you know when you should use an array to represent your data.
+
+    Arrays allow to store a fixed amout of elements by index allowing to perfom the following operations efficiently:
+
+    1. Get the element at a given index
+    2. Set the element at a given index
+    3. Loop over all elements
+
+    Imagine that you want to read numbers between :math:`0` and :math:`9` from the standard input and you want to count the number of occurences of each of them. One simple way is to create an array :code:`count` of integers with size :math:`10` and then read the number and increment the position :code:`i` of :code:`count` whenever you read number :code:`i`.
+
+    To create an array of integers we can write
+
+    .. code:: java
+
+        int[] count = new int[10];
+
+    You can then access the value at position :code:`i` by writting :code:`count[i]`.
+
+    The following code reads numbers between :math:`0` and :math:`9` from the standard input and counts how many times each of the occurs. After that it will print the results to the standard output.
+
+    .. code:: java
+
+        public class CountNumbers {
+
+            public static void main(String[] args) {
+                // initialize the scanner to read from the standard input
+                Scanner reader = new Scanner(System.in);
+                // initialize the count array
+                int[] count = new int[10];
+                // read the numbers
+                while(reader.hasNextInt()) {
+                    // read the next integer
+                    int i = reader.nextInt();
+                    // increment the count
+                    count[i]++;
+                }
+                // print how many times each number occured
+                for(int i = 0; i < count.length; i++) {
+                    System.out.println(i + " occured " + count[i] + " times");
+                }
+            }
+
+        }
+environment: java8scala
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: Data Structures - Array and ArrayList
+network_grading: false
+problems: {}
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0
+order: 1

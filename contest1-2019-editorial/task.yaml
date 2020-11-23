@@ -1,0 +1,101 @@
+accessible: true
+author: ''
+context: |-
+    Clearly this contests was too hard and I am sorry about that. Nevertheless, I will show you in this editorial that actually these problems are not so very hard and are closely related to some problems already here.
+
+    **Problem A: Ad-hoc, Lists**
+
+    This problem clearly is a list problem similar to `Broken Editor <https://inginious.org/course/competitive-programming/ds-linkedlists>`_ and `Broken Keyboard <https://inginious.org/course/competitive-programming/ds-linkedlists2>`_
+
+    The reverse operation cannot be implemented by literally reversing the list as this costs :math:`O(n)` per rotate operation thus leading to a :math:`O(n^2)` algorithm.
+
+    Instead just keep the list elements in an array with. We keep a pointer for the leftmost element and another for the rightmost one. Also, keep a boolean flag saying whether the list is rotated. Whenever we delete an element if the list it not rotated we increase the leftmost pointer. Otherwise we decrease the rightmost one.
+
+    The rotation operation simply consists in flipping the flag in :math:`O(1)`.
+
+    Make sure to test your code in corner cases like an empty input list and a list with a single element. Also, make sure to print it in the right order in the end depending on the flag.
+
+    You need to be careful with the output. It is quite large avoid:
+
+    1. Building it as a string with :code:`+`
+    2. Making a lot of :code:`System.out.print` calls
+
+    Instead use a :code:`StringBuilder` to build it and a single call to :code:`System.out.println`
+
+    **Problem B: Classic DP**
+
+    This is a classic dynamic programming problem. Just sort the people by increasing income and compute the longest decreasing subsequence with respect to the happiness. Don't forget to ensure that when you compute your sequence you only consider elements with strictly lower income and strictly higher happiness.
+
+    After sorting the DP recurrence is the following:
+
+    .. math::
+
+        dp[0] = 1
+
+        dp[i] = 1 + \max \{ dp[j] \mid j < i \textbf{ and } income[j] < income[i] \textbf{ and } happy[j] > happy[i] \}
+
+    **Problem C: Brute-force on solution structure + BFS**
+
+    This is not a flow problem as some people might think. It is a brute force on solution structure similar to
+    `Pickup and Delivery <https://inginious.org/course/competitive-programming/tech-bruteproblemstruct>`_ and `Iron and Coal <https://inginious.org/course/competitive-programming/tech-ironcoalproblem>`_
+
+    If you think about the solution, it will be a path from the outside to some node :math:`v` (which can be either a cell of the outside node) and then one path from each prisoner to :math:`v`. For a given :math:`v` is it easy to compute the cost of that solution. It is simply
+
+    .. math::
+
+        cost(v) = dist(P1, v) + dist(P2, v) + dist(outside, v)
+
+    Thus we can just perform a BFS from P1, P2 and outside and compute the best :math:`v`.
+
+    **Problem D: Geometry**
+
+    With this type of problem it is always easier to normalize the input. We can do that in the same way you solved (or should have solved) `Align Polygon <https://inginious.org/course/competitive-programming/geometry-alignpolygon>`_.
+
+    In this case we normalize so that the first edge is the segment between :math:`(0, 0)` and :math:`(x, 0)` for some :math:`x` and the camera is at :math:`C = (x / 2, 0)`.
+
+    Then we simply compute the lines :math:`l_1 = line(C, C + (1, 1))` and  :math:`l_2 = line(C, C + (-1, 1))`.
+    We intersect these lines with the edges of the polygon and compute the area of the polygon with vertices
+
+    .. math::
+
+        C, inter_1, v_1, \ldots, v_k, inter_2
+
+    where :math:`v_1, \ldots, v_k` are the vertices of the original polygon between :math:`inter_1` and :math:`inter_2`.
+
+    **Problem E: Binary search on the answer**
+
+    This is a simple binary search on the answer problem. Similar to `Plane purchase problem <https://inginious.org/course/competitive-programming/binsearch-bsanswer>`_ and `Glyph Recognition <https://inginious.org/course/competitive-programming/binsearch-glyph>`_
+
+    So imagine that the problem is instead: given a time :math:`t`, can they move apart in time t? If you think about it you will see that it is easy to solve when :math:`t` is given.
+
+    *Hint:* The leftmost food truck will walk left :math:`t` units in the optimal solution.
+
+    **Questions?**
+
+    Use the `slack <https://cpinginious.slack.com/>`_ !
+environment: pyjavacpp
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    output: '2'
+    time: '30'
+    memory: '100'
+name: Contest 1 2019 - Editorial
+network_grading: false
+problems:
+    read:
+        type: multiple_choice
+        choices:
+        -   text: 'Yes'
+            valid: true
+        name: Mark this editorial as read?
+        header: ''
+        limit: 0
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0
+order: 64

@@ -69,20 +69,20 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    memory: '1000'
+    memory: '900'
     output: '100'
     time: '1000'
 name: Graphs - Breadth-first search
 network_grading: false
-order: 8
+order: 15
 problems:
     file:
+        type: file
         allowed_exts:
         - .java
         - .cpp
         - .py
         name: Sharing posts
-        type: file
         header: |
             You should be able to solve this problem with a simple application of the BFS algorithm.
 

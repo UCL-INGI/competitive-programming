@@ -7,20 +7,20 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '1000'
-    memory: '1000'
+    memory: '900'
     output: '100'
+    time: '1000'
 name: 'DP - Problem: Forming Quiz Teams'
 network_grading: false
-order: 36
+order: 43
 problems:
     file:
         type: file
-        name: Forming Quiz Teams
         allowed_exts:
         - .java
         - .cpp
         - .py
+        name: Forming Quiz Teams
         header: |+
             You have been given the job of forming the quiz teams for the next *MCA CPCI Quiz Championship*.
             There are :math:`n = 2k` students interested to participate and you have to form :math:`k` teams, each team consisting of two members. Since the members have to practice together, all the students want their members house as near as possible. Let :math:`x_1` be the distance between the houses of group 1,

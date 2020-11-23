@@ -73,15 +73,19 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '1000'
+    memory: '900'
     output: '100'
-    memory: '1000'
+    time: '1000'
 name: 'DP - Shortest paths: Acyclic formulation'
 network_grading: false
-order: 25
+order: 32
 problems:
     file:
         type: file
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
         name: Alice is afraid of flying
         header: |-
             Alice wants to travel from her home country :math:`A` to her dream destination :math:`B`. There are several flights available connecting the cities in the world each with a certain price :math:`p`. She does not really like to fly, she particularly really hates the takeoff. Therefore, so she would like to go travel without having to fly more than :math:`k` times.
@@ -120,10 +124,6 @@ problems:
             `Sample input 2 <dp-spKedges/2.in>`_
 
             `Sample output 2 <dp-spKedges/2.ans>`_
-        allowed_exts:
-        - .java
-        - .cpp
-        - .py
 stored_submissions: 0
 submission_limit:
     amount: -1

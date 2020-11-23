@@ -1,0 +1,64 @@
+accessible: false
+author: Alexandre Gobeaux, Victor Lecomte, François Aubry
+context: |-
+    Now, you know how to represent a point/a vector in Java. Here we will see how we can translate a point. To translate a point :math:`p` by a vector :math:`\vec{v}`, we only need to add :math:`\vec{v}` to the point :math:`p`. So we get the following implementation :
+
+    .. code:: java
+
+        static Point translate(Point v, Point p){
+             return new Point(p.x+v.x, p.y+v.y);
+        }
+environment: pyjavacpp
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    output: '100'
+    time: '1000'
+    memory: '900'
+name: Geometry - Translation
+network_grading: false
+order: 53
+problems:
+    file:
+        type: file
+        header: |
+            In this exercise, you will have to translate an object by a vector :math:`\vec{v}`.
+
+            **Input**
+
+            - One line with an integer :math:`n`, the number of edges of the object.
+            - One line with two integers :math:`v_x` and :math:`v_y` giving the components of the vector :math:`\vec{v}`.
+            - :math:`n` lines with two integers :math:`x_i` and :math:`y_i` giving the coordinates of the :math:`i^{th}` vertice of the object.
+
+            **Constraints**
+
+            - :math:`1 \leq n \leq 1000`
+            - :math:`-1000 \leq v_x,v_y,x_i,y_i \leq 1000`
+
+            **Output**
+
+            - :math:`n` lines with two integers :math:`x'_i` and :math:`y'_i` giving the coordinates of the :math:`i^{th}` vertice of the translated object. Coordinates must be separated by a space and must be given in the same order as the ones given in the input.
+
+            **Sample Test Cases**
+
+            `Sample input 1 <geometry-translation/1.in>`_
+            SAMPLES ET TESTS A FAIRE
+
+            `Sample output 1 <geometry-translation/1.ans>`_
+
+
+            `Sample input 2 <geometry-translation/2.in>`_
+
+            `Sample output 2 <geometry-translation/2.ans>`_
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
+        name: Object translation
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0

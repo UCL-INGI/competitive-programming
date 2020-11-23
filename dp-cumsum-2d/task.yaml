@@ -53,14 +53,19 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '1000'
+    memory: '900'
     output: '100'
-    memory: '1000'
+    time: '1000'
 name: 'DP - Data structures: 2D cumulative sums'
 network_grading: false
-order: 32
+order: 39
 problems:
     file:
+        type: file
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
         name: 2D cumulative sums
         header: |
             You will be given an :math:`n \times m` matrix :math:`A` and a list of :math:`q` tuples :math:`(i_1, j_1, i_2, j_2)_1, \ldots, (i_1, j_1, i_2, j_2)_q`. For each of them you have to output the sum of values of :math:`A` in that range.
@@ -97,11 +102,6 @@ problems:
             `Sample input 2 <dp-cumsum-2d/2.in>`_
 
             `Sample output 2 <dp-cumsum-2d/2.ans>`_
-        allowed_exts:
-        - .java
-        - .cpp
-        - .py
-        type: file
 stored_submissions: 0
 submission_limit:
     amount: -1

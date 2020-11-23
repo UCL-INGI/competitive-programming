@@ -1,9 +1,7 @@
 name: Competitive Programming
 accessible: true
 admins:
-- faubry
-- fraubry
-- hdevillez
+- yunoac
 - agobeaux
 tutors: []
 groups_student_choice: false
@@ -12,10 +10,13 @@ allow_unregister: true
 registration: true
 registration_password: null
 registration_ac: null
-registration_ac_list:
-- ''
+registration_ac_list: []
 allow_preview: true
 is_lti: false
 lti_keys: {}
 lti_send_back_grade: false
-description: ''
+description: The goal of this course is to teach you algorithms for competitive programming.
+    Even though it is designed for competitive programming, we believe that it will
+    be interesting for any computer scientist wishing to improve his algorithmic and
+    data structure design skills.
+lti_url: ''

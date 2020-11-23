@@ -1,0 +1,71 @@
+accessible: true
+author: ''
+context: ''
+environment: pyjavacpp
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    output: '100'
+    time: '1000'
+    memory: '900'
+name: Contest 1 2019 - E
+network_grading: false
+order: 63
+problems:
+    file:
+        type: file
+        header: |+
+            Somewhere not on Earth there is an infinitely long one-dimensional street with food trucks. If two food trucks are at distance smaller than :math:`d` from each other then people get confused and don't know which one to choose.
+            To avoid this problem, the food trucks can move along the street (left or right) at 1 meter per second.
+
+            Given the starting positions of the food trucks, you need to find the minimum time needed for each pair of food trucks to be separated by at least :math:`d` meters assuming that all of them make optimal movement decisions.
+
+            **Input**
+
+            The first line contains two integers :math:`k` and :math:`d` giving the number of positions containing food trucks and the minimum distance we want to have between any two food trucks, respectively.
+
+            The follow :math:`k` lines each with two integers :math:`x` and :math:`f` giving that there are :math:`f` food trucks at position :math:`x`.
+
+            **Constraints**
+
+             - :math:`1 \leq d \leq 10^6`
+
+             - :math:`1 \leq k \leq 200`
+
+             - :math:`-10^5 \leq x \leq 10^5`
+
+             - :math:`1 \leq f \leq 10^6`
+
+            **Output**
+
+            One line with the minimum amount of time it will take for the vendors to spread out apart on the street.
+
+            The answer should be accurate up to :math:`10^{-6}` relative or absolute precision.
+
+            Do not worry about formating the output with :code:`printf` or others, as long as the precision is ok, your answer will be accepted
+
+
+            **Sample Test Cases**
+
+            `Sample input 1 <contest1-2019-E/1.in>`_
+
+            `Sample output 1 <contest1-2019-E/1.ans>`_
+
+
+            `Sample input 2 <contest1-2019-E/2.in>`_
+
+            `Sample output 2 <contest1-2019-E/2.ans>`_
+
+
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
+        name: Street food
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0

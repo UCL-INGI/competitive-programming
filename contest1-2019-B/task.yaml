@@ -1,0 +1,69 @@
+accessible: true
+author: ''
+context: ''
+environment: pyjavacpp
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    output: '100'
+    time: '1000'
+    memory: '900'
+name: Contest 1 2019 - B
+network_grading: false
+order: 60
+problems:
+    file:
+        type: file
+        header: |+
+            A lot of people believe that money equates to happiness so that the more money you have the happier you are.
+
+            You do not believe that this is the case and to prove your point to interviewed $n$ people by asking them how much money they make each month and to evaluate how happy they feel. Now you want to find the largest subset of interviewed people such that if you list them sorted by monthly income, these incomes are in **strictly increasing** order and their happiness levels are sorted in **strictly decreasing** order.
+
+            **Example**
+
+            The table on the left shows the first sample input. The largest subset with of people with the above conditions has 4 elements. One possible solution is the take people at indexes 4, 5, 9, 8. When we list those people in incresing order of income, the incomes are strictly increasing and their happiness strictly decreasing as shown on the table on the right.
+
+            .. image:: contest1-2019-B/table.png
+
+            |
+
+            **Input**
+
+            The first line contains a single integer :math:`n` giving the number of people you interviewed.
+
+            The follow :math:`n` lines each with two integers :math:`m` and :math:`h` giving the income and happiness of the :math:`n` persons.
+
+            **Constraints**
+
+             - :math:`1 \leq n \leq 1000`
+
+             - :math:`1 \leq m, h \leq 10000`
+
+            **Output**
+
+            A single line with the size of the largest subset of people such that when sorted by income, their incomes form a **strictly increasing** sequence and their happiness levels form a **strictly decreasing** sequence.
+
+            **Sample Test Cases**
+
+            `Sample input 1 <contest1-2019-B/1.in>`_
+
+            `Sample output 1 <contest1-2019-B/1.ans>`_
+
+
+            `Sample input 2 <contest1-2019-B/2.in>`_
+
+            `Sample output 2 <contest1-2019-B/2.ans>`_
+
+
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
+        name: Money != Happnyess
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0

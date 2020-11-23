@@ -1,0 +1,69 @@
+accessible: false
+author: ''
+context: |
+    You live in a building :math:`n` floors. You want to know that is the lowest floor :math:`f` such that if you drop an egg from that floor, the egg will break.
+
+    If an egg breaks at when it is dropped from the :math:`i`-th floor, it will break on any floor :math:`j > i`. Similarly, if the egg does not break when dropped from the :math:`i`-th floor, it will not break when dropped from any floor :math:`j < i`.
+
+    Unfortunatelly, you only have two eggs left so you will need use just those two eggs. Find out a strategy using at most :math:`2 \lfloor \sqrt{n} \rfloor` drops to find the lowest breaking floor. Of course, once one egg is broken, you cannot use it anymore.
+
+    You may assume that there exists a floor :math:`1 \leq i \leq n` such that an egg breaks when dropped from the :math:`i`-th floor.
+environment: pyjavacpp
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    memory: '900'
+    output: '100'
+    time: '1000'
+name: 'Ad-hoc:  2-Egg problem'
+network_grading: false
+order: 2
+problems:
+    file:
+        type: file
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
+        name: 2-egg problem
+        header: |-
+            This is an **interactive** problem where your program will communicate with the checker using standard input and standard output.
+
+            You should start by reading a line giving you :math:`n`, the number of floors.
+
+            Then, at each step, you can issue on of two commands by printing the command to the standard input:
+
+            - :code:`"drop i"` to specify that you want to drop an egg from the :math:`i`-th floor. The checker will either answer :code:`0` if the egg did not break or :code:`1` otherwise.
+
+            - :code:`"found i"` to specify that the lowest floor from which the egg will break is the :math:`i`-th floor. Once you issue this commande the checker will stop together with your program. If :math:`i` is the correct floor, and you used at most :math:`2 \lfloor \sqrt{n} \rfloor` :code:`drop` commands, your program will be accepted.
+
+            Remember that you only have two eggs. This means that you cannot issue the :code:`drop` command after you receive the answer :code:`1` two times.
+
+                **Example:**
+
+                Imagine that :math:`n = 10`. In this case you can do at most 6 drop queries. The following code shows a possible sequence of commands:
+
+                .. code::
+
+                    print "drop 5"
+                    read = 0
+                    print "drop 6"
+                    read = 1
+                    print "found 6"
+
+                In this example, we first drop an egg from the 5-th floor and the checker says that the egg did not break. Then we try floor number 6 and the chekcher says that the egg broke. Therefore the lowest floor from which an egg breaks when dropped is 6.
+
+
+            **Constraints**
+
+            * :math:`1 \leq n \leq 1000`
+            * :math:`1 \leq f \leq n` where :math:`f` is the lowest floor from which an egg breaks when dropped
+
+            **Note:** You program will need to solve several test cases each with a different target floor :math:`f`.
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0

@@ -300,20 +300,20 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '1000'
+    memory: '900'
     output: '100'
-    memory: '1000'
+    time: '1000'
 name: Graphs - Maximum flow (Edmonds-Karp)
 network_grading: false
-order: 19
+order: 26
 problems:
     file:
-        name: Maximum flow
+        type: file
         allowed_exts:
         - .java
         - .cpp
         - .py
-        type: file
+        name: Maximum flow
         header: |
             Given a graph, a source node and a destination node, compute the maximum flow from the source to the destination.
 

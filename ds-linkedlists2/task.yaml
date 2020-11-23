@@ -1,0 +1,277 @@
+accessible: true
+author: ''
+context: |-
+    In this task we are going to see how we can implement linked list with the operations described
+    `previously <https://inginious.org/course/competitive-programming/ds-linkedlists>`_. That is:
+
+    1. *Add an element to the start or end of the list*
+
+    2. *Remove the first or the last element of the list*
+
+    3. *Get the first and last elements*
+
+    4. *Get the number of elements stored in the list*
+
+    5. *Iterate over all elements in the list*
+
+    In a nutshell linked lists are represented by nodes each with 3 fields:
+
+    1. a reference to the previous element on the list
+    2. a reference to the next element on the list
+    3. a value
+
+    The term *linked* comes from the fact that these nodes are linked to one another via the :code:`previous` and :code:`next` references.
+
+    Additionally we will keep a reference to the first and last nodes on the list so that we can add and remove elements from the beginning and the end of the list efficiently. The reference for the first node is usually called the :code:`head` of the list and the reference to the last one :code:`tail`.
+
+    We believe that visualizing things is a great way to understand algorithms and data structures. So we will start by seeing what a linked list should look like on a few examples. This will make it straightforward to actually implement this data structure.
+
+    Let's start with an empty list. In this case we just have the two references :code:`head` and :code:`tail` will be set to :code:`null` as there are no nodes to point to.
+
+    .. image:: ds-linkedlists2/ll0.png
+
+    Let's assume for the sake of example that the list contains strings. After we add string :code:`"A"`, what should the list look like? Our implementation will add the element *at the end* of the list.
+
+    Well first we need a node to contains this value. Let's call this node :math:`A`. Also, both the first node and the last node are the same since there is only one element in the list. Therefore, both :code:`head` and :code:`tail` should point to the node containing :code:`"A"`. Finally, there is no other element in the list so both the :code:`previous` and :code:`next` references of this node will be :code:`null`.
+
+    .. image:: ds-linkedlists2/ll1.png
+
+    Next, assume that we add :code:`"B"` to the list. We will have a new node :math:`B` containing this value. The :code:`next` reference of node :math:`A` will point to node :math:`B` and the :code:`previous` reference of node :math:`B` will point to node :math:`A`.
+
+    |
+
+    .. image:: ds-linkedlists2/ll2.png
+
+    |
+
+    Just to make sure that everything is clear lets add one more element :code:`"C"`. We need to create a new node :math:`C` and make the :code:`next` reference of node :code:`B` node point to node :math:`C`, make the previous node of :math:`C` be :math:`B` and finally make the :code:`head` point to node :math:`C`.
+
+    |
+
+    .. image:: ds-linkedlists2/ll3.png
+
+    |
+
+    This should already give you enough hints about how to implement the basic structure of a linked list with an operation to add elements. You should give it a try before reading further.
+
+    Let's start by implementing a class to represent nodes. We will implement it as an internal class of our linked list. We will call our linked list :code:`LList` and it will be generic so that it can be used to contain any kind of elements. If you are not familiar with generics you can learn more about it `here <https://docs.oracle.com/javase/tutorial/java/generics/index.html>`_.
+
+    For our competitive programming needs, you do not need an in depth understanding of generics. Knowing the syntax is probably more than enough.
+
+    ----
+
+    **Very short parenthesis about generics in Java**
+
+    To create a generic class, you need to add :code:`<X>` in front of the class name as in :code:`class SomeClass<X>`. Then you can use :code:`X` as the type of variables withing the class. The type of :code:`X` is then defined when you instantiate the class as in :code:`SomeClass<String> c = new SomeClass<>()`.
+
+    The name you use does not need to be :code:`X`. It can be whatever valid identifier that you want.
+
+    You can set several generic types in your declaration. For example, :code:`class SomeClass<X, Y>`. One example of a data structure that we will be using whose Java implementation uses generics is the `HashMap <https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html>`_.
+
+
+    ----
+
+    So let's start creating the our linked list data structure.
+
+    As described above, we need a way to represent nodes, a pointer to the first node (:code:`head`) and a pointer to the last node (:code:`tail`). The nodes will be represented by an inner class of our list class so that we have access its generic type. Each node should have a pointer to the previous node (:code:`prev`), next node (:code:`tail`) as well as a value (:code:`value`). Putting this together using a generic type we get:
+
+    .. code:: java
+
+        public class LList<V> {
+
+            // pointers to the first and last node
+            private Node head, tail;
+            private int size;
+
+            public LList() {
+                head = tail = null;
+                size = 0;
+            }
+
+            public class Node {
+
+                private V value;
+                private Node prev, next;
+
+                public Node(V value) {
+                    this.value = value;
+                }
+
+            }
+
+            public int size() {
+                return size;
+            }
+
+            // methods go here
+
+        }
+
+    Note that we added also a size variable to keep track of the size of the list.
+
+    So how can we implement the :code:`addLast` method, which adds a new value to the *end* of the list? Based on the previous illustration, we can depict this operation as follows:
+    |
+
+    .. image:: ds-linkedlists2/addLast.png
+
+    |
+
+    The only case that is not covered in these four steps if the case were the list is empty. This happens when both :code:`head` and :code:`tail` are :code:`null`. In this case, we simply need to create the new node and make both the :code:`head` and the :code:`tail` point to it. Of course, we also need to increment the size of the list. Putting it all together we get the following function:
+
+    |
+
+    .. code:: java
+
+        public void addLast(V value) {
+            // step 1. create a new node with the given value
+            Node node = new Node(value);
+            if(tail == null) {
+                // empty list case
+                head = tail = node;
+            } else {
+                // step 2. make the next of the tail be the new node
+                tail.next = node;
+                // step 3. make the previous of the new node be the tail
+                node.prev = tail;
+                // step 4. make the new node the tail of the list
+                tail = node;
+            }
+            // increment the size of the list
+            size++;
+        }
+
+    |
+
+    How can we implement the :code:`removeLast()` operation that removes the *last* element form the list?
+
+    First, if the list only has one element then we can simply set both :code:`head` and :code:`tail` to :code:`null`. Otherwise, we need to make the :code:`tail` point to the previous of the current :code:`tail` and remove the next element of this new :code:`tail`, as show in the following figure. Also, we need to decrease the size of the list.
+
+    |
+
+    .. image:: ds-linkedlists2/removeLast.png
+
+    |
+
+    Note that some might feel that this is not super clean as we leave a useless pointer in memory (the :code:`prev` of the old tail). If this bothers you, we encourage you to modify the code to your liking.
+
+    .. code:: java
+
+        public void removeLast() {
+            if(size == 1) head = tail = null;
+            else {
+                // step 1. set the new tail to the previous of the current one
+                tail = tail.prev;
+                // step 2. set the next of the tail to null
+                tail.next = null;
+            }
+            size--;
+        }
+
+    Note that the following code will give a :code:`NullPointerException` if called on an empty list (if :math:`size = 0`).
+
+    We only have two operations left: :code:`addFirst` and :code:`removeLast`. Adding a node at the beginning of the list is very similar to adding it to the end, the main difference is that we will work with the head instead of the tail. The following image shows the four steps that we need to perform in order to add an element of the beginning of the list.
+
+    |
+
+    .. image:: ds-linkedlists2/addFirst.png
+
+    |
+
+    Implementing this is quite straightforward, you just need to translate the four steps into code.
+
+    .. code:: java
+
+        public void addFirst(V value) {
+            // step 1. create a new node with the given value
+            Node node = new Node(value);
+            if(tail == null) {
+                // empty list case
+                head = tail = node;
+            } else {
+                // step 2. make the previous of the head to be the new node
+                head.prev = node;
+                // step 3. make next of the new node the head
+                node.next = head;
+                // step 4. make the new node the head of the list
+                head = node;
+            }
+            size++;
+        }
+
+    Removing the first element is also analogous to removing the last element. If we only have one element we set both the :code:`head` and the :code:`tail` to :code:`null`. Otherwise we set the new :code:`head` to be the next element of the current head and set the previous pointer of the new :code:`head` to :code:`null`.
+
+    .. code:: java
+
+        public void removeFirst(V value) {
+            if(size == 1) head = tail = null;
+            else {
+                // step 1. set the new head to be the next of the current one
+                head = head.next;
+                // step 2. set the previous of the head to null
+                head.prev = null;
+            }
+            size--;
+        }
+
+    You can find a full implementation of our linked list in the following `file <ds-linkedlists2/LList.java>`_.
+    You will probably never need it. The important take aways from this class is how to implement a linked structure such as a linked list. We give you a problem so that you can practice these skills.
+environment: pyjavacpp
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    memory: '900'
+    output: '100'
+    time: '1000'
+name: Data Structures - Linked list implementation
+network_grading: false
+order: 11
+problems:
+    file:
+        type: file
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
+        name: Broken Keyboard
+        header: |+
+            Problem adapted from: `UVa 11988 <https://uva.onlinejudge.org/external/119/11988.pdf>`_
+
+            You are typing a long text with a broken keyboard. Well it's not so badly broken. The only problem with the keyboard is that sometimes the *home key* (represented here by :code:`<`) or the *end key* (represented here by :code:`>`) gets automatically pressed (internally).
+
+            The home key make the text cursor go back to the start of the text and the end key make it go to the end.
+            Therefore, if we type :code:`a`, :code:`b`, :code:`[`, :code:`c`, :code:`d`, :code:`]`, :code:`e` and :code:`f` then we will have typed the string :code:`cdabef`.
+
+            You are not aware of this issue, since you are focusing on the text and did not even turn on the monitor! After you finished typing, you can see a text on the screen (if you turn on the monitor). You task is to find the resulting text given the key presses.
+
+            **Input**
+
+            - One line with a string :math:`x` representing the key presses.
+
+
+            **Output**
+
+            - One line with a string :math:`y` representing the string that was written.
+
+            **Constraints**
+
+            * :math:`1 \leq |x|, |y| \leq 50000`, where :math:`|s|` represents the length of string :math:`s`
+            * each character of :math:`x` is either a lower case letter, :code:`[` indicating that the home key was pressed or :code:`]` indicating that the end key was pressed.
+
+            **Sample Test Cases**
+
+            `Sample input 1 <ds-linkedlists2/1.in>`_
+
+            `Sample output 1 <ds-linkedlists2/1.ans>`_
+
+
+            `Sample input 2 <ds-linkedlists2/2.in>`_
+
+            `Sample output 2 <ds-linkedlists2/2.ans>`_
+
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0

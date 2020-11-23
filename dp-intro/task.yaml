@@ -12,7 +12,7 @@ context: |-
     - Reconstructing the solution
     - DP memory reduction
     - DP state reformulation
-environment: python3
+environment: cpp
 evaluate: best
 groups: false
 input_random: '0'
@@ -22,17 +22,16 @@ limits:
     memory: '100'
 name: DP - Introduction
 network_grading: false
-order: 21
+order: 28
 problems:
     read:
-        header: ''
         choices:
         -   valid: true
             text: 'Yes'
-        limit: 0
-        centralize: true
-        type: multiple_choice
         name: Mark this section as read?
+        type: multiple_choice
+        limit: 0
+        header: ''
 stored_submissions: 0
 submission_limit:
     amount: -1

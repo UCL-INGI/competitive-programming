@@ -7,20 +7,19 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    memory: '1000'
-    time: '1000'
+    memory: '900'
     output: '100'
+    time: '1000'
 name: Hello World
 network_grading: false
-order: 3
+order: 8
 problems:
     file:
+        type: file
         allowed_exts:
         - .java
         - .cpp
         - .py
-        type: file
-        max_size: 10000000
         name: Read and print
         header: |
             In this simple problem you simply have to read a string from the standard input and output that same string into the standard output.
@@ -47,6 +46,7 @@ problems:
             `Sample input 2 <helloworld/2.in>`_
 
             `Sample output 2 <helloworld/2.ans>`_
+        max_size: 10000000
 stored_submissions: 0
 submission_limit:
     amount: -1

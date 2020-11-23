@@ -6,12 +6,12 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
+    memory: '900'
     output: '100'
-    memory: '1000'
     time: '1000'
 name: 'Techniques - Problem: Iron and Coal'
 network_grading: false
-order: 42
+order: 49
 problems:
     file:
         type: file

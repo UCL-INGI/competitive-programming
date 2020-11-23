@@ -81,17 +81,17 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '1000'
+    memory: '900'
     output: '100'
-    memory: '1000'
+    time: '1000'
 name: 'DP - Data structures: sparse table for RMQ'
 network_grading: false
-order: 33
+order: 40
 problems:
     file:
+        type: file
         name: ''
         header: ''
-        type: file
 stored_submissions: 0
 submission_limit:
     amount: -1

@@ -6,15 +6,19 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    time: '1000'
+    memory: '900'
     output: '100'
-    memory: '1000'
+    time: '1000'
 name: 'Graphs - Problem: Fire!'
 network_grading: false
-order: 10
+order: 17
 problems:
     file:
         type: file
+        allowed_exts:
+        - .java
+        - .cpp
+        - .py
         name: Fire!
         header: |
             Adapted from: `UVa 11624 <https://uva.onlinejudge.org/external/115/11624.pdf>`_
@@ -74,10 +78,6 @@ problems:
             `Sample input 3 <graphs-prob-fire/3.in>`_
 
             `Sample output 3 <graphs-prob-fire/3.ans>`_
-        allowed_exts:
-        - .java
-        - .cpp
-        - .py
 stored_submissions: 0
 submission_limit:
     amount: -1

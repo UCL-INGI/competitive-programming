@@ -62,20 +62,20 @@ evaluate: best
 groups: false
 input_random: '0'
 limits:
-    memory: '1000'
+    memory: '900'
     output: '100'
     time: '1000'
 name: Graphs - Connected components
 network_grading: false
-order: 9
+order: 16
 problems:
     file:
+        type: file
         allowed_exts:
         - .java
         - .cpp
         - .py
         name: Checking the components
-        type: file
         header: |
             You will be given an undirected graph and some number of queries each of them composed by two nodes. You have to compute the number of connected components of the given graph and for each query output whether the two given nodes are on the same connected component.
 
